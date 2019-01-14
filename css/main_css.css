@@ -1,0 +1,42 @@
+
+/*
+clearfix hack
+http://nicolasgallagher.com/micro?clearfix?hack/
+*/
+.clearFix:before,
+.clearFix:after {
+    content: " ";
+    display: table;
+}
+
+.clearFix:after {
+    clear: both;
+}
+
+/* enkel voor IE6/7 */
+.clearFix {
+    *zoom: 1;
+}
+
+.leftcolumn {
+    color: #FF0000;
+}
+
+/**** TOPMENU ****/
+#topmenu {
+    text-align: right;
+}
+
+#topmenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+#topmenu ul li {
+    display: inline;
+}
+
+#topmenu ul li a {
+    display: inline-block;
+}
