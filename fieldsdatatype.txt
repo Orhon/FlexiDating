@@ -1,0 +1,16 @@
+Nickname  : String
+Voornaam: String
+Achternaam : String
+Beroep: String
+Email: String
+GebortumDatum : date
+Foto : String (opmerking link naar een foto met een map structuur)
+LiefTijd: Integer
+Gewicht: Integer
+Groote: Integer
+HaarKleur: list of String keuze
+OogKleur: list of String keuze
+Geslacht: list of String keuze
+Fiziek: list of String keuze
+WoonPlatz: String
+Interesse: ???? list of checklist
