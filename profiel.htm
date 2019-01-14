@@ -32,14 +32,45 @@
     <label>Grootte</label><input type="text" name="grootte" id="grootte">    
     </p>      
     <p>
-    <label>HaarKleur</label><input type="text" name="haarKleur" id="haarKleur">    
+    <label>Haar kleur</label>
+    <select name="oogKleur" >
+            <option value="blond">blond</option>
+            <option value="brunete">brunete</option>
+            <option value="rood">rood</option>
+            <option value="zwart">zwart</option>
+            <option value="andere kleur">andere kleur</option>
+          </select>     
     </p>
     <p>
-    <label>OogKleur</label><input type="text" name="oogKleur" id="oogKleur">    
+    <label>Oog kleur</label>
+    <select name="oogKleur" >
+            <option value="blauw">blauw</option>
+            <option value="bruin">bruin</option>
+            <option value="zwart">zwart</option>
+            <option value="groen">groen</option>
+            <option value="andere kleur">andere kleur</option>
+          </select>    
+    </p>    
     </p>
     <p>
-    <label>Geslacht</label><input type="text" name="geslacht" id="geslacht">    
+    <label>Geslacht</label>
+    <select name="geslacht" >
+            <option value="man">man</option>
+            <option value="vrouw">vrouw</option>
+          </select>    
     </p>
+    <p>
+    <label>Lichaamsbouw </label><input type="text" name="lichaamsbouw" id="lichaamsbouw ">    
+    </p>
+    <p>
+    <label>Provincie</label><input type="text" name="provincie" id="provincie">    
+    </p>
+    <p>
+    <label>Stadt</label><input type="text" name="stadt" id="stadt">    
+    </p>
+    <button name="update">Update</button>  //scrumlib.updateDataset(_id, record) java
+   
+    //
     </form>
 </body>   
 </html>
