@@ -1,3 +1,92 @@
+@charset "utf-8";
+/* CSS Document voor Flexidating */
+
+body {
+	font-family:Verdana, Geneva, sans-serif;
+	margin:0;
+	padding:0;
+    background-color: floralwhite;
+    color: #4e6078;
+}
+
+img {
+   border: none;
+   float: left;
+   margin: 0 1.25em 0.5em 0;
+}
+
+clear {
+    clear: both;
+}
+
+.wrapper {
+	width:1000px;
+	margin: 0 auto;
+	padding:0;
+	outline:none;
+	border:none;
+}
+
+
+/**** HEADER ****/
+header {
+	background: #4e6078;
+	padding: 15em 2em;
+    font-size: 15px;
+    color: white;
+}
+
+header h1 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:4em;
+	color: white;
+	margin:0.25em 0;
+}
+
+/**** FOOTER ****/
+footer {
+    background: #4e6078;
+    padding: 1em 2em;
+    clear: both;
+    text-align: center;
+    color: white;
+}
+
+
+
+/**** TOPMENU ****/
+
+#topmenu {
+    background: #ededed;
+}
+#topmenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+#topmenu ul li {
+    float: left;
+}
+#topmenu ul li a {
+    display: block;
+    padding: 0.375em 0.5em; /*6px 8px*/
+    border-right: 1px solid #58ec4e;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+#topmenu ul li a:hover,
+#topmenu ul li a:active,
+#topmenu ul li a.actief {
+    text-decoration: none;
+    background: #fdc379;
+    color: #4e6078;
+}
+
+
+
 
 /*
 clearfix hack
