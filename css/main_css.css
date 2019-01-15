@@ -1,10 +1,32 @@
 @charset "utf-8";
-/* CSS Document voor Flexidating */
+/*************************************/
+/*** CSS Document voor Flexidating ***/
+/*************************************/
+
+/*****************/
+/*--- GENERAL ---*/
+/*****************/
 
 * {
     box-sizing: border-box;
 }
 
+/*** clearfix hack ***/
+.clearFix:before,
+.clearFix:after {
+    content: " ";
+    display: table;
+    clear: both;
+}
+
+/*** enkel voor IE6/7 ***/
+.clearFix {
+    *zoom: 1;
+}
+
+.leftcolumn {
+    color: #FF0000;
+}
 
 body,
 html {
@@ -21,31 +43,35 @@ html {
     src: url(../fonts/OratorStd.otf);
 }
 
-/**** SECTION ****/
-section {
-    margin: 1.5em;
+/*****************/
+/*--- IMAGES ---*/
+/*****************/
+
+/*** general images ***/
+img {
+    width: 50%;
+    height: 50%;
+    border: none;
 }
 
-section h1 {
-    text-align: center;
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
 }
 
-section a {
-    text-align: center;
-    margin: 10px;
-    display: block;
+/*** Responsive Image ***/
+img.responsive {
+    width: 100%;
+    /*height: auto;*/
 }
 
+/*** Hero image ***/
 
-/**** HEADER IMAGE ****/
-
-/* box voor afbeelding */
+/*** box for image ***/
 .box {
     width: 100%;
-    height: 250px;
+    height: 270px;
     overflow: hidden;
-    /* text-align: center;
-    color: white;*/
 }
 
 .image-box {
@@ -59,13 +85,7 @@ section a {
     height: 100%;
 }
 
-/* Responsive Image */
-.responsive {
-    width: 100%;
-    /*height: auto;*/
-}
-
-/* Place text in the middle of the image */
+/*** Place text in the middle of the image ***/
 .image-text {
     font-family: OratorStd, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1em;
@@ -83,19 +103,15 @@ section a {
     margin: 6px;
 }
 
-/**** FORM ****/
-form {
-    width: 520px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: 1em;
-}
+/*******************/
+/*--- STRUCTURE ---*/
+/*******************/
 
-/**** HEADER ****/
+/***** HEADER *****/
 header {
     background: #4e6078;
-    padding-top: 0.6em;
-    padding-bottom: 2.5em;
-    /*padding: 15em 2em;*/
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 header h1 {
@@ -107,8 +123,22 @@ header h1 {
     margin: 0.25em 0;
 }
 
+/*** SECTION ****/
+section {
+    margin: 1.5em;
+}
 
-/**** FOOTER ****/
+section h1 {
+    text-align: center;
+}
+
+section a {
+    text-align: center;
+    margin: 10px;
+    display: block;
+}
+
+/***** FOOTER *****/
 footer {
     background: #4e6078;
     padding: 1em 2em;
@@ -118,105 +148,156 @@ footer {
     font-size: 12px;
 }
 
+/********************/
+/*--- NAVIGATION ---*/
+/********************/
 
+/***** TOPMENU *****/
 
-/**** TOPMENU ****/
-
-#topmenu {
-    background: white;
-    margin: 0px 15px 0px 0px;
+.topmenu {
+    font-size: 1.2em;
+    margin: 15px 15px 15px 0px;
+    overflow: hidden;
 }
 
-#topmenu ul {
+.topmenu ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     float: right;
 }
 
-#topmenu ul li {
+.topmenu ul li {
     float: left;
 }
 
-#topmenu ul li a {
+.topmenu ul li a {
     display: block;
     padding: 0.375em 0.5em;
     /*6px 8px*/
-    border-right: 1px solid #58ec4e;
+    /*border-right: 1px solid #58ec4e;*/
     text-decoration: none;
     letter-spacing: 0.1em;
     color: white;
 }
 
-#topmenu ul li a:hover,
-#topmenu ul li a:active,
-#topmenu ul li a.actief {
+.topmenu ul li a:hover,
+.topmenu ul li a:active,
+.topmenu ul li a.actief {
     text-decoration: none;
     background: white;
     color: #4e6078;
 }
 
-
-/**** images ****/
-img {
-    width: 50%;
-    height: 50%;
-    border: none;
+/* Hide the link that should open and close the topnav on small screens */
+.topmenu .icon {
+    display: none;
 }
 
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
+/***** RESPONSIVE MENU *****/
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+    .topmenu li {
+        display: none;
+    }
+
+    .topmenu li.icon {
+        float: right;
+        display: block;
+    }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+    .topmenu.responsive {
+        position: relative;
+    }
+
+    .topmenu.responsive li.icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topmenu.responsive li {
+        float: none;
+        display: block;
+        text-align: right;
+    }
 }
 
 
-/**** clearfix hack ****/
-.clearFix:before,
-.clearFix:after {
-    content: " ";
-    display: table;
-    clear: both;
+
+/*******************/
+/*--- STARTPAGE ---*/
+/*******************/
+
+/*** gallerij startpagina ***/
+section h1{
+    text-align: center;
+    font-size: 3em;
+
 }
 
-/* enkel voor IE6/7 */
-.clearFix {
-    *zoom: 1;
+section h3 {
+    text-align: center;
+    font-size: 1.5em;
+
 }
 
-.leftcolumn {
-    color: #FF0000;
-}
 
-/* gallerij startpagina */
 .gallery {
+    display: flex;
+    /*flex-direction: column;*/
+    flex-wrap: wrap;
+    justify-content: center;
     padding: 1em;
     overflow: auto;
-    float: clear;
 }
 
 .kopjes {
+
     background-color: #4e6078;
-    padding: 0.6em;
     margin: 0.6em;
     float: left;
-    width: 30%;
+    width: 30em;
 }
 
+.kopjes img {
+
+    margin: 1em;
+    float: left;
+    width: 30%;
+    height: auto;
+}
 
 .infokopjes {
     background: white;
-    display: block;
+    font-size: 1em;
+ 
     text-align: right;
     color: #4e6078;
-    width: 150px;
-    height: 220px;
+    /*width: 150px;
+    height: 220px;*/
+    width: 40%;
+    height: 80%;
     float: right;
-    padding: 70px 0
+    margin: 5% 5% 5% 5%;
+    padding: 15px;
 }
 
+/********************/
+/*--- FORMLAYOUT ---*/
+/********************/
 
+/*** FORM ***/
+form {
+    width: 520px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
 
-/**** Full-width input fields ****/
+/*** Full-width input fields ***/
 input[type=text],
 input[type=password] {
     width: 100%;
@@ -227,8 +308,7 @@ input[type=password] {
     box-sizing: border-box;
 }
 
-
-/**** buttons ****/
+/*** buttons ***/
 button {
     background-color: #4e6078;
     color: white;
@@ -243,14 +323,14 @@ button:hover {
     opacity: 0.8;
 }
 
-/* Extra styles for the cancel button */
+/*** Extra styles for the cancel button ***/
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
     background-color: red;
 }
 
-/* Center the image and position the close button */
+/*** Center the image and position the close button ***/
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
@@ -266,7 +346,7 @@ span.psw {
     padding-top: 16px;
 }
 
-/* The Close Button (x) */
+/*** The Close Button (x) ***/
 .close {
     position: absolute;
     right: 25px;
@@ -282,10 +362,11 @@ span.psw {
     cursor: pointer;
 }
 
+/***************/
+/*--- MODEL ---*/
+/***************/
 
-
-/**** MODEL ****/
-/* The Modal (background) */
+/*** The Modal (background) ****/
 .modal {
     display: none;
     /* Hidden by default */
@@ -308,7 +389,7 @@ span.psw {
     padding-top: 60px;
 }
 
-/* Modal Content/Box */
+/*** Modal Content/Box ***/
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto;
@@ -318,8 +399,7 @@ span.psw {
     /* Could be more or less, depending on screen size */
 }
 
-
-/* Add Zoom Animation */
+/*** Add Zoom Animation ***/
 .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
@@ -347,7 +427,7 @@ span.psw {
     }
 }
 
-/* Change styles for span and cancel button on extra small screens */
+/*** Change styles for span and cancel button on extra small screens ***/
 @media screen and (max-width: 300px) {
     span.psw {
         display: block;
@@ -359,9 +439,7 @@ span.psw {
     }
 }
 
-
-
-/* Add padding to containers */
+/*** Add padding to containers ***/
 .container {
     padding: 16px;
     background-color: lightgrey;
@@ -372,7 +450,7 @@ span.psw {
     background-color: white;
 }
 
-/* Full-width input fields */
+/*** Full-width input fields ***/
 input[type=text],
 input[type=password] {
     width: 100%;
@@ -387,7 +465,7 @@ input[type=password]:focus {
     outline: none;
 }
 
-/* Overwrite default styles of hr */
+/*** Overwrite default styles of hr ***/
 hr {
     border:
         1px solid #f1f1f1;
@@ -395,13 +473,12 @@ hr {
         25px;
 }
 
-
-/* Add a blue text color to links */
+/*** Add a blue text color to links ***/
 a {
     color: #4e6078;
 }
 
-/* Set a grey background color and center the text of the "sign in" section */
+/*** Set a grey background color and center the text of the "sign in" section ***/
 .signin {
     background-color: #f1f1f1;
     text-align: center;
