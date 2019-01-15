@@ -5,14 +5,8 @@ body {
 	font-family:Verdana, Geneva, sans-serif;
 	margin:0;
 	padding:0;
-    background-color: floralwhite;
+    background-color: white;
     color: #4e6078;
-}
-
-img {
-   border: none;
-   float: left;
-   margin: 0 1.25em 0.5em 0;
 }
 
 clear {
@@ -51,6 +45,7 @@ footer {
     clear: both;
     text-align: center;
     color: white;
+    font-size: 12px;
 }
 
 
@@ -82,11 +77,22 @@ footer {
 #topmenu ul li a:active,
 #topmenu ul li a.actief {
     text-decoration: none;
-    background: #fdc379;
+    background: white;
     color: #4e6078;
 }
 
 
+/**** images ****/
+img {
+   border: none;
+   float: left;
+   margin: 0 1.25em 0.5em 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
 
 
 /**** clearfix hack ****/
@@ -94,17 +100,12 @@ footer {
 .clearFix:after {
     content: " ";
     display: table;
-}
-
-.clearFix:after {
     clear: both;
 }
-
 /* enkel voor IE6/7 */
 .clearFix {
     *zoom: 1;
 }
-
 .leftcolumn {
     color: #FF0000;
 }
@@ -122,9 +123,9 @@ input[type=password] {
     box-sizing: border-box;
 }
 
-/**** Set a style for all buttons ****/
+/**** buttons ****/
 button {
-    background-color: #4CAF50;
+    background-color: #4e6078;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -141,7 +142,7 @@ button:hover {
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color:#f44336;
+    background-color:#fdc379;
 }
 
 /* Center the image and position the close button */
@@ -149,11 +150,6 @@ button:hover {
     text-align: center;
     margin: 24px 0 12px 0;
     position: relative;
-}
-
-img.avatar {
-    width: 40%;
-    border-radius: 50%;
 }
 
 .container {
@@ -271,6 +267,11 @@ span.psw {
 
 /* Add padding to containers */
 .container {
+    padding: 16px;
+    background-color: lightgrey;
+}
+
+.inloggen {
     padding: 16px;
     background-color: white;
 }
