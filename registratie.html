@@ -3,96 +3,193 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: black;
+h1 {
+margin-left: 70px;
+}
+form li {
+list-style: none;
+margin-bottom: 5px;
 }
 
-* {
-  box-sizing: border-box;
+form ul li label{
+float: left;
+clear: left;
+width: 100px;
+text-align: right;
+margin-right: 10px;
+font-family:Verdana, Arial, Helvetica, sans-serif;
+font-size:14px;
 }
 
-/* Add padding to containers */
-.container {
-  padding: 16px;
-  background-color: white;
+form ul li input, select, span {
+float: left;
+margin-bottom: 10px;
 }
 
-/* Full-width input fields */
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
+form textarea {
+float: left;
+width: 350px;
+height: 150px;
 }
 
-input[type=text]:focus, input[type=password]:focus {
-  background-color: #ddd;
-  outline: none;
+[type="submit"] {
+clear: left;
+margin: 20px 0 0 230px;
+font-size:18px
 }
 
-/* Overwrite default styles of hr */
-hr {
-  border: 1px solid #f1f1f1;
-  margin-bottom: 25px;
+p {
+margin-left: 70px;
+font-weight: bold;
 }
 
-/* Set a style for the submit button */
-.registerbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
   cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
 }
 
-.registerbtn:hover {
-  opacity: 1;
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
 }
 
-/* Add a blue text color to links */
-a {
-  color: dodgerblue;
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
 }
-
-/* Set a grey background color and center the text of the "sign in" section */
-.signin {
-  background-color: #f1f1f1;
-  text-align: center;
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
 }
 </style>
-</head>
+<script src="registratiescripts.js"></script>
+</head><html>
+    <Title>
+     Test van gegevens   
+    </Title>
 <body>
-
-<form action="/action_page.php">
-  <div class="container">
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
-    <hr>
-
-    <label for="email"><b>Email</b></label>
-    <input type="text" placeholder="Enter Email" name="email" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="psw" required>
-
-    <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-    <hr>
+    <form id="registratie" onSubmit="return formValidation();"> 
+    <p>
+    <label>Nickname</label><input type="text" name="nickname" id="nickname" >    
+    </p>
+    <p>
+    <label>Voornaam</label><input type="text" name="voornaam" id="voornaam">    
+    </p>
+    <p>
+    <label>Familienaam</label><input type="text" name="familienaam" id="familienaam">    
+    </p>
+    <label for="passid"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="passid" required>
+    <p>
+    <label>Beroep</label><input type="text" name="beroep" id="beroep">    
+    </p>
+    <p>
+    <label>Email</label><input type="text" name="email" id="email">    
+    </p>
+    <p>
+    <label>GeboorteDatum </label><input type="text" name="geboorteDatum" id="geboorteDatum">    
+    </p> 
+    <p>
+    <label>LeefTijd </label><input type="text" name="leefTijd" id="leefTijd">    
+    </p>
+    <p>
+    <label>Gewicht</label><input type="text" name="gewicht" id="gewicht">    
+    </p> 
+    <p>
+    <label>Grootte</label><input type="text" name="grootte" id="grootte">    
+    </p>      
+    <p>
+    <label>Haar kleur</label>
+    <select name="oogKleur" >
+            <option value="blond">blond</option>
+            <option value="brunete">brunete</option>
+            <option value="rood">rood</option>
+            <option value="zwart">zwart</option>
+            <option value="andere kleur">andere kleur</option>
+          </select>     
+    </p>
+    <p>
+    <label>Oog kleur</label>
+    <select name="haarKleur" >
+            <option value="blauw">blauw</option>
+            <option value="bruin">bruin</option>
+            <option value="zwart">zwart</option>
+            <option value="groen">groen</option>
+            <option value="andere kleur">andere kleur</option>
+          </select>    
+    </p>    
+    </p>
+    <p>
+    <label>Geslacht</label>
+    <select name="geslacht" >
+            <option value="man">man</option>
+            <option value="vrouw">vrouw</option>
+          </select>    
+    </p>
+    <p>
+    <label>Lichaamsbouw </label><input type="text" name="lichaamsbouw" id="lichaamsbouw ">    
+    </p>
+    <p>
+    <label>Provincie</label>
+    <select name="provincie" id="provincie">
+      <option value="">--- kies uw provincie ---</option>
+    </select>
+      </p>
+    <p>
+    <label>Stad</label><input type="text" name="stad" id="stad">    
+    </p>
+   
+    //
+    </form>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-    <button type="submit" class="registerbtn">Register</button>
-  </div>
-  
-  <div class="container signin">
-    <p>Already have an account? <a href="#">Sign in</a>.</p>
+    <button type="submit" class="registerbtn" onSubmit="return formValidation();">Register</button>
   </div>
 </form>
+  <div class="container signin">
+    <p>Already have an account? 
+      <a href="login.html">Login</button>
+     
+    </p>
+  </div>
+
+
 
 </body>
 </html>
