@@ -1,53 +1,68 @@
 @charset "utf-8";
 /* CSS Document voor Flexidating */
 
-@font-face {
-    font-family: myFirstFont;
-    src: url(../fonts/OratorStd.otf);
+* {
+    box-sizing: border-box;
 }
+
 
 body,
 html {
     font-family: Verdana, Geneva, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: floralwhite;
+    background-color: white;
     color: #4e6078;
     height: 100%;
 }
 
-img {
-    border: none;
+@font-face {
+    font-family: myFirstFont;
+    src: url(../fonts/OratorStd.otf);
 }
 
-/* Responsive Image */
-.responsive {
-    width: 100%;
-    height: auto;
+/**** SECTION ****/
+section {
+    margin: 1.5em;
 }
 
-clear {
-    clear: both;
-}
-
-.box {
-
-    width: 100%;
-    height: 300px;
-    overflow: hidden;
+section h1 {
     text-align: center;
-    color: white;
+}
+
+section a {
+    text-align: center;
+    margin: 10px;
+    display: block;
+}
+
+
+/**** HEADER IMAGE ****/
+
+/* box voor afbeelding */
+.box {
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    /* text-align: center;
+    color: white;*/
 }
 
 .image-box {
     position: relative;
-    padding-top: 300px;
+    padding-top: 500px;
     margin: 0px auto;
     background: url(../img/flexidatingBanner.jpg) no-repeat center center;
     background-size: cover;
     /*max-width: 768px;*/
     width: 100%;
     height: 100%;
+}
+
+/* Responsive Image */
+.responsive {
+    width: 100%;
+    /*height: auto;*/
 }
 
 /* Place text in the middle of the image */
@@ -66,23 +81,32 @@ clear {
     opacity: 50%;
     display: block;
     margin: 6px;
+}
 
+/**** FORM ****/
+form {
+    width: 520px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
 }
 
 /**** HEADER ****/
 header {
     background: #4e6078;
-    padding: 15em 2em;
-    font-size: 15px;
-    color: white;
+    padding-top: 0.6em;
+    padding-bottom: 2.5em;
+    /*padding: 15em 2em;*/
 }
 
 header h1 {
+
+
     font-family: Arial, Helvetica, sans-serif;
     font-size: 4em;
     color: white;
     margin: 0.25em 0;
 }
+
 
 /**** FOOTER ****/
 footer {
@@ -91,6 +115,7 @@ footer {
     clear: both;
     text-align: center;
     color: white;
+    font-size: 12px;
 }
 
 
@@ -98,7 +123,8 @@ footer {
 /**** TOPMENU ****/
 
 #topmenu {
-    background: #ededed;
+    background: white;
+    margin: 0px 15px 0px 0px;
 }
 
 #topmenu ul {
@@ -126,24 +152,29 @@ footer {
 #topmenu ul li a:active,
 #topmenu ul li a.actief {
     text-decoration: none;
-    background: #fdc379;
+    background: white;
     color: #4e6078;
 }
 
 
+/**** images ****/
+img {
+    width: 50%;
+    height: 50%;
+    border: none;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
 
 
-/*
-clearfix hack
-http://nicolasgallagher.com/micro?clearfix?hack/
-*/
+/**** clearfix hack ****/
 .clearFix:before,
 .clearFix:after {
     content: " ";
     display: table;
-}
-
-.clearFix:after {
     clear: both;
 }
 
@@ -156,21 +187,222 @@ http://nicolasgallagher.com/micro?clearfix?hack/
     color: #FF0000;
 }
 
-/**** TOPMENU ****/
-#topmenu {
+/* gallerij startpagina */
+.gallery {
+    padding: 1em;
+    overflow: auto;
+    float: clear;
+}
+
+.kopjes {
+    background-color: #4e6078;
+    padding: 0.6em;
+    margin: 0.6em;
+    float: left;
+    width: 30%;
+}
+
+
+.infokopjes {
+    background: white;
+    display: block;
     text-align: right;
+    color: #4e6078;
+    width: 150px;
+    height: 220px;
+    float: right;
+    padding: 70px 0
 }
 
-#topmenu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
 
-#topmenu ul li {
-    display: inline;
-}
 
-#topmenu ul li a {
+/**** Full-width input fields ****/
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
     display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+/**** buttons ****/
+button {
+    background-color: #4e6078;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: red;
+}
+
+/* Center the image and position the close button */
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+    position: relative;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+
+/**** MODEL ****/
+/* The Modal (background) */
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto 15% auto;
+    /* 5% from the top, 15% from the bottom and centered */
+    border: 1px solid #888;
+    width: 80%;
+    /* Could be more or less, depending on screen size */
+}
+
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {
+        -webkit-transform:
+            scale(0)
+    }
+
+    to {
+        -webkit-transform:
+            scale(1)
+    }
+}
+
+@keyframes animatezoom {
+    from {
+        transform: scale(0)
+    }
+
+    to {
+        transform: scale(1)
+    }
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+    span.psw {
+        display: block;
+        float: none;
+    }
+
+    .cancelbtn {
+        width: 100%;
+    }
+}
+
+
+
+/* Add padding to containers */
+.container {
+    padding: 16px;
+    background-color: lightgrey;
+}
+
+.inloggen {
+    padding: 16px;
+    background-color: white;
+}
+
+/* Full-width input fields */
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+    border:
+        1px solid #f1f1f1;
+    margin-bottom:
+        25px;
+}
+
+
+/* Add a blue text color to links */
+a {
+    color: #4e6078;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
 }
