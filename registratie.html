@@ -1,195 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-h1 {
-margin-left: 70px;
-}
-form li {
-list-style: none;
-margin-bottom: 5px;
-}
+    <meta charset="utf-8">
+    <title>JavaScript Form Validation using a sample registration form</title>
+    <meta name="keywords" content="example, JavaScript Form Validation, Sample registration form" />
+    <meta name="description" content="This document is an example of JavaScript Form Validation using a sample registration form. " />
+    <link rel="stylesheet" href="css/main_css.css" />
+    <script src="RegistratieValidatie.js"></script>
+</head>
 
-form ul li label{
-float: left;
-clear: left;
-width: 100px;
-text-align: right;
-margin-right: 10px;
-font-family:Verdana, Arial, Helvetica, sans-serif;
-font-size:14px;
-}
+<body onload="document.registratie.nickname.focus();">
+    <h1>Registratie Form</h1>
+    Use tab keys to move from one input field to the next.
+    <form name='registratie' onSubmit="return formValidation();">
+        <p>
+            <p><label for="nickname">Nickname</label>
+                <input type="text" name="nickname" id="nickname" /> </p>
 
-form ul li input, select, span {
-float: left;
-margin-bottom: 10px;
-}
+            <p><label for="voornaam">Voornaam</label>
+                <input type="text" name="voornaam" id="voornaam" /></p>
 
-form textarea {
-float: left;
-width: 350px;
-height: 150px;
-}
+            <p><label for="familienaam">Familienaam</label>
+                <input type="text" name="familienaam" id="familienaam" /></p>
 
-[type="submit"] {
-clear: left;
-margin: 20px 0 0 230px;
-font-size:18px
-}
+            <p><label for="beroep">Beroep</label>
+                <input type="text" name="beroep" id="beroep" /></p>
 
-p {
-margin-left: 70px;
-font-weight: bold;
-}
+            <p><label for="geboorteDatum">GeboorteDatum </label>
+                <input type="text" name="geboorteDatum" id="geboorteDatum" onblur="geboorteDatum_validation(ugebdat)" />
+                <span class="error" id="lblError"></span> </p>
 
-/* The Modal (background) */
-.modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
-  left: 0;
-  top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-  padding-top: 60px;
-}
+            <p><label for="leefTijd">LeefTijd </label>
+                <input type="text" name="leefTijd" id="leefTijd" /></p>
+            <p><label for="gewicht">Gewicht</label>
+                <input type="text" name="gewicht" id="gewicht" /></p>
+            <p><label for="grootte">Grootte</label>
+                <input type="text" name="grootte" id="grootte" /></p>
+            <p><label for="haarkleur">Haar kleur</label>
+                <select name="haarkleur">
+          <option selected="" value="Default">--- kies uw haarkleur ---</option>
+          <option value="blond">blond</option>
+          <option value="brunete">brunete</option>
+          <option value="rood">rood</option>
+          <option value="zwart">zwart</option>
+          <option value="andere kleur">andere kleur</option>
+        </select></p>
+            <p><label for="oogkleur"> Oog kleur</label>
+                <select name="oogkleur">
+          <option selected="" value="Default">--- kies uw oogkleur ---</option>
+          <option value="blauw">blauw</option>
+          <option value="bruin">bruin</option>
+          <option value="zwart">zwart</option>
+          <option value="groen">groen</option>
+          <option value="andere kleur">andere kleur</option>
+        </select></p>
 
-/* Modal Content/Box */
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
-  border: 1px solid #888;
-  width: 80%; /* Could be more or less, depending on screen size */
-}
+            <p><label for="email">Email</label>
+                <input type="text" name="email" id="email" /></p>
 
-/* The Close Button (x) */
-.close {
-  position: absolute;
-  right: 25px;
-  top: 0;
-  color: #000;
-  font-size: 35px;
-  font-weight: bold;
-}
+            <p><label for="geslacht">Geslacht</label>
+                <select name="geslacht">
+          <option selected="" value="Default">--- kies uw geslacht ---</option>
+          <option value="man">man</option>
+          <option value="vrouw">vrouw</option>
+        </select></p>
+            <p><label for="lichaamsbouw">Lichaamsbouw </label>
+                <input type="text" name="lichaamsbouw" id="lichaamsbouw" /></p>
+            <p><label for="provincie">Provincie</label>
+                <select name="provincie" id="provincie">
+          <option selected="" value="Default">--- kies uw provincie ---</option>
+          <option value="Provincie Vlaams-Brabant">Provincie Vlaams-Brabant</option>
+          <option value="Provincie Henegouwen">Provincie Henegouwen</option>
+          <option value="Provincie Luik">Provincie Luik</option>
+          <option value="Provincie Namen">Provincie Namen</option>
+          <option value="Provincie West-Vlaanderen">Provincie West-Vlaanderen</option>
+          <option value="Provincie Oost-Vlaanderen">Provincie Oost-Vlaanderen</option>
+          <option value="Provincie Limburg">Provincie Limburg</option>
+          <option value="Provincie Antwerpen">Provincie Antwerpen</option>
+          <option value="Provincie Luxemburg">Provincie Luxemburg</option>
+          <option value="Brussel-Hoofdstad">Brussel-Hoofdstad</option>
+          <option value="Provincie Waals-Brabant">Provincie Waals-Brabant</option>
+        </select></p>
+            <p><label for="stad">Stad</label>
+                <input type="text" name="stad" id="stad" /></p>
+            <p><label for="passid">Password</label>
+                <input type="password" placeholder="Enter Password" name="passid" required /></p>
 
-.close:hover,
-.close:focus {
-  color: red;
-  cursor: pointer;
-}
-
-/* Add Zoom Animation */
-.animate {
-  -webkit-animation: animatezoom 0.6s;
-  animation: animatezoom 0.6s
-}
-
-@-webkit-keyframes animatezoom {
-  from {-webkit-transform: scale(0)} 
-  to {-webkit-transform: scale(1)}
-}
-  
-@keyframes animatezoom {
-  from {transform: scale(0)} 
-  to {transform: scale(1)}
-}
-</style>
-<script src="registratiescripts.js"></script>
-</head><html>
-    <Title>
-     Test van gegevens   
-    </Title>
-<body>
-    <form id="registratie" onSubmit="return formValidation();"> 
-    <p>
-    <label>Nickname</label><input type="text" name="nickname" id="nickname" >    
-    </p>
-    <p>
-    <label>Voornaam</label><input type="text" name="voornaam" id="voornaam">    
-    </p>
-    <p>
-    <label>Familienaam</label><input type="text" name="familienaam" id="familienaam">    
-    </p>
-    <label for="passid"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="passid" required>
-    <p>
-    <label>Beroep</label><input type="text" name="beroep" id="beroep">    
-    </p>
-    <p>
-    <label>Email</label><input type="text" name="email" id="email">    
-    </p>
-    <p>
-    <label>GeboorteDatum </label><input type="text" name="geboorteDatum" id="geboorteDatum">    
-    </p> 
-    <p>
-    <label>LeefTijd </label><input type="text" name="leefTijd" id="leefTijd">    
-    </p>
-    <p>
-    <label>Gewicht</label><input type="text" name="gewicht" id="gewicht">    
-    </p> 
-    <p>
-    <label>Grootte</label><input type="text" name="grootte" id="grootte">    
-    </p>      
-    <p>
-    <label>Haar kleur</label>
-    <select name="oogKleur" >
-            <option value="blond">blond</option>
-            <option value="brunete">brunete</option>
-            <option value="rood">rood</option>
-            <option value="zwart">zwart</option>
-            <option value="andere kleur">andere kleur</option>
-          </select>     
-    </p>
-    <p>
-    <label>Oog kleur</label>
-    <select name="haarKleur" >
-            <option value="blauw">blauw</option>
-            <option value="bruin">bruin</option>
-            <option value="zwart">zwart</option>
-            <option value="groen">groen</option>
-            <option value="andere kleur">andere kleur</option>
-          </select>    
-    </p>    
-    </p>
-    <p>
-    <label>Geslacht</label>
-    <select name="geslacht" >
-            <option value="man">man</option>
-            <option value="vrouw">vrouw</option>
-          </select>    
-    </p>
-    <p>
-    <label>Lichaamsbouw </label><input type="text" name="lichaamsbouw" id="lichaamsbouw ">    
-    </p>
-    <p>
-    <label>Provincie</label>
-    <select name="provincie" id="provincie">
-      <option value="">--- kies uw provincie ---</option>
-    </select>
-      </p>
-    <p>
-    <label>Stad</label><input type="text" name="stad" id="stad">    
-    </p>
-   
-    //
     </form>
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
 
-    <button type="submit" class="registerbtn" onSubmit="return formValidation();">Register</button>
-  </div>
-</form>
-  <div class="container signin">
-    <p>Already have an account? 
-      <a href="login.html">Login</button>
-     
+    <button type="submit" class="registerbtn" onclick="return formValidation();">Register</button>
+    </div>
+    </form>
+    <div class="container signin">
+        <p>Already have an account?
+            <a href="login.html">Login</button>
     </p>
+  </p>
   </div>
-
-
 
 </body>
+
 </html>
