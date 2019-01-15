@@ -20,7 +20,7 @@
         <label>Leeftijd</label><label id="leefTijd"></label>
     </p>
     <p>
-        <label>Beroep </label><label id="beroep"></label>
+        <label>Beroep</label><label id="beroep"></label>
     </p>
 
     <p>
@@ -62,14 +62,16 @@
     <script defer>
         window.onload = function () {
             var user = scrumlib.getDatasetById("56cae42a683485281caf5652");
-
+            var locationImg = "img/"
+            
             scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
 
             document.getElementById("nickname").innerHTML = user[0].nickname;
             document.getElementById("voornaam").innerHTML = user[0].voornaam;
             document.getElementById("familienaam").innerHTML = user[0].familienaam;
             document.getElementById("beroep").innerHTML = user[0].beroep;
-            document.getElementById("foto").setAttribute('src', 'img/' + user[0].foto); 
+            document.getElementById("foto").setAttribute('src', locationImg + user[0].foto); 
+            document.getElementById("foto").setAttribute('alt', user[0].foto); 
 
             document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
             document.getElementById("gewicht").innerHTML = user[0].gewicht;
