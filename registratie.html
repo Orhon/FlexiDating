@@ -10,15 +10,16 @@
   <script src="RegistratieValidatie.js"></script>
   <script src="profielen.json"></script>
   <script src="registrqtiescript.js"></script>
+  
 
 </head>
 
 <body onload="document.registratie.nickname.focus();">
   <h1>Registratie Form</h1>
-  <form name="registratie" onclick="return formValidation();">
+  <form name='registratie' onclick="return formValidation();">
 
     <p><label for="nickname">Nickname</label>
-    <input type="text" name="nickname" id="nickname"> </p>
+    <input type="text" name="nickname" id="nickname"> 
     <p><label for="voornaam">Voornaam</label><input type="text" name="voornaam" id="voornaam"></p>
     <p> <label for="familienaam">Familienaam</label><input type="text" name="familienaam" id="familienaam"></p>
     <p> <label for="passid">Password</label></p>
@@ -93,7 +94,7 @@
         <option value="Brussel-Hoofdstad">Brussel-Hoofdstad</option>
         <option value="Provincie Waals-Brabant">Provincie Waals-Brabant</option>
       </select>
-    </p> <p>
+      <p>
         <label for="stad">Stad</label><input type="text" name="stad" id="stad">
       </p>
 
@@ -107,7 +108,10 @@
 
   <pre id="output"></pre>
   <div class="container signin">
-    
+    <p>Already have an account?
+      <a href="login.html">Login</a>
+
+    </p>
   </div>
 
 

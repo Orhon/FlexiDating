@@ -34,7 +34,6 @@ function formValidation() {
                     if (allLetter(uname2)) {
                         if (beroep_validation(brp, 5, 12)) {
                             if (allLetter(brp)) {
-                                if (validateEmail(uemail)) {
                                 if (geboorteDatum_validation(ugebdat)) {
                                     //if (alphanumeric(uadd)) {
                                     if (allnumeric(uleftijd)) {
@@ -42,7 +41,7 @@ function formValidation() {
                                             if (allnumeric(ugrootte)) {
                                                 if (haarSelect(uhaar)) {
                                                     if (ogenSelect(uogen)) {
-                                                        
+                                                        if (validateEmail(uemail)) {
                                                             if (validateGeslacht(umsex, ufsex)) {
                                                                 if (lichaamsBouwSelect(ulichaam)) {
                                                                     if (provincieSelect(uprovincie)) {
@@ -114,7 +113,6 @@ function familienaam_validation(uname2, mx, my) {
 
 
 function beroep_validation(brp, mx, my) {
-    console.log("beroep",brp);
     var brp_len = brp.value.length;
     if (brp_len == 0 || brp_len >= my || brp_len < mx) {
         alert("Beroep should not be empty / length be between " + mx + " to " + my);
@@ -177,7 +175,6 @@ function geboorteDatum_validation(ugebdat) {
 
 // ook voor ugewicht en ugrootte
 function allnumeric(uleftijd) {
-    
     var numbers = /^[0-9]+$/;
     if (uleftijd.value.match(numbers)) {
         return true;
@@ -222,8 +219,6 @@ function ogenSelect(uogen) {
 
 
 function validateEmail(uemail) {
-   
-console.log("email",uemail);
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (uemail.value.match(mailformat)) {
         return true;
