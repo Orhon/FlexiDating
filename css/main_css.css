@@ -1,3 +1,114 @@
+@charset "utf-8";
+/* CSS Document voor Flexidating */
+
+body, html {
+	font-family:Verdana, Geneva, sans-serif;
+	margin:0;
+	padding:0;
+    background-color: floralwhite;
+    color: #4e6078;
+    height: 100%;
+}
+
+img {
+   border: none;
+   /*float: left;
+   margin: 0 1.25em 0.5em 0;*/
+}
+
+/* Responsive Image */
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+clear {
+    clear: both;
+}
+
+.container {
+    width: 100%;
+    height: 300px;
+}
+
+.image-container {
+    position: relative;
+    margin: 0 auto;
+    background: url(../img/flexidatingBanner.jpg) no-repeat center center;
+    background-size: cover;
+    /*max-width: 768px;*/
+    width: 100%;
+    height: 100%;
+}
+/*
+.wrapper {
+	width:1000px;
+	margin: 0 auto;
+	padding:0;
+	outline:none;
+	border:none;
+}
+*/
+
+/**** HEADER ****/
+header {
+	background: #4e6078;
+	padding: 15em 2em;
+    font-size: 15px;
+    color: white;
+}
+
+header h1 {
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:4em;
+	color: white;
+	margin:0.25em 0;
+}
+
+/**** FOOTER ****/
+footer {
+    background: #4e6078;
+    padding: 1em 2em;
+    clear: both;
+    text-align: center;
+    color: white;
+}
+
+
+
+/**** TOPMENU ****/
+
+#topmenu {
+    background: #ededed;
+}
+#topmenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: right;
+}
+#topmenu ul li {
+    float: left;
+}
+#topmenu ul li a {
+    display: block;
+    padding: 0.375em 0.5em; /*6px 8px*/
+    border-right: 1px solid #58ec4e;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    color: white;
+}
+
+#topmenu ul li a:hover,
+#topmenu ul li a:active,
+#topmenu ul li a.actief {
+    text-decoration: none;
+    background: #fdc379;
+    color: #4e6078;
+}
+
+
+
 
 /*
 clearfix hack
@@ -39,4 +150,36 @@ http://nicolasgallagher.com/micro?clearfix?hack/
 
 #topmenu ul li a {
     display: inline-block;
+}
+
+
+
+
+/* The hero image */
+.hero-image {
+    /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("photographer.jpg");
+
+    /* Set a specific height */
+    height: 20%;
+
+    /* Position and center the image to scale nicely on all screens */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /*position: relative;*/
+    /*margin: 0 0  0 -20%;*/
+    margin: 0 auto 0%;
+    position: relative;
+    /*clip: rect(100%, 100%, 100%, 50%);*/
+}
+
+/* Place text in the middle of the image */
+.hero-text {
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
 }

@@ -4,6 +4,7 @@ function formValidation() {
     var uname2 = document.registratie.familienaam;
     var brp = document.registratie.beroep;
     var ugebdat = document.registratie.geboorteDatum;
+    // console.log(ugebdat);
     var uleftijd = document.registratie.leeftijd;
     var ugewicht = document.registratie.gewicht;
     var ugrootte = document.registratie.grootte;
@@ -11,6 +12,7 @@ function formValidation() {
     var uogen = document.registratie.oogkleur;
     var uemail = document.registratie.email;
     // console.log(uemail);
+
     var umsex = document.registratie.msex;
     var ufsex = document.registratie.fsex;
     var ulichaam = document.registratie.lichaamsbouw;
@@ -140,7 +142,6 @@ function beroep_validation(brp, mx, my) {
     // Check the ranges of month and year
     if (year < 1000 || year > 3000 || month == 0 || month > 12) {
         alert("blalblalala ");
-
         return false;
     }
 
