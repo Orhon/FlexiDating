@@ -11,6 +11,7 @@ grootte         : Integer
 haarKleur       : list of String keuze
 oogKleur        : list of String keuze
 geslacht        : list of String keuze
+wachtwoord      : String
 *lichaamsbouw   : list of String keuze
 *woonplaats     : String
 *interesse      : ???? list of checklist
