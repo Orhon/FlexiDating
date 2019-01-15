@@ -10,10 +10,18 @@ body, html {
     height: 100%;
 }
 
+/**** SECTION ****/
 section {
 	margin: 1.5em;
 }
 
+section h1 {
+    text-align: center;
+}
+
+section a {
+    text-align: center;
+}
 
 
 /**** HEADER ****/
@@ -100,9 +108,8 @@ footer {
 
 /**** images ****/
 img {
-   border: none;
-   float: left;
-   margin: 0 1.25em 0.5em 0;
+    width: 50%;
+    height: 50%;
 }
 
 img.avatar {
@@ -124,6 +131,31 @@ img.avatar {
 }
 .leftcolumn {
     color: #FF0000;
+}
+/* gallerij startpagina */
+.gallery {
+    padding: 1em;
+    overflow: auto;
+}
+
+.kopjes {
+    background-color: #4e6078;
+    padding: 0.6em;
+    margin: 0.6em;
+    float: left;
+    width: 30%;
+}
+    
+
+.infokopjes {
+    background: white;
+    display: block;
+    text-align: right;
+    color: #4e6078;
+    width: 150px;
+    height: 220px;
+    float: right;
+    padding: 70px 0
 }
 
 
