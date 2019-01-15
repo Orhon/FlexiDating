@@ -11,36 +11,147 @@
 <body>
     <div id="Zoek">
         <p><label>Zoek by:</label></p>
-        <p><label>Geslacht</label><select name="geslacht" id="geslacht">
+        <p><label>Geslacht</label><select name="geslacht" id="zoek_geslacht">
+                <option value="">Beide</option>
                 <option value="m">man</option>
                 <option value="v">vrouw</option>
             </select></p>
-        <p><label>Lichaamsbouw </label>
-            <select name="lichaamsbouw" id="lichaamsbouw">
-                <option value="volslank">volslank</option>
-                <option value="atletisch">atletisch</option>
-                <option value="slank">slank</option>
-                <option value="normaal">normaal</option>
-            </select>
-        </p>
+        
         <p>
             <label>LeefTijd tussen </label><input type="text" name="minleefTijd" id="minleefTijd"> <label>en</label> <input type="text" name="maxleefTijd" id="maxleefTijd">
         </p>
         <p>
             <label>Grootte tussen </label><input type="text" name="mingrootte" id="mingrootte"> <label>en</label> <input type="text" name="maxleefTijd" id="maxleefTijd">
-        </p>
+        
+    <p>
+    <label>Gewichttussen </label><input type="text" name="mingewicht" id="mingewicht"> <label>en</label> <input type="text" name="maxgewicht" id="maxgewicht">    
+    </p> 
+          
+    <p>
+    <label>Haar kleur</label>
+    <select id="zoek_haarKleur" name="haarKleur" >
+            <option value="">Alles</option>
+            <option value="blond">blond</option>
+            <option value="brunete">brunete</option>
+            <option value="rood">rood</option>
+            <option value="zwart">zwart</option>
+            <option value="andere kleur">andere kleur</option>
+          </select>     
+    </p>
+    <p>
+    <label>Oog kleur</label>
+    <select name="zoek_oogKleur" id="oogKleur">
+            <option value="">Alles</option>
+            <option value="blauw">blauw</option>
+            <option value="bruin">bruin</option>
+            <option value="zwart">zwart</option>
+            <option value="groen">groen</option>
+            <option value="andere kleur">andere kleur</option>
+          </select>    
+    </p>    
+    <p>
+    <label>Lichaamsbouw </label>
+    <select name="lichaamsbouw" id="zoek_lichaamsbouw" >
+      <option value="">Alles</option>
+      <option value="volslank">volslank</option>
+      <option value="atletisch">atletisch</option>
+      <option value="slank">slank</option>
+      <option value="normaal">normaal</option>
+    </select>    
+    </p>
+    <p>
+    <label>Sterenbeld</label><select id="zoek_sterrenbeeld">
+            <option value="">Alles</option>  
+            <option value="Steenbok">Steenbok</option>
+            <option value="Waterman">Waterman</option>
+            <option value="Vissen">Vissen</option>
+            <option value="Ram">Ram</option>
+            <option value="Stier">Stier</option>
+            <option value="Tweelingen">Tweelingen</option>
+            <option value="Kreeft">Kreeft</option>
+            <option value="Leeuw">Leeuw</option>
+            <option value="Maagd">Maagd</option>
+            <option value="Weegschaal">Weegschaal</option>
+            <option value="Schorpioen">Schorpioen</option>
+            <option value="Boogschutter">Boogschutter</option>
+        </select>
+    </p>
+    <p>
+    <label>Provincie</label>
+    <select name="provincie" id="zoek_provincie" >
+            <option value="">Alles</option>
+            <option value="Antwerpen">Antwerpen</option>
+            <option value="Limburg">Limburg</option>
+            <option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
+            <option value="Vlaams-Brabant">Vlaams-Brabant</option>
+            <option value="West-Vlaanderen">West-Vlaanderen</option>
+            <option value="Henegouwen">Henegouwen</option>
+            <option value="Luik">Luik</option>
+            <option value="Luxemburg">Luxemburg</option>
+            <option value="Namen ">Namen </option>
+            <option value="Waals-Brabant">Waals-Brabant</option>
+            
+          </select>      
+    </p>
+
         <button name="knopzoek" id="knopzoek">Zoek</button>
 
     </div>
     <div id="conteiner">
     </div>
 </body>
-<script>
-    window.onload = function () {
+<script src="js/sterrenbeeld.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
+<script defer>
+    button1 = document.getElementById("knopzoek");
+      button1.addEventListener("click",function (e){
+        var searchMap={};
+        var conditions =[];
+        var egeslacht=document.getElementById("zoek_geslacht");
+        var geslacht=egeslacht.options[egeslacht.selectedIndex].value;
+        var ehaarKleur=document.getElementById("zoek_haarkleur");
+        var haarKleur=ehaarKleur.options[ehaarKleur.selectedIndex].value;
+        var eoogKleur=document.getElementById("zoek_oogkleur");
+        var oogKleur=ehaarKleur.options[eoogKleur.selectedIndex].value;
+
+        if (fieldisleeg(geslacht))
+        {
+            conditions.append(['sexe','='])   
+        }
+        if (fieldisleeg(haarKleur))
+        {
+            conditions.append(['haarkleur','='])   
+        }
+      });
+    var egeslacht=document.getElementById("zoek_geslacht");
+    var geslacht=egeslacht.options[egeslacht.selectedIndex].value;
+    console.log(geslacht);
+    console.log(egeslacht);
+    console.log(egeslacht.selectedIndex);
+    
+    if 
+    
 
 
-        
+
+
+    function fieldisleeg(field)
+    {
+        if (field=="")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+      return 
     }
+
+    
+    
+    
 </script>
 
 </html>
