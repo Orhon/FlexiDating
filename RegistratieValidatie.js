@@ -156,7 +156,7 @@ function beroep_validation(brp, mx, my) {
     return day > 0 && day <= monthLength[month - 1];
 }*/
 
-function geboorteDatum_validation(ugebdat) {
+function geboorteDatum_validation() {
     var lblError = document.getElementById("lblError");
 
     //Get the date from the TextBox.
@@ -197,14 +197,14 @@ function geboorteDatum_validation(ugebdat) {
 
 
 
-// ook voor ugewicht en ugrootte
-function allnumeric(uleftijd) {
+// ook voor uleftijd, ugewicht en ugrootte
+function allnumeric(unummer) {
     var numbers = /^[0-9]+$/;
-    if (uleftijd.value.match(numbers)) {
+    if (unummer.value.match(numbers)) {
         return true;
     } else {
-        alert('ZIP code must have numeric characters only');
-        uleftijd.focus();
+        alert('Leftijd must have numeric characters only');
+        unummer.focus();
         return false;
     }
 }

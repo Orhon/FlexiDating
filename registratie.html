@@ -28,60 +28,64 @@
                 <input type="text" name="beroep" id="beroep" /></p>
 
             <p><label for="geboorteDatum">GeboorteDatum </label>
-                <input type="text" name="geboorteDatum" id="geboorteDatum" onblur="geboorteDatum_validation(ugebdat)" />
-                <span class="error" id="lblError"></span> </p>
+                <input type="text" name="geboorteDatum" id="geboorteDatum" onblur="geboorteDatum_validation()" />
+                <span class="error" id="lblError"></span>
+                <br />
+                <input type="button" id="btnValidate" value="Validate" onclick="return ValidateDOB()" />
+            </p>
 
-            <p><label for="leefTijd">LeefTijd </label>
-                <input type="text" name="leefTijd" id="leefTijd" /></p>
+            <p><label for="leeftijd">Leeftijd </label>
+                <input type="text" name="leeftijd" id="leeftijd" /></p>
+
             <p><label for="gewicht">Gewicht</label>
                 <input type="text" name="gewicht" id="gewicht" /></p>
             <p><label for="grootte">Grootte</label>
                 <input type="text" name="grootte" id="grootte" /></p>
             <p><label for="haarkleur">Haar kleur</label>
                 <select name="haarkleur">
-          <option selected="" value="Default">--- kies uw haarkleur ---</option>
-          <option value="blond">blond</option>
-          <option value="brunete">brunete</option>
-          <option value="rood">rood</option>
-          <option value="zwart">zwart</option>
-          <option value="andere kleur">andere kleur</option>
-        </select></p>
+                    <option selected="" value="Default">--- kies uw haarkleur ---</option>
+                    <option value="blond">blond</option>
+                    <option value="brunete">brunete</option>
+                    <option value="rood">rood</option>
+                    <option value="zwart">zwart</option>
+                    <option value="andere kleur">andere kleur</option>
+                </select></p>
             <p><label for="oogkleur"> Oog kleur</label>
                 <select name="oogkleur">
-          <option selected="" value="Default">--- kies uw oogkleur ---</option>
-          <option value="blauw">blauw</option>
-          <option value="bruin">bruin</option>
-          <option value="zwart">zwart</option>
-          <option value="groen">groen</option>
-          <option value="andere kleur">andere kleur</option>
-        </select></p>
+                    <option selected="" value="Default">--- kies uw oogkleur ---</option>
+                    <option value="blauw">blauw</option>
+                    <option value="bruin">bruin</option>
+                    <option value="zwart">zwart</option>
+                    <option value="groen">groen</option>
+                    <option value="andere kleur">andere kleur</option>
+                </select></p>
 
             <p><label for="email">Email</label>
                 <input type="text" name="email" id="email" /></p>
 
             <p><label for="geslacht">Geslacht</label>
                 <select name="geslacht">
-          <option selected="" value="Default">--- kies uw geslacht ---</option>
-          <option value="man">man</option>
-          <option value="vrouw">vrouw</option>
-        </select></p>
+                    <option selected="" value="Default">--- kies uw geslacht ---</option>
+                    <option value="man">man</option>
+                    <option value="vrouw">vrouw</option>
+                </select></p>
             <p><label for="lichaamsbouw">Lichaamsbouw </label>
                 <input type="text" name="lichaamsbouw" id="lichaamsbouw" /></p>
             <p><label for="provincie">Provincie</label>
                 <select name="provincie" id="provincie">
-          <option selected="" value="Default">--- kies uw provincie ---</option>
-          <option value="Provincie Vlaams-Brabant">Provincie Vlaams-Brabant</option>
-          <option value="Provincie Henegouwen">Provincie Henegouwen</option>
-          <option value="Provincie Luik">Provincie Luik</option>
-          <option value="Provincie Namen">Provincie Namen</option>
-          <option value="Provincie West-Vlaanderen">Provincie West-Vlaanderen</option>
-          <option value="Provincie Oost-Vlaanderen">Provincie Oost-Vlaanderen</option>
-          <option value="Provincie Limburg">Provincie Limburg</option>
-          <option value="Provincie Antwerpen">Provincie Antwerpen</option>
-          <option value="Provincie Luxemburg">Provincie Luxemburg</option>
-          <option value="Brussel-Hoofdstad">Brussel-Hoofdstad</option>
-          <option value="Provincie Waals-Brabant">Provincie Waals-Brabant</option>
-        </select></p>
+                    <option selected="" value="Default">--- kies uw provincie ---</option>
+                    <option value="Provincie Vlaams-Brabant">Provincie Vlaams-Brabant</option>
+                    <option value="Provincie Henegouwen">Provincie Henegouwen</option>
+                    <option value="Provincie Luik">Provincie Luik</option>
+                    <option value="Provincie Namen">Provincie Namen</option>
+                    <option value="Provincie West-Vlaanderen">Provincie West-Vlaanderen</option>
+                    <option value="Provincie Oost-Vlaanderen">Provincie Oost-Vlaanderen</option>
+                    <option value="Provincie Limburg">Provincie Limburg</option>
+                    <option value="Provincie Antwerpen">Provincie Antwerpen</option>
+                    <option value="Provincie Luxemburg">Provincie Luxemburg</option>
+                    <option value="Brussel-Hoofdstad">Brussel-Hoofdstad</option>
+                    <option value="Provincie Waals-Brabant">Provincie Waals-Brabant</option>
+                </select></p>
             <p><label for="stad">Stad</label>
                 <input type="text" name="stad" id="stad" /></p>
             <p><label for="passid">Password</label>
@@ -96,9 +100,9 @@
     <div class="container signin">
         <p>Already have an account?
             <a href="login.html">Login</button>
-    </p>
-  </p>
-  </div>
+        </p>
+        </p>
+    </div>
 
 </body>
 
