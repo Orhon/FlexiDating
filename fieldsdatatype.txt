@@ -3,9 +3,9 @@ voornaam        : String
 familienaam     : String
 beroep          : String
 email           : String
-geboorteDatum   : date
+geboortedatum   : date
 foto            : String (opmerking link naar een foto met een map structuur)
-leefTijd        : Integer
+leeftijd        : Integer
 gewicht         : Integer
 grootte         : Integer
 haarKleur       : list of String keuze
@@ -14,9 +14,10 @@ geslacht        : list of String keuze
 wachtwoord      : String
 *lichaamsbouw   : list of String keuze
 *taal           : String
-*provincie      : String
-*woonplaats     : String
+*provincie      : list of String Keuze
+*stad           : String
 *interesse      : ???? list of checklist
+*sterrenbeeld   : list of String keuze
 
 
 *niet in api momenteel
