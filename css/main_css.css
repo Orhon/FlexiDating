@@ -1,6 +1,10 @@
 @charset "utf-8";
 /* CSS Document voor Flexidating */
 
+* {
+    box-sizing: border-box;
+}
+
 
 body, html {
 	font-family:Verdana, Geneva, sans-serif;
@@ -27,6 +31,8 @@ section h1 {
 
 section a {
     text-align: center;
+    margin: 10px;
+    display: block;
 }
 
 
@@ -181,6 +187,7 @@ img.avatar {
 .gallery {
     padding: 1em;
     overflow: auto;
+    float: clear;
 }
 
 .kopjes {
@@ -350,10 +357,7 @@ span.psw {
 }
 }
 
-/* NOG AANPASSEN */
-* {
-    box-sizing: border-box;
-}
+
 
 /* Add padding to containers */
 .container {
