@@ -27,7 +27,7 @@
     <label>GeboorteDatum </label><input type="text" name="geboorteDatum" id="geboorteDatum">    
     </p> 
     <p>
-    <label>LeefTijd </label><input type="text" name="leefTijd" id="leefTijd">    
+    <label>LeefTijd </label><label id="leefTijd"></label>    
     </p>
     <p>
     <label>Gewicht</label><input type="text" name="gewicht" id="gewicht">    
@@ -97,6 +97,14 @@
     <p>
     <label>Stadt</label><input type="text" name="stad" id="stad">    
     </p>
+    <p>
+    <label>Taal</label><select name="taal" id="taal" >
+        <option value="nederlands">nederland</option>
+        <option value="frans">frans</option>
+        <option value="deuts">deuts</option>
+        <option value="engels">engels</option>
+      </select>    
+    </p>
     <button name="knopupdate" id="knopupdate">Update</button>  
    
     
@@ -117,7 +125,7 @@
       document.getElementById("geboorteDatum").value = user[0].geboortedatum;
       //document.getElementById("foto").value = user[0].foto;
       
-      document.getElementById("leefTijd").value = getLeeftijd(user[0].geboortedatum);
+      document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
       document.getElementById("gewicht").value = user[0].gewicht;
       document.getElementById("grootte").value = user[0].grootte;
       document.getElementById("haarKleur").selectedIndex = getInformatie(user[0].haarkleur,"haarKleur");
@@ -127,6 +135,7 @@
       document.getElementById("sterenbeeld").innerHTML=getSterrenbeeld(user[0].geboortedatum);
       document.getElementById("provincie").value = getInformatie(user[0].provincie,"provincie");
       document.getElementById("stad").value = user[0].stad;
+      document.getElementById("taal").selectedIndex = getInformatie(user[0].taal,"taal");
 
 
       function getLeeftijd(gb){
