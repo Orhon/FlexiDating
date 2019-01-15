@@ -10,26 +10,27 @@ body, html {
     height: 100%;
 }
 
-
-img {
-   border: none;
-   /*float: left;
-   margin: 0 1.25em 0.5em 0;*/
-}
-
-/* Responsive Image */
-.responsive {
-    width: 100%;
-    height: auto;
+section {
+	margin: 1.5em;
 }
 
 
-.container {
+
+/**** HEADER ****/
+header {
+	background: #4e6078;
+    padding-top: 0.6em;
+	padding-bottom: 2.5em;
+    font-size: 15px;
+    color: white;
+}
+/* box voor afbeelding */
+.box {
     width: 100%;
     height: 300px;
 }
 
-.image-container {
+.image-box {
     position: relative;
     margin: 0 auto;
     background: url(../img/flexidatingBanner.jpg) no-repeat center center;
@@ -38,29 +39,18 @@ img {
     width: 100%;
     height: 100%;
 }
-/*
-.wrapper {
-	width:1000px;
-	margin: 0 auto;
-	padding:0;
-	outline:none;
-	border:none;
-}
-*/
-
-/**** HEADER ****/
-header {
-	background: #4e6078;
-	padding: 15em 2em;
-    font-size: 15px;
-    color: white;
+/* Responsive Image */
+.responsive {
+    width: 100%;
+    height: auto;
 }
 
-header h1 {
+
+/**** FORM ****/
+form {
+	width: 520px;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:4em;
-	color: white;
-	margin:0.25em 0;
+	font-size:1em;
 }
 
 
@@ -79,7 +69,7 @@ footer {
 /**** TOPMENU ****/
 
 #topmenu {
-    background: #ededed;
+    background: white;
 }
 #topmenu ul {
     list-style-type: none;
@@ -149,6 +139,7 @@ input[type=password] {
     box-sizing: border-box;
 }
 
+
 /**** buttons ****/
 button {
     background-color: #4e6078;
@@ -157,7 +148,7 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 20%;
 }
 
 button:hover {
@@ -168,7 +159,7 @@ button:hover {
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
-    background-color:#fdc379;
+    background-color: red;
 }
 
 /* Center the image and position the close button */
@@ -187,6 +178,25 @@ span.psw {
     padding-top: 16px;
 }
 
+/* The Close Button (x) */
+.close {
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+
+
+/**** MODEL ****/
 /* The Modal (background) */
 .modal {
     display: none;
@@ -209,7 +219,6 @@ span.psw {
 /* Black w/ opacity */
     padding-top: 60px;
 }
-
 /* Modal Content/Box */
 .modal-content {
     background-color: #fefefe;
@@ -220,21 +229,6 @@ span.psw {
 /* Could be more or less, depending on screen size */
 }
 
-/* The Close Button (x) */
-.close {
-    position: absolute;
-    right: 25px;
-    top: 0;
-    color: #000;
-    font-size: 35px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: red;
-    cursor: pointer;
-}
 
 /* Add Zoom Animation */
 .animate {
@@ -279,13 +273,6 @@ span.psw {
 }
 }
 
-
-/* ########################## */
-/* pastesd from register.html */
-/* ########################## */
-
-
-
 /* NOG AANPASSEN */
 * {
     box-sizing: border-box;
@@ -327,25 +314,10 @@ margin-bottom:
 25px;
 }
 
-/* Set a style for the submit button */
-.registerbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-    opacity: 0.9;
-}
-
-.registerbtn:hover {
-    opacity: 1;
-}
 
 /* Add a blue text color to links */
 a {
-    color: dodgerblue;
+    color: #4e6078;
 }
 
 /* Set a grey background color and center the text of the "sign in" section */

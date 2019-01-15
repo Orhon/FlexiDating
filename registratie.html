@@ -8,6 +8,7 @@
 <script src="RegistratieValidatie.js"></script>
 </head>
 <body onload="document.registratie.nickname.focus();">
+<section>
 <h1>Registratie Form</h1>
 <form name='registratie' onSubmit="return formValidation();">
 
@@ -24,10 +25,10 @@
     <label for="email">Email</label><input type="text" name="email" id="email"/>    
     </p>
     <p>
-    <label for="geboorteDatum">GeboorteDatum </label><input type="text" name="geboorteDatum" id="geboorteDatum">    
+    <label for="geboorteDatum">Geboortedatum </label><input type="text" name="geboorteDatum" id="geboorteDatum">    
     </p> 
     <p>
-    <label for="leefTijd">LeefTijd </label><input type="text" name="leefTijd" id="leefTijd">    
+    <label for="leefTijd">Leeftijd </label><input type="text" name="leefTijd" id="leefTijd">    
     </p>
     <p>
     <label for="gewicht">Gewicht</label><input type="text" name="gewicht" id="gewicht">    
@@ -36,26 +37,25 @@
     <label for="grootte">Grootte</label><input type="text" name="grootte" id="grootte">    
     </p>      
     <p>
-    <label for="oogkleur">Haar kleur</label>
+    <label for="oogkleur">Haarkleur</label>
     <select name="oogkleur" >
-            <option value="blond">blond</option>
-            <option value="brunete">brunete</option>
-            <option value="rood">rood</option>
+            <option value="blauw">blauw</option>
+            <option value="bruin">bruin</option>
             <option value="zwart">zwart</option>
+            <option value="groen">groen</option>
             <option value="andere kleur">andere kleur</option>
           </select>     
     </p>
     <p>
     <label for="haarkleur"> Oog kleur</label>
     <select name="haarkleur" >
-            <option value="blauw">blauw</option>
-            <option value="bruin">bruin</option>
+            <option value="blond">blond</option>
+            <option value="brunette">brunete</option>
+            <option value="rood">rood</option>
             <option value="zwart">zwart</option>
-            <option value="groen">groen</option>
             <option value="andere kleur">andere kleur</option>
           </select>    
     </p>    
-    </p>
     <p>
     <label for="geslacht">Geslacht</label>
     <select name="geslacht" >
@@ -70,12 +70,12 @@
     <label for="provincie">Provincie</label>
     <select name="provincie" id="provincie">
       <option value="">--- kies uw provincie ---</option>
-      <option value="Provincie Vlaams-Brabant">Provincie Vlaams-Brabant</option>
-      <option value="Provincie Henegouwen">Provincie Henegouwen</option>
-      <option value="Provincie Luik">Provincie Luik</option>
-      <option value="Provincie Namen">Provincie Namen</option>
-      <option value="Provincie West-Vlaanderen">Provincie West-Vlaanderen</option>
-      <option value="Provincie Oost-Vlaanderen">Provincie Oost-Vlaanderen</option>
+      <option value="Vlaams-Brabant">Provincie Vlaams-Brabant</option>
+      <option value="Henegouwen">Provincie Henegouwen</option>
+      <option value="Luik">Provincie Luik</option>
+      <option value="Namen">Provincie Namen</option>
+      <option value="West-Vlaanderen">Provincie West-Vlaanderen</option>
+      <option value="Oost-Vlaanderen">Provincie Oost-Vlaanderen</option>
       <option value="Provincie Limburg">Provincie Limburg</option>
       <option value="Provincie Antwerpen">Provincie Antwerpen</option>
       <option value="Provincie Luxemburg">Provincie Luxemburg</option>
@@ -88,19 +88,19 @@
    
     
     </form>
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    
 
-    <button type="submit" class="registerbtn" onclick="return formValidation();">Register</button>
-  </div>
-</form>
+    <button type="submit" class="button" onclick="return formValidation();">Register</button>
+    
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
   <div class="container signin">
     <p>Already have an account? 
-      <a href="login.html">Login</button>
+        <a href="login.html">Login</a>
      
     </p>
   </div>
 
 
-
+</section>
 </body>
 </html>
