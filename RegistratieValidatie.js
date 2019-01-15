@@ -1,6 +1,8 @@
+var profielData={};
 function formValidation() {
     var uid = document.registratie.nickname;
-  
+   // console.log(document.registratie[0].name);
+    //console.log(document.registratie[0].value);
     var uname1 = document.registratie.voornaam;
     var uname2 = document.registratie.familienaam;
     var brp = document.registratie.beroep;
@@ -20,6 +22,7 @@ function formValidation() {
     var uprovincie = document.registratie.provincie;
     var ustadt = document.registratie.stadt;
     var upassid = document.registratie.passid;
+    var formElements=document.registratie;    
  //   console.log(upassid);
     // foto validatie op het einde van deze code
 
@@ -31,6 +34,7 @@ function formValidation() {
                     if (allLetter(uname2)) {
                         if (beroep_validation(brp, 5, 12)) {
                             if (allLetter(brp)) {
+                                if (validateEmail(uemail)) {
                                 if (geboorteDatum_validation(ugebdat)) {
                                     //if (alphanumeric(uadd)) {
                                     if (allnumeric(uleftijd)) {
@@ -38,13 +42,20 @@ function formValidation() {
                                             if (allnumeric(ugrootte)) {
                                                 if (haarSelect(uhaar)) {
                                                     if (ogenSelect(uogen)) {
-                                                        if (validateEmail(uemail)) {
+                                                        
                                                             if (validateGeslacht(umsex, ufsex)) {
                                                                 if (lichaamsBouwSelect(ulichaam)) {
                                                                     if (provincieSelect(uprovincie)) {
                                                                         if (stadt_validation(ustadt, 7, 15)) {
                                                                             if (allLetter(ustadt)) {
-                                                                                if (passid_validation(upassid, 7, 12)) {}
+                                                                                if (passid_validation(upassid, 7, 12)) {
+                                                                                    for (var i=0; i<document.registratie.length; i++)
+                                                                                    console.log(document.registratie[i].name);
+                                                                                    if (document.registratie[i].type!="submit") 
+                                                                                        profielData[document.registratie[i].name]=document.registratie[i].value;
+                                                                                        localStorage.setItem('session', JSON.stringify(profielData));
+
+                                                                                }
                                                                             }
                                                                         }
                                                                     }
@@ -71,6 +82,7 @@ function formValidation() {
 
 function nickname_validation(uid, mx, my) {
     var uid_len = uid.value.length;
+  //  console.log(uid_len);
     if (uid_len == 0 || uid_len >= my || uid_len < mx) {
         alert("Nickname should not be empty / length be between " + mx + " to " + my);
         uid.focus();
@@ -81,6 +93,7 @@ function nickname_validation(uid, mx, my) {
 
 function voornaam_validation(uname1, mx, my) {
     var uname1_len = uname1.value.length;
+ //   console.log(uname1_len);
     if (uname1_len == 0 || uname1_len >= my || uname1_len < mx) {
         alert("Voornaam should not be empty / length be between " + mx + " to " + my);
         uname1.focus();
@@ -101,6 +114,7 @@ function familienaam_validation(uname2, mx, my) {
 
 
 function beroep_validation(brp, mx, my) {
+    console.log("beroep",brp);
     var brp_len = brp.value.length;
     if (brp_len == 0 || brp_len >= my || brp_len < mx) {
         alert("Beroep should not be empty / length be between " + mx + " to " + my);
@@ -126,7 +140,7 @@ function geboorteDatum_validation(ugebdat) {
 
     // First check for the pattern
     var regex_date = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
-    console.log(ugebdat);
+    //console.log(ugebdat);
     if (!regex_date.test(ugebdat)) {
        // console.log(ugebdat);
          return false;
@@ -136,6 +150,7 @@ function geboorteDatum_validation(ugebdat) {
 
     // Parse the date parts to integers
     var parts = ugebdat.split("-");
+   // console.log(parts);
     var day = parseInt(parts[2], 10);
     var month = parseInt(parts[1], 10);
     var year = parseInt(parts[0], 10);
@@ -162,6 +177,7 @@ function geboorteDatum_validation(ugebdat) {
 
 // ook voor ugewicht en ugrootte
 function allnumeric(uleftijd) {
+    
     var numbers = /^[0-9]+$/;
     if (uleftijd.value.match(numbers)) {
         return true;
@@ -186,7 +202,7 @@ function allLetter(uname) {
 
 function haarSelect(uhaar) {
     if (uhaar.value == "Default") {
-        alert('Select your country from the list');
+        alert('Kiez uw haar van de lijst');
         uhaar.focus();
         return false;
     } else {
@@ -196,7 +212,7 @@ function haarSelect(uhaar) {
 
 function ogenSelect(uogen) {
     if (uogen.value == "Default") {
-        alert('Select your country from the list');
+        alert('Kiez uw ogen van de lijst');
         uogen.focus();
         return false;
     } else {
@@ -206,6 +222,8 @@ function ogenSelect(uogen) {
 
 
 function validateEmail(uemail) {
+   
+console.log("email",uemail);
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (uemail.value.match(mailformat)) {
         return true;
