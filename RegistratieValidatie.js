@@ -1,5 +1,9 @@
+var profielData = {};
+
 function formValidation() {
     var uid = document.registratie.nickname;
+    // console.log(document.registratie[0].name);
+    //console.log(document.registratie[0].value);
     var uname1 = document.registratie.voornaam;
     var uname2 = document.registratie.familienaam;
     var brp = document.registratie.beroep;
@@ -19,6 +23,7 @@ function formValidation() {
     var uprovincie = document.registratie.provincie;
     var ustadt = document.registratie.stadt;
     var upassid = document.registratie.passid;
+    var formElements = document.registratie;
     //   console.log(upassid);
     // foto validatie op het einde van deze code
 
@@ -43,7 +48,14 @@ function formValidation() {
                                                                     if (provincieSelect(uprovincie)) {
                                                                         if (stadt_validation(ustadt, 7, 15)) {
                                                                             if (allLetter(ustadt)) {
-                                                                                if (passid_validation(upassid, 7, 12)) {}
+                                                                                if (passid_validation(upassid, 7, 12)) {
+                                                                                    for (var i = 0; i < document.registratie.length; i++)
+                                                                                        console.log(document.registratie[i].name);
+                                                                                    if (document.registratie[i].type != "submit")
+                                                                                        profielData[document.registratie[i].name] = document.registratie[i].value;
+                                                                                    localStorage.setItem('session', JSON.stringify(profielData));
+
+                                                                                }
                                                                             }
                                                                         }
                                                                     }
@@ -70,6 +82,7 @@ function formValidation() {
 
 function nickname_validation(uid, mx, my) {
     var uid_len = uid.value.length;
+    //  console.log(uid_len);
     if (uid_len == 0 || uid_len >= my || uid_len < mx) {
         alert("Nickname should not be empty / length be between " + mx + " to " + my);
         uid.focus();
@@ -80,6 +93,7 @@ function nickname_validation(uid, mx, my) {
 
 function voornaam_validation(uname1, mx, my) {
     var uname1_len = uname1.value.length;
+    //   console.log(uname1_len);
     if (uname1_len == 0 || uname1_len >= my || uname1_len < mx) {
         alert("Voornaam should not be empty / length be between " + mx + " to " + my);
         uname1.focus();
@@ -121,11 +135,11 @@ function beroep_validation(brp, mx, my) {
 }*/
 
 
-/*function geboorteDatum_validation(ugebdat) {
+function geboorteDatum_validation(ugebdat) {
 
     // First check for the pattern
     var regex_date = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
-    console.log(ugebdat);
+    //console.log(ugebdat);
     if (!regex_date.test(ugebdat)) {
         // console.log(ugebdat);
         return false;
@@ -135,6 +149,7 @@ function beroep_validation(brp, mx, my) {
 
     // Parse the date parts to integers
     var parts = ugebdat.split("-");
+    // console.log(parts);
     var day = parseInt(parts[2], 10);
     var month = parseInt(parts[1], 10);
     var year = parseInt(parts[0], 10);
@@ -142,6 +157,7 @@ function beroep_validation(brp, mx, my) {
     // Check the ranges of month and year
     if (year < 1000 || year > 3000 || month == 0 || month > 12) {
         alert("blalblalala ");
+
         return false;
     }
 
@@ -154,7 +170,7 @@ function beroep_validation(brp, mx, my) {
 
     // Check the range of the day
     return day > 0 && day <= monthLength[month - 1];
-}*/
+}
 
 function geboorteDatum_validation() {
     var lblError = document.getElementById("lblError");
@@ -223,7 +239,7 @@ function allLetter(uname) {
 
 function haarSelect(uhaar) {
     if (uhaar.value == "Default") {
-        alert('Select haarKleur from the list');
+        alert('Kiez uw haar van de lijst');
         uhaar.focus();
         return false;
     } else {
@@ -233,7 +249,7 @@ function haarSelect(uhaar) {
 
 function ogenSelect(uogen) {
     if (uogen.value == "Default") {
-        alert('Select ogenKleur from the list');
+        alert('Kiez uw ogen van de lijst');
         uogen.focus();
         return false;
     } else {
@@ -275,7 +291,7 @@ function validateGeslacht(umsex, ufsex) {
 
 function lichaamsBouwSelect(ulichaam) {
     if (ulichaam.value == "Default") {
-        alert('Select lichaamsbouw from the list');
+        alert('Select your country from the list');
         ulichaam.focus();
         return false;
     } else {
@@ -285,7 +301,7 @@ function lichaamsBouwSelect(ulichaam) {
 
 function provincieSelect(uprovincie) {
     if (uprovincie.value == "Default") {
-        alert('Select provincie from the list');
+        alert('Select your country from the list');
         uprovincie.focus();
         return false;
     } else {
@@ -296,7 +312,7 @@ function provincieSelect(uprovincie) {
 function stadt_validation(uid, mx, my) {
     var uid_len = uid.value.length;
     if (uid_len == 0 || uid_len >= my || uid_len < mx) {
-        alert("Stadt should not be empty / length be between " + mx + " to " + my);
+        alert("Familienaam should not be empty / length be between " + mx + " to " + my);
         uid.focus();
         return false;
     }

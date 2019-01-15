@@ -1,21 +1,18 @@
-var personen={}
+
 function validate(){
-var username = document.getElementById("username").value;
-var password = document.getElementById("password").value;
-if ( username == "Formget" && password == "formget#123"){
-alert ("Login successfully");
-window.location = "success.html"; // Redirecting to other page.
-return false;
+    var restoredSession = JSON.parse(localStorage.getItem('session'));
+    console.log(restoredSession[0].email,"  , ", restoredSession[0].wachtwoord);
+  //  localStorage.getItem('session', JSON.stringify(profielData));
+var username = document.getElementsByTagName("form")[0].email.value;
+var password = document.getElementsByTagName("form")[0].passid.value;
+console.log(username);
+//console.log(password);
+if (username == restoredSession[0].email && password == restoredSession[0].wachtwoord){
+    window.location.href = "private.html"; // Redirecting to other page.
 }
-else{
-attempt --;// Decrementing by one.
-alert("You have left "+attempt+" attempt;");
+
+alert("You have entered wrong username or password;");
 // Disabling fields after 3 attempts.
-if( attempt == 0){
-document.getElementById("username").disabled = true;
-document.getElementById("password").disabled = true;
-document.getElementById("submit").disabled = true;
-return false;
-}
-}
+
+
 }
