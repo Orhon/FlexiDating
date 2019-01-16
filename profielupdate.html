@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" />
+<link href="css/main_css.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="js/responsive_design.js"> </script>
+<link rel="stylesheet" href="css/main_css.css">
+<link rel="stylesheet" href="css/zoeken.css">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Flexidating - Profiel</title>
+</head>
+
+<body>
+  <div class="clearfix">
+    <div class="login clear">
+      <div class="box responsive">
+        <div class="image-box responsive">
+          <div class="image-text">
+            <h1>FLEXIDATING</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <nav class="topmenu" id="responseMenu1">
+        <ul>
+          <li><br></li>
+          <li><br></li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="zoeken.html">Zoeken</a></li>
+          <li><a href="profielwijzig.htm">Jouw Profiel</a></li>
+          <li><a href="login.html">login</a></li>
+          <li><a href="registratie.html">registreer</a></li>
+          <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></a></i></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <div id="containerProfiel">
+    <form id="wijzig">
+      <p>
+        <img id="foto" src="" alt="" width="150px" height="auto">
+      </p>
+      <p>
+        <label>Nickname</label><input type="text" name="nickname" id="nickname">
+      </p>
+      <p>
+        <label>Voornaam</label><input type="text" name="voornaam" id="voornaam">
+      </p>
+      <p>
+        <label>Familienaam</label><input type="text" name="familienaam" id="familienaam">
+      </p>
+
+      <p>
+        <label>Beroep</label><input type="text" name="beroep" id="beroep">
+      </p>
+      <p>
+        <label>Email</label><input type="text" name="email" id="email">
+      </p>
+      <p>
+        <label>GeboorteDatum </label><input type="text" name="geboorteDatum" id="geboorteDatum">
+      </p>
+      <p>
+        <label>LeefTijd </label><label id="leefTijd"></label>
+      </p>
+      <p>
+        <label>Gewicht</label><input type="text" name="gewicht" id="gewicht">
+      </p>
+      <p>
+        <label>Grootte</label><input type="text" name="grootte" id="grootte">
+      </p>
+      <p>
+        <label>Haar kleur</label>
+        <select id="haarKleur" name="haarKleur">
+          <option value="blond">blond</option>
+          <option value="brunete">brunete</option>
+          <option value="rood">rood</option>
+          <option value="zwart">zwart</option>
+          <option value="andere kleur">andere kleur</option>
+        </select>
+      </p>
+      <p>
+        <label>Oog kleur</label>
+        <select name="oogKleur" id="oogKleur">
+          <option value="blauw">blauw</option>
+          <option value="bruin">bruin</option>
+          <option value="zwart">zwart</option>
+          <option value="groen">groen</option>
+          <option value="andere kleur">andere kleur</option>
+        </select>
+      </p>
+      </p>
+      <p>
+        <label>Geslacht</label>
+        <select name="geslacht" id="geslacht">
+          <option value="m">man</option>
+          <option value="v">vrouw</option>
+        </select>
+      </p>
+      <p>
+        <label>Wachtwoord</label><input type="password" name="wachtwoord" id="wachtwoord">
+      </p>
+      <p>
+        <label>Lichaamsbouw </label>
+        <select name="lichaamsbouw" id="lichaamsbouw">
+          <option value="volslank">volslank</option>
+          <option value="atletisch">atletisch</option>
+          <option value="slank">slank</option>
+          <option value="normaal">normaal</option>
+        </select>
+      </p>
+      <p>
+        <label>Sterenbeld</label><label id="sterenbeeld"></label>
+      </p>
+      <p>
+        <label>Provincie</label>
+        <select name="provincie" id="provincie">
+          <option value="Antwerpen">Antwerpen</option>
+          <option value="Limburg">Limburg</option>
+          <option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
+          <option value="Vlaams-Brabant">Vlaams-Brabant</option>
+          <option value="West-Vlaanderen">West-Vlaanderen</option>
+          <option value="Henegouwen">Henegouwen</option>
+          <option value="Luik">Luik</option>
+          <option value="Luxemburg">Luxemburg</option>
+          <option value="Namen ">Namen </option>
+          <option value="Waals-Brabant">Waals-Brabant</option>
+
+        </select>
+      </p>
+      <p>
+        <label>Stadt</label><input type="text" name="stad" id="stad">
+      </p>
+      <p>
+        <label>Taal</label><select name="taal" id="taal">
+          <option value="nederlands">nederland</option>
+          <option value="frans">frans</option>
+          <option value="deuts">deuts</option>
+          <option value="engels">engels</option>
+        </select>
+      </p>
+      <button name="knopupdate" id="knopupdate">Update</button>
+
+
+    </form>
+  </div>
+  <script src="js/sterrenbeeld.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+  <script defer>
+    window.onload = function () {
+      var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
+
+      document.getElementById("nickname").value = user[0].nickname;
+      document.getElementById("voornaam").value = user[0].voornaam;
+      document.getElementById("familienaam").value = user[0].familienaam;
+      document.getElementById("foto").setAttribute('src', 'img/' + user[0].foto);
+      document.getElementById("beroep").value = user[0].beroep;
+      document.getElementById("email").value = user[0].email;
+      document.getElementById("geboorteDatum").value = user[0].geboortedatum;
+      //document.getElementById("foto").value = user[0].foto;
+
+      document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
+      document.getElementById("gewicht").value = user[0].gewicht;
+      document.getElementById("grootte").value = user[0].grootte;
+      document.getElementById("haarKleur").selectedIndex = getInformatie(user[0].haarkleur, "haarKleur");
+      document.getElementById("oogKleur").selectedIndex = getInformatie(user[0].oogkleur, "oogKleur");
+      document.getElementById("geslacht").selectedIndex = getInformatie(user[0].sexe, "geslacht");
+      document.getElementById("wachtwoord").value = user[0].wachtwoord;
+      document.getElementById("sterenbeeld").innerHTML = getSterrenbeeld(user[0].geboortedatum);
+      document.getElementById("provincie").value = getInformatie(user[0].provincie, "provincie");
+      document.getElementById("stad").value = user[0].stad;
+      document.getElementById("taal").selectedIndex = getInformatie(user[0].taal, "taal");
+
+
+      function getLeeftijd(gb) {
+        let y = gb.substring(0, 4);
+        let d = new Date().getFullYear();
+
+        return d - y;
+      }
+
+
+      function getInformatie(gG, type) {
+        var info = document.getElementById(type);
+        for (var i = 0; i < info.length; i++) {
+          if (gG == info.options[i].value) {
+            return i;
+          }
+        }
+      }
+
+      button1 = document.getElementById("knopupdate");
+      button1.addEventListener("çlick", function (e) {
+        updateMap.nickname = document.getElementById("nickname").value;
+        updateMap.voornaam = document.getElementById("voornaam").value;
+        updateMap.familienaam = document.getElementById("familienaam").value;
+        updateMap.FOTO = Document.getDatasetById("foto").getAtribute('alt');
+        updateMap.beroep = document.getElementById("beroep").value;
+        updateMap.email = document.getElementById("email").value;
+        updateMap.geboorteDatum = document.getElementById("geboorteDatum").value;
+        updateMap.gewicht = document.getElementById("gewicht").value;
+        updateMap.grootte = document.getElementById("grootte").value;
+        updateMap.haarKleur = document.getElementById("nickname").selectedIndex;
+        updateMap.oogKleur = document.getElementById("nickname").selectedIndex;
+        updateMap.geslacht = document.getElementById("nickname").selectedIndex;
+        updateMap.wachtwoord = document.getElementById("wachtwoord").value;
+        updateMap.provincie = document.getElementById("provincie").selectedIndex;
+        updateMap.stad = document.getElementById("stad").value;
+        scrumlib.updateDataset("56cae42a683485281caf5653", updateMap);
+
+      })
+
+    }
+  </script>
+</body>
+
+</html>

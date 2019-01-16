@@ -3,25 +3,22 @@ var profielData = {};
 function formValidation() {
     var uid = document.registratie.nickname;
     // console.log(document.registratie[0].name);
-    //console.log(document.registratie[0].value);
     var uname1 = document.registratie.voornaam;
     var uname2 = document.registratie.familienaam;
     var brp = document.registratie.beroep;
     var ugebdat = document.registratie.geboorteDatum;
-    // console.log(ugebdat);
-    var uleftijd = document.registratie.leeftijd;
+    //var uleftijd = document.registratie.leeftijd;
     var ugewicht = document.registratie.gewicht;
     var ugrootte = document.registratie.grootte;
     var uhaar = document.registratie.haarkleur;
     var uogen = document.registratie.oogkleur;
     var uemail = document.registratie.email;
     // console.log(uemail);
-
     var umsex = document.registratie.msex;
     var ufsex = document.registratie.fsex;
     var ulichaam = document.registratie.lichaamsbouw;
     var uprovincie = document.registratie.provincie;
-    var ustadt = document.registratie.stadt;
+    var ustad = document.registratie.stad;
     var upassid = document.registratie.passid;
     var formElements = document.registratie;
     //   console.log(upassid);
@@ -29,26 +26,27 @@ function formValidation() {
 
 
     if (nickname_validation(uid, 5, 12)) {
-        if (voornaam_validation(uname1, 7, 15)) {
+        if (voornaam_validation(uname1, 3, 15)) {
             if (allLetter(uname1)) {
-                if (familienaam_validation(uname2, 7, 15)) {
+                if (familienaam_validation(uname2, 3, 15)) {
                     if (allLetter(uname2)) {
                         if (beroep_validation(brp, 5, 12)) {
                             if (allLetter(brp)) {
                                 if (geboorteDatum_validation(ugebdat)) {
                                     //if (alphanumeric(uadd)) {
-                                    if (allnumeric(uleftijd)) {
-                                        if (allnumeric(ugewicht)) {
-                                            if (allnumeric(ugrootte)) {
-                                                if (haarSelect(uhaar)) {
-                                                    if (ogenSelect(uogen)) {
-                                                        if (validateEmail(uemail)) {
-                                                            if (validateGeslacht(umsex, ufsex)) {
-                                                                if (lichaamsBouwSelect(ulichaam)) {
-                                                                    if (provincieSelect(uprovincie)) {
-                                                                        if (stadt_validation(ustadt, 7, 15)) {
-                                                                            if (allLetter(ustadt)) {
-                                                                                if (passid_validation(upassid, 7, 12)) {
+                                    // if (allnumeric(uleftijd)) {
+                                    if (allnumeric(ugewicht)) {
+                                        if (allnumeric(ugrootte)) {
+                                            if (haarSelect(uhaar)) {
+                                                if (ogenSelect(uogen)) {
+                                                    if (validateEmail(uemail)) {
+                                                        if (validateGeslacht(umsex, ufsex)) {
+                                                            if (lichaamsBouwSelect(ulichaam)) {
+                                                                if (provincieSelect(uprovincie)) {
+                                                                    if (stad_validation(ustad, 4, 15)) {
+                                                                        if (allLetter(ustad)) {
+                                                                            if (passid_validation(upassid, 7, 12)) {
+                                                                                if (ValidateFileUpload()) {
                                                                                     for (var i = 0; i < document.registratie.length; i++)
                                                                                         console.log(document.registratie[i].name);
                                                                                     if (document.registratie[i].type != "submit")
@@ -59,6 +57,7 @@ function formValidation() {
                                                                             }
                                                                         }
                                                                     }
+                                                                    //   }
                                                                 }
                                                             }
                                                         }
@@ -75,10 +74,10 @@ function formValidation() {
             }
         }
     }
-
     return false;
 
 }
+
 
 function nickname_validation(uid, mx, my) {
     var uid_len = uid.value.length;
@@ -134,56 +133,18 @@ function beroep_validation(brp, mx, my) {
     }
 }*/
 
-
-function geboorteDatum_validation(ugebdat) {
-
-    // First check for the pattern
-    var regex_date = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
-    //console.log(ugebdat);
-    if (!regex_date.test(ugebdat)) {
-        // console.log(ugebdat);
-        return false;
-
-
-    }
-
-    // Parse the date parts to integers
-    var parts = ugebdat.split("-");
-    // console.log(parts);
-    var day = parseInt(parts[2], 10);
-    var month = parseInt(parts[1], 10);
-    var year = parseInt(parts[0], 10);
-
-    // Check the ranges of month and year
-    if (year < 1000 || year > 3000 || month == 0 || month > 12) {
-        alert("blalblalala ");
-
-        return false;
-    }
-
-    var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-    // Adjust for leap years
-    if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
-        monthLength[1] = 29;
-    }
-
-    // Check the range of the day
-    return day > 0 && day <= monthLength[month - 1];
-}
-
 function geboorteDatum_validation() {
     var lblError = document.getElementById("lblError");
 
     //Get the date from the TextBox.
     var dateString = document.getElementById("geboorteDatum").value;
-    var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
-    //var regex = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
+    //var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+    var regex = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
 
     //Check whether valid dd/MM/yyyy Date Format.
     if (regex.test(dateString)) {
-        var parts = dateString.split("/");
-        var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
+        var parts = dateString.split("-");
+        var dtDOB = new Date(parts[0] + "-" + parts[1] + "-" + parts[2]);
         var dtCurrent = new Date();
         lblError.innerHTML = "Eligibility 18 years ONLY."
         if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
@@ -206,12 +167,10 @@ function geboorteDatum_validation() {
         lblError.innerHTML = "";
         return true;
     } else {
-        lblError.innerHTML = "Enter date in dd/MM/yyyy format ONLY."
+        lblError.innerHTML = "Enter date in dd-MM-yyyy format ONLY."
         return false;
     }
 }
-
-
 
 // ook voor uleftijd, ugewicht en ugrootte
 function allnumeric(unummer) {
@@ -219,7 +178,7 @@ function allnumeric(unummer) {
     if (unummer.value.match(numbers)) {
         return true;
     } else {
-        alert('Leftijd must have numeric characters only');
+        alert('Fill in all fileds. Some fields must have numeric characters only');
         unummer.focus();
         return false;
     }
@@ -230,7 +189,7 @@ function allLetter(uname) {
     if (uname.value.match(letters)) {
         return true;
     } else {
-        alert('Username must have alphabet characters only');
+        alert('Fill in all fileds. Some fields must have alphabet characters only');
         uname.focus();
         return false;
     }
@@ -257,13 +216,12 @@ function ogenSelect(uogen) {
     }
 }
 
-
 function validateEmail(uemail) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
     if (uemail.value.match(mailformat)) {
         return true;
     } else {
-        alert("You have entered an invalid email address!");
+        alert("You have entered an invalid email address or NO address!");
         uemail.focus();
         return false;
     }
@@ -283,15 +241,15 @@ function validateGeslacht(umsex, ufsex) {
         umsex.focus();
         return false;
     } else {
-        alert('Form Succesfully Submitted');
-        window.location.reload()
+        //alert('Form Succesfully Submitted');
+        //window.location.reload()
         return true;
     }
 }
 
 function lichaamsBouwSelect(ulichaam) {
     if (ulichaam.value == "Default") {
-        alert('Select your country from the list');
+        alert('Select uw lichamsbouw from the list');
         ulichaam.focus();
         return false;
     } else {
@@ -301,7 +259,7 @@ function lichaamsBouwSelect(ulichaam) {
 
 function provincieSelect(uprovincie) {
     if (uprovincie.value == "Default") {
-        alert('Select your country from the list');
+        alert('Select your provincie from the list');
         uprovincie.focus();
         return false;
     } else {
@@ -309,11 +267,11 @@ function provincieSelect(uprovincie) {
     }
 }
 
-function stadt_validation(uid, mx, my) {
-    var uid_len = uid.value.length;
-    if (uid_len == 0 || uid_len >= my || uid_len < mx) {
-        alert("Familienaam should not be empty / length be between " + mx + " to " + my);
-        uid.focus();
+function stad_validation(ustad, mx, my) {
+    var ustad_len = ustad.value.length;
+    if (ustad_len == 0 || ustad_len >= my || ustad_len < mx) {
+        alert("Stad should not be empty / length be between " + mx + " to " + my);
+        ustad.focus();
         return false;
     }
     return true;
@@ -330,11 +288,12 @@ function passid_validation(upassid, mx, my) {
     return true;
 }
 
+
 function ValidateFileUpload() {
     var fuData = document.getElementById('fileChooser');
     var FileUploadPath = fuData.value;
 
-    //To check if user uploaded any file
+    //To check if user upload any file
     if (FileUploadPath == '') {
         alert("Please upload an image");
 
