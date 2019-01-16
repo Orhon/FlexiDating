@@ -3,13 +3,11 @@ var profielData = {};
 function formValidation() {
     var uid = document.registratie.nickname;
     // console.log(document.registratie[0].name);
-    //console.log(document.registratie[0].value);
     var uname1 = document.registratie.voornaam;
     var uname2 = document.registratie.familienaam;
     var brp = document.registratie.beroep;
     var ugebdat = document.registratie.geboorteDatum;
-    // console.log(ugebdat);
-    var uleftijd = document.registratie.leeftijd;
+    //var uleftijd = document.registratie.leeftijd;
     var ugewicht = document.registratie.gewicht;
     var ugrootte = document.registratie.grootte;
     var uhaar = document.registratie.haarkleur;
@@ -21,7 +19,7 @@ function formValidation() {
     var ufsex = document.registratie.fsex;
     var ulichaam = document.registratie.lichaamsbouw;
     var uprovincie = document.registratie.provincie;
-    var ustadt = document.registratie.stadt;
+    var ustad = document.registratie.stad;
     var upassid = document.registratie.passid;
     var formElements = document.registratie;
     //   console.log(upassid);
@@ -37,7 +35,7 @@ function formValidation() {
                             if (allLetter(brp)) {
                                 if (geboorteDatum_validation(ugebdat)) {
                                     //if (alphanumeric(uadd)) {
-                                    if (allnumeric(uleftijd)) {
+                                   // if (allnumeric(uleftijd)) {
                                         if (allnumeric(ugewicht)) {
                                             if (allnumeric(ugrootte)) {
                                                 if (haarSelect(uhaar)) {
@@ -46,9 +44,10 @@ function formValidation() {
                                                             if (validateGeslacht(umsex, ufsex)) {
                                                                 if (lichaamsBouwSelect(ulichaam)) {
                                                                     if (provincieSelect(uprovincie)) {
-                                                                        if (stadt_validation(ustadt, 7, 15)) {
-                                                                            if (allLetter(ustadt)) {
+                                                                        if (stad_validation(ustad, 7, 15)) {
+                                                                            if (allLetter(ustad)) {
                                                                                 if (passid_validation(upassid, 7, 12)) {
+                                                                                    //if (ValidateFileUpload()) {
                                                                                     for (var i = 0; i < document.registratie.length; i++)
                                                                                         console.log(document.registratie[i].name);
                                                                                     if (document.registratie[i].type != "submit")
@@ -59,7 +58,7 @@ function formValidation() {
                                                                             }
                                                                         }
                                                                     }
-                                                                }
+                                                             //   }
                                                             }
                                                         }
                                                     }
@@ -75,10 +74,11 @@ function formValidation() {
             }
         }
     }
-
+//}
     return false;
 
 }
+
 
 function nickname_validation(uid, mx, my) {
     var uid_len = uid.value.length;
@@ -135,7 +135,7 @@ function beroep_validation(brp, mx, my) {
 }*/
 
 
-function geboorteDatum_validation(ugebdat) {
+/*function geboorteDatum_validation(ugebdat) {
 
     // First check for the pattern
     var regex_date = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
@@ -170,7 +170,7 @@ function geboorteDatum_validation(ugebdat) {
 
     // Check the range of the day
     return day > 0 && day <= monthLength[month - 1];
-}
+}*/
 
 function geboorteDatum_validation() {
     var lblError = document.getElementById("lblError");
@@ -206,7 +206,7 @@ function geboorteDatum_validation() {
         lblError.innerHTML = "";
         return true;
     } else {
-        lblError.innerHTML = "Enter date in dd/MM/yyyy format ONLY."
+        lblError.innerHTML = "Enter date in dd-MM-yyyy format ONLY."
         return false;
     }
 }
@@ -219,7 +219,7 @@ function allnumeric(unummer) {
     if (unummer.value.match(numbers)) {
         return true;
     } else {
-        alert('Leftijd must have numeric characters only');
+        alert('Fill in all fileds. Some fields must have numeric characters only');
         unummer.focus();
         return false;
     }
@@ -230,7 +230,7 @@ function allLetter(uname) {
     if (uname.value.match(letters)) {
         return true;
     } else {
-        alert('Username must have alphabet characters only');
+        alert('Fill in all fileds. Some fields must have alphabet characters only');
         uname.focus();
         return false;
     }
@@ -263,7 +263,7 @@ function validateEmail(uemail) {
     if (uemail.value.match(mailformat)) {
         return true;
     } else {
-        alert("You have entered an invalid email address!");
+        alert("You have entered an invalid email address or NO address!");
         uemail.focus();
         return false;
     }
@@ -283,15 +283,15 @@ function validateGeslacht(umsex, ufsex) {
         umsex.focus();
         return false;
     } else {
-        alert('Form Succesfully Submitted');
-        window.location.reload()
+        //alert('Form Succesfully Submitted');
+        //window.location.reload()
         return true;
     }
 }
 
 function lichaamsBouwSelect(ulichaam) {
     if (ulichaam.value == "Default") {
-        alert('Select your country from the list');
+        alert('Select uw lichamsbouw from the list');
         ulichaam.focus();
         return false;
     } else {
@@ -301,7 +301,7 @@ function lichaamsBouwSelect(ulichaam) {
 
 function provincieSelect(uprovincie) {
     if (uprovincie.value == "Default") {
-        alert('Select your country from the list');
+        alert('Select your provincie from the list');
         uprovincie.focus();
         return false;
     } else {
@@ -309,11 +309,11 @@ function provincieSelect(uprovincie) {
     }
 }
 
-function stadt_validation(uid, mx, my) {
-    var uid_len = uid.value.length;
-    if (uid_len == 0 || uid_len >= my || uid_len < mx) {
-        alert("Familienaam should not be empty / length be between " + mx + " to " + my);
-        uid.focus();
+function stad_validation(ustad, mx, my) {
+    var ustad_len = ustad.value.length;
+    if (ustad_len == 0 || ustad_len >= my || ustad_len < mx) {
+        alert("Stad should not be empty / length be between " + mx + " to " + my);
+        ustad.focus();
         return false;
     }
     return true;
@@ -330,7 +330,7 @@ function passid_validation(upassid, mx, my) {
     return true;
 }
 
-function ValidateFileUpload() {
+/*function ValidateFileUpload() {
     var fuData = document.getElementById('fileChooser');
     var FileUploadPath = fuData.value;
 
@@ -366,4 +366,35 @@ function ValidateFileUpload() {
 
         }
     }
-}
+}*/
+
+/*function ValidateFileUpload() {
+    //debugger;
+    var fuData = document.getElementById('file');
+    var FileUploadPath = fuData.value;
+    var validExtensions = ['jpg','png','jpeg']; //array of valid extensions
+    var fileName = input.files[0].name;
+    var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
+
+    //To check if user upload any file
+    if (FileUploadPath == '') {
+        alert("Please upload an image");
+    } else {
+
+    if ($.inArray(fileNameExt, validExtensions) == -1) {
+        input.type = ''
+        input.type = 'file'
+        $('#user_img').attr('src',"");
+        alert("Only these file types are accepted : "+validExtensions.join(', '));
+    }
+    else
+    {
+    if (input.files && input.files[0]) {
+        var filerdr = new FileReader();
+        filerdr.onload = function (e) {
+            $('#user_img').attr('src', e.target.result);
+        }
+        filerdr.readAsDataURL(input.files[0]);
+    }
+    }
+}*/
