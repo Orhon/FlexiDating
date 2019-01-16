@@ -1,21 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div id="comments">
+        <div id="addComment">
+            <input type="text" id="txtComment">
+            <button id="knopComment">Comment</button>
+            <button id="knopCommentTonen">Toon comment</button>
+        </div>
+        <div id="commentsTonen">
 
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script async src="js/flexi_scrum_2.1.0.min.js"></script>
     <script defer>
-    scrumlib.addProperty("comment", "string", JSON.stringify([{"comment":"test","idVan":"56cae42a683485281caf5652","idNaar":"56cae42a683485281caf5653"},{"comment":"test","idVan":"56cae42a683485281caf5652","idNaar":"56cae42a683485281caf5653"}]));
-    var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
-    console.log(user);
-</script>
+        window.onload = function () {
+                scrumlib.addProperty("comment", "string", ""
+                // +JSON.stringify([{
+                //     "comment": "test",
+                //     "idVan": "56cae42a683485281caf5652",
+                //     "idNaar": "56cae42a683485281caf5653"
+                // }, {
+                //     "comment": "test",
+                //     "idVan": "56cae42a683485281caf5652",
+                //     "idNaar": "56cae42a683485281caf5653"
+                // }])
+                );
+                scrumlib.save();
+
+
+                var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
+                var user2 = scrumlib.getDatasetById("56cae42a683485281caf5657");
+                console.log(user);
+
+                var btnComment = document.getElementById("knopComment");
+                btnComment.addEventListener("click", function (e) {
+                    var comment = `{'comment' : '${document.getElementById("txtComment").value}' , 'idVan': '${user[0]._id}' , 'idNaar': '${user2[0]._id}'}`
+                    var updateMap = {};
+                    if (comment.value != "") {
+                        console.log( updateMap.comment = user[0].comment + comment);
+                        console.log(scrumlib.updateDataset(user[0]._id, updateMap));
+                        scrumlib.save();
+                    }
+                    
+                });
+
+                var btnCommentTonen = document.getElementById("knopCommentTonen");
+                btnCommentTonen.addEventListener("click", function (e) {
+                    var user3 = scrumlib.getDatasetById("56cae42a683485281caf5653");
+                    var comments = document.getElementById("commentsTonen");
+                    console.log(user3[0].comment);
+                    allcomments = JSON.parse(user3[0].comment);
+
+                    // for (let index = 0; index < allcomments; index++) {
+                    //     comments.innerHTML += allcomments[index];
+                        
+                    // }
+                });
+
+                //var user3 = scrumlib.getDatasetById("56cae42a683485281caf5653");
+                //console.log(scrumlib.getDatasetById("56cae42a683485281caf5653"))
+            }
+    </script>
 </body>
+
 </html>
