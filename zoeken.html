@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Flexidating - zoeken</title>
     <link rel="stylesheet" href="css/main_css.css">
-    <link rel="stylesheet" href="css/zoeken.css">
 </head>
 
 <body>
@@ -21,12 +20,12 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <header>
                         <nav class="topmenu" id="responseMenu1">
-                            <ul>          
-                                <li><br></li>      
-                                <li><br></li>     
+                            <ul>
+                                <li><br></li>
+                                <li><br></li>
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="zoeken.html">Zoeken</a></li>
                                 <li><a href="profielupdate.html">Jouw Profiel</a></li>
@@ -134,9 +133,9 @@
 
                     <div class="clearfix">
                         <h1>Ontdek enkele van onze vrijgezellen!</h1>
-                        
+
                         <div id="gallery" class="gallery">
-                                                   
+
                         </div>
                         <h1><a href="registratie.html">Registreer hier!</a></h1>
                     </div>
@@ -149,7 +148,7 @@
 <script defer>
     button1 = document.getElementById("knopzoek");
     button1.addEventListener("click", function (e) {
-        
+
         var searchMap = {};
         var conditions = [];
         var egeslacht = document.getElementById("zoek_sexe");
@@ -215,7 +214,7 @@
 
 
         if (!fieldisleeg(minLeeftijd) && !fieldisleeg(maxLeeftijd)) {
-            // alle twee velden ingevuld            
+            // alle twee velden ingevuld
             filteredLeeftijd = filteredLeeftijd.filter(leeftijdCheck('<>'));
         } else {
             if (fieldisleeg(minLeeftijd) && !fieldisleeg(maxLeeftijd)) {
@@ -228,7 +227,7 @@
         }
 
         if (!fieldisleeg(minGrootte) && !fieldisleeg(maxGrootte)) {
-            // alle twee velden ingevuld                
+            // alle twee velden ingevuld
             filteredLeeftijd = filteredLeeftijd.filter(grootteCheck('<>'));
         } else {
             if (fieldisleeg(minGrootte) && !fieldisleeg(maxGrootte)) {
@@ -241,7 +240,7 @@
         }
 
         if (!fieldisleeg(minGewicht) && !fieldisleeg(maxGewicht)) {
-            // alle twee velden ingevuld            
+            // alle twee velden ingevuld
             filteredLeeftijd = filteredLeeftijd.filter(gewichtCheck('<>'));
         } else {
 
@@ -326,16 +325,16 @@
             container.innerHTML="";
 
             for (let index = 0; index < users.length; index++) {
-                
+
                 var div = document.createElement("div");
                 //legen
-                
+
                 var divInfoKopjes = document.createElement("div");
                 div.setAttribute('class',"kopjes");
                 divInfoKopjes.setAttribute('class',"infokopjes");
                 var img = document.createElement("img");
                 img.setAttribute('src',"img/" + users[index].foto);
-                
+
                 var pNickname = document.createElement('p');
                 pNickname.setAttribute('class',"userInfo nickname");
                 pNickname.innerHTML = users[index].nickname
@@ -356,12 +355,12 @@
                 divInfoKopjes.appendChild(pLeeftijd);
                 divInfoKopjes.appendChild(pStad);
                 div.appendChild(divInfoKopjes);
-                
+
                 container.appendChild(div);
-                
+
             }
 
-            
+
         }
 
     function fieldisleeg(field) {
