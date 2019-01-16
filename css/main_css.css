@@ -174,9 +174,9 @@ footer {
 
 .topmenu ul li a {
     display: block;
-    padding: 0.375em 0.5em;
+    padding: 0em 0.8em;
     /*6px 8px*/
-    /*border-right: 1px solid #58ec4e;*/
+    border-right: 1px solid #58ec4e;
     text-decoration: none;
     letter-spacing: 0.1em;
     color: white;
@@ -266,7 +266,7 @@ section h3 {
     background-color: #4e6078;
     margin: 0.6em;
     float: left;
-    width: 30em;
+    width: 27em;
 }
 
 .kopjes img {
@@ -279,7 +279,7 @@ section h3 {
 
 .infokopjes {
     background: white;
-    font-size: 1em;
+    font-size: 0.9em;
 
     text-align: right;
     color: #4e6078;
@@ -393,7 +393,17 @@ form img {
     width: 300px;
 }
 
+/********************/
+/*--- REGISTER PAGES ---*/
+/********************/
 
+.form-group img{
+    height: 5em;
+    width: auto;
+    border: solid 1px #4e6078;
+    padding: 0.3em;
+    opacity: 66%;
+}
 
 /********************/
 /*--- FORMLAYOUT ---*/

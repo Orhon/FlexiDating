@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" />
+<html lang="en" >
 <link href="css/main_css.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="js/responsive_design.js"> </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
+<script src="RegistratieValidatie.js"> </script>
 
 <head>
     <meta charset="UTF-8">
@@ -27,20 +29,20 @@
         <header>
             <nav class="topmenu" id="responseMenu1">
                 <ul>          
-                    <li><br></li>      
-                    <li><br></li>     
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="zoeken.html">Zoeken</a></li>
-                    <li><a href="profielupdate.html">Jouw Profiel</a></li>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="zoeken.html">zoeken</a></li>
+                    <li><a href="profielupdate.html">jouw profiel</a></li>
                     <li><a href="login.html">login</a></li>
                     <li><a href="registratie.html">registreer</a></li>
-                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></a></i></li>
+                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
                 </ul>
             </nav>
         </header>
 
 <section>
-        <h1> Registratie Form </h1>
+        <h1> Registratie formulier </h1>
         Gebruik tab-toetsen om van het ene invoerveld naar het volgende te gaan.
     
         <form name='registratie' onSubmit="return formValidation();">
@@ -63,7 +65,7 @@
                 <input type="button" id="btnValidate" value="Validate" onclick="geboorteDatum_validation()" /></p>
             
         <p><label for="leeftijd" name="leeftijd" id="leeftijd"> Leeftijd </label>
-                <input type="text" name="leeftijd" id="leeftijd" /></p>
+               </p>
         
         <p><label for="gewicht"> Gewicht </label>
                 <input type="text" name="gewicht" id="gewicht" /></p>
@@ -143,8 +145,8 @@
 
         <p><label for="lovecoins" name="lovecoins" id="lovecoins"> Love Coins </label></p>
 
-        <p><label for="passid"> Wachtwoord </label>
-            <input type="password" placeholder="Enter Password" name="passid" required /></p>
+        <p><label for="wachtwoord"> Wachtwoord </label>
+            <input type="password" placeholder="Enter Password" name="wachtwoord" required /></p>
         </form>
     
     <p> Door een account aan te maken gaat u akkoord met onze <a href="#"> Terms & Privacy </a>.</p>

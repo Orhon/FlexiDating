@@ -9,6 +9,10 @@ function validate(){
   var password = document.getElementById('password').value;
  
   var id = scrumlib.login(username, password);
+  
+  document.cookie="id"+"="+id+ ";expires=" + 100;
+  console.log( document.cookie);
+   
   alert(id);
   //alert(id);
   if (scrumlib.login(username, password)){    
@@ -29,6 +33,6 @@ function validate(){
   
   //
   // Disabling fields after 3 attempts.
-  
+  console.log( document.cookie);
   
   }
