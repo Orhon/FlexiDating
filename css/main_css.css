@@ -398,9 +398,11 @@ form img {
 /********************/
 
 .form-group img{
-    height: 3em;
+    height: 5em;
     width: auto;
     border: solid 1px #4e6078;
+    padding: 0.3em;
+    opacity: 66%;
 }
 
 /********************/
