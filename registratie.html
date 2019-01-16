@@ -1,118 +1,163 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" />
+<link href="css/main_css.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
 <head>
-    <meta charset="utf-8">
-    <title> JavaScript Form Validation using a registration form </title>
-    <meta name="keywords" content="JavaScript Form Validation, registration form" />
-    <meta name="description" content="This document is a JavaScript Form Validation using a registration form. " />
-    <link rel="stylesheet" href="css/main_css.css" type='text/css' />
-    <script src="RegistratieValidatie.js">
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flexidating</title>
 </head>
 
 <body onload="document.registratie.nickname.focus();">
-    <h1> Registratie Form </h1>
-    Use tab keys to move from one input field to the next.
-
-    <form name='registratie' onSubmit="return formValidation();">
-        <p>
-            <p><label for="nickname"> Nickname </label>
-                <input type="text" name="nickname" id="nickname" /></p>
-            <p><label for="voornaam"> Voornaam </label>
-                <input type="text" name="voornaam" id="voornaam" /></p>
-            <p><label for="familienaam"> Familienaam </label>
-                <input type="text" name="familienaam" id="familienaam" /></p>
-            <p><label for="beroep"> Beroep </label>
-                <input type="text" name="beroep" id="beroep" /></p>
-            <p><label for="geboorteDatum"> GeboorteDatum </label>
-                <input type="text" name="geboorteDatum" id="geboorteDatum" onblur="geboorteDatum_validation()" />
-                <span class="error" id="lblError"> </span>
-                <br/>
-                <input type="button" id="btnValidate" value="Validate" onclick="geboorteDatum_validation()" />
-            </p>
-            <p><label for="leeftijd" name="leeftijd" id="leeftijd"> Leeftijd </label></p>
-            <p><label for="gewicht"> Gewicht </label>
-                <input type="text" name="gewicht" id="gewicht" /></p>
-            <p><label for="grootte"> Grootte </label>
-                <input type="text" name="grootte" id="grootte" /></p>
-            <p><label for="haarkleur"> Haar kleur </label>
-                <select name="haarkleur">
-        <option selected = "" value = "Default" > -- - kies uw haarkleur-- - </option> 
-        <option value = "blond" > blond </option> 
-        <option value = "brunete" > brunete </option> 
-        <option value = "rood" > rood </option> 
-        <option value = "zwart" > zwart </option> 
-        <option value = "andere kleur" > andere kleur </option> 
-        </select > </p>
-     <p><label for = "oogkleur" > Oog kleur </label> 
-        <select name = "oogkleur" >
-        <option selected = "" value = "Default" > -- - kies uw oogkleur-- - </option> 
-        <option value = "blauw" > blauw </option> 
-        <option value = "bruin" > bruin </option> 
-        <option value = "zwart" > zwart </option> 
-        <option value = "groen" > groen </option> 
-        <option value = "andere kleur" > andere kleur </option> 
-        </select > </p>
-     <p><label for = "email" > Email </label> 
-        <input type = "text" name = "email" id = "email" /></p>
-     <p><label id = "geslacht" > Geslacht </label> 
-        <input type="radio" name="msex" value="Male" /><span>Man</span>
-        <input type="radio" name="fsex" value="Female" /><span>Vrouw</span></p>
-        </select></p>
-            <p><label for="lichaamsbouw"> Lichaamsbouw </label>
-                <select name="lichaamsbouw">
-        <option selected = "" value = "Default" > -- - kies uw lichaamsbouw-- - </option>
-        <option value="volslank">volslank</option>
-        <option value="atletisch">atletisch</option>
-        <option value="slank">slank</option>
-        <option value="normaal">normaal</option>
-        </select > </p>
-     <p><label for = "provincie" > Provincie </label> 
-        <select name = "provincie" id = "provincie" >
-        <option selected = "" value = "Default" > -- - kies uw provincie-- - </option> 
-        <option value = "Provincie Vlaams-Brabant" > Provincie Vlaams - Brabant </option> 
-        <option value = "Provincie Henegouwen" > Provincie Henegouwen </option> 
-        <option value = "Provincie Luik" > Provincie Luik </option> 
-        <option value = "Provincie Namen" > Provincie Namen </option> 
-        <option value = "Provincie West-Vlaanderen" > Provincie West - Vlaanderen </option> 
-        <option value = "Provincie Oost-Vlaanderen" > Provincie Oost - Vlaanderen </option> 
-        <option value = "Provincie Limburg" > Provincie Limburg </option> 
-        <option value = "Provincie Antwerpen" > Provincie Antwerpen </option> 
-        <option value = "Provincie Luxemburg" > Provincie Luxemburg </option>
-        <option value = "Brussel-Hoofdstad" > Brussel - Hoofdstad </option> 
-        <option value = "Provincie Waals-Brabant" > Provincie Waals - Brabant </option> 
-        </select> </p>
-            <p><label for="stad"> Stad </label>
-                <input type="text" name="stad" id="stad" /></p>
-            <!--
-                comment
-                -->
-            <p>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-                <div class="form-group">
-                    Upload Your Image
-                    <div class="col-md-10">
-                        <div>
-                            <img src="'#user_img'" id="blah" height="130" width="130" style="border:solid" />
-                        </div>
-                        <div>
-                            <input type="file" name="dataFile" id="fileChooser" onchange="ValidateFileUpload()" />
-                        </div>
+    <div class="clearfix">
+        <div class="login clear">
+            <div class="box responsive">
+                <div class="image-box responsive">
+                    <div class="image-text">
+                        <h1>FLEXIDATING</h1>
                     </div>
                 </div>
-            </p>
+            </div>
+        </div>
 
+        <header>
+            <nav class="topmenu" id="responseMenu1">
+                <ul>          
+                    <li><br></li>      
+                    <li><br></li>     
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="zoeken.html">Zoeken</a></li>
+                    <li><a href="profielupdate.html">Jouw Profiel</a></li>
+                    <li><a href="login.html">login</a></li>
+                    <li><a href="registratie.html">registreer</a></li>
+                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></a></i></li>
+                </ul>
+            </nav>
+        </header>
 
-            <p><label for="passid"> Password </label>
-                <input type="password" placeholder="Enter Password" name="passid" required /></p>
-    </form>
-    <p> By creating an account you agree to our <a href="#"> Terms & Privacy </a>.</p>
-    <button type="submit" class="registerbtn" onclick="return formValidation();"> Register </button>
-    <div class="container signin">
-        <p> Already have an account ?
-            <a href="login.html"> Login </button> </a>
-        </p>
+<section>
+        <h1> Registratie Form </h1>
+        Gebruik tab-toetsen om van het ene invoerveld naar het volgende te gaan.
+    
+        <form name='registratie' onSubmit="return formValidation();">
+        <p><label for="nickname"> Nickname </label>
+                <input type="text" name="nickname" id="nickname" /></p>
+            
+        <p><label for="voornaam"> Voornaam </label>
+                <input type="text" name="voornaam" id="voornaam" /></p>
+        
+        <p><label for="familienaam"> Familienaam </label>
+                <input type="text" name="familienaam" id="familienaam" /></p>
+            
+        <p><label for="beroep"> Beroep </label>
+                <input type="text" name="beroep" id="beroep" /></p>
+            
+        <p><label for="geboorteDatum"> Geboortedatum </label>
+                <input type="text" name="geboorteDatum" id="geboorteDatum" onblur="geboorteDatum_validation()" />
+                <span class="error" id="lblError"> </span>
+                <br />
+                <input type="button" id="btnValidate" value="Validate" onclick="geboorteDatum_validation()" /></p>
+            
+        <p><label for="leeftijd" name="leeftijd" id="leeftijd"> Leeftijd </label>
+                <input type="text" name="leeftijd" id="leeftijd" /></p>
+        
+        <p><label for="gewicht"> Gewicht </label>
+                <input type="text" name="gewicht" id="gewicht" /></p>
+            
+        <p><label for="grootte"> Grootte </label>
+                <input type="text" name="grootte" id="grootte" /></p>
+            
+        <p><label for="haarkleur"> Haarkleur </label>
+                <select name="haarkleur">
+                    <option selected="" value="Default"> -- - kies uw haarkleur-- - </option>
+                    <option value="blond"> blond </option>
+                    <option value="brunette"> brunete </option>
+                    <option value="rood"> rood </option>
+                    <option value="zwart"> zwart </option>
+                    <option value="andere kleur"> andere kleur </option>
+                </select> </p>
+            
+        <p><label for="oogkleur"> Oogkleur </label>
+                <select name="oogkleur">
+                    <option selected="" value="Default"> -- - kies uw oogkleur-- - </option>
+                    <option value="blauw"> blauw </option>
+                    <option value="bruin"> bruin </option>
+                    <option value="zwart"> zwart </option>
+                    <option value="groen"> groen </option>
+                    <option value="andere kleur"> andere kleur </option>
+                </select> </p>
+            
+        <p><label for="email"> Email </label>
+                <input type="text" name="email" id="email" /></p>
+            
+        <p><label id="geslacht"> Geslacht </label>
+                <input type="radio" name="msex" value="Male" /><span>Man</span>
+                <input type="radio" name="fsex" value="Female" /><span>Vrouw</span></p>
+            
+        <p><label for="lichaamsbouw"> Lichaamsbouw </label>
+            <select name="lichaamsbouw">
+                <option selected="" value="Default"> -- - kies uw lichaamsbouw-- - </option>
+                <option value="volslank">volslank</option>
+                <option value="atletisch">atletisch</option>
+                <option value="slank">slank</option>
+                <option value="normaal">normaal</option>
+            </select> </p>
+            
+        <p><label for="provincie"> Provincie </label>
+            <select name="provincie" id="provincie">
+                <option selected="" value="Default"> -- - kies uw provincie-- - </option>
+                <option value="Provincie Vlaams-Brabant"> Vlaams-Brabant </option>
+                <option value="Provincie Henegouwen"> Henegouwen </option>
+                <option value="Provincie Luik"> Luik </option>
+                <option value="Provincie Namen"> Namen </option>
+                <option value="Provincie West-Vlaanderen"> West-Vlaanderen </option>
+                <option value="Provincie Oost-Vlaanderen"> Oost-Vlaanderen </option>
+                <option value="Provincie Limburg"> Limburg </option>
+                <option value="Provincie Antwerpen"> Antwerpen </option>
+                <option value="Provincie Luxemburg"> Luxemburg </option>
+                <option value="Brussel-Hoofdstad"> Brussel-Hoofdstad </option>
+                <option value="Provincie Waals-Brabant"> Waals-Brabant </option>
+            </select> </p>
+        
+        <p><label for="stad"> Stad </label>
+            <input type="text" name="stad" id="stad" /></p>
+            
+        
+            <div class="form-group">
+                Upload je foto
+                    <div class="col-md-10">
+                    <div>
+                        <img src="img/uploadicon.png" id="blah" height="130" width="130" style="border:solid" />
+                    </div>
+                        <input type="file" name="dataFile" id="fileChooser" onchange="ValidateFileUpload()" />
+                    </div>
+            </div>
+            
+
+        <p><label for="desc"> Opmerkingen </label>
+            <input type="text" placeholder="Enter comment" name="comment" /></p>
+
+        <p><label for="lovecoins" name="lovecoins" id="lovecoins"> Love Coins </label></p>
+
+        <p><label for="passid"> Wachtwoord </label>
+            <input type="password" placeholder="Enter Password" name="passid" required /></p>
+        </form>
+    
+    <p> Door een account aan te maken gaat u akkoord met onze <a href="#"> Terms & Privacy </a>.</p>
+    <button type="submit" class="registerbtn" onclick="return formValidation();"> Registreren </button>
+    <div class="container signin"></div>
+</section>
+    
+<footer>
+    <p>
+        &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+        <small>imagecredits: designed by www.freepik.com</small>
+    </p>
+</footer>
     </div>
 </body>
 
