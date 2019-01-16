@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title> JavaScript Form Validation using a registration form </title>
+    <title> JavaScript Registratie Form Validatie </title>
     <meta name="keywords" content="JavaScript Form Validation, registration form" />
     <meta name="description" content="This document is a JavaScript Form Validation using a registration form. " />
     <link rel="stylesheet" href="css/main_css.css" type='text/css' />
@@ -13,8 +13,7 @@
 
 <body onload="document.registratie.nickname.focus();">
     <h1> Registratie Form </h1>
-    Use tab keys to move from one input field to the next.
-
+    Gebruik tab-toetsen om van het ene invoerveld naar het volgende te gaan.
     <form name='registratie' onSubmit="return formValidation();">
         <p>
             <p><label for="nickname"> Nickname </label>
@@ -28,9 +27,8 @@
             <p><label for="geboorteDatum"> GeboorteDatum </label>
                 <input type="text" name="geboorteDatum" id="geboorteDatum" onblur="geboorteDatum_validation()" />
                 <span class="error" id="lblError"> </span>
-                <br/>
-                <input type="button" id="btnValidate" value="Validate" onclick="geboorteDatum_validation()" />
-            </p>
+                <br />
+                <input type="button" id="btnValidate" value="Validate" onclick="geboorteDatum_validation()" /></p>
             <p><label for="leeftijd" name="leeftijd" id="leeftijd"> Leeftijd </label></p>
             <p><label for="gewicht"> Gewicht </label>
                 <input type="text" name="gewicht" id="gewicht" /></p>
@@ -38,80 +36,86 @@
                 <input type="text" name="grootte" id="grootte" /></p>
             <p><label for="haarkleur"> Haar kleur </label>
                 <select name="haarkleur">
-        <option selected = "" value = "Default" > -- - kies uw haarkleur-- - </option> 
-        <option value = "blond" > blond </option> 
-        <option value = "brunete" > brunete </option> 
-        <option value = "rood" > rood </option> 
-        <option value = "zwart" > zwart </option> 
-        <option value = "andere kleur" > andere kleur </option> 
-        </select > </p>
-     <p><label for = "oogkleur" > Oog kleur </label> 
-        <select name = "oogkleur" >
-        <option selected = "" value = "Default" > -- - kies uw oogkleur-- - </option> 
-        <option value = "blauw" > blauw </option> 
-        <option value = "bruin" > bruin </option> 
-        <option value = "zwart" > zwart </option> 
-        <option value = "groen" > groen </option> 
-        <option value = "andere kleur" > andere kleur </option> 
-        </select > </p>
-     <p><label for = "email" > Email </label> 
-        <input type = "text" name = "email" id = "email" /></p>
-     <p><label id = "geslacht" > Geslacht </label> 
-        <input type="radio" name="msex" value="Male" /><span>Man</span>
-        <input type="radio" name="fsex" value="Female" /><span>Vrouw</span></p>
-        </select></p>
-            <p><label for="lichaamsbouw"> Lichaamsbouw </label>
-                <select name="lichaamsbouw">
-        <option selected = "" value = "Default" > -- - kies uw lichaamsbouw-- - </option>
-        <option value="volslank">volslank</option>
-        <option value="atletisch">atletisch</option>
-        <option value="slank">slank</option>
-        <option value="normaal">normaal</option>
-        </select > </p>
-     <p><label for = "provincie" > Provincie </label> 
-        <select name = "provincie" id = "provincie" >
-        <option selected = "" value = "Default" > -- - kies uw provincie-- - </option> 
-        <option value = "Provincie Vlaams-Brabant" > Provincie Vlaams - Brabant </option> 
-        <option value = "Provincie Henegouwen" > Provincie Henegouwen </option> 
-        <option value = "Provincie Luik" > Provincie Luik </option> 
-        <option value = "Provincie Namen" > Provincie Namen </option> 
-        <option value = "Provincie West-Vlaanderen" > Provincie West - Vlaanderen </option> 
-        <option value = "Provincie Oost-Vlaanderen" > Provincie Oost - Vlaanderen </option> 
-        <option value = "Provincie Limburg" > Provincie Limburg </option> 
-        <option value = "Provincie Antwerpen" > Provincie Antwerpen </option> 
-        <option value = "Provincie Luxemburg" > Provincie Luxemburg </option>
-        <option value = "Brussel-Hoofdstad" > Brussel - Hoofdstad </option> 
-        <option value = "Provincie Waals-Brabant" > Provincie Waals - Brabant </option> 
-        </select> </p>
-            <p><label for="stad"> Stad </label>
-                <input type="text" name="stad" id="stad" /></p>
-            <!--
+                    <option selected="" value="Default"> -- - kies uw haarkleur-- - </option>
+                    <option value="blond"> blond </option>
+                    <option value="brunete"> brunete </option>
+                    <option value="rood"> rood </option>
+                    <option value="zwart"> zwart </option>
+                    <option value="andere kleur"> andere kleur </option>
+                </select> </p>
+            <p><label for="oogkleur"> Oog kleur </label>
+                <select name="oogkleur">
+                    <option selected="" value="Default"> -- - kies uw oogkleur-- - </option>
+                    <option value="blauw"> blauw </option>
+                    <option value="bruin"> bruin </option>
+                    <option value="zwart"> zwart </option>
+                    <option value="groen"> groen </option>
+                    <option value="andere kleur"> andere kleur </option>
+                </select> </p>
+            <p><label for="email"> Email </label>
+                <input type="text" name="email" id="email" /></p>
+            <p><label id="geslacht"> Geslacht </label>
+                <input type="radio" name="msex" value="Male" /><span>Man</span>
+                <input type="radio" name="fsex" value="Female" /><span>Vrouw</span></p>
+            </select>
+        </p>
+        <p><label for="lichaamsbouw"> Lichaamsbouw </label>
+            <select name="lichaamsbouw">
+                <option selected="" value="Default"> -- - kies uw lichaamsbouw-- - </option>
+                <option value="volslank">volslank</option>
+                <option value="atletisch">atletisch</option>
+                <option value="slank">slank</option>
+                <option value="normaal">normaal</option>
+            </select> </p>
+        <p><label for="provincie"> Provincie </label>
+            <select name="provincie" id="provincie">
+                <option selected="" value="Default"> -- - kies uw provincie-- - </option>
+                <option value="Provincie Vlaams-Brabant"> Provincie Vlaams - Brabant </option>
+                <option value="Provincie Henegouwen"> Provincie Henegouwen </option>
+                <option value="Provincie Luik"> Provincie Luik </option>
+                <option value="Provincie Namen"> Provincie Namen </option>
+                <option value="Provincie West-Vlaanderen"> Provincie West - Vlaanderen </option>
+                <option value="Provincie Oost-Vlaanderen"> Provincie Oost - Vlaanderen </option>
+                <option value="Provincie Limburg"> Provincie Limburg </option>
+                <option value="Provincie Antwerpen"> Provincie Antwerpen </option>
+                <option value="Provincie Luxemburg"> Provincie Luxemburg </option>
+                <option value="Brussel-Hoofdstad"> Brussel - Hoofdstad </option>
+                <option value="Provincie Waals-Brabant"> Provincie Waals - Brabant </option>
+            </select> </p>
+        <p><label for="stad"> Stad </label>
+            <input type="text" name="stad" id="stad" /></p>
+        <!--
                 comment
                 -->
-            <p>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-                <div class="form-group">
-                    Upload Your Image
-                    <div class="col-md-10">
-                        <div>
-                            <img src="'#user_img'" id="blah" height="130" width="130" style="border:solid" />
-                        </div>
-                        <div>
-                            <input type="file" name="dataFile" id="fileChooser" onchange="ValidateFileUpload()" />
-                        </div>
+        <p>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+            <div class="form-group">
+                Upload Your Image
+                <div class="col-md-10">
+                    <div>
+                        <img src="'#user_img'" id="blah" height="130" width="130" style="border:solid" />
+                    </div>
+                    <div>
+                        <input type="file" name="dataFile" id="fileChooser" onchange="ValidateFileUpload()" />
                     </div>
                 </div>
-            </p>
+            </div>
+        </p>
 
+        <p><label for="desc">Comment:</label>
+            <textarea name="desc" id="desc"></textarea>
+            <input type="text" placeholder="Enter comment" name="comment" /></p>
 
-            <p><label for="passid"> Password </label>
-                <input type="password" placeholder="Enter Password" name="passid" required /></p>
+        <p><label for="lovecoins" name="lovecoins" id="lovecoins"> Love Coins </label></p>
+
+        <p><label for="passid"> Password </label>
+            <input type="password" placeholder="Enter Password" name="passid" required /></p>
     </form>
-    <p> By creating an account you agree to our <a href="#"> Terms & Privacy </a>.</p>
-    <button type="submit" class="registerbtn" onclick="return formValidation();"> Register </button>
+    <p> Door een account aan te maken gaat u akkoord met onze <a href="#"> Terms & Privacy </a>.</p>
+    <button type="submit" class="registerbtn" onclick="return formValidation();"> Registreren </button>
     <div class="container signin">
-        <p> Already have an account ?
-            <a href="login.html"> Login </button> </a>
+        <p> Heb je al een account?
+            <a href="login.html"> Inloggen </button> </a>
         </p>
     </div>
 </body>
