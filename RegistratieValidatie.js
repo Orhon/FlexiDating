@@ -27,38 +27,38 @@ function formValidation() {
 
 
     if (nickname_validation(uid, 5, 12)) {
-        if (voornaam_validation(uname1, 7, 15)) {
+        if (voornaam_validation(uname1, 3, 15)) {
             if (allLetter(uname1)) {
-                if (familienaam_validation(uname2, 7, 15)) {
+                if (familienaam_validation(uname2, 3, 15)) {
                     if (allLetter(uname2)) {
                         if (beroep_validation(brp, 5, 12)) {
                             if (allLetter(brp)) {
                                 if (geboorteDatum_validation(ugebdat)) {
                                     //if (alphanumeric(uadd)) {
-                                   // if (allnumeric(uleftijd)) {
-                                        if (allnumeric(ugewicht)) {
-                                            if (allnumeric(ugrootte)) {
-                                                if (haarSelect(uhaar)) {
-                                                    if (ogenSelect(uogen)) {
-                                                        if (validateEmail(uemail)) {
-                                                            if (validateGeslacht(umsex, ufsex)) {
-                                                                if (lichaamsBouwSelect(ulichaam)) {
-                                                                    if (provincieSelect(uprovincie)) {
-                                                                        if (stad_validation(ustad, 7, 15)) {
-                                                                            if (allLetter(ustad)) {
-                                                                                if (passid_validation(upassid, 7, 12)) {
-                                                                                    //if (ValidateFileUpload()) {
-                                                                                    for (var i = 0; i < document.registratie.length; i++)
-                                                                                        console.log(document.registratie[i].name);
-                                                                                    if (document.registratie[i].type != "submit")
-                                                                                        profielData[document.registratie[i].name] = document.registratie[i].value;
-                                                                                    localStorage.setItem('session', JSON.stringify(profielData));
+                                    // if (allnumeric(uleftijd)) {
+                                    if (allnumeric(ugewicht)) {
+                                        if (allnumeric(ugrootte)) {
+                                            if (haarSelect(uhaar)) {
+                                                if (ogenSelect(uogen)) {
+                                                    if (validateEmail(uemail)) {
+                                                        if (validateGeslacht(umsex, ufsex)) {
+                                                            if (lichaamsBouwSelect(ulichaam)) {
+                                                                if (provincieSelect(uprovincie)) {
+                                                                    if (stad_validation(ustad, 4, 15)) {
+                                                                        if (allLetter(ustad)) {
+                                                                            if (passid_validation(upassid, 7, 12)) {
+                                                                                //if (ValidateFileUpload()) {
+                                                                                for (var i = 0; i < document.registratie.length; i++)
+                                                                                    console.log(document.registratie[i].name);
+                                                                                if (document.registratie[i].type != "submit")
+                                                                                    profielData[document.registratie[i].name] = document.registratie[i].value;
+                                                                                localStorage.setItem('session', JSON.stringify(profielData));
 
-                                                                                }
                                                                             }
                                                                         }
                                                                     }
-                                                             //   }
+                                                                }
+                                                                //   }
                                                             }
                                                         }
                                                     }
@@ -74,7 +74,7 @@ function formValidation() {
             }
         }
     }
-//}
+    //}
     return false;
 
 }
