@@ -14,7 +14,6 @@ function formValidation() {
     var uogen = document.registratie.oogkleur;
     var uemail = document.registratie.email;
     // console.log(uemail);
-
     var umsex = document.registratie.msex;
     var ufsex = document.registratie.fsex;
     var ulichaam = document.registratie.lichaamsbouw;
@@ -47,18 +46,19 @@ function formValidation() {
                                                                     if (stad_validation(ustad, 4, 15)) {
                                                                         if (allLetter(ustad)) {
                                                                             if (passid_validation(upassid, 7, 12)) {
-                                                                                //if (ValidateFileUpload()) {
-                                                                                for (var i = 0; i < document.registratie.length; i++)
-                                                                                    console.log(document.registratie[i].name);
-                                                                                if (document.registratie[i].type != "submit")
-                                                                                    profielData[document.registratie[i].name] = document.registratie[i].value;
-                                                                                localStorage.setItem('session', JSON.stringify(profielData));
+                                                                                if (ValidateFileUpload()) {
+                                                                                    for (var i = 0; i < document.registratie.length; i++)
+                                                                                        console.log(document.registratie[i].name);
+                                                                                    if (document.registratie[i].type != "submit")
+                                                                                        profielData[document.registratie[i].name] = document.registratie[i].value;
+                                                                                    localStorage.setItem('session', JSON.stringify(profielData));
 
+                                                                                }
                                                                             }
                                                                         }
                                                                     }
+                                                                    //   }
                                                                 }
-                                                                //   }
                                                             }
                                                         }
                                                     }
@@ -74,7 +74,6 @@ function formValidation() {
             }
         }
     }
-    //}
     return false;
 
 }
@@ -134,56 +133,18 @@ function beroep_validation(brp, mx, my) {
     }
 }*/
 
-
-/*function geboorteDatum_validation(ugebdat) {
-
-    // First check for the pattern
-    var regex_date = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
-    //console.log(ugebdat);
-    if (!regex_date.test(ugebdat)) {
-        // console.log(ugebdat);
-        return false;
-
-
-    }
-
-    // Parse the date parts to integers
-    var parts = ugebdat.split("-");
-    // console.log(parts);
-    var day = parseInt(parts[2], 10);
-    var month = parseInt(parts[1], 10);
-    var year = parseInt(parts[0], 10);
-
-    // Check the ranges of month and year
-    if (year < 1000 || year > 3000 || month == 0 || month > 12) {
-        alert("blalblalala ");
-
-        return false;
-    }
-
-    var monthLength = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-    // Adjust for leap years
-    if (year % 400 == 0 || (year % 100 != 0 && year % 4 == 0)) {
-        monthLength[1] = 29;
-    }
-
-    // Check the range of the day
-    return day > 0 && day <= monthLength[month - 1];
-}*/
-
 function geboorteDatum_validation() {
     var lblError = document.getElementById("lblError");
 
     //Get the date from the TextBox.
     var dateString = document.getElementById("geboorteDatum").value;
-    var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
-    //var regex = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
+    //var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
+    var regex = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
 
     //Check whether valid dd/MM/yyyy Date Format.
     if (regex.test(dateString)) {
-        var parts = dateString.split("/");
-        var dtDOB = new Date(parts[1] + "/" + parts[0] + "/" + parts[2]);
+        var parts = dateString.split("-");
+        var dtDOB = new Date(parts[0] + "-" + parts[1] + "-" + parts[2]);
         var dtCurrent = new Date();
         lblError.innerHTML = "Eligibility 18 years ONLY."
         if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
@@ -210,8 +171,6 @@ function geboorteDatum_validation() {
         return false;
     }
 }
-
-
 
 // ook voor uleftijd, ugewicht en ugrootte
 function allnumeric(unummer) {
@@ -256,7 +215,6 @@ function ogenSelect(uogen) {
         return true;
     }
 }
-
 
 function validateEmail(uemail) {
     var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -330,11 +288,12 @@ function passid_validation(upassid, mx, my) {
     return true;
 }
 
-/*function ValidateFileUpload() {
+
+function ValidateFileUpload() {
     var fuData = document.getElementById('fileChooser');
     var FileUploadPath = fuData.value;
 
-    //To check if user uploaded any file
+    //To check if user upload any file
     if (FileUploadPath == '') {
         alert("Please upload an image");
 
@@ -366,35 +325,4 @@ function passid_validation(upassid, mx, my) {
 
         }
     }
-}*/
-
-/*function ValidateFileUpload() {
-    //debugger;
-    var fuData = document.getElementById('file');
-    var FileUploadPath = fuData.value;
-    var validExtensions = ['jpg','png','jpeg']; //array of valid extensions
-    var fileName = input.files[0].name;
-    var fileNameExt = fileName.substr(fileName.lastIndexOf('.') + 1);
-
-    //To check if user upload any file
-    if (FileUploadPath == '') {
-        alert("Please upload an image");
-    } else {
-
-    if ($.inArray(fileNameExt, validExtensions) == -1) {
-        input.type = ''
-        input.type = 'file'
-        $('#user_img').attr('src',"");
-        alert("Only these file types are accepted : "+validExtensions.join(', '));
-    }
-    else
-    {
-    if (input.files && input.files[0]) {
-        var filerdr = new FileReader();
-        filerdr.onload = function (e) {
-            $('#user_img').attr('src', e.target.result);
-        }
-        filerdr.readAsDataURL(input.files[0]);
-    }
-    }
-}*/
+}
