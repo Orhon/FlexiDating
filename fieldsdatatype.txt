@@ -17,7 +17,7 @@ wachtwoord      : String
 *provincie      : list of String Keuze
 *stad           : String
 *interesse      : ???? list of checklist
-*sterrenbeeld   : list of String keuze
+*comment        : String
 
 
 *niet in api momenteel
