@@ -9,11 +9,15 @@ function validate(){
   var password = document.getElementById('password').value;
  
   var id = scrumlib.login(username, password);
+  
+  document.cookie="id"+"="+id+ ";expires=" + 100;
+  console.log( document.cookie);
+   
   alert(id);
   //alert(id);
   if (scrumlib.login(username, password)){    
   
-      window.location.href = "private.html"; // Redirecting to other page.
+      window.location.href = "index.html"; // Redirecting to other page.
   }else{
       alert("You have entered wrong username or password;");
   
@@ -29,6 +33,6 @@ function validate(){
   
   //
   // Disabling fields after 3 attempts.
-  
+  console.log( document.cookie);
   
   }
