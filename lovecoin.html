@@ -29,7 +29,7 @@
     var userid = document.cookie.value;
     var knopkopen = document.getElementById("knopkopen");
     var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
-    //
+    scrumlib.addProperty("lovecoin", "Number", 0);
     var resultat= document.getElementById("resultat");
    // console.log(scrumlib.getAllDatasets());
     console.log(lovecoin.value);
@@ -38,10 +38,12 @@
     knopkopen.addEventListener("click",function (e){
         console.log(lovecoin.value);
         var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
+        
         resultat.innerHTML="";
         if ((lovecoin.value>10) || (lovecoin.value<100))
         {
-        user.lovecoin= user.lovecoin+ lovecoin.value;
+       
+        user[0].lovecoin=user[0].lovecoin + parseInt(lovecoin.value);
         console.log(lovecoin.value);
         console.log(scrumlib.getAllDatasets());
         resultat.innerHTML="Je heg gekoocht "+ lovecoin.value+" lovecoins";
