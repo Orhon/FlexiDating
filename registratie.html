@@ -1,39 +1,43 @@
 <!DOCTYPE html>
-    <html lang = "en"><head>
-    <meta charset = "utf-8">
-    <title> JavaScript Form Validation using a registration form </title> 
-    <meta name = "keywords" content = "JavaScript Form Validation, registration form" />
-    <meta name = "description" content = "This document is a JavaScript Form Validation using a registration form. " />
-    <link rel="stylesheet" href ="css/main_css.css" type='text/css'/>
-    <script src="RegistratieValidatie.js" > </script> 
-    </head >
-    <body onload="document.registratie.nickname.focus();" >
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title> JavaScript Form Validation using a registration form </title>
+    <meta name="keywords" content="JavaScript Form Validation, registration form" />
+    <meta name="description" content="This document is a JavaScript Form Validation using a registration form. " />
+    <link rel="stylesheet" href="css/main_css.css" type='text/css' />
+    <script src="RegistratieValidatie.js">
+    </script>
+</head>
+
+<body onload="document.registratie.nickname.focus();">
     <h1> Registratie Form </h1>
-    Use tab keys to move from one input field to the next. 
-    
-    <form name = 'registratie' onSubmit = "return formValidation();" >
-    <p>
-    <p><label for = "nickname" > Nickname </label> 
-        <input type = "text" name = "nickname" id = "nickname" /></p>
-    <p><label for = "voornaam" > Voornaam </label> 
-        <input type = "text" name = "voornaam" id = "voornaam" /></p>
-    <p><label for = "familienaam" > Familienaam </label> 
-        <input type = "text" name = "familienaam" id = "familienaam" /></p>
-    <p><label for = "beroep" > Beroep </label> 
-        <input type = "text" name = "beroep" id = "beroep" /></p>
-    <p><label for = "geboorteDatum" > GeboorteDatum </label> 
-        <input type = "text" name = "geboorteDatum" id = "geboorteDatum" onblur = "geboorteDatum_validation()" />
-        <span class = "error" id = "lblError" > </span> 
-        <br/>
-        <input type = "button" id = "btnValidate" value = "Validate" onclick = "return ValidateDOB()" />
-    </p>
-    <p><label for = "leeftijd" name = "leeftijd" id = "leeftijd" > Leeftijd </label></p>
-    <p><label for = "gewicht" > Gewicht </label> 
-       <input type = "text" name = "gewicht" id = "gewicht" /></p> 
-    <p><label for = "grootte" > Grootte </label> 
-        <input type = "text" name = "grootte" id = "grootte" /></p> 
-    <p><label for = "haarkleur" > Haar kleur </label> 
-        <select name = "haarkleur" >
+    Use tab keys to move from one input field to the next.
+
+    <form name='registratie' onSubmit="return formValidation();">
+        <p>
+            <p><label for="nickname"> Nickname </label>
+                <input type="text" name="nickname" id="nickname" /></p>
+            <p><label for="voornaam"> Voornaam </label>
+                <input type="text" name="voornaam" id="voornaam" /></p>
+            <p><label for="familienaam"> Familienaam </label>
+                <input type="text" name="familienaam" id="familienaam" /></p>
+            <p><label for="beroep"> Beroep </label>
+                <input type="text" name="beroep" id="beroep" /></p>
+            <p><label for="geboorteDatum"> GeboorteDatum </label>
+                <input type="text" name="geboorteDatum" id="geboorteDatum" onblur="geboorteDatum_validation()" />
+                <span class="error" id="lblError"> </span>
+                <br/>
+                <input type="button" id="btnValidate" value="Validate" onclick="return ValidateDOB()" />
+            </p>
+            <p><label for="leeftijd" name="leeftijd" id="leeftijd"> Leeftijd </label></p>
+            <p><label for="gewicht"> Gewicht </label>
+                <input type="text" name="gewicht" id="gewicht" /></p>
+            <p><label for="grootte"> Grootte </label>
+                <input type="text" name="grootte" id="grootte" /></p>
+            <p><label for="haarkleur"> Haar kleur </label>
+                <select name="haarkleur">
         <option selected = "" value = "Default" > -- - kies uw haarkleur-- - </option> 
         <option value = "blond" > blond </option> 
         <option value = "brunete" > brunete </option> 
@@ -55,9 +59,9 @@
      <p><label id = "geslacht" > Geslacht </label> 
         <input type="radio" name="msex" value="Male" /><span>Man</span>
         <input type="radio" name="fsex" value="Female" /><span>Vrouw</span></p>
-        </select></p> 
-     <p><label for = "lichaamsbouw" > Lichaamsbouw </label> 
-        <select name = "lichaamsbouw" >
+        </select></p>
+            <p><label for="lichaamsbouw"> Lichaamsbouw </label>
+                <select name="lichaamsbouw">
         <option selected = "" value = "Default" > -- - kies uw lichaamsbouw-- - </option>
         <option value="volslank">volslank</option>
         <option value="atletisch">atletisch</option>
@@ -78,36 +82,36 @@
         <option value = "Provincie Luxemburg" > Provincie Luxemburg </option>
         <option value = "Brussel-Hoofdstad" > Brussel - Hoofdstad </option> 
         <option value = "Provincie Waals-Brabant" > Provincie Waals - Brabant </option> 
-        </select> </p> 
-      <p><label for = "stad" > Stad </label> 
-         <input type = "text" name = "stad" id = "stad" /></p> 
-   
-           <p><div class="form-group">
-                Upload Your Image
-                      <div class="col-md-10">
-                          <div>
-                              <img id="user_img"
-                                   height="130"
-                                   width="130"
-                                   style="border:solid" />
-                          </div>
-                          <div>
-                              <input type="file" title="search image" id="file" name="file" onchange="show(this)" />
-                          </div>
-                      </div>
-                  </div></p> 
-    <!--
-        comments
+        </select> </p>
+            <p><label for="stad"> Stad </label>
+                <input type="text" name="stad" id="stad" /></p>
+
+
+            <p>
+                <div class="form-group">
+                    Upload Your Image
+                    <div class="col-md-10">
+                        <div>
+                            <img id="user_img" height="130" width="130" style="border:solid" />
+                        </div>
+                        <div>
+                            <input type="file" title="search image" id="file" name="file" onchange="show(this)" />
+                        </div>
+                    </div>
+                </div>
+            </p>
+            <!--
     -->
-      <p><label for = "passid" > Password </label> 
-         <input type = "password" placeholder = "Enter Password" name = "passid" required /></p>
-     </form> 
-     <p> By creating an account you agree to our <a href = "#"> Terms & Privacy </a>.</p >
-         <button type = "submit" class = "registerbtn" onclick = "return formValidation();" > Register </button> 
-    <div class = "container signin" >
-    <p> Already have an account ?
-    <a href = "login.html" > Login </button> </a>
-     </p> 
-     </div>
-    </body>
+            <p><label for="passid"> Password </label>
+                <input type="password" placeholder="Enter Password" name="passid" required /></p>
+    </form>
+    <p> By creating an account you agree to our <a href="#"> Terms & Privacy </a>.</p>
+    <button type="submit" class="registerbtn" onclick="return formValidation();"> Register </button>
+    <div class="container signin">
+        <p> Already have an account ?
+            <a href="login.html"> Login </button> </a>
+        </p>
+    </div>
+</body>
+
 </html>
