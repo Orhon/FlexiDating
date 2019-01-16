@@ -307,7 +307,7 @@ section h3 {
     float: center;
     height: auto;
     border: solid 1px #4e6078;
-    width: 50%;
+    width: 60vw;
     overflow: hidden;
     margin: 3em;
 }
@@ -358,6 +358,41 @@ label.profile #nickname {
     font-size: 1em;
     font-weight: normal;
 }
+
+/********************/
+/*--- ZOEK PAGES ---*/
+/********************/
+
+#zoek {
+    margin-left: 10em;
+    width: 400px;
+    float: left;
+}
+
+#zoek input {
+    width: 100px;
+}
+
+#container {
+    width: 40vw;
+    float: left;
+    margin: 0 auto;
+}
+
+#containerProfiel {
+    width: 80vw;
+    margin: 0 auto
+}
+
+#containerProfiel form {
+    width: 80vw;
+    margin: 0 auto
+}
+
+form img {
+    width: 300px;
+}
+
 
 
 /********************/
