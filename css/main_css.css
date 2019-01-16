@@ -131,12 +131,13 @@ section {
 section h1 {
     text-align: center;
 }
-
+/*
 section a {
     text-align: center;
     margin: 10px;
     display: block;
 }
+*/
 
 /***** FOOTER *****/
 footer {
@@ -179,6 +180,11 @@ footer {
     text-decoration: none;
     letter-spacing: 0.1em;
     color: white;
+}
+
+,
+.topmenu ul li a:nth-last-child(2n-1) {
+    border-right: 1px solid #58ec4e;
 }
 
 .topmenu ul li a:hover,
@@ -233,7 +239,7 @@ footer {
 /*******************/
 
 /*** gallerij startpagina ***/
-section h1{
+section h1 {
     text-align: center;
     font-size: 3em;
 
@@ -274,7 +280,7 @@ section h3 {
 .infokopjes {
     background: white;
     font-size: 1em;
- 
+
     text-align: right;
     color: #4e6078;
     /*width: 150px;
@@ -284,6 +290,117 @@ section h3 {
     float: right;
     margin: 5% 5% 5% 5%;
     padding: 15px;
+}
+
+/***********************/
+/*--- PROFIEL PAGES ---*/
+/***********************/
+
+.profile {
+    font-size: 1.5 em;
+    position: relative;
+    margin: auto;
+}
+
+.profile #foto{
+    display: block;
+    float: center;
+    height: auto;
+    border: solid 1px #4e6078;
+    width: 60vw;
+    overflow: hidden;
+    margin: 3em;
+}
+
+img.responsive {
+    width: 100%;
+    /*height: auto;*/
+}
+
+label.profile {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline;
+    width: 20%;
+    height: auto;
+    margin-right: 5px;
+}
+
+label.profile.dynamic {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+label.profile #nickname {
+    font-size: 3em;
+    font-weight: bold;
+    display: inline;
+}
+
+.profile-line{
+    display: block;
+    margin: auto;
+    clear: both;
+}
+
+.userInfo {
+    margin: 0.3em;
+}
+
+.userinfo .nickname {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.userinfo .leeftijd,
+.userinfo .stad {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+/********************/
+/*--- ZOEK PAGES ---*/
+/********************/
+
+#zoek {
+    margin-left: 10em;
+    width: 400px;
+    float: left;
+}
+
+#zoek input {
+    width: 100px;
+}
+
+#container {
+    width: 40vw;
+    float: left;
+    margin: 0 auto;
+}
+
+#containerProfiel {
+    width: 80vw;
+    margin: 0 auto
+}
+
+#containerProfiel form {
+    width: 80vw;
+    margin: 0 auto
+}
+
+form img {
+    width: 300px;
+}
+
+/********************/
+/*--- REGISTER PAGES ---*/
+/********************/
+
+.form-group img{
+    height: 3em;
+    width: auto;
+    border: solid 1px #4e6078;
 }
 
 /********************/
