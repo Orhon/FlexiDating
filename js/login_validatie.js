@@ -1,6 +1,6 @@
 
 function validate(){
-    var restoredSession = JSON.parse(localStorage.getItem('session'));
+    var restoredSession = JSON.parse(localStorage.getItem('flexidata'));
     console.log(restoredSession[0].email,"  , ", restoredSession[0].wachtwoord);
   //  localStorage.getItem('session', JSON.stringify(profielData));
 var username = document.getElementsByTagName("form")[0].email.value;
