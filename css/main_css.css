@@ -393,7 +393,15 @@ form img {
     width: 300px;
 }
 
+/********************/
+/*--- REGISTER PAGES ---*/
+/********************/
 
+.form-group img{
+    height: 3em;
+    width: auto;
+    border: solid 1px #4e6078;
+}
 
 /********************/
 /*--- FORMLAYOUT ---*/
