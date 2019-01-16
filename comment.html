@@ -43,7 +43,7 @@
 
                 var btnComment = document.getElementById("knopComment");
                 btnComment.addEventListener("click", function (e) {
-                    var comment = `{'comment' : '${document.getElementById("txtComment").value}' , 'idVan': '${user[0]._id}' , 'idNaar': '${user2[0]._id}'}`
+                    var comment = `{comment' : '${document.getElementById("txtComment").value}' , 'idVan': '${user[0]._id}' , 'idNaar': '${user2[0]._id}'}`
                     var updateMap = {};
                     if (comment.value != "") {
                         console.log( updateMap.comment = user[0].comment + comment);
