@@ -397,4 +397,8 @@ function passid_validation(upassid, mx, my) {
         filerdr.readAsDataURL(input.files[0]);
     }
     }
+<<<<<<< HEAD
 }*/
+=======
+}*/
+>>>>>>> eda56632aec9cb353c8dbcc49e903263e11ab14a
