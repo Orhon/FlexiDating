@@ -6,12 +6,13 @@
     <meta name="viewport" content="" width="" , initial-scale=" 1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/main_css.css">
 </head>
 
 <body>
     <div id="Zoek">
         <p><label>Zoek by:</label></p>
-        <p><label>Geslacht</label><select name="geslacht" id="zoek_geslacht">
+        <p><label>Geslacht</label><select name="geslacht" id="zoek_sexe">
                 <option value="">Beide</option>
                 <option value="m">man</option>
                 <option value="v">vrouw</option>
@@ -22,80 +23,6 @@
             <input type="text" name="maxleefTijd" id="maxleefTijd">
         </p>
         <p>
-            <label>Grootte tussen </label><input type="text" name="mingrootte" id="mingrootte"> <label>en</label> <input type="text" name="maxleefTijd" id="maxleefTijd">
-        
-    <p>
-    <label>Gewichttussen </label><input type="text" name="mingewicht" id="mingewicht"> <label>en</label> <input type="text" name="maxgewicht" id="maxgewicht">    
-    </p> 
-          
-    <p>
-    <label>Haar kleur</label>
-    <select id="zoek_haarKleur" name="haarKleur" >
-            <option value="">Alles</option>
-            <option value="blond">blond</option>
-            <option value="brunete">brunete</option>
-            <option value="rood">rood</option>
-            <option value="zwart">zwart</option>
-            <option value="andere kleur">andere kleur</option>
-          </select>     
-    </p>
-    <p>
-    <label>Oog kleur</label>
-    <select name="zoek_oogKleur" id="zoek_oogKleur">
-            <option value="">Alles</option>
-            <option value="blauw">blauw</option>
-            <option value="bruin">bruin</option>
-            <option value="zwart">zwart</option>
-            <option value="groen">groen</option>
-            <option value="andere kleur">andere kleur</option>
-          </select>    
-    </p>    
-    <p>
-    <label>Lichaamsbouw </label>
-    <select name="lichaamsbouw" id="zoek_lichaamsbouw" >
-      <option value="">Alles</option>
-      <option value="volslank">volslank</option>
-      <option value="atletisch">atletisch</option>
-      <option value="slank">slank</option>
-      <option value="normaal">normaal</option>
-    </select>    
-    </p>
-    <p>
-    <label>Sterenbeld</label><select id="zoek_sterrenbeeld">
-            <option value="">Alles</option>  
-            <option value="Steenbok">Steenbok</option>
-            <option value="Waterman">Waterman</option>
-            <option value="Vissen">Vissen</option>
-            <option value="Ram">Ram</option>
-            <option value="Stier">Stier</option>
-            <option value="Tweelingen">Tweelingen</option>
-            <option value="Kreeft">Kreeft</option>
-            <option value="Leeuw">Leeuw</option>
-            <option value="Maagd">Maagd</option>
-            <option value="Weegschaal">Weegschaal</option>
-            <option value="Schorpioen">Schorpioen</option>
-            <option value="Boogschutter">Boogschutter</option>
-        </select>
-    </p>
-    <p>
-    <label>Provincie</label>
-    <select name="provincie" id="zoek_provincie" >
-            <option value="">Alles</option>
-            <option value="Antwerpen">Antwerpen</option>
-            <option value="Limburg">Limburg</option>
-            <option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
-            <option value="Vlaams-Brabant">Vlaams-Brabant</option>
-            <option value="West-Vlaanderen">West-Vlaanderen</option>
-            <option value="Henegouwen">Henegouwen</option>
-            <option value="Luik">Luik</option>
-            <option value="Luxemburg">Luxemburg</option>
-            <option value="Namen ">Namen </option>
-            <option value="Waals-Brabant">Waals-Brabant</option>
-            
-          </select>      
-    </p>
-
-        <button name="knopzoek" id="knopzoek">Zoek</button>
             <label>Grootte tussen </label><input type="text" name="mingrootte" id="mingrootte"> <label>en</label>
             <input type="text" name="maxgrootte" id="maxgrootte">
 
@@ -106,7 +33,7 @@
 
             <p>
                 <label>Haar kleur</label>
-                <select id="zoek_haarkleur" name="haarkleur">
+                <select id="zoek_haarkleur" name="haarKleur">
                     <option value="">Alles</option>
                     <option value="blond">blond</option>
                     <option value="brunete">brunete</option>
@@ -117,7 +44,7 @@
             </p>
             <p>
                 <label>Oog kleur</label>
-                <select name="zoek_oogKleur" id="oogkleur">
+                <select name="zoek_oogkleur" id="zoek_oogkleur">
                     <option value="">Alles</option>
                     <option value="blauw">blauw</option>
                     <option value="bruin">bruin</option>
@@ -137,7 +64,7 @@
                 </select>
             </p>
             <p>
-                <label>Sterenbeld</label><select id="zoek_sterrenbeeld">
+                <label>Sterrenbeld</label><select id="zoek_sterrenbeeld">
                     <option value="">Alles</option>
                     <option value="Steenbok">Steenbok</option>
                     <option value="Waterman">Waterman</option>
@@ -173,8 +100,20 @@
 
             <button name="knopzoek" id="knopzoek">Zoek</button>
 
+
     </div>
-    <div id="conteiner">
+    <div id="container">
+            <section>
+
+                    <div class="clearfix">
+                        <h1>Ontdek enkele van onze vrijgezellen!</h1>
+                        
+                        <div id="gallery" class="gallery">
+                                                   
+                        </div>
+                        <h1><a href="registratie.html">Registreer hier!</a></h1>
+                    </div>
+                </section>
     </div>
 </body>
 <script src="js/sterrenbeeld.js"></script>
@@ -182,70 +121,58 @@
 <script async src="js/flexi_scrum_2.1.0.min.js"></script>
 <script defer>
     button1 = document.getElementById("knopzoek");
-      button1.addEventListener("click",function (e){
-        var searchMap={};
-        var conditions =[];
-        var egeslacht=document.getElementById("zoek_geslacht");
-        var geslacht=egeslacht.options[egeslacht.selectedIndex].value;
-        var ehaarKleur=document.getElementById("zoek_haarKleur");
-        var haarkleur=ehaarKleur.options[ehaarKleur.selectedIndex].value;
-        var eoogKleur=document.getElementById("zoek_oogKleur");
-        var oogkleur=eoogKleur.options[eoogKleur.selectedIndex].value;
-        var elichaamsbouw=document.getElementById("zoek_lichaamsbouw");
-        var lichaamsbouw=elichaamsbouw.options[elichaamsbouw.selectedIndex].value;
-        var esterrenbeeld=document.getElementById("zoek_sterrenbeeld");
-        var sterrenbeeld=esterrenbeeld.options[esterrenbeeld.selectedIndex].value;
-        var eprovincie=document.getElementById("zoek_provincie");
-        var provincie=eprovincie.options[eprovincie.selectedIndex].value;
-
-        if (fieldisleeg(geslacht))
-        {
-            conditions.push(['sexe','='])   
-        }
-        if (fieldisleeg(haarkleur))
-        {
-            conditions.push(['haarkleur','='])   
-        }
-        if (fieldisleeg(oogkleur))
-        {
-            conditions.push(['oogkleur','='])   
-        }
-        if (fieldisleeg(lichaamsbouw))
-        {
-            conditions.push(['lichaamsbouw','='])   
-        }
-        if (fieldisleeg(sterrenbeeld))
-        {
-            conditions.push(['sterrenbeeld','='])   
-        }
-        if (fieldisleeg(provincie))
-        {
-            conditions.push(['provincie','='])   
-        }
-      });
-    var egeslacht=document.getElementById("zoek_geslacht");
-    var geslacht=egeslacht.options[egeslacht.selectedIndex].value;
-    console.log(geslacht);
-    console.log(egeslacht);
-    console.log(egeslacht.selectedIndex);
-    
-    
-    
     button1.addEventListener("click", function (e) {
+        
         var searchMap = {};
         var conditions = [];
-
-        var egeslacht = document.getElementById("zoek_geslacht");
+        var egeslacht = document.getElementById("zoek_sexe");
         var geslacht = egeslacht.options[egeslacht.selectedIndex].value;
         var ehaarKleur = document.getElementById("zoek_haarkleur");
-        var haarKleur = ehaarKleur.options[ehaarKleur.selectedIndex].value;
+        var haarkleur = ehaarKleur.options[ehaarKleur.selectedIndex].value;
+        var eoogKleur = document.getElementById("zoek_oogkleur");
+        var oogkleur = eoogKleur.options[eoogKleur.selectedIndex].value;
+        var elichaamsbouw = document.getElementById("zoek_lichaamsbouw");
+        var lichaamsbouw = elichaamsbouw.options[elichaamsbouw.selectedIndex].value;
+        var esterrenbeeld = document.getElementById("zoek_sterrenbeeld");
+        var sterrenbeeld = esterrenbeeld.options[esterrenbeeld.selectedIndex].value;
+        var eprovincie = document.getElementById("zoek_provincie");
+        var provincie = eprovincie.options[eprovincie.selectedIndex].value;
 
-        // if (fieldisleeg(geslacht)) {
-        //     conditions.append(['sexe', '='])
-        // }
-        // if (fieldisleeg(haarKleur)) {
-        //     conditions.append(['haarkleur', '='])
-        // }
+        if (!fieldisleeg(geslacht)) {
+            conditions.push(['sexe', '='])
+        }
+        if (!fieldisleeg(haarkleur)) {
+            conditions.push(['haarkleur', '~'])
+        }
+        if (!fieldisleeg(oogkleur)) {
+            conditions.push(['oogkleur', '~'])
+        }
+        if (!fieldisleeg(lichaamsbouw)) {
+            conditions.push(['lichaamsbouw', '='])
+        }
+        if (!fieldisleeg(sterrenbeeld)) {
+            conditions.push(['sterrenbeeld', '='])
+        }
+        if (!fieldisleeg(provincie)) {
+            conditions.push(['provincie', '='])
+        }
+
+        for (var i = 0; i < conditions.length; i++) {
+
+            var elDom = document.getElementById('zoek_' + conditions[i][0]); //voeg "zoek_" toe om aan id van formvelden te voldoen
+            var el = elDom.options[elDom.selectedIndex].value;
+            // console.log(elDom);
+            console.log(el);
+            if (el !== "") {
+
+                //niet als lege waarde
+                searchMap[conditions[i][0]] = {
+                    "waarde": el,
+                    "match": conditions[i][1]
+                };
+            }
+        }
+
 
 
         var users = scrumlib.getDatasetsByConditions(searchMap);
@@ -263,16 +190,16 @@
         if (!fieldisleeg(minLeeftijd) && !fieldisleeg(maxLeeftijd)) {
             // alle twee velden ingevuld            
             filteredLeeftijd = filteredLeeftijd.filter(leeftijdCheck('<>'));
-        } else {            
-            if (fieldisleeg(minLeeftijd) && !fieldisleeg(maxLeeftijd) ) {
+        } else {
+            if (fieldisleeg(minLeeftijd) && !fieldisleeg(maxLeeftijd)) {
                 //max veld ingevuld
-                filteredLeeftijd = filteredLeeftijd.filter(leeftijdCheck('>')); 
-            } else if(!fieldisleeg(minLeeftijd) && fieldisleeg(maxLeeftijd) ) {
+                filteredLeeftijd = filteredLeeftijd.filter(leeftijdCheck('>'));
+            } else if (!fieldisleeg(minLeeftijd) && fieldisleeg(maxLeeftijd)) {
                 //min veld ingevuld
-                filteredLeeftijd = filteredLeeftijd.filter(leeftijdCheck('<')); 
+                filteredLeeftijd = filteredLeeftijd.filter(leeftijdCheck('<'));
             }
         }
-        
+
         if (!fieldisleeg(minGrootte) && !fieldisleeg(maxGrootte)) {
             // alle twee velden ingevuld                
             filteredLeeftijd = filteredLeeftijd.filter(grootteCheck('<>'));
@@ -280,7 +207,7 @@
             if (fieldisleeg(minGrootte) && !fieldisleeg(maxGrootte)) {
                 //max veld ingevuld
                 filteredLeeftijd = filteredLeeftijd.filter(grootteCheck('<'));
-            } else if(!fieldisleeg(minGrootte) && fieldisleeg(maxGrootte) ) {
+            } else if (!fieldisleeg(minGrootte) && fieldisleeg(maxGrootte)) {
                 //min veld ingevuld
                 filteredLeeftijd = filteredLeeftijd.filter(grootteCheck('>'));
             }
@@ -294,7 +221,7 @@
             if (fieldisleeg(minGewicht) && !fieldisleeg(maxGewicht)) {
                 //max veld ingevuld
                 filteredLeeftijd = filteredLeeftijd.filter(gewichtCheck('<'));
-            } else if(!fieldisleeg(minGewicht) && fieldisleeg(maxGewicht) ){
+            } else if (!fieldisleeg(minGewicht) && fieldisleeg(maxGewicht)) {
                 //min veld ingevuld
                 filteredLeeftijd = filteredLeeftijd.filter(gewichtCheck('>'));
             }
@@ -336,7 +263,7 @@
                 } else if (type == '>') {
                     if (value.grootte >= minGrootte) {
                         return value;
-                    } 
+                    }
                 } else {
                     if (value.grootte <= maxGrootte) {
                         return value;
@@ -354,7 +281,7 @@
                 } else if (type == '>') {
                     if (value.gewicht >= minGewicht) {
                         return value;
-                    } 
+                    }
                 } else {
                     if (value.gewicht <= maxGewicht) {
                         return value;
@@ -363,7 +290,50 @@
             }
         }
 
+        createUsers(filteredLeeftijd);
+
     });
+
+    function createUsers(users){
+            var container = document.getElementById("gallery");
+
+
+            for (let index = 0; index < users.length; index++) {
+                
+                var div = document.createElement("div");
+                var divInfoKopjes = document.createElement("div");
+                div.setAttribute('class',"kopjes");
+                divInfoKopjes.setAttribute('class',"infokopjes");
+                var img = document.createElement("img");
+                img.setAttribute('src',"img/" + users[index].foto);
+                
+                var pNickname = document.createElement('p');
+                pNickname.setAttribute('class',"userInfo nickname");
+                pNickname.innerHTML = users[index].nickname
+                var pLeeftijd = document.createElement('p');
+                pLeeftijd.setAttribute('class',"userInfo leeftijd");
+
+                let y = users[index].geboortedatum.substring(0,4);
+                let LeefTijd = new Date().getFullYear() - y;
+                pLeeftijd.innerHTML = LeefTijd + "jaar";
+
+                var pStad = document.createElement('p');
+                pStad.setAttribute('class',"userInfo stad");
+                pStad.innerHTML = users[index].stad;
+
+
+                div.appendChild(img);
+                divInfoKopjes.appendChild(pNickname);
+                divInfoKopjes.appendChild(pLeeftijd);
+                divInfoKopjes.appendChild(pStad);
+                div.appendChild(divInfoKopjes);
+                
+                container.appendChild(div);
+                
+            }
+
+            
+        }
 
     function fieldisleeg(field) {
         if (field === "") {

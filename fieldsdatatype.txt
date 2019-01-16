@@ -3,7 +3,7 @@ voornaam        : String
 familienaam     : String
 beroep          : String
 email           : String
-geboortedatum   : date
+geboortedatum   : date (yyyy-mm-dd)
 foto            : String (opmerking link naar een foto met een map structuur)
 leeftijd        : Integer
 gewicht         : Integer
