@@ -33,26 +33,27 @@
     var resultat= document.getElementById("resultat");
    // console.log(scrumlib.getAllDatasets());
     console.log(lovecoin.value);
+    resultat.innerHTML="";
 
     }
     knopkopen.addEventListener("click",function (e){
         console.log(lovecoin.value);
-        var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
+        var user = scrumlib.getDatasetById(document.cookie.value);
         
         resultat.innerHTML="";
-        if ((lovecoin.value>10) || (lovecoin.value<100))
+        if ((parseInt(lovecoin.value)>10) && (parseInt(lovecoin.value)<100))
         {
        
         user[0].lovecoin=user[0].lovecoin + parseInt(lovecoin.value);
         console.log(lovecoin.value);
         console.log(scrumlib.getAllDatasets());
-        resultat.innerHTML="Je heg gekoocht "+ lovecoin.value+" lovecoins";
+        resultat.innerHTML="Je heb gekoocht "+ lovecoin.value+" lovecoins";
         }
         else
         {
             resultat.innerHTML="Je moet nummers tussen 10 en 100 platsen";
         }
-    
+        
    
     
     });
