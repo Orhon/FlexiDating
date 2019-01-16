@@ -40,7 +40,7 @@
     </p>
     <p>
     <label>Oog kleur</label>
-    <select name="zoek_oogKleur" id="oogKleur">
+    <select name="zoek_oogKleur" id="zoek_oogKleur">
             <option value="">Alles</option>
             <option value="blauw">blauw</option>
             <option value="bruin">bruin</option>
@@ -110,18 +110,40 @@
         var conditions =[];
         var egeslacht=document.getElementById("zoek_geslacht");
         var geslacht=egeslacht.options[egeslacht.selectedIndex].value;
-        var ehaarKleur=document.getElementById("zoek_haarkleur");
-        var haarKleur=ehaarKleur.options[ehaarKleur.selectedIndex].value;
-        var eoogKleur=document.getElementById("zoek_oogkleur");
-        var oogKleur=ehaarKleur.options[eoogKleur.selectedIndex].value;
+        var ehaarKleur=document.getElementById("zoek_haarKleur");
+        var haarkleur=ehaarKleur.options[ehaarKleur.selectedIndex].value;
+        var eoogKleur=document.getElementById("zoek_oogKleur");
+        var oogkleur=eoogKleur.options[eoogKleur.selectedIndex].value;
+        var elichaamsbouw=document.getElementById("zoek_lichaamsbouw");
+        var lichaamsbouw=elichaamsbouw.options[elichaamsbouw.selectedIndex].value;
+        var esterrenbeeld=document.getElementById("zoek_sterrenbeeld");
+        var sterrenbeeld=esterrenbeeld.options[esterrenbeeld.selectedIndex].value;
+        var eprovincie=document.getElementById("zoek_provincie");
+        var provincie=eprovincie.options[eprovincie.selectedIndex].value;
 
         if (fieldisleeg(geslacht))
         {
-            conditions.append(['sexe','='])   
+            conditions.push(['sexe','='])   
         }
-        if (fieldisleeg(haarKleur))
+        if (fieldisleeg(haarkleur))
         {
-            conditions.append(['haarkleur','='])   
+            conditions.push(['haarkleur','='])   
+        }
+        if (fieldisleeg(oogkleur))
+        {
+            conditions.push(['oogkleur','='])   
+        }
+        if (fieldisleeg(lichaamsbouw))
+        {
+            conditions.push(['lichaamsbouw','='])   
+        }
+        if (fieldisleeg(sterrenbeeld))
+        {
+            conditions.push(['sterrenbeeld','='])   
+        }
+        if (fieldisleeg(provincie))
+        {
+            conditions.push(['provincie','='])   
         }
       });
     var egeslacht=document.getElementById("zoek_geslacht");
@@ -130,7 +152,7 @@
     console.log(egeslacht);
     console.log(egeslacht.selectedIndex);
     
-    if 
+    
     
 
 
