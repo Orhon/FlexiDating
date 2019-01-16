@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" />
+<link href="css/main_css.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="js/responsive_design.js"> </script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flexidating</title>
+</head>
+
+<body>
+    <div class="clearfix">
+        <div class="login clear">
+            <div class="box responsive">
+                <div class="image-box responsive">
+                    <div class="image-text">
+                        <h1>FLEXIDATING</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header>
+            <nav class="topmenu" id="responseMenu1">
+                <ul>
+                    <li> <br />/li>
+                    <li><a href="login.html">login</a></li>
+                    <li><a href="registratie.html">registreer</a></li>
+                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></a></i></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <div class="clearfix profile">
+                <!-- PLACE Content HERE -->
+                <div class="profile-line"><label class="profile">Nickname:</label><label class="profile dynamic"id="nickname"></label></div>
+                <div ><img class="profile responsive" id="foto" src="" alt=""></div>
+                <div class="profile-line"><label class="profile">Leeftijd: </la bel><label class="profile dynamic" id="leefTijd"></label></div>
+                <div class="profile-line"><label class="profile">Gewicht: </label><label class="profile dynamic" id="gewicht"></label></div>
+                <div class="profile-line"><label class="profile">Grootte: </label><label class="profile dynamic" id="grootte"></label></div>
+                <div class="profile-line"><label class="profile">Haar kleur: </label><label class="profile dynamic"id="haarKleur"></label></div>
+                <div class="profile-line"><label class="profile">Oog kleur: </label><label class="profile dynamic" id="oogKleur"></label></div>
+                <div class="profile-line"><label class="profile">Geslacht: </label><label class="profile dynamic" id="geslacht"></label></div>
+                <div class="profile-line"><label class="profile">Sterrenbeeld: </label><label class="profile dynamic" id="sterrenbeeld"></label></div>
+                <div class="profile-line"><label class="profile">Provincie: </label><label class="profile dynamic" id="provincie"></label></div>
+
+                <!-- END CONTENT -->
+            </div>
+        </section>
+        <footer>
+            <p>
+                &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+                <small>imagecredits: designed by www.freepik.com</small>
+            </p>
+        </footer>
+    </div>
+</body>
+
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
+<script src="js/sterrenbeeld.js"></script>
+<script defer>
+    window.onload = function () {
+        var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
+
+        var locationImg = "img/"
+        scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
+
+        document.getElementById("nickname").innerHTML = user[0].nickname;
+        document.getElementById("foto").setAttribute('src', locationImg + user[0].foto);
+        document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
+        document.getElementById("gewicht").innerHTML = user[0].gewicht;
+        document.getElementById("grootte").innerHTML = user[0].grootte;;
+        document.getElementById("haarKleur").innerHTML = user[0].haarkleur;
+        document.getElementById("oogKleur").innerHTML = user[0].oogkleur;
+        document.getElementById("geslacht").innerHTML = user[0].sexe;
+        document.getElementById("provincie").innerHTML = user[0].provincie;
+        document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user[0].geboortedatum);
+
+
+        function getLeeftijd(gb) {
+            let y = gb.substring(0, 4);
+            let d = new Date().getFullYear();
+
+            return d - y;
+        }
+    }
+</script>
