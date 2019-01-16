@@ -13,7 +13,7 @@ function validate(){
   //alert(id);
   if (scrumlib.login(username, password)){    
   
-      window.location.href = "index.html"; // Redirecting to other page.
+      window.location.href = "private.html"; // Redirecting to other page.
   }else{
       alert("You have entered wrong username or password;");
   
