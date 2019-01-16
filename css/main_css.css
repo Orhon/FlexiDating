@@ -182,7 +182,7 @@ footer {
     color: white;
 }
 
-,
+
 .topmenu ul li a:nth-last-child(2n-1) {
     border-right: 1px solid #58ec4e;
 }
@@ -322,8 +322,8 @@ label.profile {
     font-size: 1.2em;
     font-weight: bold;
     display: inline;
-    width: 20%;
-    height: auto;
+    /*width: 20%;
+    height: auto;*/
     margin-right: 5px;
 }
 
