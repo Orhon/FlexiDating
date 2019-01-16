@@ -19,9 +19,9 @@ function formValidation() {
     var ulichaam = document.registratie.lichaamsbouw;
     var uprovincie = document.registratie.provincie;
     var ustad = document.registratie.stad;
-    var upassid = document.registratie.passid;
+    var upassid = document.registratie.wachtwoord;
     var formElements = document.registratie;
-    //   console.log(upassid);
+    // console.log(upassid);
     // foto validatie op het einde van deze code
 
 
@@ -47,7 +47,12 @@ function formValidation() {
                                                                         if (allLetter(ustad)) {
                                                                             if (passid_validation(upassid, 4, 12)) {
                                                                                 if (ValidateFileUpload()) {
-                                                                                    
+                                                                                    for (var i = 0; i < document.registratie.length; i++)
+                                                                                        console.log(document.registratie[i].name);
+                                                                                    if (document.registratie[i].type != "submit")
+                                                                                        profielData[document.registratie[i].name] = document.registratie[i].value;
+                                                                                    localStorage.setItem('session', JSON.stringify(profielData));
+
                                                                                 }
                                                                             }
                                                                         }
@@ -312,9 +317,11 @@ function ValidateFileUpload() {
             console.log(document.registratie[i].value);
         profielData[document.registratie[i].name] = document.registratie[i].value;
     }
-  //  localStorage.setItem('session', JSON.stringify(profielData));
- //   localStorage.setItem('session', JSON.stringify(profielData));
+    //  localStorage.setItem('session', JSON.stringify(profielData));
+    //   localStorage.setItem('session', JSON.stringify(profielData));
     console.log(scrumlib.createDataset(profielData));
+    scrumlib.save();
+
 }
 
 function passid_validation(upassid, mx, my) {
@@ -329,4 +336,3 @@ function passid_validation(upassid, mx, my) {
         return true;
     }
 }
-   
