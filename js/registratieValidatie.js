@@ -379,11 +379,6 @@ function formValidation() {
                                                                         if (allLetter(ustad)) {
                                                                             if (passid_validation(upassid, 4, 12)) {
                                                                                 if (ValidateFileUpload()) {
-                                                                                    for (var i = 0; i < document.registratie.length; i++)
-                                                                                        console.log(document.registratie[i].name);
-                                                                                    if (document.registratie[i].type != "submit")
-                                                                                        profielData[document.registratie[i].name] = document.registratie[i].value;
-                                                                                    localStorage.setItem('session', JSON.stringify(profielData));
 
                                                                                 }
                                                                             }
