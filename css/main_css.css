@@ -172,23 +172,19 @@ footer {
 
 .topmenu ul li {
     float: left;
+    padding: 0em 0.8em;
+    /*6px 8px*/
+    border-right: 1px solid #58ec4e;
+    letter-spacing: 0.1em;
 }
 
 .topmenu ul li a {
     display: block;
-    padding: 0em 0.8em;
-    /*6px 8px*/
-    border-right: 1px solid #58ec4e;
-    text-decoration: none;
-    letter-spacing: 0.1em;
     color: white;
+    text-decoration: none;
 }
 
-/*
-.topmenu ul li a:nth-last-child(2n-1) {
-    border-right: 1px solid #58ec4e;
-}
-*/
+
 
 .topmenu ul li a:hover,
 .topmenu ul li a:active,
@@ -196,6 +192,10 @@ footer {
     text-decoration: none;
     background: white;
     color: #4e6078;
+}
+
+.topmenu ul li:nth-last-child(2) {
+    border-right: 0px solid red;
 }
 
 /* Hide the link that should open and close the topnav on small screens */
@@ -213,6 +213,7 @@ footer {
     .topmenu li.icon {
         float: right;
         display: block;
+        border: none;
     }
 }
 
@@ -232,8 +233,15 @@ footer {
         float: none;
         display: block;
         text-align: right;
+        border: none;
+        padding: 5px;
+    }
+    
+    .topmenu ul li:first-child {
+        margin-top: 25px;
     }
 }
+
 
 
 
@@ -368,12 +376,9 @@ label.profile #nickname {
     height: auto;
 }
 
- 
 /********************/
 /*--- ZOEK PAGES ---*/
 /********************/
-
-
 
 .zoek {
     width: 80%;
@@ -390,6 +395,7 @@ label.profile #nickname {
     clear: both;
     background: #4e6078;
     overflow: hidden;
+    margin: 1em;
 
 }
 
@@ -401,11 +407,16 @@ label.profile #nickname {
 
 .zoek h3{
     float: left;
+    display: inline-block;
 }
 
+.zoek label{
+    display: inline;
+}
 
-.zoek input {
-    width: 100px;
+.zoek>input[type="text"] {
+    
+    width: 75%;
 }
 
 
