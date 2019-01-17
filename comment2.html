@@ -47,17 +47,17 @@
             // var userSender = scrumlib.getDatasetById(x[1]);
 
 
-                    //jan
+            //jan
             var userSender = scrumlib.getDatasetById("56cae42a683485281caf5653");
             var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
 
-                    //jan
-                    // var userReceiver ='';
-                    // if (userSender[0]._id == "56cae42a683485281caf5651" ){
-                    //    userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-                    // }else{
-                    //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
-                    // }
+            //jan
+            // var userReceiver ='';
+            // if (userSender[0]._id == "56cae42a683485281caf5651" ){
+            //    userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
+            // }else{
+            //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
+            // }
 
 
             // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
@@ -101,10 +101,9 @@
             setInterval(checkChat, 20000);
 
             function checkChat() {
-                if (comment.value == '')
-                {
+                if (comment.value == '') {
                     location.reload();
-                    }
+                }
                 //commentTonen(userSender, userReceiver);
             }
 
@@ -162,7 +161,8 @@
                             if (comments.childElementCount > 20) {
                                 comments.removeChild(comments.firstChild);
                             }
-                            comments.innerHTML += "<li>" + userComments[i].comment + ' - <span class="nicknameChat">' + userVan[0].nickname +
+                            comments.innerHTML += "<li>" + userComments[i].comment +
+                                ' - <span class="nicknameChat">' + userVan[0].nickname +
                                 "</span></li>";
                         }
 
