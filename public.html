@@ -91,7 +91,7 @@
 
 
         var locationImg = "img/"
-        scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
+    //    scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
 
         document.getElementById("nickname").innerHTML = user1[0].nickname;
         document.getElementById("foto").setAttribute('src', locationImg + user1[0].foto);
@@ -130,11 +130,13 @@
         //  favorites.push("\"" + $(this).text() + " " + counter + "\"");
         var updateMap = {};
       
-                updateMap.favorite = new_name.value;
+                updateMap.favorite = user1[0]._id;
+                scrumlib.updateDataset(ca[1], updateMap)
                 console.log(scrumlib.updateDataset(ca[1], updateMap));
 
        // favorite[counter - 1] = user1[0]._id;
      //   console.log(favorite[counter - 1]);
-        console.log(user[0].favorite, "++++++", ca[1]);
+        console.log(user[0].favorite, "++++++",  counter);
+        scrumlib.save();
     }
 </script>
