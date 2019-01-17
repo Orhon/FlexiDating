@@ -393,7 +393,7 @@ label.profile #nickname {
 .zoek .leftcolumn {
     padding: 1em;
     color: #fff;
-    width: 30%;
+    /*width: 30%;*/
     max-width: 30vw;
     float: left;
     /*display: inline-block;*/
@@ -408,9 +408,9 @@ label.profile #nickname {
 }
 
 .zoek .rightcolumn {
-    width: 60%;
-    float: right;
-    display: inline-flex;
+    /*width: 60%;*/
+    float: none;
+    display: inline-block;
 }
 
 .zoek h3{
