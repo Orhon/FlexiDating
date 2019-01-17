@@ -46,83 +46,95 @@
                 <div class="zoek">
                     <div class="zoek leftcolumn">
                         <h3>Zoekcriteria:</h3>
-                        <label>Geslacht </label>
-                        <select name="geslacht" id="zoek_sexe">
-                            <option value="">Beide</option>
-                            <option value="m">man</option>
-                            <option value="v">vrouw</option>
-                        </select>
-
-                        <label>Leeftijd tussen: </label><input type="text" name="minleefTijd" id="minleefTijd"> <label>en</label>
-                        <input type="text" name="maxleefTijd" id="maxleefTijd">
-
-                        <label>Grootte tussen: </label><input type="text" name="mingrootte" id="mingrootte"> <label>en</label>
-                        <input type="text" name="maxgrootte" id="maxgrootte">
-
-                        <label>Gewicht tussen: </label><input type="text" name="mingewicht" id="mingewicht"> <label>en</label>
-                        <input type="text" name="maxgewicht" id="maxgewicht">
-
-                        <label>Haarkleur: </label>
-                        <select id="zoek_haarkleur" name="haarKleur">
-                            <option value="">Alles</option>
-                            <option value="blond">blond</option>
-                            <option value="brunette">brunette</option>
-                            <option value="rood">rood</option>
-                            <option value="zwart">zwart</option>
-                            <option value="andere kleur">andere kleur</option>
-                        </select>
-
-                        <label>Oogkleur: </label>
-                        <select name="zoek_oogkleur" id="zoek_oogkleur">
-                            <option value="">Alles</option>
-                            <option value="blauw">blauw</option>
-                            <option value="bruin">bruin</option>
-                            <option value="zwart">zwart</option>
-                            <option value="groen">groen</option>
-                            <option value="andere kleur">andere kleur</option>
-                        </select>
-
-                        <label>Lichaamsbouw: </label>
-                        <select name="lichaamsbouw" id="zoek_lichaamsbouw">
-                            <option value="">Alles</option>
-                            <option value="volslank">volslank</option>
-                            <option value="atletisch">atletisch</option>
-                            <option value="slank">slank</option>
-                            <option value="normaal">normaal</option>
-                        </select>
-
-                        <label>Sterrenbeeld: </label><select id="zoek_sterrenbeeld">
-                            <option value="">Alles</option>
-                            <option value="Steenbok">Steenbok</option>
-                            <option value="Waterman">Waterman</option>
-                            <option value="Vissen">Vissen</option>
-                            <option value="Ram">Ram</option>
-                            <option value="Stier">Stier</option>
-                            <option value="Tweelingen">Tweelingen</option>
-                            <option value="Kreeft">Kreeft</option>
-                            <option value="Leeuw">Leeuw</option>
-                            <option value="Maagd">Maagd</option>
-                            <option value="Weegschaal">Weegschaal</option>
-                            <option value="Schorpioen">Schorpioen</option>
-                            <option value="Boogschutter">Boogschutter</option>
-                        </select>
-
-                        <label>Provincie: </label>
-                        <select name="provincie" id="zoek_provincie">
-                            <option value="">Alles</option>
-                            <option value="Antwerpen">Antwerpen</option>
-                            <option value="Limburg">Limburg</option>
-                            <option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
-                            <option value="Vlaams-Brabant">Vlaams-Brabant</option>
-                            <option value="West-Vlaanderen">West-Vlaanderen</option>
-                            <option value="Henegouwen">Henegouwen</option>
-                            <option value="Luik">Luik</option>
-                            <option value="Luxemburg">Luxemburg</option>
-                            <option value="Namen ">Namen </option>
-                            <option value="Waals-Brabant">Waals-Brabant</option>
-                        </select>
-
-                        <button name="knopzoek" id="knopzoek">Zoek</button>
+                        <div class="labelgroup">
+                            <label>Geslacht </label>
+                            <select name="geslacht" id="zoek_sexe">
+                                <option value="">Beide</option>
+                                <option value="m">man</option>
+                                <option value="v">vrouw</option>
+                            </select>
+                        </div>
+                        <div class="labelgroup">
+                            <label>Leeftijd tussen: </label><input type="text" name="minleefTijd" id="minleefTijd">
+                            <label>en</label>
+                            <input type="text" name="maxleefTijd" id="maxleefTijd">
+                        </div>
+                        <div class="labelgroup">
+                            <label>Grootte tussen: </label><input type="text" name="mingrootte" id="mingrootte"> <label>en</label>
+                            <input type="text" name="maxgrootte" id="maxgrootte">
+                        </div>
+                        <div class="labelgroup">
+                            <label>Gewicht tussen: </label><input type="text" name="mingewicht" id="mingewicht"> <label>en</label>
+                            <input type="text" name="maxgewicht" id="maxgewicht">
+                        </div>
+                        <div class="labelgroup">
+                            <label>Haarkleur: </label>
+                            <select id="zoek_haarkleur" name="haarKleur">
+                                <option value="">Alles</option>
+                                <option value="blond">blond</option>
+                                <option value="brunette">brunette</option>
+                                <option value="rood">rood</option>
+                                <option value="zwart">zwart</option>
+                                <option value="andere kleur">andere kleur</option>
+                            </select>
+                        </div>
+                        <div class="labelgroup">
+                            <label>Oogkleur: </label>
+                            <select name="zoek_oogkleur" id="zoek_oogkleur">
+                                <option value="">Alles</option>
+                                <option value="blauw">blauw</option>
+                                <option value="bruin">bruin</option>
+                                <option value="zwart">zwart</option>
+                                <option value="groen">groen</option>
+                                <option value="andere kleur">andere kleur</option>
+                            </select>
+                        </div>
+                        <div class="labelgroup">
+                            <label>Lichaamsbouw: </label>
+                            <select name="lichaamsbouw" id="zoek_lichaamsbouw">
+                                <option value="">Alles</option>
+                                <option value="volslank">volslank</option>
+                                <option value="atletisch">atletisch</option>
+                                <option value="slank">slank</option>
+                                <option value="normaal">normaal</option>
+                            </select>
+                        </div>
+                        <div class="labelgroup">
+                            <label>Sterrenbeeld: </label><select id="zoek_sterrenbeeld">
+                                <option value="">Alles</option>
+                                <option value="Steenbok">Steenbok</option>
+                                <option value="Waterman">Waterman</option>
+                                <option value="Vissen">Vissen</option>
+                                <option value="Ram">Ram</option>
+                                <option value="Stier">Stier</option>
+                                <option value="Tweelingen">Tweelingen</option>
+                                <option value="Kreeft">Kreeft</option>
+                                <option value="Leeuw">Leeuw</option>
+                                <option value="Maagd">Maagd</option>
+                                <option value="Weegschaal">Weegschaal</option>
+                                <option value="Schorpioen">Schorpioen</option>
+                                <option value="Boogschutter">Boogschutter</option>
+                            </select>
+                        </div>
+                        <div class="labelgroup">
+                            <label>Provincie: </label>
+                            <select name="provincie" id="zoek_provincie">
+                                <option value="">Alles</option>
+                                <option value="Antwerpen">Antwerpen</option>
+                                <option value="Limburg">Limburg</option>
+                                <option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
+                                <option value="Vlaams-Brabant">Vlaams-Brabant</option>
+                                <option value="West-Vlaanderen">West-Vlaanderen</option>
+                                <option value="Henegouwen">Henegouwen</option>
+                                <option value="Luik">Luik</option>
+                                <option value="Luxemburg">Luxemburg</option>
+                                <option value="Namen ">Namen </option>
+                                <option value="Waals-Brabant">Waals-Brabant</option>
+                            </select>
+                        </div>
+                        <div class="labelgroup">
+                            <button name="knopzoek" id="knopzoek">Zoek</button>
+                        </div>
                     </div>
 
                     <div class="rightcolumn">
@@ -134,14 +146,9 @@
         </section>
         <footer>
             <p>
-
                 &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
                 <small>imagecredits: designed by www.freepik.com</small>
             </p>
-
-            <button name="knopzoek" id="knopzoek">Zoek</button>
-
-
     </div>
     <div id="container">
     </div>
@@ -326,54 +333,54 @@
 
     });
 
-    function createUsers(users){
-            var container = document.getElementById("container");
-            container.innerHTML="";
+    function createUsers(users) {
+        var container = document.getElementById("container");
+        container.innerHTML = "";
 
-            for (let index = 0; index < users.length; index++) {
+        for (let index = 0; index < users.length; index++) {
 
-                var div = document.createElement("div");
-                //legen
+            var div = document.createElement("div");
+            //legen
 
-                var divInfoKopjes = document.createElement("div");
-                div.setAttribute('class',"kopjes");
-                divInfoKopjes.setAttribute('class',"infokopjes");
-                var pImg = document.createElement('a');
-                pImg.setAttribute('href',"public.html?"+users[index]._id);
-                pImg.setAttribute('id',users[index]._id);
-                var img = document.createElement("img");
-                img.setAttribute('src',"img/" + users[index].foto);
+            var divInfoKopjes = document.createElement("div");
+            div.setAttribute('class', "kopjes");
+            divInfoKopjes.setAttribute('class', "infokopjes");
+            var pImg = document.createElement('a');
+            pImg.setAttribute('href', "public.html?" + users[index]._id);
+            pImg.setAttribute('id', users[index]._id);
+            var img = document.createElement("img");
+            img.setAttribute('src', "img/" + users[index].foto);
 
-                var pNickname = document.createElement('a');
-                pNickname.setAttribute('class',"userInfo nickname");
-                pNickname.setAttribute('href',"public.html?"+users[index]._id);
-                pNickname.setAttribute('id',users[index]._id);
-                pNickname.innerHTML = users[index].nickname
-                var pLeeftijd = document.createElement('p');
-                pLeeftijd.setAttribute('class',"userInfo leeftijd");
+            var pNickname = document.createElement('a');
+            pNickname.setAttribute('class', "userInfo nickname");
+            pNickname.setAttribute('href', "public.html?" + users[index]._id);
+            pNickname.setAttribute('id', users[index]._id);
+            pNickname.innerHTML = users[index].nickname
+            var pLeeftijd = document.createElement('p');
+            pLeeftijd.setAttribute('class', "userInfo leeftijd");
 
-                let y = users[index].geboortedatum.substring(0,4);
-                let LeefTijd = new Date().getFullYear() - y;
-                pLeeftijd.innerHTML = LeefTijd + "jaar";
+            let y = users[index].geboortedatum.substring(0, 4);
+            let LeefTijd = new Date().getFullYear() - y;
+            pLeeftijd.innerHTML = LeefTijd + "jaar";
 
-                var pStad = document.createElement('p');
-                pStad.setAttribute('class',"userInfo stad");
-                pStad.innerHTML = users[index].haarkleur;
+            var pStad = document.createElement('p');
+            pStad.setAttribute('class', "userInfo stad");
+            pStad.innerHTML = users[index].haarkleur;
 
 
-                div.appendChild(pImg);
-                pImg.appendChild(img);
-                divInfoKopjes.appendChild(pNickname);
-                divInfoKopjes.appendChild(pLeeftijd);
-                divInfoKopjes.appendChild(pStad);
-                div.appendChild(divInfoKopjes);
+            div.appendChild(pImg);
+            pImg.appendChild(img);
+            divInfoKopjes.appendChild(pNickname);
+            divInfoKopjes.appendChild(pLeeftijd);
+            divInfoKopjes.appendChild(pStad);
+            div.appendChild(divInfoKopjes);
 
-                container.appendChild(div);
-
-            }
-
+            container.appendChild(div);
 
         }
+
+
+    }
 
     function fieldisleeg(field) {
         if (field === "") {
