@@ -71,7 +71,12 @@
 <script src="js/sterrenbeeld.js"></script>
 <script defer>
     window.onload = function () {
-        var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
+        /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
+        
+        var ca = document.cookie.split('=');
+        var user = scrumlib.getDatasetById(ca[1]);
+
+
 
         var locationImg = "img/"
         scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
