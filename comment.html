@@ -10,69 +10,76 @@
 </head>
 
 <body>
-    <div id="comments">
-        <p id="userName"></p>
-        <div id="berichten">
+    <div id="containerChat">
+
+
+        <div id="comments">
+            <div id="nameReceiver" class="title">Selecteer uit favorieten</div>
+            <div id="berichtenWrap">
+                <ul id="berichten">
+
+                </ul>
+
+            </div>
+            <div id="addComment">
+                <input type="text" id="txtComment" placeholder="type bericht">
+                <div id="buttons">
+                    <button id="knopComment">Send</button>
+                    <button id="knopCommentAndere">Send als andere</button>
+                    <button id="refresh" onclick="refresh()">Refresh</button>
+                </div>
+
+            </div>
 
         </div>
-        <div id="addComment">
-            <input type="text" id="txtComment">
-            <button id="knopComment">Comment</button>
-            <button id="knopCommentAndere">CommentAndere</button>
-            <button id="refresh" onclick="refresh()">Refresh</button>
-        </div>
+        <div id="friendlist">
+            <p class="title" style="width: 268px">Favorieten</p>
+            <div name="friends" id="selectUser" multiple>
+                <ul id="userlist">
 
-        <div id="commentsTonenReceiver">
-
+                </ul>
+            </div>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script async src="js/flexi_scrum_2.1.0.min.js"></script>
     <script defer>
         window.onload = function () {
-            scrumlib.addProperty("comment", "string", ""
-                // +JSON.stringify([{
-                //     "comment": "hallo",
-                //     "idVan": "56cae42a683485281caf5651",
-                //     "idNaar": "56cae42a683485281caf5653"
-                // }, {
-                //     "comment": "hi",
-                //     "idVan": "56cae42a683485281caf5652",
-                //     "idNaar": "56cae42a683485281caf5653"
-                // }])
-            );
+
+            scrumlib.addProperty("comment", "string", "");
             scrumlib.save();
 
             var x = document.cookie.split("=");
             var userSender = scrumlib.getDatasetById(x[1]);
+            getFriends();
 
 
-                    //jan
+            var friends = [];
+            //jan
             // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
-            var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-
-                    //jan
-                    // var userReceiver ='';
-                    // if (userSender[0]._id == "56cae42a683485281caf5651" ){
-                    //    userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-                    // }else{
-                    //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
-                    // }
 
 
-            // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");        
+            // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653"); <---------test
+            var userReceiver =[];
+            //jan
+            // var userReceiver ='';
+            // if (userSender[0]._id == "56cae42a683485281caf5651" ){
+            //    userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
+            // }else{
+            //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
+            // }
+
+
+            // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
             // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-            
 
-            document.getElementById("userName").innerHTML = userSender[0].nickname;
 
-            console.log(userSender)
-            commentTonen(userSender, userReceiver);
-            
+
+            //commentTonen(userSender, userReceiver);
+
             var comment = document.getElementById("txtComment");
             comment.focus();
             comment.select();
-            //comment.select();
             var btnComment = document.getElementById("knopComment");
             btnComment.addEventListener("click", function (e) {
                 addComment(userSender, userReceiver);
@@ -98,14 +105,12 @@
                 }
             });
 
-            setInterval(checkChat, 10000);
+            //setInterval(checkChat, 5000);
 
             function checkChat() {
-                if (comment.value == '')
-                {
+                if (comment.value == '') {
                     location.reload();
-                    }
-                //commentTonen(userSender, userReceiver);
+                }
             }
 
             function addComment(sender, receiver) {
@@ -117,7 +122,7 @@
                 var updateMapSender = {};
                 var updateMapReceiver = {};
                 if (comment.value != "") {
-                    if (sender[0].comment == '') {
+                    if (sender[0].comment == '' || receiver[0].comment =='') {
                         updateMapSender.comment = JSON.stringify(commentJSON);
                         updateMapReceiver.comment = JSON.stringify(commentJSON);
                     } else {
@@ -156,19 +161,72 @@
                     comments.innerHTML = '';
                     for (i in userComments) {
                         // if(userComments[i].idVan == userSender[0]._id || userComments[i].idNaar == userSender[0]._id){
-                        if ((userComments[i].idVan == sender[0]._id && userComments[i].idNaar == receiver[0]._id) ||
-                            (userComments[i].idNaar == sender[0]._id && userComments[i].idVan == receiver[0]._id)) {
+                        if ((userComments[i].idVan == sender[0]._id && userComments[i].idNaar == receiver[0]._id)) {
+
+
                             let userVan = scrumlib.getDatasetById(userComments[i].idVan);
                             if (comments.childElementCount > 20) {
                                 comments.removeChild(comments.firstChild);
                             }
-                            comments.innerHTML += "<li>" + userComments[i].comment + ' - <span class="nicknameChat">' + userVan[0].nickname +
+                            comments.innerHTML += "<li class='bericht senderbericht'>" + userComments[i].comment + ' - <span class="nicknameChat">' + userVan[0].nickname +
+                                "</span></li>";
+                        }
+
+
+                        if (userComments[i].idNaar == sender[0]._id && userComments[i].idVan == receiver[0]._id) {
+                            let userVan = scrumlib.getDatasetById(userComments[i].idVan);
+                            if (comments.childElementCount > 10) {
+                                comments.removeChild(comments.firstChild);
+                            }
+                            comments.innerHTML += "<li class='bericht receiverbericht'>" + userComments[i].comment + ' - <span class="nicknameChat">' + userVan[0].nickname +
                                 "</span></li>";
                         }
 
                     }
+                    comments.scrollTop = comments.scrollHeight;
+                }
+
+
+            }
+
+            var flist = document.getElementsByClassName("userlistitem");
+            for (var i = 0; i < flist.length; i++) {
+                flist[i].addEventListener("click", function (e) {
+                    itemDone(e.srcElement)
+                });
+            }
+
+            function itemDone(e) {
+                let receiver = scrumlib.getDatasetById(e.dataset.id);
+                userReceiver = receiver;
+                let receiverInfo = document.getElementById("nameReceiver")
+                let receiverFoto = document.createElement('img');
+                receiverInfo.innerHTML = "";
+                receiverInfo.innerHTML = receiver[0].nickname;
+                receiverFoto.setAttribute("src", "img/" + receiver[0].foto);
+                receiverFoto.setAttribute("class", "friendFoto");
+                receiverInfo.append(receiverFoto);
+                console.log(receiver[0].comment);
+                
+                commentTonen(userSender, receiver);
+            }
+
+            function getFriends() {
+                friends = scrumlib.getAllDatasets();
+                let friendslist = document.getElementById("userlist")
+                for (let i = 0; i < friends.length; i++) {
+                    const element = friends[i];
+                    let option = document.createElement("li");
+                    option.setAttribute("data-id", element._id);
+                    option.setAttribute("class", "userlistitem");
+                    option.innerHTML = element.nickname;
+                    friendslist.append(option);
+
                 }
             }
+
+
+
         }
 
         function refresh() {

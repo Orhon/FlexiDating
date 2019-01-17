@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Add to favorieten</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script async src="js/flexi_scrum_2.1.0.min.js"></script>
 </head>
+
 <body>
-    
+
     <script defer>
         window.onload = function () {
-            scrumlib.addProperty("favoriet", "string", ""            
-            );
+            scrumlib.addProperty("favoriet", "string", "");
             scrumlib.save();
         }
     </script>
 </body>
+
 </html>
