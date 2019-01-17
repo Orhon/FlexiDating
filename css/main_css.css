@@ -174,15 +174,15 @@ footer {
 
 .topmenu ul li a {
     display: block;
-    padding: 0.375em 0.5em;
+    padding: 0em 0.8em;
     /*6px 8px*/
-    /*border-right: 1px solid #58ec4e;*/
+    border-right: 1px solid #58ec4e;
     text-decoration: none;
     letter-spacing: 0.1em;
     color: white;
 }
 
-,
+
 .topmenu ul li a:nth-last-child(2n-1) {
     border-right: 1px solid #58ec4e;
 }
@@ -266,7 +266,7 @@ section h3 {
     background-color: #4e6078;
     margin: 0.6em;
     float: left;
-    width: 30em;
+    width: 27em;
 }
 
 .kopjes img {
@@ -279,7 +279,7 @@ section h3 {
 
 .infokopjes {
     background: white;
-    font-size: 1em;
+    font-size: 0.9em;
 
     text-align: right;
     color: #4e6078;
@@ -307,7 +307,7 @@ section h3 {
     float: center;
     height: auto;
     border: solid 1px #4e6078;
-    width: 50%;
+    width: 60vw;
     overflow: hidden;
     margin: 3em;
 }
@@ -322,8 +322,8 @@ label.profile {
     font-size: 1.2em;
     font-weight: bold;
     display: inline;
-    width: 20%;
-    height: auto;
+    /*width: 20%;
+    height: auto;*/
     margin-right: 5px;
 }
 
@@ -359,6 +359,51 @@ label.profile #nickname {
     font-weight: normal;
 }
 
+/********************/
+/*--- ZOEK PAGES ---*/
+/********************/
+
+#zoek {
+    margin-left: 10em;
+    width: 400px;
+    float: left;
+}
+
+#zoek input {
+    width: 100px;
+}
+
+#container {
+    width: 40vw;
+    float: left;
+    margin: 0 auto;
+}
+
+#containerProfiel {
+    width: 80vw;
+    margin: 0 auto
+}
+
+#containerProfiel form {
+    width: 80vw;
+    margin: 0 auto
+}
+
+form img {
+    width: 300px;
+}
+
+/********************/
+/*--- REGISTER PAGES ---*/
+/********************/
+
+.form-group img{
+    height: 5em;
+    width: auto;
+    border: solid 1px #4e6078;
+    padding: 0.3em;
+    opacity: 66%;
+}
 
 /********************/
 /*--- FORMLAYOUT ---*/
@@ -374,10 +419,10 @@ form {
 /*** Full-width input fields ***/
 input[type=text],
 input[type=password] {
-    width: 100%;
+    width: 85vw;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
+    display: block;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -390,6 +435,7 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
+    min-width: 150px;
     width: 20%;
 }
 
@@ -527,16 +573,18 @@ span.psw {
 /*** Full-width input fields ***/
 input[type=text],
 input[type=password] {
-    width: 100%;
+    width: 85vw;
     padding: 15px;
     margin: 5px 0 22px 0;
-    display: inline-block;
+    display: block;
 }
 
 input[type=text]:focus,
 input[type=password]:focus {
+    width: 85vw;
     background-color: #ddd;
     outline: none;
+    display: block;
 }
 
 /*** Overwrite default styles of hr ***/

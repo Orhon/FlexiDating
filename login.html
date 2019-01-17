@@ -1,37 +1,74 @@
 <!DOCTYPE html>
-<html>
-<head>
+<html lang="en" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/main_css.css" />
+<link href="css/main_css.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
- <script async src="js/flexi_scrum_2.1.0.min.js"></script>
-<script src="js/profielen.json"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
 <script src="js/login_validatie.js"></script>
+
+<!-- index.html -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flexidating</title>
 </head>
+
 <body>
-  <form class="login">
-    <div class="imgcontainer">
-     </div>
+    <div class="clearfix">
+        <div class="login clear">
+            <div class="box responsive">
+                <div class="image-box responsive">
+                    <div class="image-text">
+                        <h1>FLEXIDATING</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <form id="login">
-      <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+        <header>
+            <nav class="topmenu" id="responseMenu1">
+                <ul>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="zoeken.html">zoeken</a></li>
+                    <li><a href="profielupdate.html">jouw profiel</a></li>
+                    <li><a href="login.html">login</a></li>
+                    <li><a href="registratie.html">registreer</a></li>
+                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
+                </ul>
+            </nav>
+        </header>
 
-      <label for="passid"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="passid" required>
+<section>
+    
+      <label for="email"><b>Email </b></label>
+        <input id="email" type="text" placeholder="Voeg je email-adres in" name="email" required>
+
+      <label for="passid"><b>Wachtwoord </b></label>
+      <input id="password" type="password" placeholder="Voeg je wachtwoord in" name="passid" required>
         
-      <button type="submit" onclick="validate()">Login</button>
-      <label>
-        <input type="checkbox" checked="checked" name="remember"> Remember me
-      </label>
-    </form>
+      <button  onclick="validate()">Login</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Onthoud mijn gegevens.
+        </label>
+    
 
-        <p>Dont have an account yet?
-            <a href="registratie.html">Register</a></p>
-       <span class="psw">Forgot <a href="#">password?</a></span>
+        <p>Heb je nog geen account?
+            <a href="registratie.html">Registreer hier!</a></p>
+       <span class="psw"><a href="#">Wachtwoord </a>vergeten?</span>
+        <br><br>
+          
+</section>
+        <footer>
+        <p>
+        &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+        <small>imagecredits: designed by www.freepik.com</small>
+        </p>
+        </footer>
     </div>
-  </form>
-</div>
-
 </body>
+
 </html>
