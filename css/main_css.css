@@ -362,18 +362,15 @@ label.profile #nickname {
     font-weight: normal;
 }
 
-img #foto{
+#foto img {
     width: 60vw;
     max-width: 200px;
     height: auto;
 }
 
- 
 /********************/
 /*--- ZOEK PAGES ---*/
 /********************/
-
-
 
 .zoek {
     width: 80%;
@@ -390,6 +387,7 @@ img #foto{
     clear: both;
     background: #4e6078;
     overflow: hidden;
+    margin: 1em;
 
 }
 
@@ -401,11 +399,15 @@ img #foto{
 
 .zoek h3{
     float: left;
+    display: inline-block;
 }
 
+.zoek label{
+    display: inline;
+}
 
 .zoek input {
-    width: 100px;
+    width: 95%;
 }
 
 
