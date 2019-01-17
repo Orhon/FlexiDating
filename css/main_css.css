@@ -362,6 +362,13 @@ label.profile #nickname {
     font-weight: normal;
 }
 
+img #foto{
+    width: 60vw;
+    max-width: 200px;
+    height: auto;
+}
+
+ 
 /********************/
 /*--- ZOEK PAGES ---*/
 /********************/
