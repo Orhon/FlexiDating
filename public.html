@@ -127,6 +127,12 @@
         var ca = document.cookie.split('=');
         var user = scrumlib.getDatasetById(ca[1]);
         ++counter;
+        var updateMap = {};
+      
+                updateMap.favorite +="+"+user1[0]._id;
+                scrumlib.updateDataset(ca[1], updateMap)
+                console.log(scrumlib.updateDataset(ca[1], updateMap));
+
         //var favoriten = [{"favorite":user1[0]._id}];
         //  favorites.push("\"" + $(this).text() + " " + counter + "\"");
       //  var updateMapfavorite= {};
@@ -135,7 +141,8 @@
           //  updateMapfavorite.value = JSON.stringify(favoriten);
         }
         else{
-            user[0].favorite.concat(user1[0]._id);
+           updateMap.favorite =user1[0]._id;
+           // user[0].favorite.concat(user1[0]._id);
          //   var oldFavorite = JSON.parse(user[0].favorite);
          //   oldFavorite = oldFavorite.concat(favoriten);
           //  updateMapfavorite.value = JSON.stringify(oldFavorite);
