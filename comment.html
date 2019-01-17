@@ -60,15 +60,15 @@
                     // }
 
 
-            // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");        
+            // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
             // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-            
+
 
             document.getElementById("userName").innerHTML = userSender[0].nickname;
 
             console.log(userSender)
             commentTonen(userSender, userReceiver);
-            
+
             var comment = document.getElementById("txtComment");
             comment.focus();
             comment.select();

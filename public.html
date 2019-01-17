@@ -75,7 +75,7 @@
 <script src="js/sterrenbeeld.js"></script>
 <script defer>
     var counter = 0;
-    
+
     window.onload = function () {
         /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
 
@@ -112,7 +112,7 @@
             return d - y;
         }
     }
-    
+
     function addFavorite(counter) {
         /// neem id van html en plaats in ID van favorite
         var parameters = location.search.substring(1).split("?");
@@ -126,7 +126,7 @@
         var user = scrumlib.getDatasetById(ca[1]);
         ++counter;
         var updateMap = {};
-      
+
                 updateMap.favorite +="+"+user1[0]._id;
                 scrumlib.updateDataset(ca[1], updateMap)
                 console.log(scrumlib.updateDataset(ca[1], updateMap));
@@ -145,7 +145,7 @@
          //   oldFavorite = oldFavorite.concat(favoriten);
           //  updateMapfavorite.value = JSON.stringify(oldFavorite);
         }
-        
+
                         //updateMapfavorite.value = JSON.stringify(favoriten);
       //  favoriten=user1[0]._id+"+";
               //user[0].favorite=+"+";
