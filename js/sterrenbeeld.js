@@ -79,10 +79,3 @@ function getSterrenbeeld(gb) {
             break;
     }
 }
-
-
-    
-        
-  
-    
-    
