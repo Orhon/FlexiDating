@@ -19,8 +19,7 @@
             <input type="text" id="txtComment">
             <button id="knopComment">Comment</button>
             <button id="knopCommentAndere">CommentAndere</button>
-            <button id="knopCommentTonen">Toon comment sender</button>
-            <button id="knopCommentTonenReceiver">Toon comment receiver</button>
+            <button id="refresh" onclick="checkChat">Refresh</button>
         </div>
 
         <div id="commentsTonenReceiver">
@@ -47,17 +46,18 @@
             // var x = document.cookie.split("=");
             // var userSender = scrumlib.getDatasetById(x[1]);
 
-                    //danira
+
+                    //jan
             var userSender = scrumlib.getDatasetById("56cae42a683485281caf5653");
             var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
 
                     //jan
-                    var userReceiver ='';
-                    if (userSender[0]._id == "56cae42a683485281caf5651" ){
-                       userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-                    }else{
-                        userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
-                    }
+                    // var userReceiver ='';
+                    // if (userSender[0]._id == "56cae42a683485281caf5651" ){
+                    //    userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
+                    // }else{
+                    //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
+                    // }
 
 
             // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");        
@@ -72,7 +72,7 @@
             var comment = document.getElementById("txtComment");
             comment.focus();
             comment.select();
-
+            //comment.select();
             var btnComment = document.getElementById("knopComment");
             btnComment.addEventListener("click", function (e) {
                 addComment(userSender, userReceiver);
@@ -83,15 +83,6 @@
                 addComment(userReceiver, userSender);
             });
 
-            var btnCommentTonen = document.getElementById("knopCommentTonen");
-            btnCommentTonen.addEventListener("click", function (e) {
-                commentTonen(userSender, userReceiver);
-            });
-
-            var btnCommentTonenReceiver = document.getElementById("knopCommentTonenReceiver");
-            btnCommentTonenReceiver.addEventListener("click", function (e) {
-                commentTonen(userReceiver, userSender);
-            });
 
             var input = document.getElementById("txtComment");
 
@@ -107,7 +98,7 @@
                 }
             });
 
-            setInterval(checkChat, 5000);
+            setInterval(checkChat, 20000);
 
             function checkChat() {
                 if (comment.value == '')
@@ -171,8 +162,8 @@
                             if (comments.childElementCount > 20) {
                                 comments.removeChild(comments.firstChild);
                             }
-                            comments.innerHTML += "<li>" + userComments[i].comment + ' - ' + userVan[0].nickname +
-                                "</li>";
+                            comments.innerHTML += "<li>" + userComments[i].comment + ' - <span class="nicknameChat">' + userVan[0].nickname +
+                                "</span></li>";
                         }
 
                     }
