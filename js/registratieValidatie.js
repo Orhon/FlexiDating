@@ -296,7 +296,7 @@ function ValidateFileUpload() {
             if (fuData.files && fuData.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     $('#blah').attr('src', e.target.result);
                 }
 
@@ -320,7 +320,7 @@ function ValidateFileUpload() {
     //  localStorage.setItem('session', JSON.stringify(profielData));
     //   localStorage.setItem('session', JSON.stringify(profielData));
     console.log(scrumlib.createDataset(profielData));
-   
+
     scrumlib.save();
     window.location.href = "login.html"; // Redirecting to other page.
 
