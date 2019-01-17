@@ -146,8 +146,11 @@ function geboorteDatum_validation() {
         var parts = dateString.split("-");
         var dtDOB = new Date(parts[0] + "-" + parts[1] + "-" + parts[2]);
         var dtCurrent = new Date();
-        lblError.innerHTML = "18 jaar ALLEEN in aanmerking komend."
+        //lblError.innerHTML = "18 jaar ALLEEN in aanmerking komend."
+
         if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
+            alert("18 jaar ALLEEN in aanmerking komend.");
+            dateString.focus();
             return false;
         }
 
@@ -164,10 +167,12 @@ function geboorteDatum_validation() {
                 }
             }
         }
-        lblError.innerHTML = "";
+        //lblError.innerHTML = "";
         return true;
     } else {
-        lblError.innerHTML = "Voer ALLEEN de datum in het jjjj-MM-dd formaat in."
+        //lblError.innerHTML = "Voer ALLEEN de datum in het jjjj-MM-dd formaat in."
+        alert("Voer ALLEEN de datum in het jjjj-MM-dd formaat in.");
+        dateString.focus();
         return false;
     }
 }
