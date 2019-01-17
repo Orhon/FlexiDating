@@ -79,3 +79,44 @@ function getSterrenbeeld(gb) {
             break;
     }
 }
+
+$("#bookmarkme").click(function () {
+    var url = 'http://' + location.host; // i'm in a sub-page and bookmarking the home page
+    var name = "Snir's Homepage";
+  
+    if (navigator.userAgent.toLowerCase().indexOf('chrome') > -1){ //chrome
+      alert("In order to bookmark go to the homepage and press " 
+          + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ? 
+              'Command/Cmd' : 'CTRL') + "+D.")
+    } 
+    else if (window.sidebar) { // Mozilla Firefox Bookmark
+      //important for firefox to add bookmarks - remember to check out the checkbox on the popup
+      $(this).attr('rel', 'sidebar');
+      //set the appropriate attributes
+      $(this).attr('href', url);
+      $(this).attr('title', name);
+  
+      //add bookmark:
+      //  window.sidebar.addPanel(name, url, '');
+      //  window.sidebar.addPanel(url, name, '');
+      window.sidebar.addPanel('', '', '');
+    } 
+    else if (window.external) { // IE Favorite
+          window.external.addFavorite(url, name);
+    } 
+    return;
+  });
+    $(document).ready(function() {
+       // var favorites = [];
+        var counter = 0;
+    
+        $('.favorite').click(function() {
+            ++counter;
+          //  favorites.push("\"" + $(this).text() + " " + counter + "\"");
+            scrumlib.addProperty("lovecoin", "Number", counter);
+        });
+    
+        $('#reveal').click(function() {
+          // alert(favorites); 
+        });
+    });
