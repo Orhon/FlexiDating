@@ -128,7 +128,10 @@
   <script async src="js/flexi_scrum_2.1.0.min.js"></script>
   <script defer>
     window.onload = function () {
-      var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
+      /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
+
+      var ca = document.cookie.split('=');
+      var user = scrumlib.getDatasetById(ca[1]);
 
       document.getElementById("nickname").value = user[0].nickname;
       document.getElementById("voornaam").value = user[0].voornaam;

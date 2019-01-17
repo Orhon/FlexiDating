@@ -23,10 +23,11 @@
 .clearFix {
     *zoom: 1;
 }
-
+/*
 .leftcolumn {
     color: #FF0000;
 }
+*/
 
 body,
 html {
@@ -131,6 +132,7 @@ section {
 section h1 {
     text-align: center;
 }
+
 /*
 section a {
     text-align: center;
@@ -182,10 +184,11 @@ footer {
     color: white;
 }
 
-
+/*
 .topmenu ul li a:nth-last-child(2n-1) {
     border-right: 1px solid #58ec4e;
 }
+*/
 
 .topmenu ul li a:hover,
 .topmenu ul li a:active,
@@ -302,7 +305,7 @@ section h3 {
     margin: auto;
 }
 
-.profile #foto{
+.profile #foto {
     display: block;
     float: center;
     height: auto;
@@ -338,7 +341,7 @@ label.profile #nickname {
     display: inline;
 }
 
-.profile-line{
+.profile-line {
     display: block;
     margin: auto;
     clear: both;
@@ -363,15 +366,41 @@ label.profile #nickname {
 /*--- ZOEK PAGES ---*/
 /********************/
 
-#zoek {
-    margin-left: 10em;
-    width: 400px;
+
+
+.zoek {
+    width: 80%;
     float: left;
 }
 
-#zoek input {
+.zoek .leftcolumn {
+    padding: 1em;
+    color: #fff;
+    width: 30%;
+    max-width: 30vw;
+    float: left;
+    /*display: inline-block;*/
+    clear: both;
+    background: #4e6078;
+    overflow: hidden;
+
+}
+
+.zoek .rightcolumn {
+    width: 60%;
+    float: right;
+    display: inline-flex;
+}
+
+.zoek h3{
+    float: left;
+}
+
+
+.zoek input {
     width: 100px;
 }
+
 
 #container {
     width: 40vw;
@@ -380,6 +409,13 @@ label.profile #nickname {
 }
 
 #containerProfiel {
+    display: flex;
+    /*flex-direction: column;*/
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1em;
+    overflow: auto;
+
     width: 80vw;
     margin: 0 auto
 }
@@ -389,6 +425,8 @@ label.profile #nickname {
     margin: 0 auto
 }
 
+
+
 form img {
     width: 300px;
 }
@@ -397,7 +435,7 @@ form img {
 /*--- REGISTER PAGES ---*/
 /********************/
 
-.form-group img{
+.form-group img {
     height: 5em;
     width: auto;
     border: solid 1px #4e6078;
