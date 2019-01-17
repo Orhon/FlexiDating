@@ -46,13 +46,13 @@
         if ((parseInt(lovecoin.value)>10) && (parseInt(lovecoin.value)<100))
         {
         user[0].lovecoin=user[0].lovecoin + parseInt(lovecoin.value);
-        console.log(user[0].lovecoin, "++++++",user[0].nickname);
-        //console.log(scrumlib.getAllDatasets());
-        resultat.innerHTML="Je heb gekoocht "+ lovecoin.value+" lovecoins";
+        console.log(lovecoin.value);
+        console.log(scrumlib.getAllDatasets());
+        resultat.innerHTML="Je heb "+ lovecoin.value+" lovecoins gekocht.";
         }
         else
         {
-            resultat.innerHTML="Je moet nummers tussen 10 en 100 plaatsen";
+            resultat.innerHTML="Kies een aantal tussen 10 en 100.";
         }
         
    

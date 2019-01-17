@@ -31,7 +31,7 @@
                     <li><br></li>
                     <li><a href="index.html">home</a></li>
                     <li><a href="zoeken.html">zoeken</a></li>
-                    <li><a href="profielupdate.html">jouw profiel</a></li>
+                    <li><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
                     <li><a href="login.html">login</a></li>
                     <li><a href="registratie.html">registreer</a></li>
                     <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
@@ -77,7 +77,13 @@
     window.onload = function () {
         /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
         
-      
+      var parameters = location.search.substring(1).split("?");
+        console.log(parameters);
+        var ipara = parameters;
+        console.log(ipara);
+
+        var user1 = scrumlib.getDatasetById(ipara);
+
         var ca = document.cookie.split('=');
 var user = scrumlib.getDatasetById(ca[1]);
 
@@ -85,16 +91,16 @@ var user = scrumlib.getDatasetById(ca[1]);
         var locationImg = "img/"
         scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
 
-        document.getElementById("nickname").innerHTML = user[0].nickname;
-        document.getElementById("foto").setAttribute('src', locationImg + user[0].foto);
-        document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
-        document.getElementById("gewicht").innerHTML = user[0].gewicht;
-        document.getElementById("grootte").innerHTML = user[0].grootte;;
-        document.getElementById("haarKleur").innerHTML = user[0].haarkleur;
-        document.getElementById("oogKleur").innerHTML = user[0].oogkleur;
-        document.getElementById("geslacht").innerHTML = user[0].sexe;
-        document.getElementById("provincie").innerHTML = user[0].provincie;
-        document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user[0].geboortedatum);
+        document.getElementById("nickname").innerHTML = user1[0].nickname;
+        document.getElementById("foto").setAttribute('src', locationImg + user1[0].foto);
+        document.getElementById("leefTijd").innerHTML = getLeeftijd(user1[0].geboortedatum);
+        document.getElementById("gewicht").innerHTML = user1[0].gewicht;
+        document.getElementById("grootte").innerHTML = user1[0].grootte;;
+        document.getElementById("haarKleur").innerHTML = user1[0].haarkleur;
+        document.getElementById("oogKleur").innerHTML = user1[0].oogkleur;
+        document.getElementById("geslacht").innerHTML = user1[0].sexe;
+        document.getElementById("provincie").innerHTML = user1[0].provincie;
+        document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user1[0].geboortedatum);
 
 
         function getLeeftijd(gb) {
@@ -103,5 +109,25 @@ var user = scrumlib.getDatasetById(ca[1]);
 
             return d - y;
         }
+    }
+    var counter = 0;
+       var favorite = [];
+       scrumlib.addProperty("favorite", "String", "");
+        function addFavorite() {
+             /// neem id van html en plaats in ID van favorite
+             var parameters = location.search.substring(1).split("?");
+        console.log(parameters);
+        var ipara = parameters;
+        console.log(ipara);
+
+        var user1 = scrumlib.getDatasetById(ipara);
+
+        var ca = document.cookie.split('=');
+var user = scrumlib.getDatasetById(ca[1]);
+            ++counter;
+          //  favorites.push("\"" + $(this).text() + " " + counter + "\"");
+         favorite[counter-1]=user1[0]._id;
+            console.log(favorite[counter-1]);
+            console.log(user[0].favorite, "++++++",counter);
     }
 </script>

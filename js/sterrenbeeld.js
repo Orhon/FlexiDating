@@ -83,19 +83,6 @@ function getSterrenbeeld(gb) {
 
     
         
-       var counter = 0;
-       var favorite = [];
-       scrumlib.addProperty("favorite", "String", "");
-        function addFavorite() {
-            var ca = document.cookie.split('=');
-            /// neem id van html en plaats in ID van favorite
-var user = scrumlib.getDatasetById(ca[1]);
-
-            ++counter;
-          //  favorites.push("\"" + $(this).text() + " " + counter + "\"");
-         favorite[counter-1]="id van html";
-            console.log(favorite[counter-1]);
-            console.log(user[0].favorite, "++++++",counter);
-    }
+  
     
     
