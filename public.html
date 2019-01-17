@@ -53,11 +53,8 @@
                 <div class="profile-line"><label class="profile">Sterrenbeeld: </label><label class="profile dynamic"
                         id="sterrenbeeld"></label></div>
                 <div class="profile-line"><label class="profile">Provincie: </label><label class="profile dynamic" id="provincie"></label></div>
-                <form id="myform">
-                    <input type="checkbox" name="checkfield" onchange="addFavorite(this)"> &#9825
-
-                </form>
-                <!-- END CONTENT
+                <input type="checkbox" name="checkfield" onchange="addFavorite(this)"> &#9825
+                <!-- END CONTENT 
               <a id="favorite" href="#" onclick="addFavorite(this)" title="bookmark this page">Add to
                     Favorite</a>
 
@@ -96,7 +93,7 @@
         var locationImg = "img/"
         var favUser = user1;
 
-        var favoritten = [favUser[0]._id];
+        var arrayFavoritten = [favUser[0]._id];
 
         var updateMapfavorite = {};
         window.onload = function () {
@@ -137,50 +134,35 @@
 
 
 
-            console.log(favUser[0].favorite);
             if (checkboxElem.checked) {
-                if (user[0].favorite == '') {
-                    updateMapfavorite.favorite = JSON.stringify(favoritten);
+                if (user[0].favoritten == '') {
+                    updateMapfavorite.favoritten = JSON.stringify(arrayFavoritten);
                 } else {
                     // user[0].favorite.concat(user1[0]._id);
-                    let oldFavorite = JSON.parse(user[0].favorite);
-                    //      if (favUser[0]._idoldFavorite.)
-                    updateMapfavorite.favorite = favUser[0]._id;
-                    oldFavorite = oldFavorite.concat(favoritten);
-                    updateMapfavorite.favorite = JSON.stringify(oldFavorite);
+                    let oldFavorite = JSON.parse(user[0].favoritten);
+                    //        if (!oldFavorite.includes(favUser[0]._id))
+                    if (oldFavorite.indexOf(favUser[0]._id) < 0) {
+                        updateMapfavorite.favoritten = favUser[0]._id;
+                        oldFavorite = oldFavorite.concat(arrayFavoritten);
+                        updateMapfavorite.favoritten = JSON.stringify(oldFavorite);
+                    } else {
+                        updateMapfavorite.favoritten = JSON.stringify(oldFavorite);
+
+                    }
                 }
 
-                alert("checked")
-                    ++counter;
-            } else {
+                // alert("toegevoegd")
 
-                alert("notchecked")
             }
+            //else {
 
-            //updateMap.favorite +="+"+favUser[0]._id;
+            //  alert("niet toegevoegd")
+            //}
             scrumlib.updateDataset(ca[1], updateMapfavorite)
-            //console.log(scrumlib.updateDataset(ca[1], updateMapfavorite));
-
 
             scrumlib.save();
-            console.log(user[0].favorite, "   ", counter);
+            //    console.log(user[0].favorite, "   ", counter);
 
-            //  favorites.push("\"" + $(this).text() + " " + counter + "\"");
-            //  var updateMapfavorite= {};
-
-            //      user[0].favorite=user1[0]._id;
-
-            //updateMapfavorite.value = JSON.stringify(favoriten);
-            //  favoriten=user1[0]._id+"+";
-            //user[0].favorite=+"+";
-            //   scrumlib.updateDataset(user[0]._id, updateMapfavorite);
-
-            //     scrumlib.updateDataset(ca[1], updateMap)
-            //   console.log(scrumlib.updateDataset(ca[1], updateMap));
-
-            // favorite[counter - 1] = user1[0]._id;
-            //   console.log(favorite[counter - 1]);
-            //  scrumlib.save();
         }
     </script>
 </body>
