@@ -52,8 +52,8 @@
                 <div class="profile-line"><label class="profile">Geslacht: </label><label class="profile dynamic" id="geslacht"></label></div>
                 <div class="profile-line"><label class="profile">Sterrenbeeld: </label><label class="profile dynamic" id="sterrenbeeld"></label></div>
                 <div class="profile-line"><label class="profile">Provincie: </label><label class="profile dynamic" id="provincie"></label></div>
-                <a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page">Add to Favorite</a>
-                  
+                <a id="favorite" href="#" onclick="addFavorite()" rel="sidebar" title="bookmark this page">Add to Favorite</a>
+                    
                 <!-- END CONTENT -->
             </div>
         </section>
@@ -68,6 +68,8 @@
 </body>
 
 </html>
+
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script async src="js/flexi_scrum_2.1.0.min.js"></script>
 <script src="js/sterrenbeeld.js"></script>
@@ -75,9 +77,9 @@
     window.onload = function () {
         /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
         
+      
         var ca = document.cookie.split('=');
-        var user = scrumlib.getDatasetById(ca[1]);
-
+var user = scrumlib.getDatasetById(ca[1]);
 
 
         var locationImg = "img/"
