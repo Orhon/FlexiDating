@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
-<link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<script src="js/responsive_design.js"> </script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script async src="js/flexi_scrum_2.1.0.min.js"></script>
-<script src="js/sterrenbeeld.js"></script>
+<html lang="nl" />
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flexidating-profile</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Flexidating | Profiel</title>
+
+    <!-- STYLE SHEET LINKS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
+    <link href="css/_page_css_persoonlijkepagina.css" rel="stylesheet" type="text/css" />
+
 </head>
 
 <body>
@@ -57,12 +57,12 @@
                     <input type="checkbox" name="checkfield" onchange="addFavorite(this)"> &#9825
 
                 </form>
-                <!-- END CONTENT 
+                <!-- END CONTENT
               <a id="favorite" href="#" onclick="addFavorite(this)" title="bookmark this page">Add to
-                    Favorite</a> 
-             
+                    Favorite</a>
+
                 -->
-               
+
 
                 <!-- END CONTENT -->
             </div>
@@ -75,109 +75,114 @@
         </footer>
 
     </div>
+
+    <!-- SCRIPT LINKS -->
+    <script src="js/responsive_design.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+    <script src="js/sterrenbeeld.js"></script>
+    <script defer>
+        var counter = 0;
+        var parameters = location.search.substring(1).split("?");
+        //    console.log(parameters);
+        var ipara = parameters;
+        //   console.log(ipara);
+
+        var user1 = scrumlib.getDatasetById(ipara);
+        var ca = document.cookie.split('=');
+        var user = scrumlib.getDatasetById(ca[1]);
+
+
+        var locationImg = "img/"
+        var favUser = user1;
+
+        var favoritten = [favUser[0]._id];
+
+        var updateMapfavorite = {};
+        window.onload = function () {
+            /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
+
+
+            //    scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
+
+            document.getElementById("nickname").innerHTML = user1[0].nickname;
+            document.getElementById("foto").setAttribute('src', locationImg + user1[0].foto);
+            document.getElementById("leefTijd").innerHTML = getLeeftijd(user1[0].geboortedatum);
+            document.getElementById("gewicht").innerHTML = user1[0].gewicht;
+            document.getElementById("grootte").innerHTML = user1[0].grootte;;
+            document.getElementById("haarKleur").innerHTML = user1[0].haarkleur;
+            document.getElementById("oogKleur").innerHTML = user1[0].oogkleur;
+            document.getElementById("geslacht").innerHTML = user1[0].sexe;
+            document.getElementById("provincie").innerHTML = user1[0].provincie;
+            document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user1[0].geboortedatum);
+
+
+            function getLeeftijd(gb) {
+                let y = gb.substring(0, 4);
+                let d = new Date().getFullYear();
+
+                return d - y;
+            }
+        }
+
+        function doalert(checkboxElem) {
+            if (checkboxElem.checked) {
+                alert("checked")
+            } else {
+                alert("notchecked")
+            }
+        }
+
+        function addFavorite(checkboxElem) {
+
+
+
+            console.log(favUser[0].favorite);
+            if (checkboxElem.checked) {
+                if (user[0].favorite == '') {
+                    updateMapfavorite.favorite = JSON.stringify(favoritten);
+                } else {
+                    // user[0].favorite.concat(user1[0]._id);
+                    let oldFavorite = JSON.parse(user[0].favorite);
+                    //      if (favUser[0]._idoldFavorite.)
+                    updateMapfavorite.favorite = favUser[0]._id;
+                    oldFavorite = oldFavorite.concat(favoritten);
+                    updateMapfavorite.favorite = JSON.stringify(oldFavorite);
+                }
+
+                alert("checked")
+                    ++counter;
+            } else {
+
+                alert("notchecked")
+            }
+
+            //updateMap.favorite +="+"+favUser[0]._id;
+            scrumlib.updateDataset(ca[1], updateMapfavorite)
+            //console.log(scrumlib.updateDataset(ca[1], updateMapfavorite));
+
+
+            scrumlib.save();
+            console.log(user[0].favorite, "   ", counter);
+
+            //  favorites.push("\"" + $(this).text() + " " + counter + "\"");
+            //  var updateMapfavorite= {};
+
+            //      user[0].favorite=user1[0]._id;
+
+            //updateMapfavorite.value = JSON.stringify(favoriten);
+            //  favoriten=user1[0]._id+"+";
+            //user[0].favorite=+"+";
+            //   scrumlib.updateDataset(user[0]._id, updateMapfavorite);
+
+            //     scrumlib.updateDataset(ca[1], updateMap)
+            //   console.log(scrumlib.updateDataset(ca[1], updateMap));
+
+            // favorite[counter - 1] = user1[0]._id;
+            //   console.log(favorite[counter - 1]);
+            //  scrumlib.save();
+        }
+    </script>
 </body>
 
 </html>
-
-<script defer>
-    var counter = 0;
-    var parameters = location.search.substring(1).split("?");
-    //    console.log(parameters);
-    var ipara = parameters;
-    //   console.log(ipara);
-
-    var user1 = scrumlib.getDatasetById(ipara);
-    var ca = document.cookie.split('=');
-    var user = scrumlib.getDatasetById(ca[1]);
-
-
-    var locationImg = "img/"
-    var favUser = user1;
-
-    var favoritten = [favUser[0]._id];
-
-    var updateMapfavorite = {};
-    window.onload = function () {
-        /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
-
-
-        //    scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
-
-        document.getElementById("nickname").innerHTML = user1[0].nickname;
-        document.getElementById("foto").setAttribute('src', locationImg + user1[0].foto);
-        document.getElementById("leefTijd").innerHTML = getLeeftijd(user1[0].geboortedatum);
-        document.getElementById("gewicht").innerHTML = user1[0].gewicht;
-        document.getElementById("grootte").innerHTML = user1[0].grootte;;
-        document.getElementById("haarKleur").innerHTML = user1[0].haarkleur;
-        document.getElementById("oogKleur").innerHTML = user1[0].oogkleur;
-        document.getElementById("geslacht").innerHTML = user1[0].sexe;
-        document.getElementById("provincie").innerHTML = user1[0].provincie;
-        document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user1[0].geboortedatum);
-
-
-        function getLeeftijd(gb) {
-            let y = gb.substring(0, 4);
-            let d = new Date().getFullYear();
-
-            return d - y;
-        }
-    }
-    function doalert(checkboxElem) {
-        if (checkboxElem.checked) {
-            alert("checked")
-        } else {
-            alert("notchecked")
-        }
-    }
-
-    function addFavorite(checkboxElem) {
-
-
-
-        console.log(favUser[0].favorite);
-        if (checkboxElem.checked) {
-            if (user[0].favorite == '') {
-                updateMapfavorite.favorite = JSON.stringify(favoritten);
-            }
-            else {
-                // user[0].favorite.concat(user1[0]._id);
-                let oldFavorite = JSON.parse(user[0].favorite);
-                //      if (favUser[0]._idoldFavorite.)
-                updateMapfavorite.favorite = favUser[0]._id;
-                oldFavorite = oldFavorite.concat(favoritten);
-                updateMapfavorite.favorite = JSON.stringify(oldFavorite);
-            }
-
-            alert("checked")
-            ++counter;
-        } else {
-
-            alert("notchecked")
-        }
-
-        //updateMap.favorite +="+"+favUser[0]._id;
-        scrumlib.updateDataset(ca[1], updateMapfavorite)
-        //console.log(scrumlib.updateDataset(ca[1], updateMapfavorite));
-
-
-        scrumlib.save();
-        console.log(user[0].favorite, "   ", counter);
-
-        //  favorites.push("\"" + $(this).text() + " " + counter + "\"");
-        //  var updateMapfavorite= {};
-
-        //      user[0].favorite=user1[0]._id;
-
-        //updateMapfavorite.value = JSON.stringify(favoriten);
-        //  favoriten=user1[0]._id+"+";
-        //user[0].favorite=+"+";
-        //   scrumlib.updateDataset(user[0]._id, updateMapfavorite);
-
-        //     scrumlib.updateDataset(ca[1], updateMap)
-        //   console.log(scrumlib.updateDataset(ca[1], updateMap));
-
-        // favorite[counter - 1] = user1[0]._id;
-        //   console.log(favorite[counter - 1]);
-        //  scrumlib.save();
-    }
-</script>
