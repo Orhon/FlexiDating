@@ -362,7 +362,7 @@ label.profile #nickname {
     font-weight: normal;
 }
 
-img #foto{
+.profielfoto {
     width: 60vw;
     max-width: 200px;
     height: auto;
