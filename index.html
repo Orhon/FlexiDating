@@ -3,6 +3,7 @@
 <link href="css/main_css.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="js/responsive_design.js"> </script>
+<script src = "randomprofielen.js" type="text/javascript"></script>
 
 <!-- index.html -->
 <head>
@@ -40,7 +41,13 @@
         </header>
 
         <section>
-
+            
+            
+            
+<button name="test" id="test">test</button>
+            
+            
+            
             <div class="clearfix">
                 <h1>Ontdek enkele van onze vrijgezellen!</h1>
                 <br>
@@ -100,6 +107,238 @@
         </p>
         </footer>
     </div>
+    <script defer>
+            button1 = document.getElementById("knopzoek");
+            button1.addEventListener("click", function (e) {
+        
+                var searchMap = {};
+                var conditions = [];
+                var egeslacht = document.getElementById("zoek_sexe");
+                var geslacht = egeslacht.options[egeslacht.selectedIndex].value;
+                var ehaarKleur = document.getElementById("zoek_haarkleur");
+                var haarkleur = ehaarKleur.options[ehaarKleur.selectedIndex].value;
+                var eoogKleur = document.getElementById("zoek_oogkleur");
+                var oogkleur = eoogKleur.options[eoogKleur.selectedIndex].value;
+                var elichaamsbouw = document.getElementById("zoek_lichaamsbouw");
+                var lichaamsbouw = elichaamsbouw.options[elichaamsbouw.selectedIndex].value;
+                var esterrenbeeld = document.getElementById("zoek_sterrenbeeld");
+                var sterrenbeeld = esterrenbeeld.options[esterrenbeeld.selectedIndex].value;
+                var eprovincie = document.getElementById("zoek_provincie");
+                var provincie = eprovincie.options[eprovincie.selectedIndex].value;
+        
+                if (!fieldisleeg(geslacht)) {
+                    conditions.push(['sexe', '='])
+                }
+                if (!fieldisleeg(haarkleur)) {
+                    conditions.push(['haarkleur', '~'])
+                }
+                if (!fieldisleeg(oogkleur)) {
+                    conditions.push(['oogkleur', '~'])
+                }
+                if (!fieldisleeg(lichaamsbouw)) {
+                    conditions.push(['lichaamsbouw', '='])
+                }
+                if (!fieldisleeg(sterrenbeeld)) {
+                    conditions.push(['sterrenbeeld', '='])
+                }
+                if (!fieldisleeg(provincie)) {
+                    conditions.push(['provincie', '='])
+                }
+        
+                for (var i = 0; i < conditions.length; i++) {
+        
+                    var elDom = document.getElementById('zoek_' + conditions[i][0]); //voeg "zoek_" toe om aan id van formvelden te voldoen
+                    var el = elDom.options[elDom.selectedIndex].value;
+                    // console.log(elDom);
+                    console.log(el);
+                    if (el !== "") {
+        
+                        //niet als lege waarde
+                        searchMap[conditions[i][0]] = {
+                            "waarde": el,
+                            "match": conditions[i][1]
+                        };
+                    }
+                }
+        
+        
+        
+                var users = scrumlib.getDatasetsByConditions(searchMap);
+                var minLeeftijd = document.getElementById("minleefTijd").value;
+                var maxLeeftijd = document.getElementById("maxleefTijd").value;
+                var geboorteJaarMin = parseInt((new Date().getFullYear() - minLeeftijd)) + "-00-00";
+                var geboorteJaarMax = parseInt((new Date().getFullYear() - maxLeeftijd)) + "-00-00";
+                var minGrootte = document.getElementById("mingrootte").value;
+                var maxGrootte = document.getElementById("maxgrootte").value;
+                var minGewicht = document.getElementById("mingewicht").value;
+                var maxGewicht = document.getElementById("maxgewicht").value;
+                var filteredLeeftijd = users;
+        
+        
+                if (!fieldisleeg(minLeeftijd) && !fieldisleeg(maxLeeftijd)) {
+                    // alle twee velden ingevuld
+                    filteredLeeftijd = filteredLeeftijd.filter(leeftijdCheck('<>'));
+                } else {
+                    if (fieldisleeg(minLeeftijd) && !fieldisleeg(maxLeeftijd)) {
+                        //max veld ingevuld
+                        filteredLeeftijd = filteredLeeftijd.filter(leeftijdCheck('>'));
+                    } else if (!fieldisleeg(minLeeftijd) && fieldisleeg(maxLeeftijd)) {
+                        //min veld ingevuld
+                        filteredLeeftijd = filteredLeeftijd.filter(leeftijdCheck('<'));
+                    }
+                }
+        
+                if (!fieldisleeg(minGrootte) && !fieldisleeg(maxGrootte)) {
+                    // alle twee velden ingevuld
+                    filteredLeeftijd = filteredLeeftijd.filter(grootteCheck('<>'));
+                } else {
+                    if (fieldisleeg(minGrootte) && !fieldisleeg(maxGrootte)) {
+                        //max veld ingevuld
+                        filteredLeeftijd = filteredLeeftijd.filter(grootteCheck('<'));
+                    } else if (!fieldisleeg(minGrootte) && fieldisleeg(maxGrootte)) {
+                        //min veld ingevuld
+                        filteredLeeftijd = filteredLeeftijd.filter(grootteCheck('>'));
+                    }
+                }
+        
+                if (!fieldisleeg(minGewicht) && !fieldisleeg(maxGewicht)) {
+                    // alle twee velden ingevuld
+                    filteredLeeftijd = filteredLeeftijd.filter(gewichtCheck('<>'));
+                } else {
+        
+                    if (fieldisleeg(minGewicht) && !fieldisleeg(maxGewicht)) {
+                        //max veld ingevuld
+                        filteredLeeftijd = filteredLeeftijd.filter(gewichtCheck('<'));
+                    } else if (!fieldisleeg(minGewicht) && fieldisleeg(maxGewicht)) {
+                        //min veld ingevuld
+                        filteredLeeftijd = filteredLeeftijd.filter(gewichtCheck('>'));
+                    }
+                }
+        
+                console.log(filteredLeeftijd);
+        
+                function leeftijdCheck(type) {
+                    return function (value) {
+                        if (type == '<>') {
+                            let y = value.geboortedatum.substring(0, 4);
+                            let leeftijd = new Date().getFullYear() - y
+        
+                            if (leeftijd >= minLeeftijd && leeftijd <= maxLeeftijd) {
+                                return value
+                            }
+                        } else if (type == '>') {
+                            if (value.geboortedatum >= geboorteJaarMax) {
+                                return value;
+                            } else {
+                                return null
+                            }
+                        } else {
+                            if (value.geboortedatum <= geboorteJaarMin) {
+                                return value;
+                            } else {
+                                return null
+                            }
+                        }
+                    }
+                }
+        
+                function grootteCheck(type) {
+                    return function (value) {
+                        if (type == '<>') {
+                            if (value.grootte >= minGrootte && value.grootte <= maxGrootte) {
+                                return value
+                            }
+                        } else if (type == '>') {
+                            if (value.grootte >= minGrootte) {
+                                return value;
+                            }
+                        } else {
+                            if (value.grootte <= maxGrootte) {
+                                return value;
+                            }
+                        }
+                    }
+                }
+        
+                function gewichtCheck(type) {
+                    return function (value) {
+                        if (type == '<>') {
+                            if (value.gewicht >= minGewicht && value.gewicht <= maxGewicht) {
+                                return value
+                            }
+                        } else if (type == '>') {
+                            if (value.gewicht >= minGewicht) {
+                                return value;
+                            }
+                        } else {
+                            if (value.gewicht <= maxGewicht) {
+                                return value;
+                            }
+                        }
+                    }
+                }
+        
+                createUsers(filteredLeeftijd);
+        
+            });
+        
+            function createUsers(users){
+                    var container = document.getElementById("container");
+                    container.innerHTML="";
+        
+                    for (let index = 0; index < users.length; index++) {
+        
+                        var div = document.createElement("div");
+                        //legen
+        
+                        var divInfoKopjes = document.createElement("div");
+                        div.setAttribute('class',"kopjes");
+                        divInfoKopjes.setAttribute('class',"infokopjes");
+                        var pImg = document.createElement('a');
+                        pImg.setAttribute('href',"https://www.google.be/");
+                        pImg.setAttribute('id',users[index]._id);
+                        var img = document.createElement("img");
+                        img.setAttribute('src',"img/" + users[index].foto);
+        
+                        var pNickname = document.createElement('a');
+                        pNickname.setAttribute('class',"userInfo nickname");
+                        pNickname.setAttribute('href',"https://www.google.be/");
+                        pNickname.setAttribute('id',users[index]._id);
+                        pNickname.innerHTML = users[index].nickname
+                        var pLeeftijd = document.createElement('p');
+                        pLeeftijd.setAttribute('class',"userInfo leeftijd");
+        
+                        let y = users[index].geboortedatum.substring(0,4);
+                        let LeefTijd = new Date().getFullYear() - y;
+                        pLeeftijd.innerHTML = LeefTijd + "jaar";
+        
+                        var pStad = document.createElement('p');
+                        pStad.setAttribute('class',"userInfo stad");
+                        pStad.innerHTML = users[index].haarkleur;
+        
+        
+                        div.appendChild(pImg);
+                        pImg.appendChild(img);
+                        divInfoKopjes.appendChild(pNickname);
+                        divInfoKopjes.appendChild(pLeeftijd);
+                        divInfoKopjes.appendChild(pStad);
+                        div.appendChild(divInfoKopjes);
+        
+                        container.appendChild(div);
+        
+                    }
+        
+        
+                }
+        
+            function fieldisleeg(field) {
+                if (field === "") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        </script>
 </body>
 
 </html>

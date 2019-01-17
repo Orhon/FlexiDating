@@ -362,7 +362,7 @@ label.profile #nickname {
     font-weight: normal;
 }
 
-#foto img {
+.profielfoto {
     width: 60vw;
     max-width: 200px;
     height: auto;
@@ -406,8 +406,9 @@ label.profile #nickname {
     display: inline;
 }
 
-.zoek input {
-    width: 95%;
+.zoek>input[type="text"] {
+    
+    width: 75%;
 }
 
 

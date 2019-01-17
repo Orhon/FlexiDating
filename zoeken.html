@@ -5,6 +5,7 @@
 <script src="js/responsive_design.js"> </script>
 <script src="js/sterrenbeeld.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
 
 <!-- index.html -->
 
@@ -30,8 +31,6 @@
         <header>
             <nav class="topmenu" id="responseMenu1">
                 <ul>
-                    <li><br></li>
-                    <li><br></li>
                     <li><a href="index.html">home</a></li>
                     <li><a href="zoeken.html">zoeken</a></li>
                     <li><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
@@ -67,7 +66,7 @@
                         <select id="zoek_haarkleur" name="haarKleur">
                             <option value="">Alles</option>
                             <option value="blond">blond</option>
-                            <option value="brunete">brunete</option>
+                            <option value="brunette">brunette</option>
                             <option value="rood">rood</option>
                             <option value="zwart">zwart</option>
                             <option value="andere kleur">andere kleur</option>
@@ -135,6 +134,7 @@
         </section>
         <footer>
             <p>
+
                 &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
                 <small>imagecredits: designed by www.freepik.com</small>
             </p>
@@ -152,7 +152,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script async src="js/flexi_scrum_2.1.0.min.js"></script>
 <script defer>
-button1 = document.getElementById("knopzoek");
+    button1 = document.getElementById("knopzoek");
     button1.addEventListener("click", function (e) {
 
         var searchMap = {};
@@ -339,14 +339,14 @@ button1 = document.getElementById("knopzoek");
                 div.setAttribute('class',"kopjes");
                 divInfoKopjes.setAttribute('class',"infokopjes");
                 var pImg = document.createElement('a');
-                pImg.setAttribute('href',"https://www.google.be/");
+                pImg.setAttribute('href',"public.html?"+users[index]._id);
                 pImg.setAttribute('id',users[index]._id);
                 var img = document.createElement("img");
                 img.setAttribute('src',"img/" + users[index].foto);
 
                 var pNickname = document.createElement('a');
                 pNickname.setAttribute('class',"userInfo nickname");
-                pNickname.setAttribute('href',"https://www.google.be/");
+                pNickname.setAttribute('href',"public.html?"+users[index]._id);
                 pNickname.setAttribute('id',users[index]._id);
                 pNickname.innerHTML = users[index].nickname
                 var pLeeftijd = document.createElement('p');
