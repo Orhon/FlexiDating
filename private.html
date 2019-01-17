@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl" />
+<html lang="nl" >
 <link href="css/main_css.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="js/responsive_design.js"> </script>
@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flexidating</title>
+    <title>Flexidating- jouw profile</title>
 </head>
 
 <body>
@@ -87,14 +87,12 @@
             var locationImg = "img/"
             
             scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
-
             document.getElementById("nickname").innerHTML = user[0].nickname;
             document.getElementById("voornaam").innerHTML = user[0].voornaam;
             document.getElementById("familienaam").innerHTML = user[0].familienaam;
             document.getElementById("beroep").innerHTML = user[0].beroep;
             document.getElementById("foto").setAttribute('src', locationImg + user[0].foto); 
             document.getElementById("foto").setAttribute('alt', user[0].foto); 
-
             document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
             document.getElementById("gewicht").innerHTML = user[0].gewicht;
             document.getElementById("grootte").innerHTML = user[0].grootte;
@@ -103,12 +101,9 @@
             document.getElementById("geslacht").innerHTML = user[0].sexe;
             document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user[0].geboortedatum);
             document.getElementById("provincie").innerHTML = user[0].provincie;
-
-
             function getLeeftijd(gb) {
                 let y = gb.substring(0, 4);
                 let d = new Date().getFullYear();
-
                 return d - y;
             }  
         }
@@ -122,5 +117,4 @@
         </footer>
     </div>
 </body>
-
 </html>
