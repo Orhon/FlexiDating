@@ -25,12 +25,16 @@
 <script defer>
     window.onload = function ()
     {
+    var ca=document.cookie.split('=');
+    var user = scrumlib.getDatasetById(ca[1]);
+    var searchMap = {};
+    var updatemap =  {};
     //var user1=scrumlib.getAllDatasets();
     var lovecoin = document.getElementById("lovecoin");
     var userid = document.cookie.value;
     var knopkopen = document.getElementById("knopkopen");
-    var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
-    scrumlib.addProperty("lovecoin", "Number", 0);
+    
+    //scrumlib.addProperty("lovecoin", "Number", 0);
     var resultat= document.getElementById("resultat");
    // console.log(scrumlib.getAllDatasets());
     console.log(lovecoin.value);
@@ -41,19 +45,22 @@
         console.log(lovecoin.value);
         var ca=document.cookie.split('=');
         var user = scrumlib.getDatasetById(ca[1]);
-        
+        var updatemap =  {};
         resultat.innerHTML="";
-        if ((parseInt(lovecoin.value)>10) && (parseInt(lovecoin.value)<100))
+        if ((parseInt(lovecoin.value)>1) && (parseInt(lovecoin.value)<100))
         {
-        user[0].lovecoin=user[0].lovecoin + parseInt(lovecoin.value);
+        updatemap.lovecoin= user[0].lovecoin + parseInt(lovecoin.value);
+        console.log(lovecoin.value);
+        console.log(user[0].lovecoin);
+        scrumlib.updateDataset(user[0]._id,updatemap);
+        scrumlib.save();
         console.log(lovecoin.value);
         console.log(scrumlib.getAllDatasets());
-        scrumlib.save();
         resultat.innerHTML="Je heb "+ lovecoin.value+" lovecoins gekocht.";
         }
         else
         {
-            resultat.innerHTML="Kies een aantal tussen 10 en 100.";
+            resultat.innerHTML="Kies een aantal tussen 1 en 100.";
         }
         
    
