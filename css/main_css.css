@@ -149,6 +149,7 @@ footer {
     text-align: center;
     color: white;
     font-size: 12px;
+    height: auto;
 }
 
 /********************/
@@ -272,12 +273,16 @@ section h3 {
     overflow: auto;
 }
 
+.randomProfiel{
+    display: block;
+}
+
 .kopjes {
 
     background-color: #4e6078;
     margin: 0.6em;
     float: left;
-    width: 27em;
+    width: 40%;/*27em*/
 }
 
 .kopjes img {
@@ -398,6 +403,9 @@ label.profile #nickname {
     margin: 1em;
 
 }
+.zoek .labelgroup{
+    margin-top: 1em;
+}
 
 .zoek .rightcolumn {
     width: 60%;
@@ -406,7 +414,6 @@ label.profile #nickname {
 }
 
 .zoek h3{
-    float: left;
     display: inline-block;
 }
 
@@ -443,7 +450,10 @@ label.profile #nickname {
     margin: 0 auto
 }
 
-
+.zoek button{
+    background-color: #fff;
+    color: #4e6078;
+}
 
 form img {
     width: 300px;
