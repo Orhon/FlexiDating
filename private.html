@@ -14,38 +14,38 @@
 
 <body>
     <div class="clearfix">
-        
+
 <section>
-            
+
     <p><label>Nickname: </label><label id="nickname"></label></p>
-    
+
     <p><label>Familienaam: </label><label id="familienaam"></label></p>
-   
+
     <p><label>Voornaam: </label><label id="voornaam"></label></p>
         <p><img id="foto" src="" alt="" class="profielfoto"></p>
-    
+
     <p><label>Leeftijd: </label><label id="leefTijd"></label></p>
-    
+
     <p><label>Beroep: </label><label id="beroep"></label></p>
 
     <p><label>Gewicht: </label><label id="gewicht"></label></p>
-    
+
     <p><label>Grootte: </label><label id="grootte"></label></p>
-    
+
     <p><label>Haarkleur: </label><label id="haarKleur"></label></p>
-    
+
     <p><label>Oogkleur: </label><label id="oogKleur"></label></p>
-    
+
     <p><label>Interesses: </label><label id="interesses"></label></p>
-    
+
     <p><label>Geslacht: </label><label id="geslacht"></label></p>
-    
+
     <p><label>Lichaamsbouw: </label><label id="lichaamsbouw"></label></p>
-    
+
     <p><label>Sterrenbeeld: </label><label id="sterrenbeeld"></label></p>
-    
+
     <p><label>Provincie: </label><label id="provincie"></label></p>
-    
+
     <p><label>Stad: </label><label id="stad"></label></p>
 
 
@@ -54,20 +54,20 @@
     <script src="js/sterrenbeeld.js"></script>
     <script defer>
         window.onload = function () {
-            
+
             var ca = document.cookie.split('=');
             var user = scrumlib.getDatasetById(ca[1]);
 
 
             var locationImg = "img/"
-            
+
             scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
             document.getElementById("nickname").innerHTML = user[0].nickname;
             document.getElementById("voornaam").innerHTML = user[0].voornaam;
             document.getElementById("familienaam").innerHTML = user[0].familienaam;
             document.getElementById("beroep").innerHTML = user[0].beroep;
-            document.getElementById("foto").setAttribute('src', locationImg + user[0].foto); 
-            document.getElementById("foto").setAttribute('alt', user[0].foto); 
+            document.getElementById("foto").setAttribute('src', locationImg + user[0].foto);
+            document.getElementById("foto").setAttribute('alt', user[0].foto);
             document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
             document.getElementById("gewicht").innerHTML = user[0].gewicht;
             document.getElementById("grootte").innerHTML = user[0].grootte;
@@ -80,7 +80,7 @@
                 let y = gb.substring(0, 4);
                 let d = new Date().getFullYear();
                 return d - y;
-            }  
+            }
         }
     </script>
 </section>
