@@ -1,21 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <div id="comments">
+        <div id="addComment">
+            <input type="text" id="txtComment">
+            <button id="knopComment">Comment</button>
+            <button id="knopCommentTonen">Toon comment</button>
+        </div>
+        <div id="commentsTonen">
 
+        </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script async src="js/flexi_scrum_2.1.0.min.js"></script>
     <script defer>
-    scrumlib.addProperty("comment", "string", JSON.stringify([{"comment":"test","idVan":"56cae42a683485281caf5652","idNaar":"56cae42a683485281caf5653"},{"comment":"test","idVan":"56cae42a683485281caf5652","idNaar":"56cae42a683485281caf5653"}]));
-    var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
-    console.log(user);
-</script>
+        window.onload = function () {
+            scrumlib.addProperty("comment", "string", ""
+                // +JSON.stringify([{
+                //     "comment": "test",
+                //     "idVan": "56cae42a683485281caf5652",
+                //     "idNaar": "56cae42a683485281caf5653"
+                // }, {
+                //     "comment": "test",
+                //     "idVan": "56cae42a683485281caf5652",
+                //     "idNaar": "56cae42a683485281caf5653"
+                // }])
+            );
+            scrumlib.save();
+
+
+            var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
+            var user2 = scrumlib.getDatasetById("56cae42a683485281caf5657");
+            console.log(user);
+
+            var btnComment = document.getElementById("knopComment");
+            var comment = document.getElementById("txtComment");
+            btnComment.addEventListener("click", function (e) {
+                var commentJSON = [{
+                    "comment": comment.value,
+                    "idVan": user[0]._id,
+                    "idNaar": user2[0]._id
+                }];
+                var updateMap = {};
+                if (comment.value != "") {
+                    if (user[0].comment == '') {
+                        updateMap.comment = JSON.stringify(commentJSON);
+                    } else {
+                        let oldComment = JSON.parse(user[0].comment);
+                        oldComment = oldComment.concat(commentJSON);
+
+                        updateMap.comment = JSON.stringify(oldComment);
+                        console.log(oldComment);
+                    }
+                    console.log(scrumlib.updateDataset(user[0]._id, updateMap));
+                    scrumlib.save();
+                }
+
+            });
+
+            var btnCommentTonen = document.getElementById("knopCommentTonen");
+            btnCommentTonen.addEventListener("click", function (e) {
+           
+                var user3 = scrumlib.getDatasetById("56cae42a683485281caf5653");
+                var comments = document.getElementById("commentsTonen");
+
+                var userComments = JSON.parse(user3[0].comment);
+                console.log(userComments);
+                comments.innerHTML = '';
+                for (i in userComments)
+                    {
+                        comments.innerHTML += userComments[i].comment;
+                    }
+
+            });
+
+            function test() {
+                let commentJSON ={
+                    "comment": "yoo",
+                    "idVan": 1,
+                    "idNaar": 2
+                };
+                let commentOlds = {
+                    "comment": "yoo2",
+                    "idVan": 12,
+                    "idNaar": 22
+                };
+                jsonConcat(commentJSON, commentOlds );
+                object2 = Object.assign(commentOlds, commentJSON);
+                console.log(JSON.stringify(commentOlds));
+            }
+
+            function jsonConcat(o1, o2) {
+                for (var key in o2) {
+                    o1[key] = o2[key];
+                }
+                return o1;
+            }
+            //var user3 = scrumlib.getDatasetById("56cae42a683485281caf5653");
+            //console.log(scrumlib.getDatasetById("56cae42a683485281caf5653"))
+        }
+    </script>
 </body>
+
 </html>

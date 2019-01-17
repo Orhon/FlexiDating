@@ -19,9 +19,9 @@ function formValidation() {
     var ulichaam = document.registratie.lichaamsbouw;
     var uprovincie = document.registratie.provincie;
     var ustad = document.registratie.stad;
-    var upassid = document.registratie.wachtwoord;
+    var upassid = document.registratie.passid;
     var formElements = document.registratie;
-    // console.log(upassid);
+    //   console.log(upassid);
     // foto validatie op het einde van deze code
 
 
@@ -146,8 +146,11 @@ function geboorteDatum_validation() {
         var parts = dateString.split("-");
         var dtDOB = new Date(parts[0] + "-" + parts[1] + "-" + parts[2]);
         var dtCurrent = new Date();
-        lblError.innerHTML = "18 jaar ALLEEN in aanmerking komend."
+        //lblError.innerHTML = "18 jaar ALLEEN in aanmerking komend."
+
         if (dtCurrent.getFullYear() - dtDOB.getFullYear() < 18) {
+            alert("18 jaar ALLEEN in aanmerking komend.");
+            dateString.focus();
             return false;
         }
 
@@ -164,10 +167,12 @@ function geboorteDatum_validation() {
                 }
             }
         }
-        lblError.innerHTML = "";
+        //lblError.innerHTML = "";
         return true;
     } else {
-        lblError.innerHTML = "Voer ALLEEN de datum in het jjjj-MM-dd formaat in."
+        //lblError.innerHTML = "Voer ALLEEN de datum in het jjjj-MM-dd formaat in."
+        alert("Voer ALLEEN de datum in het jjjj-MM-dd formaat in.");
+        dateString.focus();
         return false;
     }
 }
@@ -311,17 +316,6 @@ function ValidateFileUpload() {
 
         }
     }
-    console.log(document.registratie.length);
-    for (var i = 0; i < document.registratie.length; i++) {
-        if (document.registratie[i].type != "submit")
-            console.log(document.registratie[i].value);
-        profielData[document.registratie[i].name] = document.registratie[i].value;
-    }
-    //  localStorage.setItem('session', JSON.stringify(profielData));
-    //   localStorage.setItem('session', JSON.stringify(profielData));
-    console.log(scrumlib.createDataset(profielData));
-    scrumlib.save();
-
 }
 
 function passid_validation(upassid, mx, my) {
