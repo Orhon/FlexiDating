@@ -15,6 +15,31 @@
 
 <body>
   <div class="clearfix">
+    <div class="login clear">
+      <div class="box responsive">
+        <div class="image-box responsive">
+          <div class="image-text">
+            <h1>FLEXIDATING</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <header>
+      <nav class="topmenu" id="responseMenu1">
+        <ul>
+          <li><br></li>
+                    <li><br></li>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="zoeken.html">zoeken</a></li>
+                    <li><a href="profielupdate.html">jouw profiel</a></li>
+                    <li><a href="login.html">login</a></li>
+                    <li><a href="registratie.html">registreer</a></li>
+                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
+        </ul>
+      </nav>
+    </header>
+  </div>
   <div id="containerProfiel">
     <form id="wijzig">
       <p>
@@ -128,10 +153,7 @@
   <script async src="js/flexi_scrum_2.1.0.min.js"></script>
   <script defer>
     window.onload = function () {
-      /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
-
-      var ca = document.cookie.split('=');
-      var user = scrumlib.getDatasetById(ca[1]);
+      var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
 
       document.getElementById("nickname").value = user[0].nickname;
       document.getElementById("voornaam").value = user[0].voornaam;
@@ -195,7 +217,6 @@
 
     }
   </script>
-</div>
 </body>
 
 </html>

@@ -19,7 +19,7 @@
             <input type="text" id="txtComment">
             <button id="knopComment">Comment</button>
             <button id="knopCommentAndere">CommentAndere</button>
-            <button id="refresh" onclick="refresh()">Refresh</button>
+            <button id="refresh" onclick="checkChat">Refresh</button>
         </div>
 
         <div id="commentsTonenReceiver">
@@ -48,8 +48,8 @@
 
 
                     //jan
-            var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
-            var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
+            var userSender = scrumlib.getDatasetById("56cae42a683485281caf5653");
+            var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
 
                     //jan
                     // var userReceiver ='';
@@ -98,7 +98,7 @@
                 }
             });
 
-            setInterval(checkChat, 10000);
+            setInterval(checkChat, 20000);
 
             function checkChat() {
                 if (comment.value == '')
@@ -169,10 +169,6 @@
                     }
                 }
             }
-        }
-
-        function refresh() {
-            location.reload();
         }
     </script>
 </body>

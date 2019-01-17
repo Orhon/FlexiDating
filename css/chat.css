@@ -1,0 +1,13 @@
+#berichten{
+    width: 300px;
+    height: 400px;
+    background-color: antiquewhite;
+}
+
+#berichten li{
+    list-style: none;
+}
+
+.nicknameChat{
+    font-style: italic;
+}
