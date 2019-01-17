@@ -7,3 +7,7 @@
 #berichten li{
     list-style: none;
 }
+
+.nicknameChat{
+    font-style: italic;
+}

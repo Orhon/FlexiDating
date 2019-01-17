@@ -39,12 +39,12 @@
     }
     knopkopen.addEventListener("click",function (e){
         console.log(lovecoin.value);
-        var user = scrumlib.getDatasetById(document.cookie.value);
+        var ca=document.cookie.split('=');
+        var user = scrumlib.getDatasetById(ca[1]);
         
         resultat.innerHTML="";
         if ((parseInt(lovecoin.value)>10) && (parseInt(lovecoin.value)<100))
         {
-       
         user[0].lovecoin=user[0].lovecoin + parseInt(lovecoin.value);
         console.log(lovecoin.value);
         console.log(scrumlib.getAllDatasets());
