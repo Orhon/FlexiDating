@@ -320,6 +320,7 @@ function ValidateFileUpload() {
     //  localStorage.setItem('session', JSON.stringify(profielData));
     //   localStorage.setItem('session', JSON.stringify(profielData));
     console.log(scrumlib.createDataset(profielData));
+   
     scrumlib.save();
     window.location.href = "login.html"; // Redirecting to other page.
 
