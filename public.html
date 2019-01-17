@@ -3,12 +3,13 @@
 <link href="css/main_css.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
 <script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flexidating</title>
+    <title>Flexidating-profile</title>
 </head>
 
 <body>
@@ -30,7 +31,7 @@
                     <li><br></li>
                     <li><a href="index.html">home</a></li>
                     <li><a href="zoeken.html">zoeken</a></li>
-                    <li><a href="profielupdate.html">jouw profiel</a></li>
+                    <li><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
                     <li><a href="login.html">login</a></li>
                     <li><a href="registratie.html">registreer</a></li>
                     <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
@@ -51,7 +52,8 @@
                 <div class="profile-line"><label class="profile">Geslacht: </label><label class="profile dynamic" id="geslacht"></label></div>
                 <div class="profile-line"><label class="profile">Sterrenbeeld: </label><label class="profile dynamic" id="sterrenbeeld"></label></div>
                 <div class="profile-line"><label class="profile">Provincie: </label><label class="profile dynamic" id="provincie"></label></div>
-
+                <a id="bookmarkme" href="#" rel="sidebar" title="bookmark this page">Add to Favorite</a>
+                  
                 <!-- END CONTENT -->
             </div>
         </section>
@@ -61,6 +63,7 @@
                 <small>imagecredits: designed by www.freepik.com</small>
             </p>
         </footer>
+        
     </div>
 </body>
 
@@ -70,7 +73,12 @@
 <script src="js/sterrenbeeld.js"></script>
 <script defer>
     window.onload = function () {
-        var user = scrumlib.getDatasetById("56cae42a683485281caf5653");
+        /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
+        
+        var ca = document.cookie.split('=');
+        var user = scrumlib.getDatasetById(ca[1]);
+
+
 
         var locationImg = "img/"
         scrumlib.addProperty("provincie", "String", "West-Vlaanderen");

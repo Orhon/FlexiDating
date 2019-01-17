@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document voor Floats project*/
+
+.links {
+    background: #4e6078;
+    color: white;
+    padding: 1em 1%;
+    width: 20%;
+    float: left;
+}
+
+.rechts {
+    padding: 0em 3em 1%;
+    width: 80%;
+    float: right;
+}
+
+.menu li{
+    text-decoration: none;
+    list-style-type: none;
+    margin: 30px 0;
+}
+
+.menu li a{
+    text-decoration: none;
+    color: white;
+    list-style-type: none;
+}
+

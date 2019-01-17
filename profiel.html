@@ -1,89 +1,121 @@
-<html>
-    <Title>
-     Test van gegevens   
-    </Title>
+<!DOCTYPE html>
+<html lang="en" />
+<link href="css/main_css.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<script src="js/responsive_design.js"> </script>
+
+<!-- index.html -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flexidating</title>
+</head>
+
 <body>
+    <div class="clearfix">
+        <div class="login clear">
+            <div class="box responsive">
+                <div class="image-box responsive">
+                    <div class="image-text">
+                        <h1>FLEXIDATING</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header>
+            <nav class="topmenu" id="responseMenu1">
+                <ul>
+                    <li><br></li>
+                    <li><br></li>
+                    <li><a href="index.html">home</a></li>
+                    <li><a href="zoeken.html">zoeken</a></li>
+                    <li><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
+                    <li><a href="login.html">login</a></li>
+                    <li class="laatste"><a href="registratie.html">registreer</a></li>
+                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
+                </ul>
+            </nav>
+        </header>
+
+<section>
     <form id="registratie"> 
-    <p>
-    <label>Nickname</label><input type="text" name="nickname" id="nickname" >    
-    </p>
-    <p>
-    <label>Voornaam</label><input type="text" name="voornaam" id="voornaam">    
-    </p>
-    <p>
-    <label>Familienaam</label><input type="text" name="familienaam" id="familienaam">    
-    </p>
-    <p>
-    <label>Beroep</label><input type="text" name="beroep" id="beroep">    
-    </p>
-    <p>
-    <label>Email</label><input type="text" name="email" id="email">    
-    </p>
-    <p>
-    <label>GeboorteDatum </label><input type="text" name="geboorteDatum" id="geboorteDatum">    
-    </p> 
-    <p>
-    <label>LeefTijd </label><input type="text" name="leefTijd" id="leefTijd">    
-    </p>
-    <p>
-    <label>Gewicht</label><input type="text" name="gewicht" id="gewicht">    
-    </p> 
-    <p>
-    <label>Grootte</label><input type="text" name="grootte" id="grootte">    
-    </p>      
-    <p>
-    <label>Haar kleur</label>
-    <select name="oogKleur" >
-            <option value="blond">blond</option>
-            <option value="brunete">brunete</option>
-            <option value="rood">rood</option>
-            <option value="zwart">zwart</option>
-            <option value="andere kleur">andere kleur</option>
-          </select>     
-    </p>
-    <p>
-    <label>Oog kleur</label>
-    <select name="oogKleur" >
-            <option value="blauw">blauw</option>
-            <option value="bruin">bruin</option>
-            <option value="zwart">zwart</option>
-            <option value="groen">groen</option>
-            <option value="andere kleur">andere kleur</option>
-          </select>    
-    </p>    
-    </p>
-    <p>
-    <label>Geslacht</label>
-    <select name="geslacht" >
-            <option value="man">man</option>
-            <option value="vrouw">vrouw</option>
-          </select>    
-    </p>
-    <p>
-    <label>Lichaamsbouw </label><input type="text" name="lichaamsbouw" id="lichaamsbouw ">    
-    </p>
-    <p>
-    <label>Provincie</label>
-    <select name="geslacht" >
-            <option value="Antwerpen">Antwerpen</option>
-            <option value="Limburg">Limburg</option>
-            <option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
-            <option value="Vlaams-Brabant">Vlaams-Brabant</option>
-            <option value="West-Vlaanderen">West-Vlaanderen</option>
-            <option value="Henegouwen">Henegouwen</option>
-            <option value="Luik">Luik</option>
-            <option value="Luxemburg">Luxemburg</option>
-            <option value="Namen ">Namen </option>
-            <option value="Waals-Brabant">Waals-Brabant</option>
-            
+        <p><label>Nickname</label><input type="text" name="nickname" id="nickname" ></p>
+    
+        <p><label>Voornaam</label><input type="text" name="voornaam" id="voornaam"></p>
+    
+        <p><label>Familienaam</label><input type="text" name="familienaam" id="familienaam"></p>
+    
+        <p><label>Beroep</label><input type="text" name="beroep" id="beroep"></p>
+    
+        <p><label>Email</label><input type="text" name="email" id="email"></p>
+    
+        <p><label>GeboorteDatum </label><input type="text" name="geboorteDatum" id="geboorteDatum"></p> 
+    
+        <p><label>LeefTijd </label><input type="text" name="leefTijd" id="leefTijd"></p>
+    
+        <p><label>Gewicht</label><input type="text" name="gewicht" id="gewicht"></p> 
+    
+        <p><label>Grootte</label><input type="text" name="grootte" id="grootte"></p>      
+    
+        <p><label>Haar kleur</label>
+            <select name="oogKleur" >
+                <option value="blond">blond</option>
+                <option value="brunete">brunete</option>
+                <option value="rood">rood</option>
+                <option value="zwart">zwart</option>
+                <option value="andere kleur">andere kleur</option>
+            </select>     
+        </p>
+    
+        <p><label>Oog kleur</label>
+            <select name="oogKleur" >
+                <option value="blauw">blauw</option>
+                <option value="bruin">bruin</option>
+                <option value="zwart">zwart</option>
+                <option value="groen">groen</option>
+                <option value="andere kleur">andere kleur</option>
+            </select>    
+        </p>    
+    
+        <p><label>Geslacht</label>
+            <select name="geslacht" >
+                <option value="man">man</option>
+                <option value="vrouw">vrouw</option>
+            </select>    
+        </p>
+    
+        <p><label>Lichaamsbouw </label><input type="text" name="lichaamsbouw" id="lichaamsbouw "></p>
+    
+        <p><label>Provincie</label>
+            <select name="geslacht" >
+                <option value="Antwerpen">Antwerpen</option>
+                <option value="Limburg">Limburg</option>
+                <option value="Oost-Vlaanderen">Oost-Vlaanderen</option>
+                <option value="Vlaams-Brabant">Vlaams-Brabant</option>
+                <option value="West-Vlaanderen">West-Vlaanderen</option>
+                <option value="Henegouwen">Henegouwen</option>
+                <option value="Luik">Luik</option>
+                <option value="Luxemburg">Luxemburg</option>
+                <option value="Namen ">Namen </option>
+                <option value="Waals-Brabant">Waals-Brabant</option>
           </select>      
-    </p>
-    <p>
-    <label>Stadt</label><input type="text" name="stadt" id="stadt">    
-    </p>
-    <button name="update">Update</button>  //scrumlib.updateDataset(_id, record) java
+        </p>
+    
+        <p><label>Stad</label><input type="text" name="stad" id="stad"></p>
+    
+        <button name="update">Update</button>  //scrumlib.updateDataset(_id, record) java
    
     //
     </form>
-</body>   
+</section>
+        <footer>
+        <p>
+        &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+        <small>imagecredits: designed by www.freepik.com</small>
+        </p>
+        </footer>
+    </div>
+</body>
 </html>

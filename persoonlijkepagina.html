@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="nl" />
 <link href="css/main_css.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-<script async src="js/flexi_scrum_2.1.0.min.js"></script>
-<script src="js/login_validatie.js"></script>
+<script src="js/responsive_design.js"> </script>
+<link href="css/persoonlijkepagina.css" rel="stylesheet" type="text/css" />
 
 <!-- index.html -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Flexidating-login</title>
+    <title>Flexidating</title>
 </head>
 
 <body>
@@ -21,7 +19,7 @@
             <div class="box responsive">
                 <div class="image-box responsive">
                     <div class="image-text">
-                        <h1>FLEXIDATING-login</h1>
+                        <h1>FLEXIDATING</h1>
                     </div>
                 </div>
             </div>
@@ -36,31 +34,29 @@
                     <li><a href="zoeken.html">zoeken</a></li>
                     <li><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
                     <li><a href="login.html">login</a></li>
-                    <li><a href="registratie.html">registreer</a></li>
+                    <li class="laatste"><a href="registratie.html">registreer</a></li>
                     <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
                 </ul>
             </nav>
         </header>
 
 <section>
-    
-      <label for="email"><b>Email </b></label>
-        <input id="email" type="text" placeholder="Voeg je email-adres in" name="email" required>
 
-      <label for="passid"><b>Wachtwoord </b></label>
-      <input id="password" type="password" placeholder="Voeg je wachtwoord in" name="passid" required>
-        
-      <button  onclick="validate()">Login</button>
-        <label>
-            <input type="checkbox" checked="checked" name="remember"> Onthoud mijn gegevens.
-        </label>
-    
-
-        <p>Heb je nog geen account?
-            <a href="registratie.html">Registreer hier!</a></p>
-       <span class="psw"><a href="#">Wachtwoord </a>vergeten?</span>
-        <br><br>
-          
+<div class="links">
+    <div class ="menu">
+        <ul>
+            <li><a href="private.html"  target="iframe_a">Mijn profiel</a></li>
+            <li><a href="profielupdate.html" target="iframe_a">Update profiel</a></li>
+            <li><a href="#"  target="iframe_a">Favorieten</a></li>
+            <li><a href="comment.html"  target="iframe_a">Berichten</a></li>
+            <li><a href="lovecoin.html"  target="iframe_a">Lovecoins</a></li>
+        </ul>
+    </div>
+</div>
+<div class="rechts">  
+            <iframe name="iframe_a" src="private.html" height="1000" width="1200" frameBorder="0"></iframe>
+</div>   
+ 
 </section>
         <footer>
         <p>
@@ -70,5 +66,4 @@
         </footer>
     </div>
 </body>
-
 </html>
