@@ -48,6 +48,7 @@
         user[0].lovecoin=user[0].lovecoin + parseInt(lovecoin.value);
         console.log(lovecoin.value);
         console.log(scrumlib.getAllDatasets());
+        scrumlib.save();
         resultat.innerHTML="Je heb "+ lovecoin.value+" lovecoins gekocht.";
         }
         else
