@@ -61,11 +61,9 @@
             var userSender = scrumlib.getDatasetById(x[1]);
             getFriends();
 
-
             var friends = [];
             //jan
             // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
-
 
             // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653"); <---------test
             var userReceiver = [];
@@ -77,11 +75,8 @@
             //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
             // }
 
-
             // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
             // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-
-
 
             //commentTonen(userSender, userReceiver);
 
@@ -97,7 +92,6 @@
             btnCommentAndere.addEventListener("click", function (e) {
                 addComment(userReceiver, userSender);
             });
-
 
             var input = document.getElementById("txtComment");
 
@@ -147,10 +141,8 @@
                             oldCommentReceiver = JSON.parse(oldCommentReceiver);
                         };
 
-
                         oldCommentReceiver = oldCommentReceiver.concat(commentJSON);
                         oldComment = oldComment.concat(commentJSON);
-
 
                         updateMapSender.comment = JSON.stringify(oldComment);
                         updateMapReceiver.comment = JSON.stringify(oldCommentReceiver);
@@ -171,7 +163,6 @@
                         // if(userComments[i].idVan == userSender[0]._id || userComments[i].idNaar == userSender[0]._id){
                         if ((userComments[i].idVan == sender[0]._id && userComments[i].idNaar == receiver[0]._id)) {
 
-
                             let userVan = scrumlib.getDatasetById(userComments[i].idVan);
                             if (comments.childElementCount > 20) {
                                 comments.removeChild(comments.firstChild);
@@ -180,7 +171,6 @@
                                 ' - <span class="nicknameChat">' + userVan[0].nickname +
                                 "</span></li>";
                         }
-
 
                         if (userComments[i].idNaar == sender[0]._id && userComments[i].idVan == receiver[0]._id) {
                             let userVan = scrumlib.getDatasetById(userComments[i].idVan);
@@ -191,14 +181,10 @@
                                 ' - <span class="nicknameChat">' + userVan[0].nickname +
                                 "</span></li>";
                         }
-
                     }
                     comments.scrollTop = comments.scrollHeight;
                 }
-
-
             }
-
             var flist = document.getElementsByClassName("userlistitem");
             for (var i = 0; i < flist.length; i++) {
                 flist[i].addEventListener("click", function (e) {
@@ -217,7 +203,6 @@
                 receiverFoto.setAttribute("class", "friendFoto");
                 receiverInfo.append(receiverFoto);
                 console.log(receiver[0].comment);
-
                 commentTonen(userSender, receiver);
             }
 
@@ -234,9 +219,6 @@
 
                 }
             }
-
-
-
         }
 
         function refresh() {
@@ -244,5 +226,4 @@
         }
     </script>
 </body>
-
 </html>
