@@ -1,5 +1,4 @@
-<script src = "profielen.json"
-type = "text/javascript" > </script>
+/*<script src = "profielen.json" type = "text/javascript" > </script>*/
 
 window.onload = function () {
     //    scrumlib.addProperty("favorite", "String", "");
