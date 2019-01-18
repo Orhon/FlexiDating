@@ -38,7 +38,8 @@
                 var container = document.getElementById("containerFavoritten");
                 container.innerHTML = "";
 
-                if (user[0].favoritten == '') {
+                if (user[0].favoritten =="[]" || user[0].favoritten =="") {
+                    container.innerHTML +="Je hebt geen favoritten"
                 } else {
                     var users = JSON.parse(user[0].favoritten);
                     for (var i = 0; i < users.length; i++) {
