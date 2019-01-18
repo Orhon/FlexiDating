@@ -1,4 +1,12 @@
-function addFavorite(checkboxElem) {
+/*$('.like-btn').on('click', function() {
+    $(this).toggleClass('is-active');
+ });*/
+ function myFunction(x) {
+    x.classList.toggle("fa-thumbs-down");
+    console.log(x.classList.toggle("fa-thumbs-up"));
+    addFavorite(x);
+ }
+ function addFavorite(x) {
     scrumlib.addProperty("favoritten", "String", "");
     scrumlib.addProperty("favorGevers", "String", "");
     // scrumlib.addProperty("provincie", "String", "");
@@ -17,8 +25,8 @@ function addFavorite(checkboxElem) {
     var arrayFavoritten = [favUser[0]._id];
 
     var updateMapfavorite = {};
-
-    if (checkboxElem.checked) {
+    if (x.classList.toggle("fa-thumbs-up")==true){
+ //   if (checkboxElem.checked) {
         if (user[0].favoritten == '') {
             updateMapfavorite.favoritten = JSON.stringify(arrayFavoritten);
         } else {
@@ -51,16 +59,17 @@ function addFavorite(checkboxElem) {
 
     scrumlib.save();
     //    console.log(user[0].favorite, "   ", counter);
-    updateFavGevers(checkboxElem, favUser, user, ipara);
+    updateFavGevers(x, favUser, user, ipara);
 
 }
-function updateFavGevers(checkboxElem, favUser, user, ipara) {
+function updateFavGevers(x, favUser, user, ipara) {
 
 
     var arrayFavGevers = [user[0]._id];
     var updateMapfavGever = {};
-    if (checkboxElem.checked) {
-
+ //   if (checkboxElem.checked) {
+    if (x.classList.toggle("fa-thumbs-up")==true){
+ 
         if (favUser[0].favorGevers == '') {
             updateMapfavGever.favorGevers = JSON.stringify(arrayFavGevers);
         } else {

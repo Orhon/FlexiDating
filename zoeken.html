@@ -156,6 +156,8 @@
     <script src="js/sterrenbeeld.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+    <script src="js/favoritten.js"></script>
+
     <script defer>
         button1 = document.getElementById("knopzoek");
         button1.addEventListener("click", function (e) {
@@ -361,12 +363,20 @@
                 var pStad = document.createElement('p');
                 pStad.setAttribute('class', "userInfo stad");
                 pStad.innerHTML = users[index].haarkleur;
+                //    <input type="checkbox" name="checkfield" onchange="addFavorite(this)" /> &#9825 Add to Favorite 
+                // <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+
+                var pFavknop = document.createElement('i');
+                pFavknop.setAttribute('class', "fa fa-thumbs-up");
+                pFavknop.setAttribute('onclick', "myFunction(this)");
+                //   pFavknop.innerHTML = "&#9825 Add to Favorite";
 
                 div.appendChild(pImg);
                 pImg.appendChild(img);
                 divInfoKopjes.appendChild(pNickname);
                 divInfoKopjes.appendChild(pLeeftijd);
                 divInfoKopjes.appendChild(pStad);
+                divInfoKopjes.appendChild(pFavknop);
                 div.appendChild(divInfoKopjes);
 
                 container.appendChild(div);
@@ -382,4 +392,5 @@
         }
     </script>
 </body>
+
 </html>
