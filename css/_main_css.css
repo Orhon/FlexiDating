@@ -23,6 +23,7 @@
 .clearFix {
     *zoom: 1;
 }
+
 /*
 .leftcolumn {
     color: #FF0000;
@@ -50,8 +51,8 @@ html {
 
 /*** general images ***/
 img {
-    width: 50%;
-    height: 50%;
+    width: 100%;    /* width: 50% */
+    height: auto;    /* height: 50%; */
     border: none;
 }
 
@@ -185,8 +186,6 @@ footer {
     text-decoration: none;
 }
 
-
-
 .topmenu ul li a:hover,
 .topmenu ul li a:active,
 .topmenu ul li a.actief {
@@ -237,18 +236,56 @@ footer {
         border: none;
         padding: 5px;
     }
-    
+
     .topmenu ul li:first-child {
         margin-top: 25px;
     }
 }
 
 
+/********************/
+/*--- FORMLAYOUT ---*/
+/********************/
+
+/*** FORM ***/
+form {
+    width: 520px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+}
+
+/*** Full-width input fields ***/
+/*input[type=text],
+input[type=password]*/
+input {
+    width: 85vw;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/*** buttons ***/
+button {
+    background-color: #4e6078;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    min-width: 150px;
+    width: 20%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
 
 
-/*******************/
-/*--- STARTPAGE ---*/
-/*******************/
+/***************************/
+/*--- STARTPAGE | INDEX ---*/
+/***************************/
 
 /*** gallerij startpagina ***/
 section h1 {
@@ -263,7 +300,6 @@ section h3 {
 
 }
 
-
 .gallery {
     display: flex;
     /*flex-direction: column;*/
@@ -273,20 +309,19 @@ section h3 {
     overflow: auto;
 }
 
-.randomProfiel{
+.randomProfiel {
     display: block;
 }
 
 .kopjes {
-
     background-color: #4e6078;
     margin: 0.6em;
     float: left;
-    width: 40%;/*27em*/
+    width: 40%;
+    /*27em*/
 }
 
 .kopjes img {
-
     margin: 1em;
     float: left;
     width: 30%;
@@ -296,7 +331,6 @@ section h3 {
 .infokopjes {
     background: white;
     font-size: 0.9em;
-
     text-align: right;
     color: #4e6078;
     /*width: 150px;
@@ -307,4 +341,3 @@ section h3 {
     margin: 5% 5% 5% 5%;
     padding: 15px;
 }
-
