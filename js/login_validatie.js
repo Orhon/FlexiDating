@@ -4,10 +4,10 @@ function validate() {
     // console.log(restoredSession[7].email,"  , ", restoredSession[7].passid);
     //  localStorage.getItem('session', JSON.stringify(profielData));
     //   console.log("restoredSession");
-    scrumlib.addProperty("favoritten", "String", "");
-    scrumlib.addProperty("favorGevers", "String", "");
-    scrumlib.addProperty("provincie", "String", "");
-    scrumlib.save();
+  //  scrumlib.addProperty("favoritten", "String", "");
+    //scrumlib.addProperty("favorGevers", "String", "");
+   // scrumlib.addProperty("provincie", "String", "");
+    //scrumlib.save();
 var username = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 

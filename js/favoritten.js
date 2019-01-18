@@ -1,6 +1,9 @@
 
 function addFavorite(checkboxElem) {
-
+    scrumlib.addProperty("favoritten", "String", "");
+    scrumlib.addProperty("favorGevers", "String", "");
+   // scrumlib.addProperty("provincie", "String", "");
+    scrumlib.save();
     var parameters = location.search.substring(1).split("?");
     //    console.log(parameters);
     var ipara = parameters;
@@ -20,11 +23,8 @@ function addFavorite(checkboxElem) {
         if (user[0].favoritten == '') {
             updateMapfavorite.favoritten = JSON.stringify(arrayFavoritten);
         } else {
-            // user[0].favorite.concat(user1[0]._id);
             let oldFavorite = JSON.parse(user[0].favoritten);
-            //        if (!oldFavorite.includes(favUser[0]._id))
             if (oldFavorite.indexOf(favUser[0]._id) < 0) {
-                //  updateMapfavorite.favoritten = favUser[0]._id;
                 oldFavorite = oldFavorite.concat(arrayFavoritten);
                 updateMapfavorite.favoritten = JSON.stringify(oldFavorite);
             } else {
@@ -57,10 +57,8 @@ function updateFavGevers(checkboxElem, favUser, user, ipara) {
         if (favUser[0].favorGevers == '') {
             updateMapfavGever.favorGevers = JSON.stringify(arrayFavGevers);
         } else {
-            // user[0].favorite.concat(user1[0]._id);
-            let oldFavGever = JSON.parse(favUser[0].favorGevers);
-            //        if (!oldFavorite.includes(favUser[0]._id))
-            if (oldFavGever.indexOf(user[0]._id) < 0) {
+             let oldFavGever = JSON.parse(favUser[0].favorGevers);
+           if (oldFavGever.indexOf(user[0]._id) < 0) {
                 updateMapfavGever.favorGevers = user[0]._id;
                 oldFavGever = oldFavGever.concat(arrayFavGevers);
                 updateMapfavGever.favorGevers = JSON.stringify(oldFavGever);
