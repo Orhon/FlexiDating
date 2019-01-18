@@ -378,7 +378,6 @@ footer {
     }
 }
 
-
 /********************/
 /*--- FORMLAYOUT ---*/
 /********************/
@@ -453,7 +452,7 @@ section h3 {
     background-color: #4e6078;
     margin: 0.6em;
     float: left;
-    width: 40%;
+/*    width: 40%;*/
     /*27em*/
 }
 
@@ -471,7 +470,6 @@ section h3 {
     color: #4e6078;
     /*width: 150px;
     height: 220px;*/
-    width: 40%;
     height: 80%;
     float: right;
     margin: 5% 5% 5% 5%;

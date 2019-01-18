@@ -42,18 +42,22 @@
         </header>
 
         <section>
-            <div class="clearfix">
+            <div class="row">
                 <h1>Ontdek enkele van onze vrijgezellen!</h1>
-                <br>
-                <h3 class="randomProfiel">Mannen</h3>
-                <div id="galleryMan">
-                    <div class="kopjes"><img src="img/bram.png" />
-                    </div>
+
+                <div class="col-12 col-s-12">
+                    <h3 class="randomProfiel">Mannen</h3>
                 </div>
-                <br>
-                <h3 class="randomProfiel">Vrouwen</h3>
-                <div id="galleryVrouw">
+
+                <div class="" id="galleryMan">
                 </div>
+                <div class="col-12 col-s-12">
+                    <h3 class="randomProfiel">Vrouwen</h3>
+                </div>
+
+                <div class="" id="galleryVrouw">
+                </div>
+            </div>
         </section>
 
         <footer>
@@ -122,8 +126,8 @@
                     //legen
 
                     var divInfoKopjes = document.createElement("div");
-                    div.setAttribute('class', "kopjes");
-                    divInfoKopjes.setAttribute('class', "infokopjes");
+                    div.setAttribute('class', "col-4 col-s-12 kopjes");
+                    divInfoKopjes.setAttribute('class', "col-2 col-s-12 infokopjes");
                     var pImg = document.createElement('a');
                     pImg.setAttribute('href', "public.html?" + randUser._id);
                     pImg.setAttribute('id', randUser._id);
@@ -179,4 +183,5 @@
         }
     </script>
 </body>
+
 </html>
