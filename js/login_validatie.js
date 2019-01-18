@@ -5,6 +5,7 @@ function validate() {
     //  localStorage.getItem('session', JSON.stringify(profielData));
     //   console.log("restoredSession");
     scrumlib.addProperty("favoritten", "String", "");
+    scrumlib.addProperty("favorGevers", "String", "");
     scrumlib.addProperty("provincie", "String", "");
     scrumlib.save();
 var username = document.getElementById('email').value;
