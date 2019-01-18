@@ -61,15 +61,13 @@
             //var userSender = scrumlib.getDatasetById(x[1]);
             getFriends();
 
-
             var friends = [];
 
             //jan
             var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
 
-
             // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653"); <---------test
-            var userReceiver =[];
+            var userReceiver = [];
             //jan
             // var userReceiver ='';
             // if (userSender[0]._id == "56cae42a683485281caf5651" ){
@@ -78,11 +76,8 @@
             //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
             // }
 
-
             // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
             // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-
-
 
             //commentTonen(userSender, userReceiver);
 
@@ -131,7 +126,7 @@
                 var updateMapSender = {};
                 var updateMapReceiver = {};
                 if (comment.value != "") {
-                    if (sender[0].comment == '' || receiver[0].comment =='') {
+                    if (sender[0].comment == '' || receiver[0].comment == '') {
                         updateMapSender.comment = JSON.stringify(commentJSON);
                         updateMapReceiver.comment = JSON.stringify(commentJSON);
                     } else {
@@ -177,7 +172,8 @@
                             if (comments.childElementCount > 20) {
                                 comments.removeChild(comments.firstChild);
                             }
-                            comments.innerHTML += "<li class='bericht senderbericht'>" + userComments[i].comment + ' - <span class="nicknameChat">' + userVan[0].nickname +
+                            comments.innerHTML += "<li class='bericht senderbericht'>" + userComments[i].comment +
+                                ' - <span class="nicknameChat">' + userVan[0].nickname +
                                 "</span></li>";
                         }
 
@@ -187,7 +183,8 @@
                             if (comments.childElementCount > 10) {
                                 comments.removeChild(comments.firstChild);
                             }
-                            comments.innerHTML += "<li class='bericht receiverbericht'>" + userComments[i].comment + ' - <span class="nicknameChat">' + userVan[0].nickname +
+                            comments.innerHTML += "<li class='bericht receiverbericht'>" + userComments[i].comment +
+                                ' - <span class="nicknameChat">' + userVan[0].nickname +
                                 "</span></li>";
                         }
 
@@ -216,7 +213,6 @@
                 receiverFoto.setAttribute("class", "friendFoto");
                 receiverInfo.append(receiverFoto);
                 console.log(receiver[0].comment);
-                
                 commentTonen(userSender, receiver);
             }
 
@@ -233,9 +229,6 @@
 
                 }
             }
-
-
-
         }
 
         function refresh() {
@@ -243,5 +236,4 @@
         }
     </script>
 </body>
-
 </html>

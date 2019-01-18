@@ -15,9 +15,6 @@
 </head>
 
 <body>
-
-
-<body>
     <div class="clearfix">
         <div class="login clear">
             <div class="box responsive">
@@ -213,8 +210,6 @@
                 }
             }
 
-
-
             var users = scrumlib.getDatasetsByConditions(searchMap);
             var minLeeftijd = document.getElementById("minleefTijd").value;
             var maxLeeftijd = document.getElementById("maxleefTijd").value;
@@ -225,7 +220,6 @@
             var minGewicht = document.getElementById("mingewicht").value;
             var maxGewicht = document.getElementById("maxgewicht").value;
             var filteredLeeftijd = users;
-
 
             if (!fieldisleeg(minLeeftijd) && !fieldisleeg(maxLeeftijd)) {
                 // alle twee velden ingevuld
@@ -379,8 +373,6 @@
                 container.appendChild(div);
 
             }
-
-
         }
 
         function fieldisleeg(field) {
@@ -392,5 +384,4 @@
         }
     </script>
 </body>
-
 </html>
