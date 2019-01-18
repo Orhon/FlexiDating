@@ -282,6 +282,7 @@ section a {
 /*--- FOOTER ---*/
 footer {
     background: #4e6078;
+    padding: 1em 2em;
     clear: both;
     text-align: center;
     color: white;
