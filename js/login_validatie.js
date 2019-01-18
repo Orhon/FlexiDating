@@ -4,7 +4,10 @@ function validate() {
     // console.log(restoredSession[7].email,"  , ", restoredSession[7].passid);
     //  localStorage.getItem('session', JSON.stringify(profielData));
     //   console.log("restoredSession");
-    var username = document.getElementById('email').value;
+    scrumlib.addProperty("favoritten", "String", "");
+    scrumlib.addProperty("provincie", "String", "");
+    scrumlib.save();
+var username = document.getElementById('email').value;
     var password = document.getElementById('password').value;
 
     var id = scrumlib.login(username, password);

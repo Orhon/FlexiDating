@@ -79,28 +79,19 @@
     <script async src="js/flexi_scrum_2.1.0.min.js"></script>
     <script src="js/sterrenbeeld.js"></script>
     <script defer>
-        var counter = 0;
-        var parameters = location.search.substring(1).split("?");
-        //    console.log(parameters);
-        var ipara = parameters;
-        //   console.log(ipara);
 
-        var user1 = scrumlib.getDatasetById(ipara);
-        var ca = document.cookie.split('=');
-        var user = scrumlib.getDatasetById(ca[1]);
-
-
-        var locationImg = "img/"
-        var favUser = user1;
-
-        var arrayFavoritten = [favUser[0]._id];
-
-        var updateMapfavorite = {};
         window.onload = function () {
-            /*var user = scrumlib.getDatasetById("56cae42a683485281caf5653");*/
+            var parameters = location.search.substring(1).split("?");
+            //    console.log(parameters);
+            var ipara = parameters;
+            //   console.log(ipara);
+
+            var user1 = scrumlib.getDatasetById(ipara);
+            var ca = document.cookie.split('=');
+            var user = scrumlib.getDatasetById(ca[1]);
 
 
-            //    scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
+            var locationImg = "img/"
 
             document.getElementById("nickname").innerHTML = user1[0].nickname;
             document.getElementById("foto").setAttribute('src', locationImg + user1[0].foto);
@@ -122,17 +113,24 @@
             }
         }
 
-        function doalert(checkboxElem) {
-            if (checkboxElem.checked) {
-                alert("checked")
-            } else {
-                alert("notchecked")
-            }
-        }
+
 
         function addFavorite(checkboxElem) {
 
+            var parameters = location.search.substring(1).split("?");
+            //    console.log(parameters);
+            var ipara = parameters;
+            //   console.log(ipara);
 
+            var user1 = scrumlib.getDatasetById(ipara);
+            var ca = document.cookie.split('=');
+            var user = scrumlib.getDatasetById(ca[1]);
+
+            var favUser = user1;
+
+            var arrayFavoritten = [favUser[0]._id];
+
+            var updateMapfavorite = {};
 
             if (checkboxElem.checked) {
                 if (user[0].favoritten == '') {
