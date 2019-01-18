@@ -13,7 +13,9 @@
     <link href="css/_page_css_footer.css" rel="stylesheet" type="text/css" />
 
     <!-- BEFORE OF BODY SCRIPT LINKS -->
-
+    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+    <script src="js/responsive_design.js"> </script>
 </head>
 
 <body>
@@ -75,113 +77,110 @@
             </div>
         </footer>
     </div>
-    <!-- END OF BODY SCRIPT LINKS -->
-    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
-    <script src="js/responsive_design.js"> </script>
-    <script defer>
-        window.onload = function () {
-            var searchMap = {};
-            var conditions = [];
-            var egeslacht = ['m', 'v'];
-            var usersV = [];
-            var usersM = [];
-            var alGekozen = [];
-
-            for (let index = 0; index < egeslacht.length; index++) {
-                conditions.push(['sexe', '=']);
-
-                searchMap["sexe"] = {
-                    "waarde": egeslacht[index],
-                    "match": "="
-                }
-
-                let tempUsers = scrumlib.getDatasetsByConditions(searchMap);
-
-                if (egeslacht[index] == "m") {
-                    usersM = tempUsers;
-                    createUsers(usersM, egeslacht[index]);
-                } else {
-                    usersV = tempUsers;
-                    createUsers(usersV, egeslacht[index]);
-                }
-
-            }
-
-            function createUsers(users, geslacht) {
-                //console.log(users[0]);
-                var container = null;
-
-                if (geslacht == "m") {
-                    container = document.getElementById("galleryMan");
-                } else {
-                    container = document.getElementById("galleryVrouw");
-                }
-                container.innerHTML = "";
-                users = shuffle(users)
-                for (let index = 0; index < 3; index++) {
-
-                    randUser = users[index];
-                    var div = document.createElement("div");
-                    //legen
-
-                    var divInfoKopjes = document.createElement("div");
-                    div.setAttribute('class', "col-4 col-s-12 kopjes");
-                    divInfoKopjes.setAttribute('class', "col-2 col-s-12 infokopjes");
-                    var pImg = document.createElement('a');
-                    pImg.setAttribute('href', "public.html?" + randUser._id);
-                    pImg.setAttribute('id', randUser._id);
-                    var img = document.createElement("img");
-                    img.setAttribute('src', "img/" + randUser.foto);
-
-                    var pNickname = document.createElement('a');
-                    pNickname.setAttribute('class', "userInfo nickname");
-                    pNickname.setAttribute('href', "public.html?" + randUser._id);
-                    pNickname.setAttribute('id', randUser._id);
-                    pNickname.innerHTML = randUser.nickname
-                    var pLeeftijd = document.createElement('p');
-                    pLeeftijd.setAttribute('class', "userInfo leeftijd");
-
-                    let y = randUser.geboortedatum.substring(0, 4);
-                    let LeefTijd = new Date().getFullYear() - y;
-                    pLeeftijd.innerHTML = LeefTijd + "jaar";
-
-                    var pStad = document.createElement('p');
-                    pStad.setAttribute('class', "userInfo stad");
-                    pStad.innerHTML = randUser.haarkleur;
-
-                    div.appendChild(pImg);
-                    pImg.appendChild(img);
-                    divInfoKopjes.appendChild(pNickname);
-                    divInfoKopjes.appendChild(pLeeftijd);
-                    divInfoKopjes.appendChild(pStad);
-                    div.appendChild(divInfoKopjes);
-
-                    container.appendChild(div);
-
-                }
-            }
-        }
-
-        function fieldisleeg(field) {
-            if (field === "") {
-                return true;
-            } else {
-                return false;
-            }
-        }
-
-        function shuffle(a) {
-            var j, x, i;
-            for (i = a.length - 1; i > 0; i--) {
-                j = Math.floor(Math.random() * (i + 1));
-                x = a[i];
-                a[i] = a[j];
-                a[j] = x;
-            }
-            return a;
-        }
-    </script>
 </body>
 
 </html>
+<!-- END OF BODY SCRIPT LINKS -->
+<script defer>
+    window.onload = function () {
+        var searchMap = {};
+        var conditions = [];
+        var egeslacht = ['m', 'v'];
+        var usersV = [];
+        var usersM = [];
+        var alGekozen = [];
+
+        for (let index = 0; index < egeslacht.length; index++) {
+            conditions.push(['sexe', '=']);
+
+            searchMap["sexe"] = {
+                "waarde": egeslacht[index],
+                "match": "="
+            }
+
+            let tempUsers = scrumlib.getDatasetsByConditions(searchMap);
+
+            if (egeslacht[index] == "m") {
+                usersM = tempUsers;
+                createUsers(usersM, egeslacht[index]);
+            } else {
+                usersV = tempUsers;
+                createUsers(usersV, egeslacht[index]);
+            }
+
+        }
+
+        function createUsers(users, geslacht) {
+            //console.log(users[0]);
+            var container = null;
+
+            if (geslacht == "m") {
+                container = document.getElementById("galleryMan");
+            } else {
+                container = document.getElementById("galleryVrouw");
+            }
+            container.innerHTML = "";
+            users = shuffle(users)
+            for (let index = 0; index < 3; index++) {
+
+                randUser = users[index];
+                var div = document.createElement("div");
+                //legen
+
+                var divInfoKopjes = document.createElement("div");
+                div.setAttribute('class', "col-4 col-s-12 kopjes");
+                divInfoKopjes.setAttribute('class', "col-6 col-s-10 infokopjes");
+                var pImg = document.createElement('a');
+                pImg.setAttribute('href', "public.html?" + randUser._id);
+                pImg.setAttribute('id', randUser._id);
+                var img = document.createElement("img");
+                img.setAttribute('src', "img/" + randUser.foto);
+
+                var pNickname = document.createElement('a');
+                pNickname.setAttribute('class', "userInfo nickname");
+                pNickname.setAttribute('href', "public.html?" + randUser._id);
+                pNickname.setAttribute('id', randUser._id);
+                pNickname.innerHTML = randUser.nickname
+                var pLeeftijd = document.createElement('p');
+                pLeeftijd.setAttribute('class', "userInfo leeftijd");
+
+                let y = randUser.geboortedatum.substring(0, 4);
+                let LeefTijd = new Date().getFullYear() - y;
+                pLeeftijd.innerHTML = LeefTijd + "jaar";
+
+                var pStad = document.createElement('p');
+                pStad.setAttribute('class', "userInfo stad");
+                pStad.innerHTML = randUser.haarkleur;
+
+                div.appendChild(pImg);
+                pImg.appendChild(img);
+                divInfoKopjes.appendChild(pNickname);
+                divInfoKopjes.appendChild(pLeeftijd);
+                divInfoKopjes.appendChild(pStad);
+                div.appendChild(divInfoKopjes);
+
+                container.appendChild(div);
+
+            }
+        }
+    }
+
+    function fieldisleeg(field) {
+        if (field === "") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    function shuffle(a) {
+        var j, x, i;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            x = a[i];
+            a[i] = a[j];
+            a[j] = x;
+        }
+        return a;
+    }
+</script>

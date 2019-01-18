@@ -452,6 +452,7 @@ section h3 {
     background-color: #4e6078;
     margin: 0.6em;
     float: left;
+    padding: 15px;
 /*    width: 40%;*/
     /*27em*/
 }
@@ -459,7 +460,7 @@ section h3 {
 .kopjes img {
     margin: 1em;
     float: left;
-    width: 30%;
+    width: 40%;
     height: auto;
 }
 
@@ -472,6 +473,6 @@ section h3 {
     height: 220px;*/
     height: 80%;
     float: right;
-    margin: 5% 5% 5% 5%;
+    /*margin: 5% 5% 5% 5%;*/
     padding: 15px;
 }
