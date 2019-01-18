@@ -50,7 +50,8 @@
                 <div class="profile-line"><label class="profile">Haar kleur: </label><label class="profile dynamic" id="haarKleur"></label></div>
                 <div class="profile-line"><label class="profile">Oog kleur: </label><label class="profile dynamic" id="oogKleur"></label></div>
                 <div class="profile-line"><label class="profile">Geslacht: </label><label class="profile dynamic" id="geslacht"></label></div>
-                <div class="profile-line"><label class="profile">Sterrenbeeld: </label><label class="profile dynamic" id="sterrenbeeld"></label></div>
+                <div class="profile-line"><label class="profile">Sterrenbeeld: </label><label class="profile dynamic"
+                        id="sterrenbeeld"></label></div>
                 <div class="profile-line"><label class="profile">Provincie: </label><label class="profile dynamic" id="provincie"></label></div>
                 <input type="checkbox" name="checkfield" onchange="addFavorite(this)" /> &#9825 Add to
                 Favorite
@@ -76,7 +77,7 @@
     <script src="js/favoritten.js"></script>
     <script defer>
         window.onload = function () {
-         
+
             var parameters = location.search.substring(1).split("?");
             //    console.log(parameters);
             var ipara = parameters;
@@ -88,12 +89,7 @@
 
 
             var locationImg = "img/"
-            scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
-            scrumlib.addProperty("interesses", "String", "tennis, music");
-            scrumlib.addProperty("lichaamsbouw", "String", "atletic");
-            scrumlib.addProperty("stad", "String", "Kortrijk");
-           scrumlib.save();
-           document.getElementById("nickname").innerHTML = user1[0].nickname;
+            document.getElementById("nickname").innerHTML = user1[0].nickname;
             document.getElementById("foto").setAttribute('src', locationImg + user1[0].foto);
             document.getElementById("leefTijd").innerHTML = getLeeftijd(user1[0].geboortedatum);
             document.getElementById("gewicht").innerHTML = user1[0].gewicht;
@@ -114,4 +110,5 @@
         }
     </script>
 </body>
+
 </html>

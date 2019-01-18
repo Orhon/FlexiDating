@@ -63,8 +63,12 @@
 
 
                     var locationImg = "img/"
+                    scrumlib.addProperty("interesses", "String", "tennis, music");
+                    scrumlib.addProperty("lichaamsbouw", "String", "atletic");
+                    scrumlib.addProperty("stad", "String", "Kortrijk");
+                    scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
+                    scrumlib.save();
 
-                   scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
                     document.getElementById("nickname").innerHTML = user[0].nickname;
                     document.getElementById("voornaam").innerHTML = user[0].voornaam;
                     document.getElementById("familienaam").innerHTML = user[0].familienaam;
@@ -79,6 +83,9 @@
                     document.getElementById("geslacht").innerHTML = user[0].sexe;
                     document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user[0].geboortedatum);
                     document.getElementById("provincie").innerHTML = user[0].provincie;
+                    document.getElementById("interesses").innerHTML = user[0].interesses;
+                    document.getElementById("lichaamsbouw").innerHTML = user[0].lichaamsbouw;
+                    document.getElementById("stad").innerHTML = user[0].stad;
 
                     function getLeeftijd(gb) {
                         let y = gb.substring(0, 4);
@@ -90,4 +97,5 @@
         </section>
     </div>
 </body>
+
 </html>
