@@ -1,3 +1,10 @@
+@charset "utf-8";
+@import "_main_css.css";
+
+/********************************************/
+/*--- CSS PAGELAYOUT BERICHTEN PAGINA ---*/
+/********************************************/
+
 #containerChat{
     width: 80vw;
     margin: 0 auto;

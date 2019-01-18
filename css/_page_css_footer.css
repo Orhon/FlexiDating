@@ -1,5 +1,13 @@
 @charset "utf-8";
-/* CSS Document voor Floats project*/
+@import "_main_css.css";
+
+/**************************************/
+/*--- CSS PAGELAYOUT FOOTER PAGINA ---*/
+/**************************************/
+
+
+/* NA correcte opmaak verplaats deze css naar de main pagina layout */
+
 
 .footerLinks {
     background: #4e6078;

@@ -1,0 +1,85 @@
+@charset "utf-8";
+@import "_main_css.css";
+
+/**************************************/
+/*--- CSS PAGELAYOUT ZOEKEN PAGINA ---*/
+/**************************************/
+
+/********************/
+/*--- ZOEK PAGES ---*/
+/********************/
+
+.zoek {
+    width: 80%;
+    float: left;
+}
+
+.zoek .leftcolumn {
+    padding: 1em;
+    color: #fff;
+    /*width: 30%;*/
+    max-width: 30vw;
+    float: left;
+    /*display: inline-block;*/
+    clear: both;
+    background: #4e6078;
+    overflow: hidden;
+    margin: 1em;
+
+}
+
+.zoek .labelgroup {
+    margin-top: 1em;
+}
+
+.zoek .rightcolumn {
+    /*width: 60%;*/
+    float: none;
+    display: inline-block;
+}
+
+.zoek h3 {
+    display: inline-block;
+}
+
+.zoek label {
+    display: inline;
+}
+
+.zoek>input[type="text"] {
+
+    width: 75%;
+}
+
+
+#container {
+    width: 40vw;
+    float: left;
+    margin: 0 auto;
+}
+
+#containerProfiel {
+    display: flex;
+    /*flex-direction: column;*/
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1em;
+    overflow: auto;
+
+    width: 80vw;
+    margin: 0 auto
+}
+
+#containerProfiel form {
+    width: 80vw;
+    margin: 0 auto
+}
+
+.zoek button {
+    background-color: #fff;
+    color: #4e6078;
+}
+
+form img {
+    width: 300px;
+}
