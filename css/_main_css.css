@@ -97,9 +97,15 @@ html {
 [class*="col-"] {
     float: left;
     padding: 15px;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
+/*--- Clear floats after row ---*/
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
 
 /*****************/
 /*--- IMAGES ---*/
