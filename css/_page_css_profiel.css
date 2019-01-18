@@ -1,7 +1,75 @@
 @charset "utf-8";
 @import "_main_css.css";
 
-/********************************************/
-/*--- CSS PAGELAYOUT xxxxxxxxxxxx PAGINA ---*/
-/********************************************/
+/****************************************/
+/*--- CSS PAGELAYOUT PROFIEL PAGINAS ---*/
+/****************************************/
 
+.profile {
+    font-size: 1.5 em;
+    position: relative;
+    margin: auto;
+}
+
+.profile #foto {
+    display: block;
+    float: center;
+    height: auto;
+    border: solid 1px #4e6078;
+    width: 60vw;
+    overflow: hidden;
+    margin: 3em;
+}
+
+img.responsive {
+    width: 100%;
+    /*height: auto;*/
+}
+
+label.profile {
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+    display: inline;
+    /*width: 20%;
+    height: auto;*/
+    margin-right: 5px;
+}
+
+label.profile.dynamic {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+label.profile #nickname {
+    font-size: 3em;
+    font-weight: bold;
+    display: inline;
+}
+
+.profile-line {
+    display: block;
+    margin: auto;
+    clear: both;
+}
+
+.userInfo {
+    margin: 0.3em;
+}
+
+.userinfo .nickname {
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.userinfo .leeftijd,
+.userinfo .stad {
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.profielfoto {
+    width: 60vw;
+    max-width: 200px;
+    height: auto;
+}
