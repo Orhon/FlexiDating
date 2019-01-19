@@ -30,7 +30,7 @@
         </div>
 
         <header>
-            <nav class="topmenu" id="responseMenu1">
+            <nav class="topmenu" id="responseMenu">
                 <ul>
                     <li><a href="index.html">home</a></li>
                     <li><a href="zoeken.html">zoeken</a></li>
@@ -48,7 +48,7 @@
                 <br>
                 <h3 class="randomProfiel">Mannen</h3>
                 <div id="galleryMan">
-                    <div class="kopjes"><img src="img/bram.png" />
+                    <div class="profileblock"><img src="img/bram.png" />
                     </div>
                 </div>
                 <br>
@@ -120,8 +120,8 @@
                     //legen
 
                     var divInfoKopjes = document.createElement("div");
-                    div.setAttribute('class', "kopjes");
-                    divInfoKopjes.setAttribute('class', "infokopjes");
+                    div.setAttribute('class', "profileblock");
+                    divInfoKopjes.setAttribute('class', "profileblockinfo");
                     var pImg = document.createElement('a');
                     pImg.setAttribute('href', "public.html?" + randUser._id);
                     pImg.setAttribute('id', randUser._id);

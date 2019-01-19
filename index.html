@@ -10,7 +10,7 @@
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-    
+
 </head>
 <!-- BEFORE OF BODY SCRIPT LINKS -->
 <script src="js/responsive_design.js"> </script>
@@ -30,10 +30,7 @@
         </div>
 
         <header>
-            <nav class="topmenu" id="responseMenu1">
-                <div id="userLogged" style="color:white">
-                   Iemand
-                </div>
+            <nav class="topmenu" id="responseMenu">
                 <ul>
                     <li><a href="index.html">home</a></li>
                     <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
@@ -47,6 +44,9 @@
         </header>
 
         <section>
+            <div class="row">
+                <div class="col-2 col-s-12 userLogged" id="userLogged"></div>
+            </div>
             <div class="row">
                 <h1>Ontdek enkele van onze vrijgezellen!</h1>
 
@@ -89,13 +89,10 @@
         var x = document.cookie.split("=");
         var user = scrumlib.getDatasetById(x[1]);
 
-        
-
-        if(x!=''){
+        if (x != '') {
             var userLogged = document.getElementById("userLogged");
-            userLogged.innerHTML = user[0].nickname + ' (' + user[0].lovecoin + ' lovecoins)'
+            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
         }
-        
 
 
         //random users tonen
@@ -144,8 +141,8 @@
                 //legen
 
                 var divInfoKopjes = document.createElement("div");
-                div.setAttribute('class', "col-4 col-s-12 kopjes");
-                divInfoKopjes.setAttribute('class', "col-6 col-s-10 infokopjes");
+                div.setAttribute('class', "col-4 col-s-12 profileblock");
+                divInfoKopjes.setAttribute('class', "col-6 col-s-10 profileblockinfo");
                 var pImg = document.createElement('a');
                 pImg.setAttribute('href', "public.html?" + randUser._id);
                 pImg.setAttribute('id', randUser._id);

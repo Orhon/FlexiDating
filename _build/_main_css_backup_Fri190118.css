@@ -450,7 +450,7 @@ section h3 {
     display: block;
 }
 
-.kopjes {
+.profileblock {
     background-color: #4e6078;
     margin: 0.6em;
     float: left;
@@ -458,14 +458,14 @@ section h3 {
     /*27em*/
 }
 
-.kopjes img {
+.profileblock img {
     margin: 1em;
     float: left;
     width: 30%;
     height: auto;
 }
 
-.infokopjes {
+.profileblockinfo {
     background: white;
     font-size: 0.9em;
     text-align: right;

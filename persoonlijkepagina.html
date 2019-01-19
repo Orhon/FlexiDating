@@ -31,10 +31,7 @@
         </div>
 
         <header>
-            <nav class="topmenu" id="responseMenu1">
-                <div id="userLogged" style="color:white">
-                    Iemand
-                </div>
+            <nav class="topmenu" id="responseMenu">
                 <ul>
                     <li><a href="index.html">home</a></li>
                     <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
@@ -48,9 +45,12 @@
         </header>
 
         <section>
-
             <div class="row">
-                <div class="col-3 col-s-12 "><!--menu-->
+                <div class="col-2 col-s-12 userLogged" id="userLogged"></div>
+            </div>
+            <div class="row">
+                <div class="col-3 col-s-12 ">
+                    <!--menu-->
                     <ul>
                         <li><a href="private.html" target="iframe_a">Mijn profiel</a></li>
                         <li><a href="profielupdate.html" target="iframe_a">Update profiel</a></li>
@@ -60,7 +60,8 @@
                     </ul>
                 </div>
 
-                <div class="col-9 col-s-12 "><!--rechts-->
+                <div class="col-9 col-s-12 ">
+                    <!--rechts-->
                     <iframe name="iframe_a" src="private.html" frameBorder="0"></iframe>
                     <!--height="1000" width="1200"-->
                 </div>
@@ -86,16 +87,13 @@
 </body>
 <script src="js/logout.js"> </script>
 <script defer>
-
     window.onload = function () {
         var x = document.cookie.split("=");
         var user = scrumlib.getDatasetById(x[1]);
 
-
-
         if (x != '') {
             var userLogged = document.getElementById("userLogged");
-            userLogged.innerHTML = user[0].nickname + ' (' + user[0].lovecoin + ' lovecoins)'
+            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
         }
     }
 </script>

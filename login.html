@@ -10,7 +10,8 @@
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-    
+    <link href="_page_css_LoginRegister.css" rel="stylesheet" type="text/css" />
+
 </head>
 <!-- BEFORE OF BODY SCRIPT LINKS -->
 <script src="js/responsive_design.js"> </script>
@@ -30,39 +31,47 @@
         </div>
 
         <header>
-                <nav class="topmenu" id="responseMenu1">
-                    <div id="userLogged" style="color:white">
-                       Iemand
-                    </div>
-                    <ul>
-                        <li><a href="index.html">home</a></li>
-                        <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
-                        <li id="profiel"><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
-                        <li id="login"><a href="login.html">login</a></li>
-                        <li id="register"><a href="registratie.html">registreer</a></li>
-                        <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
-                        <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
-                    </ul>
-                </nav>
-            </header>
+            <nav class="topmenu" id="responseMenu">
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
+                    <li id="profiel"><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
+                    <li id="login"><a href="login.html">login</a></li>
+                    <li id="register"><a href="registratie.html">registreer</a></li>
+                    <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
+                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
+                </ul>
+            </nav>
+        </header>
 
         <section>
-            <h1>Login</h1>
-            <label for="email"><b>Email </b></label>
-            <input id="email" type="text" placeholder="Voeg je email-adres in" name="email" required>
+            <div class="row">
+                <div class="col-2 col-s-12 userLogged" id="userLogged"></div>
+            </div>
+            <div class="row">
+                <div class="col-3 hidden"></div>
+                <div class="col-6 col-s-12">
+                    <h1>Login</h1>
+                    <label for="email">Email</label>
+                    <input id="email" type="text" placeholder="Voeg je email-adres in" name="email" required />
 
-            <label for="passid"><b>Wachtwoord </b></label>
-            <input id="password" type="password" placeholder="Voeg je wachtwoord in" name="passid" required>
+                    <label for="passid">Wachtwoord</label>
+                    <input id="password" type="password" placeholder="Voeg je wachtwoord in" name="passid" required />
 
-            <button onclick="validate()">Login</button>
-            <label>
-                <input type="checkbox" checked="checked" name="remember"> Onthoud mijn gegevens.
-            </label>
+                    <button onclick="validate()">Login</button>
+                    <div class="radiocheck">
+                        <span class="psw">
+                            <input type="checkbox" checked="checked" name="remember">
+                            <p>Onthoud mijn gegevens.</p>
+                        </span></div>
+                    <span class="psw"><a href="#">Wachtwoord </a>vergeten?</span>
+                    <h3>Heb je nog geen account?</h3>
+                    <h3><i><a href="registratie.html">Registreer hier!</a></i></h3>
 
-            <p>Heb je nog geen account?
-                <a href="registratie.html">Registreer hier!</a></p>
-            <span class="psw"><a href="#">Wachtwoord </a>vergeten?</span>
-            <br><br>
+                </div>
+                <div class="col-3 hidden"></div>
+            </div>
+
         </section>
         <footer>
             <div class="row">
@@ -83,4 +92,5 @@
     <script src="js/login_validatie.js"></script>
 </body>
 <script src="js/logout.js"> </script>
+
 </html>

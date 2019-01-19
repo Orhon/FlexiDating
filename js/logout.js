@@ -17,7 +17,7 @@ if(x != null && x!=''){
     logoutButton.setAttribute("style","display: block");
     profiel.setAttribute("style","display: block");
     zoeken.setAttribute("style","display: block");
-    usernaam.setAttribute("style","display: block;color:white");
+    usernaam.setAttribute("style","display: block;");
 }else{
     //niet ingelogd
     logoutButton.setAttribute("style","display: none");
