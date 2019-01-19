@@ -50,6 +50,11 @@ a {
     box-sizing: border-box;
 }
 
+/*--- Designer View ---*/
+div {
+    border: 1px #ff0000;
+}
+
 /*--- For mobile phones: ---*/
 [class*="col-"] {
     width: 100%;
@@ -170,7 +175,8 @@ a {
 [class*="col-"] {
     float: left;
     padding: 15px;
-    /*border: 1px solid red;*/
+    /*--- Designer View ---*/
+    border: 1px solid red;
 }
 
 /*--- Clear floats after row ---*/
@@ -254,8 +260,6 @@ header {
 }
 
 header h1 {
-
-
     font-family: Arial, Helvetica, sans-serif;
     font-size: 4em;
     color: white;
@@ -269,25 +273,27 @@ section {
 
 section h1 {
     text-align: center;
+    font-size: 3em;
 }
 
-/*
-section a {
+section h3 {
     text-align: center;
-    margin: 10px;
-    display: block;
+    font-size: 1.5em;
 }
-*/
+
+
 
 /*--- FOOTER ---*/
 footer {
     background: #4e6078;
-/*    clear: both; */
-/*    text-align: center;*/
+    /*    clear: both; */
+    /*    text-align: center;*/
     color: white;
     font-size: 12px;
     height: auto;
+    position: relative;
 }
+
 .footerLinks {
     background: inherit;
     padding: 2em;
@@ -306,6 +312,7 @@ footer {
     float: right;
     text-align: right;
 }
+
 /********************/
 /*--- NAVIGATION ---*/
 /********************/
@@ -415,7 +422,7 @@ input {
     margin: 8px 0;
     display: block;
     border: 1px solid #ccc;
-    box-sizing: border-box;
+/*    box-sizing: border-box; */
 }
 
 /*--- buttons ---*/
@@ -434,23 +441,11 @@ button:hover {
     opacity: 0.8;
 }
 
-
 /***************************/
 /*--- STARTPAGE | INDEX ---*/
 /***************************/
 
 /*--- gallerij startpagina ---*/
-section h1 {
-    text-align: center;
-    font-size: 3em;
-
-}
-
-section h3 {
-    text-align: center;
-    font-size: 1.5em;
-
-}
 
 .gallery {
     display: flex;
@@ -470,7 +465,7 @@ section h3 {
     margin: 0.6em;
     float: left;
     padding: 15px;
-/*    width: 40%;*/
+    /*    width: 40%;*/
     /*27em*/
 }
 
