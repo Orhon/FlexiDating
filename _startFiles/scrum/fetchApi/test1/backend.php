@@ -1,0 +1,59 @@
+<?php
+$variables = '';
+$var_get = '';
+$var_post = '';
+$var_request = '';   
+$var_post_not_formData = '';    
+$stringsign = '"';
+
+
+//get GET-data
+foreach ($_GET as $key => $value){
+    $var_get .= $stringsign.$key.$stringsign .':'.$stringsign.$value.$stringsign.',';
+}
+$var_get = rtrim($var_get, ',');
+
+//get POST-data sent via formData
+foreach ($_POST as $key => $value){
+    $var_post .= $stringsign.$key.$stringsign .':'.$stringsign.$value.$stringsign.',';
+}
+$var_post = rtrim($var_post, ',');
+
+//get GET&POST-data
+foreach ($_REQUEST as $key => $value){
+    $var_request .= $stringsign.$key.$stringsign .':'.$stringsign.$value.$stringsign.',';
+}
+$var_request = rtrim($var_request, ',');
+
+//get POST-data
+$content = trim(file_get_contents("php://input"));
+$var_post_not_formData .= '"filecontent":'.$content.",";//'"co123123ntent":"'.$content.'",';
+$decoded = json_decode($content, true);
+
+echo is_array('jan');
+echo is_array($decoded);
+
+if(is_array($decoded)) {
+    foreach ($decoded as $key => $value) {
+        $var_post_not_formData .= $stringsign.$key.$stringsign .':'.$stringsign.$value.$stringsign.',';
+    }
+} 
+$var_post_not_formData = rtrim($var_post_not_formData, ',');
+
+
+try {
+    if ($_POST[1]<=1) {
+         # code...
+    } else {
+        # code...
+    }
+    
+} catch (\Throwable $th) {
+    //throw $th;
+}
+
+
+$variables = '"variables":{"GET":{'.$var_get.'},"POST":{'.$var_post.'},"REQUEST":{'.$var_request.'},"POS_NOT_FORM_DATA":{'.$var_post_not_formData.'}},';
+
+echo '{'.$variables.'"results":[{"gender":"male","name":{"title":"monsieur","first":"christof","last":"dubois"},"location":{"street":"1857 rue paul-duvivier","city":"noflen","state":"valais","postcode":1054,"coordinates":{"latitude":"-57.1639","longitude":"-83.4473"},"timezone":{"offset":"+3:00","description":"Baghdad, Riyadh, Moscow, St. Petersburg"}},"email":"christof.dubois@example.com","login":{"uuid":"2382f9d0-38cd-42a0-83b2-290b03b130f3","username":"sadcat229","password":"cantona","salt":"nFY2kObb","md5":"2edd292fefecd6e2204488b5b5719e49","sha1":"fa4591498d900a47afea41e5552d736e6714b567","sha256":"ce6cc2bc4aece8439ad02890b0f0521b1ac470d36271c48d8f72cff22f3586f9"},"dob":{"date":"1974-07-05T19:36:11Z","age":44},"registered":{"date":"2002-07-06T17:47:01Z","age":16},"phone":"(271)-209-1162","cell":"(587)-755-3084","id":{"name":"AVS","value":"756.1568.4408.46"},"picture":{"large":"https://randomuser.me/api/portraits/men/68.jpg","medium":"https://randomuser.me/api/portraits/med/men/68.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/68.jpg"},"nat":"CH"},{"gender":"female","name":{"title":"miss","first":"teresa","last":"cano"},"location":{"street":"9029 calle de arganzuela","city":"zaragoza","state":"país vasco","postcode":35230,"coordinates":{"latitude":"-60.6479","longitude":"37.6599"},"timezone":{"offset":"+4:00","description":"Abu Dhabi, Muscat, Baku, Tbilisi"}},"email":"teresa.cano@example.com","login":{"uuid":"39dbb896-1d72-48ac-b60d-695de139e4fe","username":"silverladybug394","password":"mommy","salt":"G4sckAVT","md5":"88e57621f146d0554c6dd822da0bf1d1","sha1":"bbb3beede2bbd35aca2afe71b399aefe9a01e1fb","sha256":"31e8752a3298403eae28425d97c18b0f41a5af4a8749ad4c7fbf1f12a4fff28a"},"dob":{"date":"1961-03-31T22:41:59Z","age":57},"registered":{"date":"2018-05-30T21:01:52Z","age":0},"phone":"956-033-729","cell":"617-276-835","id":{"name":"DNI","value":"10233760-B"},"picture":{"large":"https://randomuser.me/api/portraits/women/30.jpg","medium":"https://randomuser.me/api/portraits/med/women/30.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/30.jpg"},"nat":"ES"},{"gender":"female","name":{"title":"ms","first":"phoebe","last":"patel"},"location":{"street":"278 theodosia street","city":"rotorua","state":"canterbury","postcode":92262,"coordinates":{"latitude":"-39.5383","longitude":"7.5177"},"timezone":{"offset":"+2:00","description":"Kaliningrad, South Africa"}},"email":"phoebe.patel@example.com","login":{"uuid":"e4026cb9-c755-4f58-a156-c4f2c4cae582","username":"orangepanda455","password":"helen","salt":"bXpOTmKu","md5":"91cdcdc782e425aee438d405142a81d7","sha1":"1007ab9062f9ea693c18b73ee6ce544476cf88e3","sha256":"473378495a5ae2b3cd7e58b3858b36250161a73ed54bfcddc867f705dc4f3577"},"dob":{"date":"1982-11-11T00:05:54Z","age":36},"registered":{"date":"2014-05-09T10:30:54Z","age":4},"phone":"(095)-882-7712","cell":"(929)-196-3298","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/34.jpg","medium":"https://randomuser.me/api/portraits/med/women/34.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/34.jpg"},"nat":"NZ"},{"gender":"female","name":{"title":"ms","first":"sophie","last":"smith"},"location":{"street":"94 36th ave","city":"souris","state":"yukon","postcode":"Y8H 9O6","coordinates":{"latitude":"-79.1819","longitude":"-92.8088"},"timezone":{"offset":"+5:45","description":"Kathmandu"}},"email":"sophie.smith@example.com","login":{"uuid":"55b900db-c9c8-40ea-ae0c-4ab39568b6bb","username":"yellowpanda651","password":"quest1","salt":"a42ZiNuD","md5":"d9cb6bdb806bffbbc4229dc058e023bd","sha1":"7a5972b3e7f0603388634ec47496748a549ccbb2","sha256":"308e6b4fcdc889c523a6c06291aa3d6830d848f68ea27f46e3233e667bd5cdf7"},"dob":{"date":"1966-02-27T23:08:10Z","age":52},"registered":{"date":"2012-09-15T05:06:51Z","age":6},"phone":"827-519-7729","cell":"797-882-1341","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/89.jpg","medium":"https://randomuser.me/api/portraits/med/women/89.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/89.jpg"},"nat":"CA"},{"gender":"female","name":{"title":"miss","first":"ava","last":"roy"},"location":{"street":"3631 3rd st","city":"shelbourne","state":"yukon","postcode":"N7U 5C0","coordinates":{"latitude":"-26.8868","longitude":"-160.0712"},"timezone":{"offset":"0:00","description":"Western Europe Time, London, Lisbon, Casablanca"}},"email":"ava.roy@example.com","login":{"uuid":"e8dc3cc2-3f3f-42f9-94fe-18fddc01cff0","username":"purpleleopard277","password":"brucelee","salt":"Vh6GSgVK","md5":"6255a774aff53c26f2cd1f8e2ea9d0bb","sha1":"a2fc65bfa82e7c8cf912cee73dca7ceff7928ac0","sha256":"1b55fd87ef1b95330874f1e36fc69f944520daba0a2f97d7ae4c0907af8003e1"},"dob":{"date":"1979-12-04T04:49:23Z","age":38},"registered":{"date":"2015-06-26T04:21:56Z","age":3},"phone":"773-606-5856","cell":"535-456-3429","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/41.jpg","medium":"https://randomuser.me/api/portraits/med/women/41.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/41.jpg"},"nat":"CA"},{"gender":"male","name":{"title":"mr","first":"benjamin","last":"anderson"},"location":{"street":"8071 coastal highway","city":"hudson","state":"northwest territories","postcode":"M5U 2M9","coordinates":{"latitude":"69.8910","longitude":"130.5670"},"timezone":{"offset":"+1:00","description":"Brussels, Copenhagen, Madrid, Paris"}},"email":"benjamin.anderson@example.com","login":{"uuid":"d2a57bfb-96ae-4c3c-82fc-c4fbebed4357","username":"silverkoala965","password":"trebor","salt":"oh7TByWb","md5":"c5de237f7ba6c49b40eb58a4004472b3","sha1":"8191b62fa8e1f84899b7855a728f130340a92961","sha256":"f8b90183e915e51e9517f26a64fd168221f3e4a6fa6ca67093f21b3d1e318554"},"dob":{"date":"1991-07-30T09:23:42Z","age":27},"registered":{"date":"2012-02-25T05:45:17Z","age":6},"phone":"410-499-4605","cell":"561-287-2528","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/men/9.jpg","medium":"https://randomuser.me/api/portraits/med/men/9.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/9.jpg"},"nat":"CA"},{"gender":"female","name":{"title":"miss","first":"simona","last":"behringer"},"location":{"street":"ahornweg 125","city":"walsrode","state":"brandenburg","postcode":68558,"coordinates":{"latitude":"-54.7460","longitude":"162.4118"},"timezone":{"offset":"+9:30","description":"Adelaide, Darwin"}},"email":"simona.behringer@example.com","login":{"uuid":"d4e891f3-c365-41bf-bc2e-8b1c92a83ad6","username":"tinyzebra620","password":"wowwow","salt":"o8HMVEY8","md5":"aab4564edf6682aa44b2c02d6d930297","sha1":"7d9162180c3896acd6f56c1e07d775c48f902533","sha256":"184b49a51fd4a16e3efc0b4762e261d8fc1d8392bca69845ec112e6085c7f888"},"dob":{"date":"1948-04-06T00:07:50Z","age":70},"registered":{"date":"2016-04-06T01:52:06Z","age":2},"phone":"0718-1630562","cell":"0178-9430423","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/32.jpg","medium":"https://randomuser.me/api/portraits/med/women/32.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/32.jpg"},"nat":"DE"},{"gender":"female","name":{"title":"ms","first":"krista","last":"pütz"},"location":{"street":"birkenstraße 14","city":"stolpen","state":"bremen","postcode":25606,"coordinates":{"latitude":"39.7860","longitude":"98.2804"},"timezone":{"offset":"-2:00","description":"Mid-Atlantic"}},"email":"krista.pütz@example.com","login":{"uuid":"5a0b9d8a-9587-48a5-b4f8-cc81120217c4","username":"whitepanda843","password":"bobdole","salt":"OapiHRxf","md5":"c5787186c479f93c1a601c5c9b0a2b29","sha1":"e2176ac122823de124c41ad5fd1dec017ddada4c","sha256":"b11165cc667db9b60eaecb23c809032440252ddd1764af20962ebabbce50e0d7"},"dob":{"date":"1988-06-24T21:20:50Z","age":30},"registered":{"date":"2004-10-11T13:36:00Z","age":14},"phone":"0977-3611097","cell":"0172-1564410","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/18.jpg","medium":"https://randomuser.me/api/portraits/med/women/18.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/18.jpg"},"nat":"DE"},{"gender":"female","name":{"title":"miss","first":"thea","last":"thomas"},"location":{"street":"8936 oxford terrace","city":"whangarei","state":"auckland","postcode":22421,"coordinates":{"latitude":"-11.7976","longitude":"-31.3870"},"timezone":{"offset":"-4:00","description":"Atlantic Time (Canada), Caracas, La Paz"}},"email":"thea.thomas@example.com","login":{"uuid":"532fb76c-0ec7-4fe9-9621-6ff7b099a14d","username":"angrycat356","password":"toast","salt":"30oGrvdu","md5":"10768cb3c6ebdee3357612d8a5f29c7b","sha1":"f6ab53f9b6d676a9eb609f7c5a9b433fbe717f38","sha256":"2c71ed76a8115f031e436e2517ddda66fb9806460c4300eeac9e86193cc6a8c9"},"dob":{"date":"1975-01-21T22:11:38Z","age":43},"registered":{"date":"2005-06-26T10:46:47Z","age":13},"phone":"(147)-928-9148","cell":"(373)-844-6429","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/women/26.jpg","medium":"https://randomuser.me/api/portraits/med/women/26.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/women/26.jpg"},"nat":"NZ"},{"gender":"male","name":{"title":"mr","first":"zenon","last":"stang"},"location":{"street":"römerstraße 181","city":"grebenau","state":"niedersachsen","postcode":60723,"coordinates":{"latitude":"38.9383","longitude":"-74.1730"},"timezone":{"offset":"-11:00","description":"Midway Island, Samoa"}},"email":"zenon.stang@example.com","login":{"uuid":"93d78c47-e4cd-404e-90e3-a3f8ac7dffef","username":"goldenmouse392","password":"just4me","salt":"MtXBhb0n","md5":"63ab4ec4eb9bec842df5f81d14ef1e82","sha1":"e0a92cadf9f822b6ca0b15cbe850300cbc8cc2c1","sha256":"b52336cb78c2509e3d82f43bd466506f47c4a0ab3889041c3043a3e868438d85"},"dob":{"date":"1992-11-22T10:05:30Z","age":26},"registered":{"date":"2004-08-18T03:32:48Z","age":14},"phone":"0281-1678812","cell":"0170-2109004","id":{"name":"","value":null},"picture":{"large":"https://randomuser.me/api/portraits/men/94.jpg","medium":"https://randomuser.me/api/portraits/med/men/94.jpg","thumbnail":"https://randomuser.me/api/portraits/thumb/men/94.jpg"},"nat":"DE"}],"info":{"seed":"d5fc5da968ed892d","results":10,"page":1,"version":"1.2"}}';
+?>
