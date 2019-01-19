@@ -12,10 +12,10 @@
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
     <link href="css/_page_css_footer.css" rel="stylesheet" type="text/css" />
 </head>
-    <!-- BEFORE OF BODY SCRIPT LINKS -->
-    <script src="js/responsive_design.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+<!-- BEFORE OF BODY SCRIPT LINKS -->
+<script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
 
 <body>
     <div id="comments">
@@ -34,8 +34,7 @@
 
         </div>
     </div>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+    <!-- END OF BODY SCRIPT LINKS -->
     <script defer>
         window.onload = function () {
             scrumlib.addProperty("comment", "string", ""
@@ -55,28 +54,28 @@
             // var userSender = scrumlib.getDatasetById(x[1]);
 
 
-                    //jan
+            //jan
             var userSender = scrumlib.getDatasetById("56cae42a683485281caf5653");
             var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
 
-                    //jan
-                    // var userReceiver ='';
-                    // if (userSender[0]._id == "56cae42a683485281caf5651" ){
-                    //    userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-                    // }else{
-                    //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
-                    // }
+            //jan
+            // var userReceiver ='';
+            // if (userSender[0]._id == "56cae42a683485281caf5651" ){
+            //    userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
+            // }else{
+            //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
+            // }
 
 
             // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");        
             // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-            
+
 
             document.getElementById("userName").innerHTML = userSender[0].nickname;
 
             console.log(userSender)
             commentTonen(userSender, userReceiver);
-            
+
             var comment = document.getElementById("txtComment");
             comment.focus();
             comment.select();
@@ -109,10 +108,9 @@
             setInterval(checkChat, 20000);
 
             function checkChat() {
-                if (comment.value == '')
-                {
+                if (comment.value == '') {
                     location.reload();
-                    }
+                }
                 //commentTonen(userSender, userReceiver);
             }
 
@@ -170,7 +168,8 @@
                             if (comments.childElementCount > 20) {
                                 comments.removeChild(comments.firstChild);
                             }
-                            comments.innerHTML += "<li>" + userComments[i].comment + ' - <span class="nicknameChat">' + userVan[0].nickname +
+                            comments.innerHTML += "<li>" + userComments[i].comment +
+                                ' - <span class="nicknameChat">' + userVan[0].nickname +
                                 "</span></li>";
                         }
 

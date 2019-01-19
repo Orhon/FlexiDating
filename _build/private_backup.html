@@ -12,10 +12,10 @@
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
     <link href="css/_page_css_footer.css" rel="stylesheet" type="text/css" />
 </head>
-    <!-- BEFORE OF BODY SCRIPT LINKS -->
-    <script src="js/responsive_design.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+<!-- BEFORE OF BODY SCRIPT LINKS -->
+<script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
 
 <body>
     <div class="clearfix">
@@ -44,84 +44,86 @@
             </nav>
         </header>
 
-<section>
-            
-    <p><label>Nickname</label><label id="nickname"></label></p>
-    
-    <p><label>Familienaam</label><label id="familienaam"></label></p>
-   
-    <p><label>Voornaam</label><label id="voornaam"></label></p>
-    
-    <p><img id="foto" src="" alt="" width="150px" height="auto"></p>
-    
-    <p><label>Leeftijd</label><label id="leefTijd"></label></p>
-    
-    <p><label>Beroep</label><label id="beroep"></label></p>
+        <section>
 
-    <p><label>Gewicht</label><label id="gewicht"></label></p>
-    
-    <p><label>Grootte</label><label id="grootte"></label></p>
-    
-    <p><label>Haar kleur</label><label id="haarKleur"></label></p>
-    
-    <p><label>Oog kleur</label><label id="oogKleur"></label></p>
-    
-    <p><label>Interesses</label><label id="interesses"></label></p>
-    
-    <p><label>Geslacht</label><label id="geslacht"></label></p>
-    
-    <p><label>Lichaamsbouw</label><label id="lichaamsbouw"></label></p>
-    
-    <p><label>Sterrenbeeld</label><label id="sterrenbeeld"></label></p>
-    
-    <p><label>Provincie</label><label id="provincie"></label></p>
-    
-    <p><label>Stad</label><label id="stad"></label></p>
+            <p><label>Nickname</label><label id="nickname"></label></p>
 
+            <p><label>Familienaam</label><label id="familienaam"></label></p>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
-    <script src="js/sterrenbeeld.js"></script>
-    <script defer>
-        window.onload = function () {
-            var user = scrumlib.getDatasetById("56cae42a683485281caf5652");
-            var locationImg = "img/"
-            
-            scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
+            <p><label>Voornaam</label><label id="voornaam"></label></p>
 
-            document.getElementById("nickname").innerHTML = user[0].nickname;
-            document.getElementById("voornaam").innerHTML = user[0].voornaam;
-            document.getElementById("familienaam").innerHTML = user[0].familienaam;
-            document.getElementById("beroep").innerHTML = user[0].beroep;
-            document.getElementById("foto").setAttribute('src', locationImg + user[0].foto); 
-            document.getElementById("foto").setAttribute('alt', user[0].foto); 
+            <p><img id="foto" src="" alt="" width="150px" height="auto"></p>
 
-            document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
-            document.getElementById("gewicht").innerHTML = user[0].gewicht;
-            document.getElementById("grootte").innerHTML = user[0].grootte;
-            document.getElementById("haarKleur").innerHTML = user[0].haarkleur;
-            document.getElementById("oogKleur").innerHTML = user[0].oogkleur;
-            document.getElementById("geslacht").innerHTML = user[0].sexe;
-            document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user[0].geboortedatum);
-            document.getElementById("provincie").innerHTML = user[0].provincie;
+            <p><label>Leeftijd</label><label id="leefTijd"></label></p>
+
+            <p><label>Beroep</label><label id="beroep"></label></p>
+
+            <p><label>Gewicht</label><label id="gewicht"></label></p>
+
+            <p><label>Grootte</label><label id="grootte"></label></p>
+
+            <p><label>Haar kleur</label><label id="haarKleur"></label></p>
+
+            <p><label>Oog kleur</label><label id="oogKleur"></label></p>
+
+            <p><label>Interesses</label><label id="interesses"></label></p>
+
+            <p><label>Geslacht</label><label id="geslacht"></label></p>
+
+            <p><label>Lichaamsbouw</label><label id="lichaamsbouw"></label></p>
+
+            <p><label>Sterrenbeeld</label><label id="sterrenbeeld"></label></p>
+
+            <p><label>Provincie</label><label id="provincie"></label></p>
+
+            <p><label>Stad</label><label id="stad"></label></p>
 
 
-            function getLeeftijd(gb) {
-                let y = gb.substring(0, 4);
-                let d = new Date().getFullYear();
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+            <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+            <script src="js/sterrenbeeld.js"></script>
+            <script defer>
+                window.onload = function () {
+                    var user = scrumlib.getDatasetById("56cae42a683485281caf5652");
+                    var locationImg = "img/"
 
-                return d - y;
-            }  
-        }
-    </script>
-</section>
+                    scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
+
+                    document.getElementById("nickname").innerHTML = user[0].nickname;
+                    document.getElementById("voornaam").innerHTML = user[0].voornaam;
+                    document.getElementById("familienaam").innerHTML = user[0].familienaam;
+                    document.getElementById("beroep").innerHTML = user[0].beroep;
+                    document.getElementById("foto").setAttribute('src', locationImg + user[0].foto);
+                    document.getElementById("foto").setAttribute('alt', user[0].foto);
+
+                    document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
+                    document.getElementById("gewicht").innerHTML = user[0].gewicht;
+                    document.getElementById("grootte").innerHTML = user[0].grootte;
+                    document.getElementById("haarKleur").innerHTML = user[0].haarkleur;
+                    document.getElementById("oogKleur").innerHTML = user[0].oogkleur;
+                    document.getElementById("geslacht").innerHTML = user[0].sexe;
+                    document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user[0].geboortedatum);
+                    document.getElementById("provincie").innerHTML = user[0].provincie;
+
+
+                    function getLeeftijd(gb) {
+                        let y = gb.substring(0, 4);
+                        let d = new Date().getFullYear();
+
+                        return d - y;
+                    }
+                }
+            </script>
+        </section>
         <footer>
-        <p>
-        &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
-        <small>imagecredits: designed by www.freepik.com</small>
-        </p>
+            <p>
+                &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+                <small>imagecredits: designed by www.freepik.com</small>
+            </p>
         </footer>
     </div>
+
+    <!-- END OF BODY SCRIPT LINKS -->
 </body>
 
 </html>
