@@ -50,10 +50,12 @@ a {
     box-sizing: border-box;
 }
 
-/*--- Designer View ---*/
+/*--- Designer View 
 div {
     border: 1px #ff0000;
 }
+
+---*/
 
 /*--- For mobile phones: ---*/
 [class*="col-"] {
@@ -175,8 +177,9 @@ div {
 [class*="col-"] {
     float: left;
     padding: 15px;
-    /*--- Designer View ---*/
+    /*--- Designer View 
     border: 1px solid red;
+    ---*/
 }
 
 /*--- Clear floats after row ---*/
@@ -275,42 +278,46 @@ section h1 {
     text-align: center;
     font-size: 3em;
 }
-
+@media screen and (max-width: 600px) {
+    section h1 {
+        font-size: 2em;
+    }
+}
 section h3 {
     text-align: center;
     font-size: 1.5em;
 }
 
-
-
 /*--- FOOTER ---*/
 footer {
     background: #4e6078;
-    /*    clear: both; */
-    /*    text-align: center;*/
     color: white;
-    font-size: 12px;
+    font-size: 13px;
+    padding: 1vw;
     height: auto;
     position: relative;
+    overflow: auto;
 }
 
-.footerLinks {
+.footerLeft {
     background: inherit;
-    padding: 2em;
-    width: 90%;
-    float: left;
     text-align: center;
 }
 
-.footerRechts {
+.footerRight {
     background: inherit;
-    width: 10%;
-    min-width: 100px;
-    padding-right: 2em;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    float: right;
+}
+
+.footerlink{
+    color: #ffffff;
+    font-weight: bold;
+    display: block;
     text-align: right;
+}
+@media screen and (max-width: 600px) {
+    .footerlink {
+        text-align: center;
+    }
 }
 
 /********************/
@@ -422,7 +429,7 @@ input {
     margin: 8px 0;
     display: block;
     border: 1px solid #ccc;
-/*    box-sizing: border-box; */
+    /*    box-sizing: border-box; */
 }
 
 /*--- buttons ---*/

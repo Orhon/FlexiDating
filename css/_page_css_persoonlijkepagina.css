@@ -5,31 +5,17 @@
 /*--- CSS PAGELAYOUT PERSOONLIJKE PAGINA ---*/
 /********************************************/
 
-/* CSS Document voor Floats project*/
-
-.links {
-    background: #4e6078;
-    color: white;
-    padding: 1em 1%;
-    width: 20%;
-    float: left;
+.personalmenu {
+    background-color: ##4e6078;
 }
 
-.rechts {
-    padding: 0em 3em 1%;
-    width: 80%;
-    float: right;
-}
-
-.menu li{
+.personalmenu a{
+    color: #ffffff;
     text-decoration: none;
-    list-style-type: none;
-    margin: 30px 0;
+    font-weight: bold;
 }
 
-.menu li a{
-    text-decoration: none;
-    color: white;
-    list-style-type: none;
+iframe{
+    width: 60vw;
+    height: auto;
 }
-

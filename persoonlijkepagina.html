@@ -10,7 +10,8 @@
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-    <link href="css/_page_css_footer.css" rel="stylesheet" type="text/css" />
+    <link href="_page_css_persoonlijkepagina.css" rel="stylesheet" type="text/css" />
+
 </head>
 <!-- BEFORE OF BODY SCRIPT LINKS -->
 <script src="js/responsive_design.js"> </script>
@@ -48,8 +49,8 @@
 
         <section>
 
-            <div class="links">
-                <div class="menu">
+            <div class="row">
+                <div class="col-3 col-s-12 "><!--menu-->
                     <ul>
                         <li><a href="private.html" target="iframe_a">Mijn profiel</a></li>
                         <li><a href="profielupdate.html" target="iframe_a">Update profiel</a></li>
@@ -58,23 +59,24 @@
                         <li><a href="lovecoin.html" target="iframe_a">Lovecoins</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="rechts">
-                <iframe name="iframe_a" src="private.html" height="1000" width="1200" frameBorder="0"></iframe>
+
+                <div class="col-9 col-s-12 "><!--rechts-->
+                    <iframe name="iframe_a" src="private.html" frameBorder="0"></iframe>
+                    <!--height="1000" width="1200"-->
+                </div>
             </div>
 
         </section>
         <footer>
-            <div class="footerLinks">
-                &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
-                <small>imagecredits: designed by www.freepik.com</small>
-            </div>
-            <div class="footerRechts">
-                <div class="menu">
-                    <ul>
-                        <li><a href="contact.html">contact</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
+            <div class="row">
+                <div class="col-3 hidden"></div>
+                <div class="col-6 col-s-12 footerLeft">
+                    &#169 2019 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+                    <small>imagecredits: designed by www.freepik.com</small>
+                </div>
+                <div class="col-3 col-s-12 footerRight">
+                    <a class="footerlink" href="contact.html">contact</a>
+                    <a class="footerlink" href="faq.html">FAQ</a>
                 </div>
             </div>
         </footer>
