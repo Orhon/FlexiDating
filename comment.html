@@ -54,8 +54,6 @@
     <script defer>
         window.onload = function () {
 
-            scrumlib.addProperty("comment", "string", "");
-            scrumlib.save();
 
             var x = document.cookie.split("=");
             var userSender = scrumlib.getDatasetById(x[1]);
