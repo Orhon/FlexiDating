@@ -32,12 +32,16 @@
 
         <header>
             <nav class="topmenu" id="responseMenu1">
+                <div id="userLogged" style="color:white">
+                    Iemand
+                </div>
                 <ul>
                     <li><a href="index.html">home</a></li>
-                    <li><a href="zoeken.html">zoeken</a></li>
-                    <li><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
-                    <li><a href="login.html">login</a></li>
-                    <li class="laatste"><a href="registratie.html">registreer</a></li>
+                    <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
+                    <li id="profiel"><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
+                    <li id="login"><a href="login.html">login</a></li>
+                    <li id="register"><a href="registratie.html">registreer</a></li>
+                    <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
                     <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
                 </ul>
             </nav>
@@ -80,5 +84,20 @@
 
     <!-- END OF BODY SCRIPT LINKS -->
 </body>
+<script src="js/logout.js"> </script>
+<script defer>
+
+    window.onload = function () {
+        var x = document.cookie.split("=");
+        var user = scrumlib.getDatasetById(x[1]);
+
+
+
+        if (x != '') {
+            var userLogged = document.getElementById("userLogged");
+            userLogged.innerHTML = user[0].nickname + ' (' + user[0].lovecoin + ' lovecoins)'
+        }
+    }
+</script>
 
 </html>

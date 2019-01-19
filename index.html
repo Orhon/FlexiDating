@@ -31,6 +31,9 @@
 
         <header>
             <nav class="topmenu" id="responseMenu1">
+                <div id="userLogged" style="color:white">
+                   Iemand
+                </div>
                 <ul>
                     <li><a href="index.html">home</a></li>
                     <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
@@ -83,6 +86,19 @@
 <script src="js/logout.js"> </script>
 <script defer>
     window.onload = function () {
+        var x = document.cookie.split("=");
+        var user = scrumlib.getDatasetById(x[1]);
+
+        
+
+        if(x!=''){
+            var userLogged = document.getElementById("userLogged");
+            userLogged.innerHTML = user[0].nickname + ' (' + user[0].lovecoin + ' lovecoins)'
+        }
+        
+
+
+        //random users tonen
         var searchMap = {};
         var conditions = [];
         var egeslacht = ['m', 'v'];
