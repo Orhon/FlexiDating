@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="nl" />
+<html lang="nl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Flexidating | Chat</title>
 
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-    <link href="css/_page_css_chat.css" rel="stylesheet" type="text/css" />
-    <!-- BEFORE OF BODY SCRIPT LINKS -->
-
+    <link href="css/_page_css_footer.css" rel="stylesheet" type="text/css" />
 </head>
+<!-- BEFORE OF BODY SCRIPT LINKS -->
+<script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
 
 <body>
     <div id="containerChat">
@@ -48,193 +50,111 @@
         </div>
     </div>
 
-    <!-- SCRIPT LINKS -->
-    <script src="js/responsive_design.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
-    <script defer>
+    <!-- END OF BODY SCRIPT LINKS -->
+    <script` defer>
         window.onload = function () {
 
-            scrumlib.addProperty("comment", "string", "");
-            scrumlib.save();
+        scrumlib.addProperty("comment", "string", "");
+        scrumlib.save();
 
-            var x = document.cookie.split("=");
-            //var userSender = scrumlib.getDatasetById(x[1]);
-            getFriends();
+        var x = document.cookie.split("=");
+        //var userSender = scrumlib.getDatasetById(x[1]);
+        getFriends();
 
-            var friends = [];
+        var friends = [];
 
-            //jan
-            var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
+        //jan
+        var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
 
-            // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653"); <---------test
-            var userReceiver = [];
-            //jan
-            // var userReceiver ='';
-            // if (userSender[0]._id == "56cae42a683485281caf5651" ){
-            //    userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
-            // }else{
-            //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
-            // }
+        // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653"); <---------test var userReceiver=[];
+            //jan // var userReceiver='' ; // if (userSender[0]._id=="56cae42a683485281caf5651" ){ // userReceiver=scrumlib.getDatasetById("56cae42a683485281caf5653");
+            // }else{ // userReceiver=scrumlib.getDatasetById("56cae42a683485281caf5651"); // } // var userSender=scrumlib.getDatasetById("56cae42a683485281caf5651");
+            // var userReceiver=scrumlib.getDatasetById("56cae42a683485281caf5653"); //commentTonen(userSender,
+            userReceiver); var comment=document.getElementById("txtComment"); comment.focus(); comment.select(); var
+            btnComment=document.getElementById("knopComment"); btnComment.addEventListener("click", function (e) {
+            addComment(userSender, userReceiver); }); var btnCommentAndere=document.getElementById("knopCommentAndere");
+            btnCommentAndere.addEventListener("click", function (e) { addComment(userReceiver, userSender); }); var
+            input=document.getElementById("txtComment"); // Execute a function when the user releases a key on the
+            keyboard input.addEventListener("keyup", function (event) { // Cancel the default action, if needed
+            event.preventDefault(); // Number 13 is the "Enter" key on the keyboard if (event.keyCode===13) { //
+            Trigger the button element with a click addComment(userSender, userReceiver); input.value='' ; } });
+            //setInterval(checkChat, 5000); function checkChat() { if (comment.value=='' ) { location.reload(); } }
+            function addComment(sender, receiver) { var commentJSON=[{ "comment" : comment.value, "idVan" :
+            sender[0]._id, "idNaar" : receiver[0]._id }]; var updateMapSender={}; var updateMapReceiver={}; if
+            (comment.value !="" ) { if (sender[0].comment=='' || receiver[0].comment=='' ) { updateMapSender.comment=JSON.stringify(commentJSON);
+            updateMapReceiver.comment=JSON.stringify(commentJSON); } else { let oldComment=JSON.parse(sender[0].comment);
+            let oldCommentReceiver=JSON.parse(receiver[0].comment); if (oldComment.length> 200) {
+            delete oldComment[0];
+            oldComment = (JSON.stringify(oldComment)).replace("null,", "");
+            oldComment = JSON.parse(oldComment);
+            };
+            if (oldCommentReceiver.length > 200) {
+            delete oldCommentReceiver[0];
+            oldCommentReceiver = (JSON.stringify(oldCommentReceiver)).replace("null,", "");
+            oldCommentReceiver = JSON.parse(oldCommentReceiver);
+            };
 
-            // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");
-            // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
 
-            //commentTonen(userSender, userReceiver);
-
-            var comment = document.getElementById("txtComment");
-            comment.focus();
-            comment.select();
-            var btnComment = document.getElementById("knopComment");
-            btnComment.addEventListener("click", function (e) {
-                addComment(userSender, userReceiver);
-            });
-
-            var btnCommentAndere = document.getElementById("knopCommentAndere");
-            btnCommentAndere.addEventListener("click", function (e) {
-                addComment(userReceiver, userSender);
-            });
+            oldCommentReceiver = oldCommentReceiver.concat(commentJSON);
+            oldComment = oldComment.concat(commentJSON);
 
 
-            var input = document.getElementById("txtComment");
-
-            // Execute a function when the user releases a key on the keyboard
-            input.addEventListener("keyup", function (event) {
-                // Cancel the default action, if needed
-                event.preventDefault();
-                // Number 13 is the "Enter" key on the keyboard
-                if (event.keyCode === 13) {
-                    // Trigger the button element with a click
-                    addComment(userSender, userReceiver);
-                    input.value = '';
-                }
-            });
-
-            //setInterval(checkChat, 5000);
-
-            function checkChat() {
-                if (comment.value == '') {
-                    location.reload();
-                }
+            updateMapSender.comment = JSON.stringify(oldComment);
+            updateMapReceiver.comment = JSON.stringify(oldCommentReceiver);
             }
-
-            function addComment(sender, receiver) {
-                var commentJSON = [{
-                    "comment": comment.value,
-                    "idVan": sender[0]._id,
-                    "idNaar": receiver[0]._id
-                }];
-                var updateMapSender = {};
-                var updateMapReceiver = {};
-                if (comment.value != "") {
-                    if (sender[0].comment == '' || receiver[0].comment == '') {
-                        updateMapSender.comment = JSON.stringify(commentJSON);
-                        updateMapReceiver.comment = JSON.stringify(commentJSON);
-                    } else {
-                        let oldComment = JSON.parse(sender[0].comment);
-                        let oldCommentReceiver = JSON.parse(receiver[0].comment);
-                        if (oldComment.length > 200) {
-                            delete oldComment[0];
-                            oldComment = (JSON.stringify(oldComment)).replace("null,", "");
-                            oldComment = JSON.parse(oldComment);
-                        };
-                        if (oldCommentReceiver.length > 200) {
-                            delete oldCommentReceiver[0];
-                            oldCommentReceiver = (JSON.stringify(oldCommentReceiver)).replace("null,", "");
-                            oldCommentReceiver = JSON.parse(oldCommentReceiver);
-                        };
-
-
-                        oldCommentReceiver = oldCommentReceiver.concat(commentJSON);
-                        oldComment = oldComment.concat(commentJSON);
-
-
-                        updateMapSender.comment = JSON.stringify(oldComment);
-                        updateMapReceiver.comment = JSON.stringify(oldCommentReceiver);
-                    }
-                    scrumlib.updateDataset(sender[0]._id, updateMapSender);
-                    scrumlib.updateDataset(receiver[0]._id, updateMapReceiver);
-                    scrumlib.save();
-                }
-                commentTonen(sender, receiver);
+            scrumlib.updateDataset(sender[0]._id, updateMapSender);
+            scrumlib.updateDataset(receiver[0]._id, updateMapReceiver);
+            scrumlib.save();
+            }
+            commentTonen(sender, receiver);
             }
 
             function commentTonen(sender, receiver) {
-                var comments = document.getElementById("berichten");
-                if (sender[0].comment != '') {
-                    var userComments = JSON.parse(sender[0].comment);
-                    comments.innerHTML = '';
-                    for (i in userComments) {
-                        // if(userComments[i].idVan == userSender[0]._id || userComments[i].idNaar == userSender[0]._id){
-                        if ((userComments[i].idVan == sender[0]._id && userComments[i].idNaar == receiver[0]._id)) {
+            var comments = document.getElementById("berichten");
+            if (sender[0].comment != '') {
+            var userComments = JSON.parse(sender[0].comment);
+            comments.innerHTML = '';
+            for (i in userComments) {
+            // if(userComments[i].idVan == userSender[0]._id || userComments[i].idNaar == userSender[0]._id){
+            if ((userComments[i].idVan == sender[0]._id && userComments[i].idNaar == receiver[0]._id)) {
 
 
-                            let userVan = scrumlib.getDatasetById(userComments[i].idVan);
-                            if (comments.childElementCount > 20) {
-                                comments.removeChild(comments.firstChild);
-                            }
-                            comments.innerHTML += "<li class='bericht senderbericht'>" + userComments[i].comment +
-                                ' - <span class="nicknameChat">' + userVan[0].nickname +
-                                "</span></li>";
-                        }
+            let userVan = scrumlib.getDatasetById(userComments[i].idVan);
+            if (comments.childElementCount > 20) {
+            comments.removeChild(comments.firstChild);
+            }
+            comments.innerHTML += "<li class='bericht senderbericht'>" + userComments[i].comment +
+                ' - <span class="nicknameChat">' + userVan[0].nickname +
+                    "</span></li>";
+            }
 
 
-                        if (userComments[i].idNaar == sender[0]._id && userComments[i].idVan == receiver[0]._id) {
-                            let userVan = scrumlib.getDatasetById(userComments[i].idVan);
-                            if (comments.childElementCount > 10) {
-                                comments.removeChild(comments.firstChild);
-                            }
-                            comments.innerHTML += "<li class='bericht receiverbericht'>" + userComments[i].comment +
-                                ' - <span class="nicknameChat">' + userVan[0].nickname +
-                                "</span></li>";
-                        }
+            if (userComments[i].idNaar == sender[0]._id && userComments[i].idVan == receiver[0]._id) {
+            let userVan = scrumlib.getDatasetById(userComments[i].idVan);
+            if (comments.childElementCount > 10) {
+            comments.removeChild(comments.firstChild);
+            }
+            comments.innerHTML += "<li class='bericht receiverbericht'>" + userComments[i].comment +
+                ' - <span class="nicknameChat">' + userVan[0].nickname +
+                    "</span></li>";
+            }
 
-                    }
-                    comments.scrollTop = comments.scrollHeight;
-                }
+            }
+            comments.scrollTop = comments.scrollHeight;
+            }
 
 
             }
 
             var flist = document.getElementsByClassName("userlistitem");
-            for (var i = 0; i < flist.length; i++) {
-                flist[i].addEventListener("click", function (e) {
-                    itemDone(e.srcElement)
-                });
-            }
-
-            function itemDone(e) {
-                let receiver = scrumlib.getDatasetById(e.dataset.id);
-                userReceiver = receiver;
-                let receiverInfo = document.getElementById("nameReceiver")
-                let receiverFoto = document.createElement('img');
-                receiverInfo.innerHTML = "";
-                receiverInfo.innerHTML = receiver[0].nickname;
-                receiverFoto.setAttribute("src", "img/" + receiver[0].foto);
-                receiverFoto.setAttribute("class", "friendFoto");
-                receiverInfo.append(receiverFoto);
-                console.log(receiver[0].comment);
-                commentTonen(userSender, receiver);
-            }
-
-            function getFriends() {
-                friends = scrumlib.getAllDatasets();
-                let friendslist = document.getElementById("userlist")
-                for (let i = 0; i < friends.length; i++) {
-                    const element = friends[i];
-                    let option = document.createElement("li");
-                    option.setAttribute("data-id", element._id);
-                    option.setAttribute("class", "userlistitem");
-                    option.innerHTML = element.nickname;
-                    friendslist.append(option);
-
-                }
-            }
-        }
-
-        function refresh() {
-            location.reload();
-        }
-    </script>
-</body>
-</html>
+            for (var i = 0; i < flist.length; i++) { flist[i].addEventListener("click", function (e) {
+                itemDone(e.srcElement) }); } function itemDone(e) { let receiver=scrumlib.getDatasetById(e.dataset.id);
+                userReceiver=receiver; let receiverInfo=document.getElementById("nameReceiver") let receiverFoto=document.createElement('img');
+                receiverInfo.innerHTML="" ; receiverInfo.innerHTML=receiver[0].nickname;
+                receiverFoto.setAttribute("src", "img/" + receiver[0].foto); receiverFoto.setAttribute("class",
+                "friendFoto" ); receiverInfo.append(receiverFoto); console.log(receiver[0].comment);
+                commentTonen(userSender, receiver); } function getFriends() { friends=scrumlib.getAllDatasets(); let
+                friendslist=document.getElementById("userlist") for (let i=0; i < friends.length; i++) { const element=friends[i];
+                let option=document.createElement("li"); option.setAttribute("data-id", element._id);
+                option.setAttribute("class", "userlistitem" ); option.innerHTML=element.nickname;
+                friendslist.append(option); } } } function refresh() { location.reload(); } </script> </body> </html>
