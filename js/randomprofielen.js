@@ -18,9 +18,9 @@ window.onload = function () {
                 function kiesRandomProfiel(json) {
                     // @json JSON string
 
-                    var randomProfiel = document.createDocumentFragment();
+                    var randomGallery = document.createDocumentFragment();
 
-                    return randomProfiel;
+                    return randomGallery;
                 }
             }
 

@@ -176,11 +176,12 @@ div {
 /*--- Adapt to every col-class ---*/
 [class*="col-"] {
     float: left;
-    padding: 0px;
+    padding: 1px;
     /* 15px */
-    /*--- Designer View        
+    /*--- Designer View    
     border: 1px solid red;
     ---*/
+
 }
 
 /*--- Clear floats after row ---*/
@@ -188,6 +189,10 @@ div {
     content: "";
     clear: both;
     display: table;
+}
+
+.hiddenBuild {
+    display: none;
 }
 
 /*****************/
@@ -487,7 +492,7 @@ div.userLogged {
 /***************************/
 
 /*--- gallerij startpagina ---*/
-
+/*
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -495,6 +500,11 @@ div.userLogged {
     padding: 1em;
     overflow: auto;
 }
+*/
+.randomGallery {
+    width: 100%;
+}
+
 
 .profileblock {
     background-color: #4e6078;
