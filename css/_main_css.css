@@ -176,10 +176,10 @@ div {
 /*--- Adapt to every col-class ---*/
 [class*="col-"] {
     float: left;
-    padding: 15px;
-    /*--- Designer View    
+    padding: 0px; /* 15px */
+    /*--- Designer View        ---*/
     border: 1px solid red;
-    ---*/
+
 
 }
 
