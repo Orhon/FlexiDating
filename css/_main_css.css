@@ -54,8 +54,8 @@ a {
 div {
     border: 1px #ff0000;
 }
-
 ---*/
+
 
 /*--- For mobile phones: ---*/
 [class*="col-"] {
@@ -180,6 +180,7 @@ div {
     /*--- Designer View    
     border: 1px solid red;
     ---*/
+
 }
 
 /*--- Clear floats after row ---*/
@@ -228,7 +229,6 @@ img.responsive {
     margin: 0px auto;
     background: url(../img/flexidatingBanner.jpg) no-repeat center center;
     background-size: cover;
-    /*max-width: 768px;*/
     width: 100%;
     height: 100%;
 }
@@ -266,7 +266,6 @@ header h1 {
     font-family: Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 4em;
     color: white;
-    /*    margin: 0.25em 0;*/
 }
 
 /*--- SECTION ---*/
@@ -345,7 +344,6 @@ footer {
 .topmenu ul li {
     float: left;
     padding: 0em 0.8em;
-    /*6px 8px*/
     border-right: 1px solid #58ec4e;
     letter-spacing: 0.1em;
 }
@@ -534,6 +532,8 @@ div.userLogged {
 .searchbox {
     background: #4e6078;
     color: #ffffff;
+    padding: 1em 0.5em;
+    margin-top: 1em;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
         0 1px 2px rgba(0, 0, 0, 0.24);
 }
