@@ -682,6 +682,11 @@ div.userLogged {
     margin-right: 15px;
 }
 
+.profielfoto {
+    display: block;
+    clear: right;
+}
+
 #lovecoin {
     width: 50%;
 }
@@ -771,7 +776,6 @@ div.userLogged {
     float: left;
     background-color: #94C2ED;
 }
-
 
 #selectUser {
     width: 300px;
