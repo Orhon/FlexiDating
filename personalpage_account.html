@@ -54,25 +54,29 @@
                             <li id="active"><a href="personalpage_private.html">Mijn profiel</a></li>
                             <li><a href="personalpage_profielupdate.html">Update profiel</a></li>
                             <li><a href="personalpage_toonFavoritten.html">Favorieten</a></li>
-                            <li><a href="personalpage_Followers.html">Followers</a></li>
+                            <li><a href="personalpage_Followers.html">Likes</a></li>
                             <li><a href="personalpage_comment.html" iframe_a"">Berichten</a></li>
                             <li><a href="personalpage_lovecoin.html">Lovecoins</a></li>
                             <li><a href="personalpage_account.html">Account</a></li>
+                        </ul>
                     </div>
                     <div class="col-6 col-s-12">
                         <!-- ADD CONTENT HERE -->
                         <div class="personalcontentbox">
-                            <div>
-                                <div class="personalcontentboxtitle">
-                                    <h4>Love coins kopen</h4>
-                                </div>
-                                <p>
-                                    <Label>Love coins</Label> <input type="text" id="lovecoin">
-                                    <label id="resultat"></label>
-                                </p>
-                                <p><button id="knopkopen">kopen</button></p>
+                            <div class="personalcontentboxtitle">
+                                <h4>Account Instellingen</h4>
                             </div>
+                            <a href="#">verwijder profiel</a>
                         </div>
+
+
+
+
+
+
+
+
+
                         <!-- END OF CONTENT HERE -->
                     </div>
         </section>
@@ -95,53 +99,14 @@
 
 </html>
 <script src="js/logout.js"> </script>
-
-<!-- END OF BODY SCRIPT LINKS -->
-<script src="js/sterrenbeeld.js"></script>
 <script defer>
     window.onload = function () {
-        var ca = document.cookie.split('=');
-        var user = scrumlib.getDatasetById(ca[1]);
+        var x = document.cookie.split("=");
+        var user = scrumlib.getDatasetById(x[1]);
 
-        if (ca != '') {
+        if (x != '') {
             var userLogged = document.getElementById("userLogged");
-            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin +
-                '</b> lovecoins)</small>'
+            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
         }
-
-        var searchMap = {};
-        var updatemap = {};
-        //var user1=scrumlib.getAllDatasets();
-        var lovecoin = document.getElementById("lovecoin");
-        var userid = document.cookie.value;
-        var knopkopen = document.getElementById("knopkopen");
-
-        //scrumlib.addProperty("lovecoin", "Number", 0);
-        var resultat = document.getElementById("resultat");
-        // console.log(scrumlib.getAllDatasets());
-        console.log(lovecoin.value);
-        resultat.innerHTML = "";
-
     }
-    knopkopen.addEventListener("click", function (e) {
-        console.log(lovecoin.value);
-        var ca = document.cookie.split('=');
-        var user = scrumlib.getDatasetById(ca[1]);
-        var updatemap = {};
-        resultat.innerHTML = "";
-        if ((parseInt(lovecoin.value) >= 1) && (parseInt(lovecoin.value) < 100)) {
-            updatemap.lovecoin = user[0].lovecoin + parseInt(lovecoin.value);
-            console.log(lovecoin.value);
-            console.log(user[0].lovecoin);
-            scrumlib.updateDataset(user[0]._id, updatemap);
-            scrumlib.save();
-            console.log(lovecoin.value);
-            console.log(scrumlib.getAllDatasets());
-            resultat.innerHTML = "Je heb " + lovecoin.value + " lovecoins gekocht.";
-        } else {
-            resultat.innerHTML = "Kies een aantal tussen 1 en 100.";
-        }
-
-
-    });
 </script>
