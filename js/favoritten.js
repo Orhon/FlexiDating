@@ -16,13 +16,10 @@ function favKnopchange(user, user1) {
         if (oldFavorite.indexOf(user1[0]._id) > -1) {
 
             added = "fa fa-thumbs-down";
-
         } else {
             added = "fa fa-thumbs-up";
             console.log(added);
-
         }
-
     }
     return added;
 }

@@ -527,10 +527,12 @@ div.userLogged {
     font-size: 0.9em;
     text-align: right;
     color: #4e6078;
-    height: 80%;
+    height: 100%;
     float: right;
     padding: 15px;
 }
+
+
 
 /********************/
 /*--- ZOEKENPAGE ---*/
@@ -682,4 +684,7 @@ div.userLogged {
 
 #lovecoin {
     width: 50%;
+}
+#containerFavoritten {
+    padding: 15px;
 }
