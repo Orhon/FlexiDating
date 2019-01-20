@@ -8,9 +8,7 @@ function favKnop(pFavknop, user, user1) {
 function favKnopchange(user, user1) {
     if (user[0].favoritten == "[]" || user[0].favoritten == "") {
         var added = "fa fa-thumbs-up";
-    }
-
-    else {
+    } else {
 
         let oldFavorite = JSON.parse(user[0].favoritten);
         console.log(oldFavorite.indexOf(user1[0]._id), user1[0]._id);
@@ -18,8 +16,7 @@ function favKnopchange(user, user1) {
 
             added = "fa fa-thumbs-down";
 
-        }
-        else {
+        } else {
             added = "fa fa-thumbs-up";
             console.log(added);
 

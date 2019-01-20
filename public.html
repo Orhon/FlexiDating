@@ -10,7 +10,7 @@
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-    
+
 </head>
 <!-- BEFORE OF BODY SCRIPT LINKS -->
 <script src="js/responsive_design.js"> </script>
@@ -43,48 +43,91 @@
         </header>
 
         <section>
-            <div class="clearfix profile">
-                <!-- PLACE Content HERE -->
-                <div class="profile-line"><label class="profile">Nickname:</label><label class="profile dynamic" id="nickname"></label></div>
+            <div class="row">
+                <div class="col-2 hidden"></div>
+                <div class="col-8 col-s-12 profilecontainerlarge">
+
+
+                    <div><img class="profielfoto responsive" id="foto" src="" alt="" class="profielfoto"></div>
+                    <div class="profileinfocontainer">
+                        <div class="col-3 col-s-12 profilenicknameinfocontainer">
+                            <div class="profileline">Nickname: <h3>
+                                    <div class="profiledynamic" id="nickname"></div>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="col-5 col-s-12 profiledetailinfocontainer">
+                            <div class="profileline">
+                                Leeftijd:
+                                <div class="profiledynamic" id="leefTijd"></div>
+                            </div>
+                            <div class="profileline">
+                                <div class="profile">Gewicht: </div>
+                                <div class="profiledynamic" id="gewicht"></div>
+                            </div>
+                            <div class="profileline">
+                                Grootte:
+                                <div class="profiledynamic" id="grootte"></div>
+                            </div>
+                            <div class="profileline">
+                                Haar kleur:
+                                <div class="profiledynamic" id="haarKleur"></div>
+                            </div>
+                            <div class="profileline">
+                                Oog kleur:
+                                <div class="profiledynamic" id="oogKleur"></div>
+                            </div>
+                            <div class="profileline">
+                                Geslacht:
+                                <div class="profiledynamic" id="geslacht"></div>
+                            </div>
+                            <div class="profileline">
+                                Sterrenbeeld:
+                                <div class="profiledynamic" id="sterrenbeeld"></div>
+                            </div>
+                            <div class="profileline">
+                                Provincie:
+                                <div class="profiledynamic" id="provincie"></div>
+                            </div>
+
+                            <i id="favIcon"></i>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-2 hidden"></div>
+            </div>
+
+            <!-- BEFORE EDITED TO LAYOUT
+
+                <div class="profileline"><label class="profile">Nickname:</label><label class="profile dynamic" id="nickname"></label></div>
                 <div><img class="profielfoto responsive" id="foto" src="" alt="" class="profielfoto"></div>
-                <div class="profile-line"><label class="profile">Leeftijd: </label><label class="profile dynamic" id="leefTijd"></label></div>
-                <div class="profile-line"><label class="profile">Gewicht: </label><label class="profile dynamic" id="gewicht"></label></div>
-                <div class="profile-line"><label class="profile">Grootte: </label><label class="profile dynamic" id="grootte"></label></div>
-                <div class="profile-line"><label class="profile">Haar kleur: </label><label class="profile dynamic" id="haarKleur"></label></div>
-                <div class="profile-line"><label class="profile">Oog kleur: </label><label class="profile dynamic" id="oogKleur"></label></div>
-                <div class="profile-line"><label class="profile">Geslacht: </label><label class="profile dynamic" id="geslacht"></label></div>
-                <div class="profile-line"><label class="profile">Sterrenbeeld: </label><label class="profile dynamic"
-                        id="sterrenbeeld"></label></div>
-                <div class="profile-line"><label class="profile">Provincie: </label><label class="profile dynamic" id="provincie"></label></div>
+                <div class="profileline"><label class="profile">Leeftijd: </label><label class="profile dynamic" id="leefTijd"></label></div>
+                <div class="profileline"><label class="profile">Gewicht: </label><label class="profile dynamic" id="gewicht"></label></div>
+                <div class="profileline"><label class="profile">Grootte: </label><label class="profile dynamic" id="grootte"></label></div>
+                <div class="profileline"><label class="profile">Haar kleur: </label><label class="profile dynamic" id="haarKleur"></label></div>
+                <div class="profileline"><label class="profile">Oog kleur: </label><label class="profile dynamic" id="oogKleur"></label></div>
+                <div class="profileline"><label class="profile">Geslacht: </label><label class="profile dynamic" id="geslacht"></label></div>
+                <div class="profileline"><label class="profile">Sterrenbeeld: </label><label class="profile dynamic" id="sterrenbeeld"></label></div>
+                <div class="profileline"><label class="profile">Provincie: </label><label class="profile dynamic" id="provincie"></label></div>
 
                 <i id="favIcon" ></i>
-
-
-                <!-- END CONTENT
-              <a id="favorite" href="#" onclick="addFavorite(this)" title="bookmark this page">Add to
-                    Favorite</a>
-                                <input type="checkbox" name="checkfield" onchange="addFavorite(this)" /> &#9825 Add to Favorite 
-                              <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
-
-                  <i onclick="myFunction(this)" class="fa fa-heart-o"></i>
             -->
-
-                <!-- END CONTENT -->
+    </div>
+    </section>
+    <footer>
+        <div class="row">
+            <div class="col-3 hidden"></div>
+            <div class="col-6 col-s-12 footerLeft">
+                &#169 2019 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+                <small>imagecredits: designed by www.freepik.com</small>
             </div>
-        </section>
-        <footer>
-            <div class="row">
-                <div class="col-3 hidden"></div>
-                <div class="col-6 col-s-12 footerLeft">
-                    &#169 2019 Copyright Scrum Team. Alle rechten voorbehouden.<br />
-                    <small>imagecredits: designed by www.freepik.com</small>
-                </div>
-                <div class="col-3 col-s-12 footerRight">
-                    <a class="footerlink" href="contact.html">contact</a>
-                    <a class="footerlink" href="faq.html">FAQ</a>
-                </div>
+            <div class="col-3 col-s-12 footerRight">
+                <a class="footerlink" href="contact.html">contact</a>
+                <a class="footerlink" href="faq.html">FAQ</a>
             </div>
-        </footer>
+        </div>
+    </footer>
     </div>
 
     <!-- END OF BODY SCRIPT LINKS -->
@@ -122,7 +165,7 @@
             var pFavknop = document.getElementById('favIcon');
             favKnop(pFavknop, user, user1);
 
-         function getLeeftijd(gb) {
+            function getLeeftijd(gb) {
                 let y = gb.substring(0, 4);
                 let d = new Date().getFullYear();
 
