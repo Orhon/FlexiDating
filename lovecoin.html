@@ -55,7 +55,7 @@
             var user = scrumlib.getDatasetById(ca[1]);
             var updatemap = {};
             resultat.innerHTML = "";
-            if ((parseInt(lovecoin.value) > 1) && (parseInt(lovecoin.value) < 100)) {
+            if ((parseInt(lovecoin.value) >= 1) && (parseInt(lovecoin.value) < 100)) {
                 updatemap.lovecoin = user[0].lovecoin + parseInt(lovecoin.value);
                 console.log(lovecoin.value);
                 console.log(user[0].lovecoin);
