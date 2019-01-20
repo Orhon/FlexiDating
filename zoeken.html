@@ -10,6 +10,9 @@
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
+    <link href="css/_page_css_zoeken.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- BEFORE OF BODY SCRIPT LINKS -->
 
 </head>
 <!-- BEFORE OF BODY SCRIPT LINKS -->
@@ -355,52 +358,59 @@
                     }
                 }
 
-                createUsers(filteredLeeftijd);
+            createUsers(filteredLeeftijd);
 
-            });
+        });
 
-            function createUsers(users) {
-                var container = document.getElementById("container");
-                container.innerHTML = "";
+        function createUsers(users) {
+            var container = document.getElementById("container");
+            container.innerHTML = "";
 
-                for (let index = 0; index < users.length; index++) {
+            for (let index = 0; index < users.length; index++) {
 
-                    var div = document.createElement("div");
-                    //legen
+                var div = document.createElement("div");
+                //legen
 
-                    var divInfoKopjes = document.createElement("div");
-                    div.setAttribute('class', "col-4 col-s-12 profileblock");
-                    divInfoKopjes.setAttribute('class', "col-6 col-s-10 profileblockinfo");
-                    var img = document.createElement("img");
-                    img.setAttribute('src', "img/" + users[index].foto);
+                var divInfoKopjes = document.createElement("div");
+                div.setAttribute('class', "kopjes");
+                divInfoKopjes.setAttribute('class', "infokopjes");
+                var pImg = document.createElement('a');
+                pImg.setAttribute('href', "public.html?" + users[index]._id);
+                pImg.setAttribute('id', users[index]._id);
+                var img = document.createElement("img");
+                img.setAttribute('src', "img/" + users[index].foto);
 
-                    var pNickname = document.createElement('p');
-                    pNickname.setAttribute('class', "userInfo nickname");
-                    pNickname.innerHTML = users[index].nickname
-                    var pLeeftijd = document.createElement('p');
-                    pLeeftijd.setAttribute('class', "userInfo leeftijd");
+                var pNickname = document.createElement('a');
+                pNickname.setAttribute('class', "userInfo nickname");
+                pNickname.setAttribute('href', "public.html?" + users[index]._id);
+                pNickname.setAttribute('id', users[index]._id);
+                pNickname.innerHTML = users[index].nickname
+                var pLeeftijd = document.createElement('p');
+                pLeeftijd.setAttribute('class', "userInfo leeftijd");
 
-                    let y = users[index].geboortedatum.substring(0, 4);
-                    let LeefTijd = new Date().getFullYear() - y;
-                    pLeeftijd.innerHTML = LeefTijd + "jaar";
+                let y = users[index].geboortedatum.substring(0, 4);
+                let LeefTijd = new Date().getFullYear() - y;
+                pLeeftijd.innerHTML = LeefTijd + "jaar";
 
-                    var pStad = document.createElement('p');
-                    pStad.setAttribute('class', "userInfo stad");
-                    pStad.innerHTML = users[index].haarkleur;
+                var pStad = document.createElement('p');
+                pStad.setAttribute('class', "userInfo stad");
+                pStad.innerHTML = users[index].haarkleur;
+                                               
+                div.appendChild(pImg);
+                pImg.appendChild(img);
+                divInfoKopjes.appendChild(pNickname);
+                divInfoKopjes.appendChild(pLeeftijd);
+                divInfoKopjes.appendChild(pStad);
+               // var ca = document.cookie.split('=');
+                //var user = scrumlib.getDatasetById(ca[1]);
+               // var pFavknop = document.createElement('i');
+                //favKnop(pFavknop, user, users[index]);
+               // divInfoKopjes.appendChild(pFavknop);
+                div.appendChild(divInfoKopjes);
 
-
-                    div.appendChild(img);
-                    divInfoKopjes.appendChild(pNickname);
-                    divInfoKopjes.appendChild(pLeeftijd);
-                    divInfoKopjes.appendChild(pStad);
-                    div.appendChild(divInfoKopjes);
-
-                    container.appendChild(div);
-
-                }
-
-
+                container.appendChild(div);
             }
+        }
 
             function fieldisleeg(field) {
                 if (field === "") {
