@@ -5,6 +5,7 @@ function favKnop(pFavknop, user, user1) {
     pFavknop.setAttribute('onclick', "myFunction(this)");
     console.log(pFavknop);
 }
+
 function favKnopchange(user, user1) {
     if (user[0].favoritten == "[]" || user[0].favoritten == "") {
         var added = "fa fa-thumbs-up";
@@ -25,11 +26,13 @@ function favKnopchange(user, user1) {
     }
     return added;
 }
+
 function myFunction(x) {
     addFavorite(x);
     x.classList.toggle("fa-thumbs-down")
     console.log(x.classList.toggle("fa-thumbs-down"));
 }
+
 function addFavorite(x) {
     scrumlib.addProperty("favoritten", "String", "");
     scrumlib.addProperty("favorGevers", "String", "");
@@ -70,8 +73,7 @@ function addFavorite(x) {
             }
         }
 
-    }
-    else {
+    } else {
 
         let oldFavorite1 = JSON.parse(user[0].favoritten);
         console.log(oldFavorite1, 'before');
@@ -90,6 +92,7 @@ function addFavorite(x) {
     updateFavGevers(add, favUser, user, ipara);
 
 }
+
 function updateFavGevers(add, favUser, user, ipara) {
 
 
@@ -113,8 +116,7 @@ function updateFavGevers(add, favUser, user, ipara) {
             }
         }
         // alert("toegevoegd")
-    }
-    else {
+    } else {
         let oldFavGever1 = JSON.parse(favUser[0].favorGevers);
         if (oldFavGever1.indexOf(user[0]._id) > -1) {
             oldFavGever1.splice(oldFavGever1.indexOf(user[0]._id), 1);

@@ -34,7 +34,7 @@
                 <ul>
                     <li><a href="index.html">home</a></li>
                     <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
-                    <li id="profiel"><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
+                    <li id="profiel"><a href="personalpage_private.html">persoonlijke pagina</a></li>
                     <li id="login"><a href="login.html">login</a></li>
                     <li id="register"><a href="registratie.html">registreer</a></li>
                     <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
@@ -49,23 +49,29 @@
             </div>
             <div class="row">
                 <div class="row">
-                    <div class="col-3 hidden"></div>
-                    <div class="col-6 col-s-12">
-
-
-
-
-
-
-
-
-
-
-
+                    <div class="col-3 col-s-12 personalmenu">
+                        <ul>
+                            <li id="active"><a href="personalpage_private.html">Mijn profiel</a></li>
+                            <li><a href="personalpage_profielupdate.html">Update profiel</a></li>
+                            <li><a href="personalpage_toonFavoritten.html">Favorieten</a></li>
+                            <li class="hiddenBuild"><a href="personalpage_Followers.html">Followers</a></li>
+                            <li><a href="personalpage_comment.html" iframe_a"">Berichten</a></li>
+                            <li><a href="personalpage_lovecoin.html">Lovecoins</a></li>
+                        </ul>
                     </div>
-                    <div class="col-3 hidden"></div>
-                </div>
-            </div>
+                    <div class="col-9 col-s-12">
+                        <!-- ADD CONTENT HERE -->
+
+
+
+
+
+
+
+
+
+                        <!-- END OF CONTENT HERE -->
+                    </div>
         </section>
     </div>
     <footer>
@@ -85,3 +91,15 @@
 </body>
 
 </html>
+<script src="js/logout.js"> </script>
+<script defer>
+    window.onload = function () {
+        var x = document.cookie.split("=");
+        var user = scrumlib.getDatasetById(x[1]);
+
+        if (x != '') {
+            var userLogged = document.getElementById("userLogged");
+            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
+        }
+    }
+</script>

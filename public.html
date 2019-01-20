@@ -33,10 +33,11 @@
             <nav class="topmenu" id="responseMenu">
                 <ul>
                     <li><a href="index.html">home</a></li>
-                    <li><a href="zoeken.html">zoeken</a></li>
-                    <li><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
-                    <li><a href="login.html">login</a></li>
-                    <li><a href="registratie.html">registreer</a></li>
+                    <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
+                    <li id="profiel"><a href="personalpage_private.html">persoonlijke pagina</a></li>
+                    <li id="login"><a href="login.html">login</a></li>
+                    <li id="register"><a href="registratie.html">registreer</a></li>
+                    <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
                     <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
                 </ul>
             </nav>
@@ -133,8 +134,23 @@
     <!-- END OF BODY SCRIPT LINKS -->
     <script src="js/sterrenbeeld.js"></script>
     <script src="js/favoritten.js"></script>
+    <script src="js/logout.js"> </script>
     <script defer>
         window.onload = function () {
+
+
+            //-------------DUBLICATE WINDOW ONLOAD
+            /*
+        var x = document.cookie.split("=");
+        var user = scrumlib.getDatasetById(x[1]);
+
+        if (x != '') {
+            var userLogged = document.getElementById("userLogged");
+            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
+        }
+*/
+            //-------------END DUBLICATE WINDOW ONLOAD
+
 
             var parameters = location.search.substring(1).split("?");
             //    console.log(parameters);

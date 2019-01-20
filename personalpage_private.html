@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Flexidating | Home</title>
+
+    <!-- STYLE SHEET LINKS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
+
+</head>
+<!-- BEFORE OF BODY SCRIPT LINKS -->
+<script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
+
+<body>
+    <div class="clearfix">
+        <div class="login clear">
+            <div class="box responsive">
+                <div class="image-box responsive">
+                    <div class="image-text">
+                        <h1>FLEXIDATING</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <header>
+            <nav class="topmenu" id="responseMenu">
+                <ul>
+                    <li><a href="index.html">home</a></li>
+                    <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
+                    <li id="profiel"><a href="personalpage_private.html">persoonlijke pagina</a></li>
+                    <li id="login"><a href="login.html">login</a></li>
+                    <li id="register"><a href="registratie.html">registreer</a></li>
+                    <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
+                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <section>
+            <div class="row">
+                <div class="col-2 col-s-12 userLogged" id="userLogged"></div>
+            </div>
+            <div class="row">
+                <div class="row">
+                    <div class="col-3 col-s-12 personalmenu">
+                        <ul>
+                            <li id="active"><a href="personalpage_private.html">Mijn profiel</a></li>
+                            <li><a href="personalpage_profielupdate.html">Update profiel</a></li>
+                            <li><a href="personalpage_toonFavoritten.html">Favorieten</a></li>
+                            <li class="hiddenBuild"><a href="personalpage_Followers.html">Followers</a></li>
+                            <li><a href="personalpage_comment.html" iframe_a"">Berichten</a></li>
+                            <li><a href="personalpage_lovecoin.html">Lovecoins</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-9 col-s-12">
+                        <!-- ADD CONTENT HERE -->
+
+
+                        <p><label>Nickname: </label><label id="nickname"></label></p>
+
+                        <p><label>Familienaam: </label><label id="familienaam"></label></p>
+
+                        <p><label>Voornaam: </label><label id="voornaam"></label></p>
+                        <p><img id="foto" src="" alt="" class="profielfoto"></p>
+
+                        <p><label>Leeftijd: </label><label id="leefTijd"></label></p>
+
+                        <p><label>Beroep: </label><label id="beroep"></label></p>
+
+                        <p><label>Gewicht: </label><label id="gewicht"></label></p>
+
+                        <p><label>Grootte: </label><label id="grootte"></label></p>
+
+                        <p><label>Haarkleur: </label><label id="haarKleur"></label></p>
+
+                        <p><label>Oogkleur: </label><label id="oogKleur"></label></p>
+
+                        <p><label>Interesses: </label><label id="interesses"></label></p>
+
+                        <p><label>Geslacht: </label><label id="geslacht"></label></p>
+
+                        <p><label>Lichaamsbouw: </label><label id="lichaamsbouw"></label></p>
+
+                        <p><label>Sterrenbeeld: </label><label id="sterrenbeeld"></label></p>
+
+                        <p><label>Provincie: </label><label id="provincie"></label></p>
+
+                        <p><label>Stad: </label><label id="stad"></label></p>
+
+                        <!-- END OF CONTENT HERE -->
+                    </div>
+        </section>
+    </div>
+    <footer>
+        <div class="row">
+            <div class="col-3 hidden"></div>
+            <div class="col-6 col-s-12 footerLeft">
+                &#169 2019 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+                <small>imagecredits: designed by www.freepik.com</small>
+            </div>
+            <div class="col-3 col-s-12 footerRight">
+                <a class="footerlink" href="contact.html">contact</a>
+                <a class="footerlink" href="faq.html">FAQ</a>
+            </div>
+        </div>
+    </footer>
+    <!-- END OF BODY SCRIPT LINKS -->
+</body>
+
+</html>
+
+<!-- END OF BODY SCRIPT LINKS -->
+<script src="js/sterrenbeeld.js"></script>
+<script src="js/logout.js"> </script>
+<script defer>
+    window.onload = function () {
+
+        var ca = document.cookie.split('=');
+        var user = scrumlib.getDatasetById(ca[1]);
+
+        if (ca != '') {
+            var userLogged = document.getElementById("userLogged");
+            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
+        }
+
+        var locationImg = "img/"
+        scrumlib.addProperty("interesses", "String", "tennis, music");
+        scrumlib.addProperty("lichaamsbouw", "String", "atletic");
+        scrumlib.addProperty("stad", "String", "Kortrijk");
+        scrumlib.addProperty("provincie", "String", "West-Vlaanderen");
+        scrumlib.save();
+
+        document.getElementById("nickname").innerHTML = user[0].nickname;
+        document.getElementById("voornaam").innerHTML = user[0].voornaam;
+        document.getElementById("familienaam").innerHTML = user[0].familienaam;
+        document.getElementById("beroep").innerHTML = user[0].beroep;
+        document.getElementById("foto").setAttribute('src', locationImg + user[0].foto);
+        document.getElementById("foto").setAttribute('alt', user[0].foto);
+        document.getElementById("leefTijd").innerHTML = getLeeftijd(user[0].geboortedatum);
+        document.getElementById("gewicht").innerHTML = user[0].gewicht;
+        document.getElementById("grootte").innerHTML = user[0].grootte;
+        document.getElementById("haarKleur").innerHTML = user[0].haarkleur;
+        document.getElementById("oogKleur").innerHTML = user[0].oogkleur;
+        document.getElementById("geslacht").innerHTML = user[0].sexe;
+        document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user[0].geboortedatum);
+        document.getElementById("provincie").innerHTML = user[0].provincie;
+        document.getElementById("interesses").innerHTML = user[0].interesses;
+        document.getElementById("lichaamsbouw").innerHTML = user[0].lichaamsbouw;
+        document.getElementById("stad").innerHTML = user[0].stad;
+
+        function getLeeftijd(gb) {
+            let y = gb.substring(0, 4);
+            let d = new Date().getFullYear();
+            return d - y;
+        }
+    }
+</script>

@@ -178,11 +178,9 @@ div {
     float: left;
     padding: 1px;
     /* 15px */
-    /*--- Designer View        
+    /*--- Designer View      
     border: 1px solid red;
     ---*/
-
-
 }
 
 /*--- Clear floats after row ---*/
@@ -378,7 +376,7 @@ footer {
     display: none;
 }
 
-/***** RESPONSIVE MENU *****/
+/*--- RESPONSIVE MENU ---*/
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
     .topmenu li {
@@ -576,9 +574,8 @@ div.userLogged {
     margin-right: 15px;
 }
 
-.profileinfocontainer {
+.profileinfocontainer {}
 
-}
 .profilenicknameinfocontainer {
     padding: 15px;
 }
@@ -608,4 +605,43 @@ div.userLogged {
 
 #favIcon {
     font-size: 3em;
+}
+
+/**********************/
+/*--- PERSONALPAGE ---*/
+/**********************/
+
+.personalmenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 600px) {
+    .personalmenu ul {
+        margin-top: 2em;
+    }
+}
+
+.personalmenu li {
+    padding: 14px 20px;
+    margin-bottom: 7px;
+    background-color: #4e6078;
+    color: #ffffff;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#active li {
+    background-color: #ffffff;
+    color: #4e6078;
+    border: 1px #4e6078;
+}
+
+.personalmenu li a {
+    color: #ffffff;
+}
+
+.personalmenu li:hover {
+    background-color: #333f4e;
 }

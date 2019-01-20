@@ -5,12 +5,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Flexidating | Login</title>
+    <title>Flexidating | Home</title>
 
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-    <link href="_page_css_LoginRegister.css" rel="stylesheet" type="text/css" />
 
 </head>
 <!-- BEFORE OF BODY SCRIPT LINKS -->
@@ -49,48 +48,58 @@
                 <div class="col-2 col-s-12 userLogged" id="userLogged"></div>
             </div>
             <div class="row">
-                <div class="col-3 hidden"></div>
-                <div class="col-6 col-s-12">
-                    <h1>Login</h1>
-                    <label for="email">Email</label>
-                    <input id="email" type="text" placeholder="Voeg je email-adres in" name="email" required />
+                <div class="row">
+                    <div class="col-3 col-s-12 personalmenu">
+                        <ul>
+                            <li id="active"><a href="personalpage_private.html">Mijn profiel</a></li>
+                            <li><a href="personalpage_profielupdate.html">Update profiel</a></li>
+                            <li><a href="personalpage_toonFavoritten.html">Favorieten</a></li>
+                            <li class="hiddenBuild"><a href="personalpage_Followers.html">Followers</a></li>
+                            <li><a href="personalpage_comment.html" iframe_a"">Berichten</a></li>
+                            <li><a href="personalpage_lovecoin.html">Lovecoins</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-9 col-s-12">
+                        <!-- ADD CONTENT HERE -->
 
-                    <label for="passid">Wachtwoord</label>
-                    <input id="password" type="password" placeholder="Voeg je wachtwoord in" name="passid" required />
 
-                    <button onclick="validate()">Login</button>
-                    <div class="radiocheck">
-                        <span class="psw">
-                            <input type="checkbox" checked="checked" name="remember">
-                            <p>Onthoud mijn gegevens.</p>
-                        </span></div>
-                    <span class="psw"><a href="#">Wachtwoord </a>vergeten?</span>
-                    <h3>Heb je nog geen account?</h3>
-                    <h3><i><a href="registratie.html">Registreer hier!</a></i></h3>
 
-                </div>
-                <div class="col-3 hidden"></div>
-            </div>
 
+
+
+
+
+
+                        <!-- END OF CONTENT HERE -->
+                    </div>
         </section>
-        <footer>
-            <div class="row">
-                <div class="col-3 hidden"></div>
-                <div class="col-6 col-s-12 footerLeft">
-                    &#169 2019 Copyright Scrum Team. Alle rechten voorbehouden.<br />
-                    <small>imagecredits: designed by www.freepik.com</small>
-                </div>
-                <div class="col-3 col-s-12 footerRight">
-                    <a class="footerlink" href="contact.html">contact</a>
-                    <a class="footerlink" href="faq.html">FAQ</a>
-                </div>
-            </div>
-        </footer>
     </div>
-
+    <footer>
+        <div class="row">
+            <div class="col-3 hidden"></div>
+            <div class="col-6 col-s-12 footerLeft">
+                &#169 2019 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+                <small>imagecredits: designed by www.freepik.com</small>
+            </div>
+            <div class="col-3 col-s-12 footerRight">
+                <a class="footerlink" href="contact.html">contact</a>
+                <a class="footerlink" href="faq.html">FAQ</a>
+            </div>
+        </div>
+    </footer>
     <!-- END OF BODY SCRIPT LINKS -->
-    <script src="js/login_validatie.js"></script>
 </body>
-<script src="js/logout.js"> </script>
 
 </html>
+<script src="js/logout.js"> </script>
+<script defer>
+    window.onload = function () {
+        var x = document.cookie.split("=");
+        var user = scrumlib.getDatasetById(x[1]);
+
+        if (x != '') {
+            var userLogged = document.getElementById("userLogged");
+            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
+        }
+    }
+</script>
