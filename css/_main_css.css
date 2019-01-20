@@ -176,11 +176,11 @@ div {
 /*--- Adapt to every col-class ---*/
 [class*="col-"] {
     float: left;
-    padding: 0px; /* 15px */
-    /*--- Designer View        ---*/
+    padding: 0px;
+    /* 15px */
+    /*--- Designer View        
     border: 1px solid red;
-
-
+    ---*/
 }
 
 /*--- Clear floats after row ---*/
@@ -294,7 +294,7 @@ footer {
     background: #4e6078;
     color: white;
     font-size: 13px;
-    padding: 1vw;
+    padding: 15px;
     height: auto;
     position: relative;
     overflow: auto;
@@ -318,6 +318,7 @@ footer {
 
 @media screen and (max-width: 600px) {
     .footerlink {
+        margin: 1em;
         text-align: center;
     }
 }
@@ -495,15 +496,12 @@ div.userLogged {
     overflow: auto;
 }
 
-.randomProfiel {
-    display: block;
-}
-
 .profileblock {
     background-color: #4e6078;
     margin: 0.6em;
     float: left;
     padding: 15px;
+    max-width: 350px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
         0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -511,7 +509,7 @@ div.userLogged {
 .profileblock img {
     margin: 1em;
     float: left;
-    width: 40%;
+    width: 33%;
     height: auto;
 }
 
@@ -542,3 +540,14 @@ div.userLogged {
     background: #ffffff;
     color: #4e6078;
 }
+
+.searchresultcontainer {
+    margin-top: 1em;
+    padding-top: 1em;
+    padding: 0em;
+
+}
+
+/*********************/
+/*--- PROFILEPAGE ---*/
+/*********************/
