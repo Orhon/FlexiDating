@@ -68,7 +68,7 @@
                             </div>
 
 
-
+                            <div id="containerFavoritten"> </div>
 
 
 
@@ -96,14 +96,70 @@
 
 </html>
 <script src="js/logout.js"> </script>
+<script src="js/favoritten.js"></script>
 <script defer>
     window.onload = function () {
-        var x = document.cookie.split("=");
-        var user = scrumlib.getDatasetById(x[1]);
+        var ca = document.cookie.split('=');
+        //    console.log(ca[1]);
 
-        if (x != '') {
+        if (ca != '') {
             var userLogged = document.getElementById("userLogged");
             userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
+        }
+
+        var user = scrumlib.getDatasetById(ca[1]);
+        console.log(user);
+        var searchMap = {};
+        var conditions = [];
+        var container = document.getElementById("containerFavoritten");
+        container.innerHTML = "";
+
+        if (user[0].favoritten == "[]" || user[0].favoritten == "") {
+            container.innerHTML += "Je hebt geen favoritten"
+        } else {
+            var users = JSON.parse(user[0].favoritten);
+            for (var i = 0; i < users.length; i++) {
+                var favUser = scrumlib.getDatasetById(users[i]);
+                // console.log(favUser[0]._id);
+                var div = document.createElement("div");
+                //legen
+
+                var divInfoKopjes = document.createElement("div");
+                div.setAttribute('class', ".profileblock");
+                divInfoKopjes.setAttribute('class', ".profileblockinfo");
+                var pImg = document.createElement('a');
+                pImg.setAttribute('href', "public.html?" + favUser[0]._id);
+                pImg.setAttribute('id', favUser[0]._id);
+                var img = document.createElement("img");
+                img.setAttribute('src', "img/" + favUser[0].foto);
+
+                var pNickname = document.createElement('a');
+                pNickname.setAttribute('class', "userInfo nickname");
+                pNickname.setAttribute('href', "public.html?" + favUser[0]._id);
+                pNickname.setAttribute('id', favUser[0]._id);
+                pNickname.innerHTML = favUser[0].nickname
+                var pLeeftijd = document.createElement('p');
+                pLeeftijd.setAttribute('class', "userInfo leeftijd");
+
+                let y = favUser[0].geboortedatum.substring(0, 4);
+                let LeefTijd = new Date().getFullYear() - y;
+                pLeeftijd.innerHTML = LeefTijd + "jaar";
+
+                var pStad = document.createElement('p');
+                pStad.setAttribute('class', "userInfo stad");
+                pStad.innerHTML = favUser[0].haarkleur;
+
+
+                div.appendChild(pImg);
+                pImg.appendChild(img);
+                divInfoKopjes.appendChild(pNickname);
+                divInfoKopjes.appendChild(pLeeftijd);
+                divInfoKopjes.appendChild(pStad);
+                div.appendChild(divInfoKopjes);
+
+                container.appendChild(div);
+
+            }
         }
     }
 </script>
