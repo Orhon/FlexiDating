@@ -56,17 +56,18 @@
                         id="sterrenbeeld"></label></div>
                 <div class="profile-line"><label class="profile">Provincie: </label><label class="profile dynamic" id="provincie"></label></div>
 
-                
-                       <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                <i id="favIcon" ></i>
 
-    <!-- END CONTENT
+
+                <!-- END CONTENT
               <a id="favorite" href="#" onclick="addFavorite(this)" title="bookmark this page">Add to
                     Favorite</a>
                                 <input type="checkbox" name="checkfield" onchange="addFavorite(this)" /> &#9825 Add to Favorite 
-     
+                              <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+
                   <i onclick="myFunction(this)" class="fa fa-heart-o"></i>
-               -->
-                
+            -->
+
                 <!-- END CONTENT -->
             </div>
         </section>
@@ -107,9 +108,15 @@
             document.getElementById("geslacht").innerHTML = user1[0].sexe;
             document.getElementById("provincie").innerHTML = user1[0].provincie;
             document.getElementById("sterrenbeeld").innerHTML = getSterrenbeeld(user1[0].geboortedatum);
+            scrumlib.addProperty("favoritten", "String", "");
+            scrumlib.addProperty("favorGevers", "String", "");
+            // scrumlib.addProperty("provincie", "String", "");
+            scrumlib.save();
 
+            var pFavknop = document.getElementById('favIcon');
+            favKnop(pFavknop, user, user1);
 
-            function getLeeftijd(gb) {
+         function getLeeftijd(gb) {
                 let y = gb.substring(0, 4);
                 let d = new Date().getFullYear();
 

@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
     <link href="css/_page_css_zoeken.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- BEFORE OF BODY SCRIPT LINKS -->
 
 </head>
@@ -364,20 +365,17 @@
                 var pStad = document.createElement('p');
                 pStad.setAttribute('class', "userInfo stad");
                 pStad.innerHTML = users[index].haarkleur;
-                //    <input type="checkbox" name="checkfield" onchange="addFavorite(this)" /> &#9825 Add to Favorite 
-                // <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
-
-                var pFavknop = document.createElement('i');
-                pFavknop.setAttribute('class', "fa fa-thumbs-up");
-                pFavknop.setAttribute('onclick', "myFunction(this)");
-                //   pFavknop.innerHTML = "&#9825 Add to Favorite";
-
+                                               
                 div.appendChild(pImg);
                 pImg.appendChild(img);
                 divInfoKopjes.appendChild(pNickname);
                 divInfoKopjes.appendChild(pLeeftijd);
                 divInfoKopjes.appendChild(pStad);
-                divInfoKopjes.appendChild(pFavknop);
+               // var ca = document.cookie.split('=');
+                //var user = scrumlib.getDatasetById(ca[1]);
+               // var pFavknop = document.createElement('i');
+                //favKnop(pFavknop, user, users[index]);
+               // divInfoKopjes.appendChild(pFavknop);
                 div.appendChild(divInfoKopjes);
 
                 container.appendChild(div);
