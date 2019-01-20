@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl" />
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,10 +10,12 @@
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-
-    <!-- BEFORE OF BODY SCRIPT LINKS -->
-
+    
 </head>
+<!-- BEFORE OF BODY SCRIPT LINKS -->
+<script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
 
 <body>
     <div class="clearfix">
@@ -28,7 +30,7 @@
         </div>
 
         <header>
-            <nav class="topmenu" id="responseMenu1">
+            <nav class="topmenu" id="responseMenu">
                 <ul>
                     <li><a href="index.html">home</a></li>
                     <li><a href="zoeken.html">zoeken</a></li>
@@ -46,7 +48,7 @@
                 <br>
                 <h3 class="randomProfiel">Mannen</h3>
                 <div id="galleryMan">
-                    <div class="kopjes"><img src="img/bram.png" />
+                    <div class="profileblock"><img src="img/bram.png" />
                     </div>
                 </div>
                 <br>
@@ -56,24 +58,21 @@
         </section>
 
         <footer>
-            <div class="footerLinks">
-                &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
-                <small>imagecredits: designed by www.freepik.com</small>
-            </div>
-            <div class="footerRechts">
-                <div class="menu">
-                    <ul>
-                        <li><a href="contact.html">contact</a></li>
-                        <li><a href="faq.html">FAQ</a></li>
-                    </ul>
+            <div class="row">
+                <div class="col-3 hidden"></div>
+                <div class="col-6 col-s-12 footerLeft">
+                    &#169 2019 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+                    <small>imagecredits: designed by www.freepik.com</small>
+                </div>
+                <div class="col-3 col-s-12 footerRight">
+                    <a class="footerlink" href="contact.html">contact</a>
+                    <a class="footerlink" href="faq.html">FAQ</a>
                 </div>
             </div>
         </footer>
     </div>
+
     <!-- END OF BODY SCRIPT LINKS -->
-    <script async src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
-    <script src="js/responsive_design.js"> </script>
     <script defer>
         window.onload = function () {
             var searchMap = {};
@@ -121,8 +120,8 @@
                     //legen
 
                     var divInfoKopjes = document.createElement("div");
-                    div.setAttribute('class', "kopjes");
-                    divInfoKopjes.setAttribute('class', "infokopjes");
+                    div.setAttribute('class', "profileblock");
+                    divInfoKopjes.setAttribute('class', "profileblockinfo");
                     var pImg = document.createElement('a');
                     pImg.setAttribute('href', "public.html?" + randUser._id);
                     pImg.setAttribute('id', randUser._id);
@@ -178,4 +177,5 @@
         }
     </script>
 </body>
+
 </html>

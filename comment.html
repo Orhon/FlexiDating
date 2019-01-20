@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html lang="nl" />
+<html lang="nl">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Flexidating | Chat</title>
 
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-    <link href="css/_page_css_chat.css" rel="stylesheet" type="text/css" />
-    <!-- BEFORE OF BODY SCRIPT LINKS -->
-
+    
 </head>
+<!-- BEFORE OF BODY SCRIPT LINKS -->
+<script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
 
 <body>
     <div id="containerChat">
@@ -48,15 +50,10 @@
         </div>
     </div>
 
-    <!-- SCRIPT LINKS -->
-    <script src="js/responsive_design.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+    <!-- END OF BODY SCRIPT LINKS -->
     <script defer>
         window.onload = function () {
 
-            scrumlib.addProperty("comment", "string", "");
-            scrumlib.save();
 
             var x = document.cookie.split("=");
             var userSender = scrumlib.getDatasetById(x[1]);
@@ -203,7 +200,6 @@
                 receiverFoto.setAttribute("src", "img/" + receiver[0].foto);
                 receiverFoto.setAttribute("class", "friendFoto");
                 receiverInfo.append(receiverFoto);
-                console.log(receiver[0].comment);
                 commentTonen(userSender, receiver);
             }
 
@@ -227,4 +223,5 @@
         }
     </script>
 </body>
+
 </html>

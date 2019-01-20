@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Flexidating | Chat</title>
+
+    <!-- STYLE SHEET LINKS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
+    
+</head>
+<!-- BEFORE OF BODY SCRIPT LINKS -->
+<script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
+
+<body>
+    <div id="comments">
+        <p id="userName"></p>
+        <div id="berichten">
+
+        </div>
+        <div id="addComment">
+            <input type="text" id="txtComment">
+            <button id="knopComment">Comment</button>
+            <button id="knopCommentAndere">CommentAndere</button>
+            <button id="refresh" onclick="checkChat">Refresh</button>
+        </div>
+
+        <div id="commentsTonenReceiver">
+
+        </div>
+    </div>
+    <!-- END OF BODY SCRIPT LINKS -->
+    <script defer>
+        window.onload = function () {
+            scrumlib.addProperty("comment", "string", ""
+                // +JSON.stringify([{
+                //     "comment": "hallo",
+                //     "idVan": "56cae42a683485281caf5651",
+                //     "idNaar": "56cae42a683485281caf5653"
+                // }, {
+                //     "comment": "hi",
+                //     "idVan": "56cae42a683485281caf5652",
+                //     "idNaar": "56cae42a683485281caf5653"
+                // }])
+            );
+            scrumlib.save();
+
+            // var x = document.cookie.split("=");
+            // var userSender = scrumlib.getDatasetById(x[1]);
+
+
+            //jan
+            var userSender = scrumlib.getDatasetById("56cae42a683485281caf5653");
+            var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
+
+            //jan
+            // var userReceiver ='';
+            // if (userSender[0]._id == "56cae42a683485281caf5651" ){
+            //    userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
+            // }else{
+            //     userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5651");
+            // }
+
+
+            // var userSender = scrumlib.getDatasetById("56cae42a683485281caf5651");        
+            // var userReceiver = scrumlib.getDatasetById("56cae42a683485281caf5653");
+
+
+            document.getElementById("userName").innerHTML = userSender[0].nickname;
+
+            console.log(userSender)
+            commentTonen(userSender, userReceiver);
+
+            var comment = document.getElementById("txtComment");
+            comment.focus();
+            comment.select();
+            //comment.select();
+            var btnComment = document.getElementById("knopComment");
+            btnComment.addEventListener("click", function (e) {
+                addComment(userSender, userReceiver);
+            });
+
+            var btnCommentAndere = document.getElementById("knopCommentAndere");
+            btnCommentAndere.addEventListener("click", function (e) {
+                addComment(userReceiver, userSender);
+            });
+
+
+            var input = document.getElementById("txtComment");
+
+            // Execute a function when the user releases a key on the keyboard
+            input.addEventListener("keyup", function (event) {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Number 13 is the "Enter" key on the keyboard
+                if (event.keyCode === 13) {
+                    // Trigger the button element with a click
+                    addComment(userSender, userReceiver);
+                    input.value = '';
+                }
+            });
+
+            setInterval(checkChat, 20000);
+
+            function checkChat() {
+                if (comment.value == '') {
+                    location.reload();
+                }
+                //commentTonen(userSender, userReceiver);
+            }
+
+            function addComment(sender, receiver) {
+                var commentJSON = [{
+                    "comment": comment.value,
+                    "idVan": sender[0]._id,
+                    "idNaar": receiver[0]._id
+                }];
+                var updateMapSender = {};
+                var updateMapReceiver = {};
+                if (comment.value != "") {
+                    if (sender[0].comment == '') {
+                        updateMapSender.comment = JSON.stringify(commentJSON);
+                        updateMapReceiver.comment = JSON.stringify(commentJSON);
+                    } else {
+                        let oldComment = JSON.parse(sender[0].comment);
+                        let oldCommentReceiver = JSON.parse(receiver[0].comment);
+                        if (oldComment.length > 200) {
+                            delete oldComment[0];
+                            oldComment = (JSON.stringify(oldComment)).replace("null,", "");
+                            oldComment = JSON.parse(oldComment);
+                        };
+                        if (oldCommentReceiver.length > 200) {
+                            delete oldCommentReceiver[0];
+                            oldCommentReceiver = (JSON.stringify(oldCommentReceiver)).replace("null,", "");
+                            oldCommentReceiver = JSON.parse(oldCommentReceiver);
+                        };
+
+
+                        oldCommentReceiver = oldCommentReceiver.concat(commentJSON);
+                        oldComment = oldComment.concat(commentJSON);
+
+
+                        updateMapSender.comment = JSON.stringify(oldComment);
+                        updateMapReceiver.comment = JSON.stringify(oldCommentReceiver);
+                    }
+                    scrumlib.updateDataset(sender[0]._id, updateMapSender);
+                    scrumlib.updateDataset(receiver[0]._id, updateMapReceiver);
+                    scrumlib.save();
+                }
+                commentTonen(sender, receiver);
+            }
+
+            function commentTonen(sender, receiver) {
+                var comments = document.getElementById("berichten");
+                if (sender[0].comment != '') {
+                    var userComments = JSON.parse(sender[0].comment);
+                    comments.innerHTML = '';
+                    for (i in userComments) {
+                        // if(userComments[i].idVan == userSender[0]._id || userComments[i].idNaar == userSender[0]._id){
+                        if ((userComments[i].idVan == sender[0]._id && userComments[i].idNaar == receiver[0]._id) ||
+                            (userComments[i].idNaar == sender[0]._id && userComments[i].idVan == receiver[0]._id)) {
+                            let userVan = scrumlib.getDatasetById(userComments[i].idVan);
+                            if (comments.childElementCount > 20) {
+                                comments.removeChild(comments.firstChild);
+                            }
+                            comments.innerHTML += "<li>" + userComments[i].comment +
+                                ' - <span class="nicknameChat">' + userVan[0].nickname +
+                                "</span></li>";
+                        }
+
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

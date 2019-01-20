@@ -7,7 +7,7 @@
 /*--- GENERAL ---*/
 /*****************/
 
-/*** clearfix hack ***/
+/*--- clearfix hack ---*/
 .clearFix:before,
 .clearFix:after {
     content: " ";
@@ -15,14 +15,14 @@
     clear: both;
 }
 
-/*** enkel voor IE6/7 ***/
+/*--- enkel voor IE6/7 ---*/
 .clearFix {
     *zoom: 1;
 }
 
 body,
 html {
-    font-family: Verdana, Geneva, sans-serif;
+    font-family: Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: white;
@@ -30,74 +30,156 @@ html {
     height: 100%;
 }
 
+a {
+    color: #4e6078;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
 @font-face {
     font-family: OratorStd;
     src: url(../fonts/OratorStd.otf);
 }
 
-/********************/
-/*--- RESPONSIVE ---*/
-/********************/
+/*************************/
+/*--- RESPONSIVE GRID ---*/
+/*************************/
 
 * {
     box-sizing: border-box;
 }
 
-/*--- Responsive Grid --*/
-.col-1 {
-    width: 8.33%;
+/*--- Designer View 
+div {
+    border: 1px #ff0000;
 }
 
-.col-2 {
-    width: 16.66%;
-}
+---*/
 
-.col-3 {
-    width: 25%;
-}
-
-.col-4 {
-    width: 33.33%;
-}
-
-.col-5 {
-    width: 41.66%;
-}
-
-.col-6 {
-    width: 50%;
-}
-
-.col-7 {
-    width: 58.33%;
-}
-
-.col-8 {
-    width: 66.66%;
-}
-
-.col-9 {
-    width: 75%;
-}
-
-.col-10 {
-    width: 83.33%;
-}
-
-.col-11 {
-    width: 91.66%;
-}
-
-.col-12 {
+/*--- For mobile phones: ---*/
+[class*="col-"] {
     width: 100%;
 }
 
-/*--- Adapt to every col-class ---*/
+/*--- For tablets: ---*/
+@media only screen and (min-width: 600px) {
 
+    .col-s-1 {
+        width: 8.33%;
+    }
+
+    .col-s-2 {
+        width: 16.66%;
+    }
+
+    .col-s-3 {
+        width: 25%;
+    }
+
+    .col-s-4 {
+        width: 33.33%;
+    }
+
+    .col-s-5 {
+        width: 41.66%;
+    }
+
+    .col-s-6 {
+        width: 50%;
+    }
+
+    .col-s-7 {
+        width: 58.33%;
+    }
+
+    .col-s-8 {
+        width: 66.66%;
+    }
+
+    .col-s-9 {
+        width: 75%;
+    }
+
+    .col-s-10 {
+        width: 83.33%;
+    }
+
+    .col-s-11 {
+        width: 91.66%;
+    }
+
+    .col-s-12 {
+        width: 100%;
+    }
+}
+
+/*--- For desktop: ---*/
+@media only screen and (min-width: 768px) {
+
+    .col-1 {
+        width: 8.33%;
+    }
+
+    .col-2 {
+        width: 16.66%;
+    }
+
+    .col-3 {
+        width: 25%;
+    }
+
+    .col-4 {
+        width: 33.33%;
+    }
+
+    .col-5 {
+        width: 41.66%;
+    }
+
+    .col-6 {
+        width: 50%;
+    }
+
+    .col-7 {
+        width: 58.33%;
+    }
+
+    .col-8 {
+        width: 66.66%;
+    }
+
+    .col-9 {
+        width: 75%;
+    }
+
+    .col-10 {
+        width: 83.33%;
+    }
+
+    .col-11 {
+        width: 91.66%;
+    }
+
+    .col-12 {
+        width: 100%;
+    }
+}
+
+/*--- hidden in small screens ---*/
+@media screen and (max-width: 600px) {
+    div.hidden {
+        display: none;
+    }
+}
+
+/*--- Adapt to every col-class ---*/
 [class*="col-"] {
     float: left;
     padding: 15px;
-    /*border: 1px solid red;*/
+    /*--- Designer View    
+    border: 1px solid red;
+    ---*/
 }
 
 /*--- Clear floats after row ---*/
@@ -111,10 +193,10 @@ html {
 /*--- IMAGES ---*/
 /*****************/
 
-/*** general images ***/
+/*--- general images ---*/
 img {
-    width: 100%;    /* width: 50% */
-    height: auto;    /* height: 50%; */
+    max-width: 100%;
+    height: auto;
     border: none;
 }
 
@@ -129,9 +211,11 @@ img.responsive {
     height: auto;
 }
 
+/******************/
 /*** Hero image ***/
+/******************/
 
-/*** box for image ***/
+/*--- box for image ---*/
 .box {
     width: 100%;
     height: 270px;
@@ -149,7 +233,7 @@ img.responsive {
     height: 100%;
 }
 
-/*** Place text in the middle of the image ***/
+/*--- Place text in the middle of the image ---*/
 .image-text {
     font-family: OratorStd, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1em;
@@ -171,7 +255,7 @@ img.responsive {
 /*--- STRUCTURE ---*/
 /*******************/
 
-/***** HEADER *****/
+/*--- HEADER ---*/
 header {
     background: #4e6078;
     padding-top: 0.5em;
@@ -179,47 +263,71 @@ header {
 }
 
 header h1 {
-
-
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 4em;
     color: white;
-    margin: 0.25em 0;
+    /*    margin: 0.25em 0;*/
 }
 
-/*** SECTION ****/
+/*--- SECTION ---*/
 section {
     margin: 1.5em;
 }
 
 section h1 {
     text-align: center;
+    font-size: 3em;
 }
 
-/*
-section a {
+@media screen and (max-width: 600px) {
+    section h1 {
+        font-size: 2em;
+    }
+}
+
+section h3 {
     text-align: center;
-    margin: 10px;
-    display: block;
+    font-size: 1.5em;
 }
-*/
 
-/***** FOOTER *****/
+/*--- FOOTER ---*/
 footer {
     background: #4e6078;
-    padding: 1em 2em;
-    clear: both;
-    text-align: center;
     color: white;
-    font-size: 12px;
+    font-size: 13px;
+    padding: 1vw;
     height: auto;
+    position: relative;
+    overflow: auto;
+}
+
+.footerLeft {
+    background: inherit;
+    text-align: center;
+}
+
+.footerRight {
+    background: inherit;
+}
+
+.footerlink {
+    color: #ffffff;
+    font-weight: bold;
+    display: block;
+    text-align: right;
+}
+
+@media screen and (max-width: 600px) {
+    .footerlink {
+        text-align: center;
+    }
 }
 
 /********************/
 /*--- NAVIGATION ---*/
 /********************/
 
-/***** TOPMENU *****/
+/*--- TOPMENU ---*/
 
 .topmenu {
     font-size: 1.2em;
@@ -260,7 +368,7 @@ footer {
     border-right: 0px solid red;
 }
 
-/* Hide the link that should open and close the topnav on small screens */
+/*--- Hide the link that should open and close the topnav on small screens ---*/
 .topmenu .icon {
     display: none;
 }
@@ -304,23 +412,21 @@ footer {
     }
 }
 
-
 /********************/
 /*--- FORMLAYOUT ---*/
 /********************/
 
-/*** FORM ***/
+/*--- FORM ***/
 form {
-    width: 520px;
-    font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
+    font-family: Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 1em;
 }
 
-/*** Full-width input fields ***/
-/*input[type=text],
-input[type=password]*/
-input {
-    width: 85vw;
+/*--- Full-width input fields ---*/
+input[type=text],
+input[type=password] {
+    width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
     display: block;
@@ -328,12 +434,32 @@ input {
     box-sizing: border-box;
 }
 
-/*** buttons ***/
+input[type=checkbox] {
+    display: inline;
+    float: left;
+}
+
+label {
+    margin-left: 20px;
+    margin-top: 1em;
+    font-weight: bold;
+    display: inline-block;
+}
+
+.radiocheck>span {
+    white-space: nowrap;
+}
+
+
+/*--- buttons ---*/
 button {
     background-color: #4e6078;
+    display: block;
     color: white;
+    font-size: 1.2em;
+    font-weight: bold;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 1.5em 1.5em 1.5em 0em;
     border: none;
     cursor: pointer;
     min-width: 150px;
@@ -344,27 +470,27 @@ button:hover {
     opacity: 0.8;
 }
 
+/*********************/
+/*--- USER STATUS ---*/
+/*********************/
+
+div.userLogged {
+    padding: 1em 0.5em;
+    background-color: #4e6078;
+    color: #ffffff;
+    float: right;
+    margin-top: 0px;
+    text-align: center;
+}
 
 /***************************/
 /*--- STARTPAGE | INDEX ---*/
 /***************************/
 
-/*** gallerij startpagina ***/
-section h1 {
-    text-align: center;
-    font-size: 3em;
-
-}
-
-section h3 {
-    text-align: center;
-    font-size: 1.5em;
-
-}
+/*--- gallerij startpagina ---*/
 
 .gallery {
     display: flex;
-    /*flex-direction: column;*/
     flex-wrap: wrap;
     justify-content: center;
     padding: 1em;
@@ -375,31 +501,44 @@ section h3 {
     display: block;
 }
 
-.kopjes {
+.profileblock {
     background-color: #4e6078;
     margin: 0.6em;
     float: left;
-    width: 40%;
-    /*27em*/
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
-.kopjes img {
+.profileblock img {
     margin: 1em;
     float: left;
-    width: 30%;
+    width: 40%;
     height: auto;
 }
 
-.infokopjes {
+.profileblockinfo {
     background: white;
     font-size: 0.9em;
     text-align: right;
     color: #4e6078;
-    /*width: 150px;
-    height: 220px;*/
-    width: 40%;
     height: 80%;
     float: right;
-    margin: 5% 5% 5% 5%;
     padding: 15px;
+}
+
+/********************/
+/*--- ZOEKENPAGE ---*/
+/********************/
+
+.searchbox {
+    background: #4e6078;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.searchbox button {
+    background: #ffffff;
+    color: #4e6078;
 }

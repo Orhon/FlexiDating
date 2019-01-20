@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="nl">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>test met fetch</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style id="jsbin-css">
+        body {
+            background: #f5f5f5;
+        }
+
+        body h1 {
+            text-align: center;
+            font-family: arial;
+            color: #5a5a5a;
+        }
+
+        body ul {
+            display: flex;
+            list-style: none;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            justify-content: center;
+            flex-basis: 80%;
+        }
+
+        body ul li {
+            flex-basis: 20%;
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+
+        body ul li span {
+            font-family: arial;
+            font-size: 14px;
+            color: #5a5a5a;
+            text-align: center;
+        }
+
+        body ul li img {
+            margin: 5px;
+            border-radius: 3px;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Authors</h1>
+    <ul id="authors"></ul>
+
+    <script>
+
+        const ul = document.getElementById('authors'); // Get the list where we will place our authors        
+        //const url = 'https://randomuser.me/api/?results=10'; // Get 10 random users    
+        const url = 'http://localhost/fetchApi/test1/backend.php?results=10'; // eigen test met php als backend
+
+
+        fetch(url)
+            //.then((resp) => resp.json()) // Transform the data into json via een lambda functie
+            .then(function (resp) { return resp.json(); }) // Transform the data into json zoals we 't vroeger deden.
+            .then(function (data) {
+                console.log(JSON.stringify(data));
+                console.log(data.results);
+                let authors = data.results; // Get the results
+                return authors.map(function (author) { // Map through the results and for each run the code below
+                    let li = createNode('li'), //  Create the elements we need
+                        img = createNode('img'),
+                        span = createNode('span');
+                    img.src = author.picture.medium;  // Add the source of the image to be the src of the img element
+                    span.innerHTML = `${author.name.first} ${author.name.last}`; // Make the HTML of our span to be the first and last name of our author
+                    append(li, img); // Append all our elements
+                    append(li, span);
+                    append(ul, li);
+                })
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+
+        function createNode(element) {
+            return document.createElement(element); // Create the type of element you pass in the parameters
+        }
+
+        function append(parent, el) {
+            return parent.appendChild(el); // Append the second parameter(element) to the first one
+        }
+    </script>
+</body>
+
+</html>

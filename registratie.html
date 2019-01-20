@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="nl" />
+<html lang="nl">
 
 <head>
     <meta charset="UTF-8" />
@@ -10,10 +10,12 @@
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
     <link href="css/_main_css.css" rel="stylesheet" type="text/css" />
-    <link href="css/_page_css_LoginRegister.css" rel="stylesheet" type="text/css" />
-    <!-- BEFORE OF BODY SCRIPT LINKS -->
 
 </head>
+<!-- BEFORE OF BODY SCRIPT LINKS -->
+<script src="js/responsive_design.js"> </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script async src="js/flexi_scrum_2.1.0.min.js"></script>
 
 <body onload="document.registratie.nickname.focus();">
     <div class="clearfix">
@@ -28,51 +30,57 @@
         </div>
 
         <header>
-            <nav class="topmenu" id="responseMenu1">
+            <nav class="topmenu" id="responseMenu">
                 <ul>
                     <li><a href="index.html">home</a></li>
-                    <li><a href="zoeken.html">zoeken</a></li>
-                    <li><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
-                    <li><a href="login.html">login</a></li>
-                    <li><a href="registratie.html">registreer</a></li>
+                    <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
+                    <li id="profiel"><a href="persoonlijkepagina.html">persoonlijke pagina</a></li>
+                    <li id="login"><a href="login.html">login</a></li>
+                    <li id="register"><a href="registratie.html">registreer</a></li>
+                    <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
                     <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
                 </ul>
             </nav>
         </header>
 
         <section>
-            <h1>Registratie formulier</h1>
-            Gebruik tab-toetsen om van het ene invoerveld naar het volgende te gaan.
+            <div class="row">
+                <div class="col-2 col-s-12 userLogged" id="userLogged"></div>
+            </div>
+            <div class="row">
+                <div class="col-3 hidden"></div>
+                <div class="col-6 col-s-12">
+                    <h1>Registratie formulier</h1>
+                    Gebruik tab-toetsen om van het ene invoerveld naar het volgende te gaan.
 
-            <form name='registratie' onSubmit="return formValidation();">
-                <p><label for="nickname"> Nickname </label>
-                    <input type="text" name="nickname" id="nickname" /></p>
+                    <form name='registratie' onSubmit="return formValidation();">
+                        <label for="nickname"> Nickname </label>
+                        <input type="text" name="nickname" id="nickname" />
 
-                <p><label for="voornaam"> Voornaam </label>
-                    <input type="text" name="voornaam" id="voornaam" /></p>
+                        <label for="voornaam"> Voornaam </label>
+                        <input type="text" name="voornaam" id="voornaam" />
 
-                <p><label for="familienaam"> Familienaam </label>
-                    <input type="text" name="familienaam" id="familienaam" /></p>
+                        <label for="familienaam"> Familienaam </label>
+                        <input type="text" name="familienaam" id="familienaam" />
 
-                <p><label for="beroep"> Beroep </label>
-                    <input type="text" name="beroep" id="beroep" /></p>
+                        <label for="email"> Email </label>
+                        <input type="text" name="email" id="email" />
 
-                <p><label for="geboorteDatum"> Geboortedatum </label>
-                    <input type="text" name="geboorteDatum" id="geboorteDatum" onblur="geboorteDatum_validation()" />
-                    <span class="error" id="lblError"> </span>
-                    <br />
+                        <label for="beroep"> Beroep </label>
+                        <input type="text" name="beroep" id="beroep" />
 
-                    <!-- <input type="button" id="btnValidate" value="Validate" onclick="geboorteDatum_validation()" /></p> -->
+                        <label for="geboorteDatum"> Geboortedatum </label>
+                        <input type="text" name="geboorteDatum" id="geboorteDatum" onblur="geboorteDatum_validation()" />
+                        <span class="error" id="lblError"> </span>
+                        <br />
 
-                    <!-- <p><label for="leeftijd" name="leeftijd" id="leeftijd"> Leeftijd </label></p> -->
+                        <label for="gewicht"> Gewicht </label>
+                        <input type="text" name="gewicht" id="gewicht" />
 
-                    <p><label for="gewicht"> Gewicht </label>
-                        <input type="text" name="gewicht" id="gewicht" /></p>
+                        <label for="grootte"> Grootte </label>
+                        <input type="text" name="grootte" id="grootte" />
 
-                    <p><label for="grootte"> Grootte </label>
-                        <input type="text" name="grootte" id="grootte" /></p>
-
-                    <p><label for="haarkleur"> Haarkleur </label>
+                        <label for="haarkleur"> Haarkleur </label>
                         <select name="haarkleur">
                             <option selected="" value="Default"> -- - kies uw haarkleur-- - </option>
                             <option value="blond"> blond </option>
@@ -80,9 +88,10 @@
                             <option value="rood"> rood </option>
                             <option value="zwart"> zwart </option>
                             <option value="andere kleur"> andere kleur </option>
-                        </select> </p>
+                        </select>
+                        <br />
 
-                    <p><label for="oogkleur"> Oogkleur </label>
+                        <label for="oogkleur"> Oogkleur </label>
                         <select name="oogkleur">
                             <option selected="" value="Default"> -- - kies uw oogkleur-- - </option>
                             <option value="blauw"> blauw </option>
@@ -90,25 +99,27 @@
                             <option value="zwart"> zwart </option>
                             <option value="groen"> groen </option>
                             <option value="andere kleur"> andere kleur </option>
-                        </select> </p>
+                        </select>
+                        <br />
 
-                    <p><label for="email"> Email </label>
-                        <input type="text" name="email" id="email" /></p>
 
-                    <p><label id="geslacht"> Geslacht </label>
-                        <input type="radio" name="msex" value="m" /><span>Man</span>
-                        <input type="radio" name="fsex" value="v" /><span>Vrouw</span></p>
+                        <label for="sex" id="geslacht"> Man</label>
+                        <input type="radio" name="sex" value="m" />
+                        <label for="sex" id="geslacht"> Vrouw</label>
+                        <input type="radio" name="sex" value="v" />
+                        <br />
 
-                    <p><label for="lichaamsbouw"> Lichaamsbouw </label>
+                        <label for="lichaamsbouw"> Lichaamsbouw </label>
                         <select name="lichaamsbouw">
                             <option selected="" value="Default"> -- - kies uw lichaamsbouw-- - </option>
                             <option value="volslank">volslank</option>
                             <option value="atletisch">atletisch</option>
                             <option value="slank">slank</option>
                             <option value="normaal">normaal</option>
-                        </select> </p>
+                        </select>
+                        <br />
 
-                    <p><label for="provincie"> Provincie </label>
+                        <label for="provincie"> Provincie </label>
                         <select name="provincie" id="provincie">
                             <option selected="" value="Default"> -- - kies uw provincie-- - </option>
                             <option value="Provincie Vlaams-Brabant"> Vlaams-Brabant </option>
@@ -122,47 +133,54 @@
                             <option value="Provincie Luxemburg"> Luxemburg </option>
                             <option value="Brussel-Hoofdstad"> Brussel-Hoofdstad </option>
                             <option value="Provincie Waals-Brabant"> Waals-Brabant </option>
-                        </select> </p>
+                        </select>
+                        <br />
 
-                    <p><label for="stad"> Stad </label>
-                        <input type="text" name="stad" id="stad" /></p>
+                        <label for="stad"> Stad </label>
+                        <input type="text" name="stad" id="stad" />
 
-
-                    <div class="form-group">
-                        Upload je foto
-                        <div class="col-md-10">
-                            <div>
-                                <img src="img/uploadicon.png" id="blah" height="130" width="130" style="border:solid" />
+                        <div class="form-group">
+                            Upload je foto
+                            <div class="col-md-10">
+                                <div>
+                                    <img src="img/uploadicon.png" id="blah" height="130" width="130" style="border:solid" />
+                                </div>
+                                <input type="file" name="dataFile" id="fileChooser" onchange="ValidateFileUpload()" />
                             </div>
-                            <input type="file" name="dataFile" id="fileChooser" onchange="ValidateFileUpload()" />
                         </div>
-                    </div>
 
-                    <p><label for="desc"> Opmerkingen </label>
-                        <input type="text" placeholder="Enter comment" name="comment" /></p>
+                        <label for="desc"> Opmerkingen </label>
+                        <input type="text" placeholder="Enter comment" name="comment" />
 
-                    <!-- <p><label type="hidden" for="lovecoins" name="lovecoins" id="lovecoins"> Love Coins </label>
-                    <input type="hidden" placeholder="Enter lovecoins" name="lovecoins" /></p> -->
+                        <p><label for="wachtwoord"> Wachtwoord </label>
+                            <input type="password" placeholder="Enter Password" name="wachtwoord" required /></p>
+                    </form>
 
-                    <p><label for="wachtwoord"> Wachtwoord </label>
-                        <input type="password" placeholder="Enter Password" name="wachtwoord" required /></p>
-            </form>
-
-            <p> Door een account aan te maken gaat u akkoord met onze <a href="#"> Terms & Privacy </a>.</p>
-            <button type="submit" class="registerbtn" onclick="return formValidation();"> Registreren </button>
+                    <button type="submit" class="registerbtn" onclick="return formValidation();"> Registreren </button>
+                    <small> Door een account aan te maken gaat u akkoord met onze <a href="termsprivacy.html"> Terms & Privacy </a>.</small>
+                </div>
+                <div class="col-3 hidden"></div>
+            </div>
         </section>
 
         <footer>
-            <p>
-                &#169 2018 Copyright Scrum Team. Alle rechten voorbehouden.<br />
-                <small>imagecredits: designed by www.freepik.com</small>
-            </p>
+            <div class="row">
+                <div class="col-3 hidden"></div>
+                <div class="col-6 col-s-12 footerLeft">
+                    &#169 2019 Copyright Scrum Team. Alle rechten voorbehouden.<br />
+                    <small>imagecredits: designed by www.freepik.com</small>
+                </div>
+                <div class="col-3 col-s-12 footerRight">
+                    <a class="footerlink" href="contact.html">contact</a>
+                    <a class="footerlink" href="faq.html">FAQ</a>
+                </div>
+            </div>
         </footer>
     </div>
-    <!-- SCRIPT LINKS -->
-    <script src="js/responsive_design.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-    <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+
+    <!-- END OF BODY SCRIPT LINKS -->
     <script src="js/registratieValidatie.js"></script>
+    <script src="js/logout.js"> </script>
 </body>
+
 </html>

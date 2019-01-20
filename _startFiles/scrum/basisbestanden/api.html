@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flexi Scrum API V2</title>
+    <link href="css/api.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1>Flexi Scrum API</h1>
+        <nav class="menu">
+            <ul>
+                <li><a href="opdracht_flexidating.html">Opdracht FlexiDating</a></li>
+                <li><a href="api.html">API</a></li>
+                <li><a href="demo.html">API demo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+        <section id="start">
+            <p>De bijgeleverde API gebruik je om de startgegevens in te lezen en ze verder te gebruiken en te
+                manipuleren
+                in je applicatie. Afhankelijk van je
+                opdracht kunnen dit <em>persoonsprofielen</em> zijn of <em>immobiliën</em> data of nog andere gegevens.
+            </p>
+
+            <p>De API heeft twee <em>dependencies:</em></p>
+            <ul>
+                <li><code>localStorage</code>
+                    <ul>
+                        <li>de browser moet <code>localStorage</code> ondersteunen
+                            <button type="button" id="knop1">check deze browser</button>
+                        </li>
+                        <li>Hou er rekening mee dat sommige browsers enkel cookies en localStorage gebruiken als de pagina vanuit een webserver geserveerd wordt</li>
+                        <li>Voor moderne browsers is een apart tabblad ook een aparte sessie</li>
+                    </ul>
+                </li>
+                </li>
+                <li><a href="http://jquery.com/">jQuery</a> moet geladen zijn</li>
+            </ul>
+            <p>Indien aan één van deze twee voorwaarden niet voldaan is, verschijnt een foutmelding in de JS
+                console.</p>
+
+            <p>De startbestanden bevatten de <em>scrumlib library</em>, enkele figuren en de startgegevens in de vorm
+                van een <code>JSON</code> bestand.</p>
+
+            <h3>Get started:</h3>
+            <ol>
+                <li>Plaats de startbestanden op de juiste plaats vanuit de <code>root</code> van je project:
+                    <ul>
+                        <li>een folder <code>js</code> bevat <code>flexi_scrum.min.js</code> en het
+                            <code>json</code> bestand
+                        </li>
+                        <li>een folder <code>img</code> bevat de bijgeleverde figuurtjes</li>
+                    </ul>
+
+                </li>
+                <li>Koppel <em>jQuery</em> aan je pagina, net voor de <code>&lt;/body&gt;</code> eindtag:
+                    <pre>&lt;script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"&gt;&lt;/script&gt;</pre>
+                    <p>hier wordt de CDN van jQuery gebruikt, en daarvoor heb je een internetverbinding nodig. Heb je
+                        die niet dan moet je jQuery lokaal installeren. Vraag hiervoor eventueel hulp aan je coach</p>
+                </li>
+                <li>Koppel daaronder ook de <em>scrumlib</em> javascript library aan je pagina, net voor de <code>&lt;/body&gt;</code>
+                    eindtag:
+                    <pre>&lt;script async src="js/flexi_scrum.min.js"&gt;&lt;/script&gt;</pre>
+                    <p>Bemerk het <code>async</code> attribuut op in de <code>script</code> tag</p>
+
+                    <p>De applicatie is nu bruikbaar, de startgegevens zijn beschikbaar.</p>
+
+                </li>
+
+                <li>Maak daaronder een <code>&lt;script&gt;</code> tag met een <code>defer</code> attribuut waar je
+                    ofwel inline je eigen script kan
+                    schrijven ofwel een extern bestand kan koppelen, bijvoorbeeld:
+                    <pre>
+&lt;script defer&gt;
+    window.onload = function () {
+        console.log(scrumlib.getAllDatasets());
+    }
+&lt;/script&gt;
+</pre>
+
+                </li>
+
+            </ol>
+        </section>
+
+
+        <section id="api">
+            <h3>dataset</h3>
+
+            <p>afhankelijk van je opdracht ontving je een <code>profielen.json</code>, <code>immo.json</code> of <code>bnb.json</code>
+            </p>
+
+            <h4>profielen.json</h4>
+
+            <p>Bevat een startset van <em>profielen</em> van een aantal personen voor de Dating app.
+                <br>De geregistreerde gebruikers in de Dating app worden bewaard als Javascript <em>objecten</em>,
+                een voorbeeld:</p>
+            <pre>
+{
+        "_id" : "56cae42a683485281caf5657",
+        "familienaam" : "Debruyne",
+        "voornaam" : "Ilse",
+        "geboortedatum" : "1966-11-30",
+        "email" : "ilse.debruyne@hotmail.com",
+        "nickname" : "fluffy snowflake",
+        "foto" : "ilsedebruyne.jpg",
+        "beroep" : "leraar secundair onderwijs",
+        "sexe" : "v",
+        "haarkleur" : "donkerblond",
+        "oogkleur" : "grijsgroen",
+        "grootte" : 170,
+        "gewicht" : 90,
+        "wachtwoord" : "vdab"
+ }
+        </pre>
+            <h4>Beschrijving van de eigenschappen:</h4>
+
+            <p>Dit zijn de kenmerken van de profielen in de startset.</p>
+
+            <p>Het beveiligingsniveau heeft betrekking op de zichtbaarheid van de kenmerken op de website. Ze heeft drie
+                mogelijke waarden: <code>publiek (p)</code>: zichtbaar voor iedereen, <code>verborgen (v)</code>:
+                verborgen voor iedereen met uitzondering van de persoon zelf, <code>hidden</code> nooit zichtbaar op
+                de website
+            </p>
+            <table>
+                <thead>
+                <tr>
+                    <th>property</th>
+                    <th>type</th>
+                    <th>beschrijving</th>
+                    <th>beveiliging</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><code>_id</code></td>
+                    <td>String</td>
+                    <td>unieke key van het profiel</td>
+                    <td>hidden</td>
+                </tr>
+                <tr>
+                    <td><code>familienaam</code></td>
+                    <td>String</td>
+                    <td>familienaam van de persoon</td>
+                    <td>verborgen</td>
+                </tr>
+                <tr>
+                    <td><code>voornaam</code></td>
+                    <td>String</td>
+                    <td>voornaam van de persoon</td>
+                    <td>verborgen</td>
+                </tr>
+                <tr>
+                    <td><code>geboortedatum</code></td>
+                    <td>String</td>
+                    <td>verkorte ISO String van de geboortedatum. <br>Verwerkingen van deze datum zoals de leeftijd
+                        kunnen
+                        publiek zijn
+                    </td>
+                    <td>verborgen</td>
+                </tr>
+                <tr>
+                    <td><code>email</code></td>
+                    <td>String</td>
+                    <td>emailadres van de persoon</td>
+                    <td>verborgen</td>
+                </tr>
+                <tr>
+                    <td><code>nickname</code></td>
+                    <td>String</td>
+                    <td>roepnaam van de persoon</td>
+                    <td>publiek</td>
+                </tr>
+                <tr>
+                    <td><code>foto</code></td>
+                    <td>String</td>
+                    <td>bestandsnaam van de foto.<br>Het tonen van de foto is wel publiek</td>
+                    <td>verborgen</td>
+                </tr>
+                <tr>
+                    <td><code>beroep</code></td>
+                    <td>String</td>
+                    <td>beroep van de persoon</td>
+                    <td>publiek</td>
+                </tr>
+                <tr>
+                    <td><code>sexe</code></td>
+                    <td>String: "v"|"m"</td>
+                    <td>geslacht van de persoon</td>
+                    <td>publiek</td>
+                </tr>
+                <tr>
+                    <td><code>oogkleur</code></td>
+                    <td>String</td>
+                    <td>omschrijving van de oogkleur</td>
+                    <td>publiek</td>
+                </tr>
+                <tr>
+                    <td><code>haarkleur</code></td>
+                    <td>String</td>
+                    <td>omschrijving van de haarkleur</td>
+                    <td>publiek</td>
+                </tr>
+                <tr>
+                    <td><code>gewicht</code></td>
+                    <td>Number</td>
+                    <td>gewicht in kg</td>
+                    <td>publiek</td>
+                </tr>
+                <tr>
+                    <td><code>grootte</code></td>
+                    <td>Number</td>
+                    <td>lengte in cm</td>
+                    <td>publiek</td>
+                </tr>
+                <tr>
+                    <td><code>wachtwoord</code></td>
+                    <td>String</td>
+                    <td>eigen wachtwoord van de gebruiker (standaardprofielen "vdab")</td>
+                    <td>verborgen</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p>Extra properties toevoegen aan de startgegevens is altijd mogelijk (zie API methods hieronder).</p>
+
+            <p>Een aantal dummy foto's zijn bijgeleverd in de folder <code>/img</code></p>
+
+            <h4>immo.json</h4>
+
+            <p>nog aan te vullen</p>
+            <h4>bnb.json</h4>
+
+            <p>nog aan te vullen</p>
+
+
+            <h3>API documentatie</h3>
+
+            <p>De applicatie werkt op basis van <em>datasets</em>: dit zijn JS objecten zoals hierboven
+                beschreven. <br>Deze gegevens worden oorspronkelijk ingelezen uit het <code>json</code> bestand maar
+                daarna onmiddellijk
+                opgeslagen in de <code>localStorage</code> van de browser.
+                <br>Voor de Dating App zijn dat profielen van personen.</p>
+
+            <p> Deze gegevens kan je bevragen en manipuleren met onderstaande methods. Sommige methods returnen een
+                waarde.
+                <br>Een wijziging aan één of aan meerdere datasets - wordt slechts definitief als de method <code>scrumlib.save()</code>
+                gebruikt wordt.</p>
+
+            <p>Bekijk de <a href="demo.html">demo</a> pagina om deze methods in werking te zien.</p>
+
+            <table>
+                <thead>
+                <tr>
+                    <th>method</th>
+                    <th>argumenten</th>
+                    <th>returnwaarde</th>
+                    <th>beschrijving</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><code>scrumlib.getAllDatasets()</code></td>
+                    <td>geen</td>
+                    <td>Array van objecten (dataset)</td>
+                    <td>selecteert alle huidige opgeslagen datasets</td>
+                </tr>
+                <tr>
+                    <td><code>scrumlib.getDatasetById(_id)</code></td>
+                    <td>String: _id</td>
+                    <td>Array met één dataset object / leeg</td>
+                    <td>selecteert één dataset op basis van zijn _id waarde</td>
+                </tr>
+                <tr>
+                    <td><code>scrumlib.getDatasetsByConditions(object map)</code></td>
+                    <td>Object map</td>
+                    <td>Array van objecten/leeg Array</td>
+                    <td>selecteert datasets op basis van één of verschillende criteria.<br>Argumenten worden in een
+                        <em>object map</em>
+                        met de volgende structuur geplaatst:
+                        <br>
+                        <pre>
+{
+   kenmerk:{"waarde": waarde , "match": match },
+   kenmerk:{"waarde": waarde , "match": match },
+   ...
+}
+                        </pre>
+                        <br>Het argument <code>kenmerk</code> is één van de kenmerken waarop je zoekt, vb
+                        <em>haarkleur</em>
+                        of <em>grootte</em>
+                        <br>Het argument <code>waarde</code> is de door te geven waarde, vb <em>47</em> of
+                        <em>"blond"</em>
+                        <br>Het argument <code>match</code> (String) kan één van volgende waarden hebben:
+                        <dl>
+                            <dt><code>=</code></dt>
+                            <dd>gelijk aan</dd>
+                            <dt><code>~</code></dt>
+                            <dd>bevat string (fuzzy search)</dd>
+                            <dt><code>&lt;</code></dt>
+                            <dd>kleiner dan</dd>
+                            <dt><code>&lt;=</code></dt>
+                            <dd>kleiner dan of gelijk aan</dd>
+                            <dt><code>&gt;</code></dt>
+                            <dd>ouder dan</dd>
+                            <dt><code>&gt;=</code></dt>
+                            <dd>groter dan of gelijk aan</dd>
+                        </dl>
+                        <h4>Voorbeelden:</h4>
+
+                        <p>Hieronder zoekt men een persoon op basis van zijn haarkleur met een 'fuzzy' search:</p>
+                        <pre>
+{
+   haarkleur:{"waarde": "blond" , "match": "~" }
+}
+                        </pre>
+                        <br>In volgend voorbeeld zoekt men een vrouw die "blond" of "donkerblond" of "blondine" haar
+                        heeft en minder dan 100 kilo weegt.
+                        <pre>
+{
+   sexe:{"waarde": "v" , "match": "=" },
+   haarkleur:{"waarde": "blond" , "match": "~" },
+   gewicht:{"waarde": 100 , "match": "&lt;" }
+}
+                        </pre>
+                        Returnt een leeg Array indien niet gevonden.
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td><code>scrumlib.addProperty(propertyName, type, defaultValue)</code></td>
+                    <td>propertyName: String, <br>type: String, <br>defaultValue:&nbsp;String/Number/Boolean</td>
+                    <td>geen</td>
+                    <td>Voegt een nieuwe property toe aan alle datasets.<br>
+                        Je kan een kenmerk naar keuze toevoegen aan alle datasets. Enkel de datatypes
+                        <code>String</code>, <code>Number</code>, <code>Boolean</code> zijn mogelijk.
+                        <br>Het argument <code>propertyName</code> is de naam van het nieuwe kenmerk. Deze naam mag geen
+                        spaties of speciale tekens bevatten.
+                        <br>Het argument <code>type</code> is het datatype en kan enkel de Strings "String", "Number" of
+                        "Boolean"
+                        bevatten.
+                        <br>Het argument <code>defaultValue</code> is de standaardwaarde die meegegeven wordt aan
+                        het kenmerk. Het moet
+                        overeenkomen met het datatype.
+                        <br>De property wordt toegevoegd aan de geheugenset van de data. Om deze ook permanent op te
+                        slaan moet je nog <code>scrumlib.save()</code> gebruiken.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>scrumlib.createDataset(new_record)</code></td>
+                    <td>new_record: object</td>
+                    <td>dataset | false</td>
+                    <td>Voegt een nieuw record (dataset) toe.<br>
+                        Het argument <em>new_record</em> is een JS object met alle properties van de dataset met
+                        uitzondering van het <code>_id</code>.
+                        <br>Deze properties kunnen overeenkomen met het schema van de startset maar kunnen evengoed
+                        nieuwe properties bevatten.
+                        <br>Indien de aanmaak succesvol verlopen is wordt het nieuwe dataset object , inclusief
+                        <code>_id</code>, gereturned.
+                        <br>In het geval van een probleem wordt een <code>false</code> gereturned. Zie ook foutmeldingen
+                        in
+                        de JS console.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>scrumlib.updateDataset(_id, record)</code></td>
+                    <td>id:String<br>
+                        record: object
+                    </td>
+                    <td> dataset | false</td>
+                    <td>Update een record (dataset) op basis van de unieke key <em>_id</em>. <br>
+                        Het argument <em>record</em> is een JS object met alle properties die aangepast zullen worden.
+                        Dit kan zowel 1 of meerdere properties zijn, of alle properties van de dataset.
+                        <br>Indien de update succesvol verlopen is wordt het aangepaste dataset object gereturned,
+                        Indien niet gevonden of in het geval van een probleem wordt een <code>false</code> gereturned.
+                        Foutmeldingen worden in de JS console getoond.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>scrumlib.deleteDataset(_id)</code></td>
+                    <td>id:String</td>
+                    <td>geen</td>
+                    <td>Wist een record op basis van <em>_id</em>.
+                        <br>Zie meldingen in de JS console.
+                    </td>
+                </tr>
+                <tr>
+                    <td><code>scrumlib.login(email,wachtwoord)</code></td>
+                    <td>email:String, emailadres<br>wachtwoord: String</td>
+                    <td><code>_id</code> van user of <code>false</code></td>
+                    <td>Met het gereturnde <code>_id</code> kan je een gebruiker identificeren.</td>
+                </tr>
+                <tr>
+                    <td><code>scrumlib.save()</code></td>
+                    <td>geen</td>
+                    <td>geen</td>
+                    <td>Alle huidige datasets worden opgeslagen in de lokale db</td>
+                </tr>
+                <tr>
+                    <td><code>scrumlib.speak()</code></td>
+                    <td>geen</td>
+                    <td>String</td>
+                    <td>toont de versie van scrumlib</td>
+                </tr>
+                <tr>
+                    <td><code>scrumlib.reset()</code></td>
+                    <td>geen</td>
+                    <td>geen</td>
+                    <td>herinitialiseert de applicatie. De lokaal opgeslagen datasets worden verwijderd, De
+                        startset wordt opnieuw geladen.
+                        <br>Enkel manueel uitvoeren om de App te resetten, niet in je applicatie verwerken.
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </div>
+    <footer>&copy; vdab | API v2.0.0</footer>
+</div>
+<script>
+
+
+    window.onload = function () {
+        //oude eventhandler voor oude browsers
+        document.getElementById('knop1').onclick = function (e) {
+            var str = "deze browser ondersteunt localStorage";
+            if (typeof window.localStorage === undefined) {
+                str += " niet";
+            }
+            alert(str);
+        };
+
+
+    }
+
+</script>
+</body>
+</html>

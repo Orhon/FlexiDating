@@ -19,7 +19,7 @@ var username = document.getElementById('email').value;
     //alert(id);
     if (scrumlib.login(username, password)) {
 
-        window.location.href = "index.html"; // Redirecting to other page.
+        window.location.href = "persoonlijkepagina.html"; // Redirecting to other page.
     } else {
         alert("You have entered wrong username or password;");
 

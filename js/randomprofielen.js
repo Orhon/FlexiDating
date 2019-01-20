@@ -10,7 +10,7 @@ window.onload = function () {
 
                 profielen = JSON.parse(jsonProfielen);
                 console.log(profielen.voornaam[1].voornaam);
-                var random = document.getElementById('infokopjes');
+                var random = document.getElementById('profileblockinfo');
                 random.appendChild(kiesRandomProfiel());
 
 
