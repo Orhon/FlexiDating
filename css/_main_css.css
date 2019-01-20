@@ -266,7 +266,7 @@ header h1 {
     font-family: Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 4em;
     color: white;
-    margin: 0.25em 0;
+    /*    margin: 0.25em 0;*/
 }
 
 /*--- SECTION ---*/
@@ -445,6 +445,7 @@ label {
     font-weight: bold;
     display: inline-block;
 }
+
 .radiocheck>span {
     white-space: nowrap;
 }
@@ -505,6 +506,8 @@ div.userLogged {
     margin: 0.6em;
     float: left;
     padding: 15px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 .profileblock img {
@@ -528,6 +531,14 @@ div.userLogged {
 /*--- ZOEKENPAGE ---*/
 /********************/
 
-.searchbox{
-    
+.searchbox {
+    background: #4e6078;
+    color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
+        0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.searchbox button {
+    background: #ffffff;
+    color: #4e6078;
 }
