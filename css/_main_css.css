@@ -685,6 +685,129 @@ div.userLogged {
 #lovecoin {
     width: 50%;
 }
+
 #containerFavoritten {
     padding: 15px;
+}
+
+/**********************/
+/*--- PERSONALPAGE ---*/
+/**********************/
+
+#containerChat {
+    width: 80vw;
+    margin: 0 auto;
+}
+
+#berichten {
+    width: 300px;
+    height: 400px;
+    background-color: #F2F5F8;
+    border: 2px solid #4e6078;
+    margin: 0.5em;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#berichten li {
+    list-style: none;
+}
+
+.nicknameChat {
+    font-style: italic;
+}
+
+#txtComment {
+    width: 300px;
+    height: 2em;
+    margin: 0.5em;
+    padding: 0 20px;
+}
+
+.title {
+    font-size: 2em;
+    color: #4e6078;
+    margin: 0;
+    border: 2px solid #4e6078;
+    height: 2em;
+    width: 309px;
+    margin-left: 0.25em;
+    padding: 0.5em;
+    line-height: 2em;
+}
+
+/* #nameReceiver{
+    border: 2px solid #4e6078;
+    height: 2em;
+    width: 300;
+    margin-left: 0.25em;
+    padding: 0.5em;
+} */
+.friendFoto {
+    width: 50px;
+    float: right;
+}
+
+.bericht {
+    width: 70%;
+    border-radius: 15px;
+    padding: 0.8em;
+    margin-left: 0.4em;
+    margin-top: 0.5em;
+    color: white;
+    font-size: 1.2em;
+
+}
+
+.senderbericht {
+    text-align: right;
+    background-color: #86BB71;
+    float: right;
+}
+
+.receiverbericht {
+    text-align: left;
+    float: left;
+    background-color: #94C2ED;
+}
+
+
+#selectUser {
+    width: 300px;
+    height: 400px;
+    font-size: 1.5em;
+    margin: 8px;
+    color: #4e6078;
+    display: block;
+    border: 2px solid #4e6078;
+}
+
+#friendslist {
+    width: 40vw;
+    float: left;
+}
+
+#buttons {
+    margin: 0 0.5em;
+    display: block;
+}
+
+#comments {
+    float: left;
+}
+
+#friendlist {
+    float: right;
+}
+
+.userlistitem {
+    list-style: none;
+    margin: 0.25em 0;
+    display: block
+}
+
+.userlistitem:hover {
+    background-color: #4e6078;
+    color: white;
 }
