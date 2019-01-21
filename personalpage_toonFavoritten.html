@@ -55,7 +55,7 @@
                             <li><a href="personalpage_profielupdate.html">Update profiel</a></li>
                             <li><a href="personalpage_toonFavoritten.html">Favorieten</a></li>
                             <li><a href="personalpage_Followers.html">Likes</a></li>
-                            <li><a href="personalpage_comment.html" iframe_a"">Berichten</a></li>
+                            <li><a href="personalpage_comment.html">Berichten</a></li>
                             <li><a href="personalpage_lovecoin.html">Lovecoins</a></li>
                             <li><a href="personalpage_account.html">Account</a></li>
                         </ul>
@@ -101,7 +101,9 @@
 
         if (ca != '') {
             var userLogged = document.getElementById("userLogged");
-            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
+            userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
+                user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' +
+                user[0].lovecoin + '</b> lovecoins)</small></a>'
         }
 
         console.log(user);

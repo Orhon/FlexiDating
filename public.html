@@ -45,6 +45,9 @@
 
         <section>
             <div class="row">
+                <div class="col-2 col-s-12 userLogged" id="userLogged"></div>
+            </div>
+            <div class="row">
                 <div class="col-2 hidden"></div>
                 <div class="col-8 col-s-12 profilecontainerlarge">
 
@@ -139,17 +142,16 @@
         window.onload = function () {
 
 
-            //-------------DUBLICATE WINDOW ONLOAD
-            /*
-        var x = document.cookie.split("=");
-        var user = scrumlib.getDatasetById(x[1]);
+            var ca = document.cookie.split('=');
+            var user = scrumlib.getDatasetById(ca[1]);
 
-        if (x != '') {
-            var userLogged = document.getElementById("userLogged");
-            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
-        }
-*/
-            //-------------END DUBLICATE WINDOW ONLOAD
+            if (ca != '') {
+                var userLogged = document.getElementById("userLogged");
+                userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
+                    user[0].nickname + '</a>' +
+                    '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' +
+                    user[0].lovecoin + '</b> lovecoins)</small></a>'
+            }
 
 
             var parameters = location.search.substring(1).split("?");
