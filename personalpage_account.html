@@ -66,7 +66,7 @@
                             <div class="personalcontentboxtitle">
                                 <h4>Account Instellingen</h4>
                             </div>
-                            <a href="#">verwijder profiel</a>
+                            <a id="account_verwijderen" href="#">verwijder profiel</a>
                         </div>
 
 
@@ -108,5 +108,19 @@
             var userLogged = document.getElementById("userLogged");
             userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
         }
+        var pFavknop = document.getElementById('account_verwijderen');
+        pFavknop.setAttribute('onclick', "verwijder_profiel()");
+
     }
+    function verwijder_profiel(){
+        var x = document.cookie.split("=");
+        console.log(x[1]);
+    //     wis_id.value=x[1];
+    if (x[1]!= "") {
+                console.log(x[1]);
+
+                scrumlib.deleteDataset(x[1]);
+                scrumlib.save();
+            }
+        }
 </script>
