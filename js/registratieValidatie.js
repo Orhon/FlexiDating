@@ -328,14 +328,13 @@ function ValidateFileUpload() {
 
 function passid_validation(upassid) {
     var upassid_len = upassid.value.length;
-    if (upassid_len == 0 || upassid_len == "") {
-        alert("Wachtwoord mag niet leeg zijn.);
-            upassid.focus();
-            return false;
-        }
-        else {
-            alert("Formulier succesvol ingediend");
-            window.location.reload()
-            return true;
-        }
+    if (upassid_len == 0) {
+        alert("Wachtwoord mag niet leeg zijn.");
+        upassid.focus();
+        return false;
+    } else {
+        alert("Formulier succesvol ingediend");
+        window.location.reload()
+        return true;
     }
+}
