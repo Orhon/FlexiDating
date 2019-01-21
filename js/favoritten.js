@@ -28,6 +28,32 @@ function myFunction(x) {
     addFavorite(x);
     x.classList.toggle("fa-thumbs-down")
     console.log(x.classList.toggle("fa-thumbs-down"));
+    var user = scrumlib.getDatasetById("")
+    
+    var ca = document.cookie.split('=');
+    var user = scrumlib.getDatasetById(ca[1])
+    lovecoinGebruiken();
+        if (ca != '') {
+            var userLogged = document.getElementById("userLogged");
+            userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
+                user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' +
+                user[0].lovecoin + '</b> lovecoins)</small></a>'
+        }
+}
+
+function lovecoinGebruiken() {
+    var ca = document.cookie.split('=');
+    var user = scrumlib.getDatasetById(ca[1]);
+    var updatemap = {};
+    
+    if(user[0].lovecoin>0){
+        updatemap.lovecoin = user[0].lovecoin - 1;
+        scrumlib.updateDataset(user[0]._id, updatemap);
+        scrumlib.save();
+    }else{
+        alert("Je hebt niet genoeg lovecoins ")
+    }
+   
 }
 
 function addFavorite(x) {

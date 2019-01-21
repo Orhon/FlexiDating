@@ -16,6 +16,7 @@
 <script src="js/responsive_design.js"> </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script async src="js/flexi_scrum_2.1.0.min.js"></script>
+<script async src="js/logout.js"></script>
 
 <body>
     <div class="clearfix">
@@ -55,7 +56,7 @@
                             <li><a href="personalpage_profielupdate.html">Update profiel</a></li>
                             <li><a href="personalpage_toonFavoritten.html">Favorieten</a></li>
                             <li><a href="personalpage_Followers.html">Likes</a></li>
-                            <li><a href="personalpage_comment.html" iframe_a"">Berichten</a></li>
+                            <li><a href="personalpage_comment.html">Berichten</a></li>
                             <li><a href="personalpage_lovecoin.html">Lovecoins</a></li>
                             <li><a href="personalpage_account.html">Account</a></li>
                         </ul>
@@ -66,7 +67,7 @@
                             <div class="personalcontentboxtitle">
                                 <h4>Account Instellingen</h4>
                             </div>
-                            <a href="#">verwijder profiel</a>
+                            <a id="account_verwijderen" href="#">verwijder profiel</a>
                         </div>
 
 
@@ -106,7 +107,24 @@
 
         if (x != '') {
             var userLogged = document.getElementById("userLogged");
-            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
+            userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
+                user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' +
+                user[0].lovecoin + '</b> lovecoins)</small></a>'
         }
+        var pFavknop = document.getElementById('account_verwijderen');
+        pFavknop.setAttribute('onclick', "verwijder_profiel()");
+
     }
+    function verwijder_profiel(){
+        var x = document.cookie.split("=");
+        console.log(x[1]);
+    //     wis_id.value=x[1];
+    if (x[1]!= "") {
+                console.log(x[1]);
+
+                scrumlib.deleteDataset(x[1]);
+                scrumlib.save();
+            }
+            logout();
+        }
 </script>
