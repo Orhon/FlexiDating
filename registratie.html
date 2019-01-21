@@ -13,7 +13,8 @@
 
 </head>
 <!-- BEFORE OF BODY SCRIPT LINKS -->
-<script src="js/responsive_design.js"> </script>
+<script src="js/responsive_design.js">
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script async src="js/flexi_scrum_2.1.0.min.js"></script>
 
@@ -31,15 +32,10 @@
 
         <header>
             <nav class="topmenu" id="responseMenu">
-                <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
-                    <li id="profiel"><a href="personalpage_private.html">persoonlijke pagina</a></li>
-                    <li id="login"><a href="login.html">login</a></li>
-                    <li id="register"><a href="registratie.html">registreer</a></li>
-                    <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
-                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
-                </ul>
+                    <ul id="menuUl">
+                            <li><a href="index.html">home</a></li>
+                            <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
+                        </ul>
             </nav>
         </header>
 
@@ -99,12 +95,12 @@
                         </select>
                         <br />
 
-
                         <label for="sex" id="geslacht"> Man</label>
                         <input type="radio" name="sex" value="m" />
                         <label for="sex" id="geslacht"> Vrouw</label>
                         <input type="radio" name="sex" value="v" />
                         <br />
+
 
                         <label for="lichaamsbouw"> Lichaamsbouw </label>
                         <select name="lichaamsbouw">
@@ -142,7 +138,7 @@
                                 <div>
                                     <img src="img/uploadicon.png" id="blah" height="130" width="130" style="border:solid" />
                                 </div>
-                                <input type="file" name="dataFile" id="fileChooser" onchange="ValidateFileUpload()" />
+                                <input type="file" name="dataFile" id="fileChooser" onchange="ValidateFileUpload();" />
                             </div>
                         </div>
 
@@ -177,7 +173,8 @@
 
     <!-- END OF BODY SCRIPT LINKS -->
     <script src="js/registratieValidatie.js"></script>
-    <script src="js/logout.js"> </script>
+    <script src="js/logout.js">
+    </script>
 </body>
 
 </html>
