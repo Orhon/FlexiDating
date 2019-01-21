@@ -271,7 +271,7 @@
             var egeslacht = document.getElementById('geslacht');
             updateMap.geslacht = egeslacht.options[egeslacht.selectedIndex].value;
             updateMap.wachtwoord = document.getElementById("wachtwoord").value;
-            updateMap.provincie = document.getElementById("provincie").selectedIndex;
+            updateMap.provincie = document.getElementById("provincie").value;
             updateMap.stad = document.getElementById("stad").value;
             scrumlib.updateDataset(ca[1], updateMap);
             scrumlib.save();
