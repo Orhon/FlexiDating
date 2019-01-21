@@ -31,15 +31,10 @@
 
         <header>
             <nav class="topmenu" id="responseMenu">
-                <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
-                    <li id="profiel"><a href="personalpage_private.html">persoonlijke pagina</a></li>
-                    <li id="login"><a href="login.html">login</a></li>
-                    <li id="register"><a href="registratie.html">registreer</a></li>
-                    <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
-                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
-                </ul>
+                    <ul id="menuUl">
+                            <li><a href="index.html">home</a></li>
+                            <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
+                        </ul>
             </nav>
         </header>
 
@@ -258,7 +253,7 @@
             updateMap.nickname = document.getElementById("nickname").value;
             updateMap.voornaam = document.getElementById("voornaam").value;
             updateMap.familienaam = document.getElementById("familienaam").value;
-            updateMap.foto = document.getElementById("foto").getAttribute('alt');
+            updateMap.foto = document.getElementById("foto").foto.value;
             updateMap.beroep = document.getElementById("beroep").value;
             updateMap.email = document.getElementById("email").value;
             updateMap.geboortedatum = document.getElementById("geboorteDatum").value;
