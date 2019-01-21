@@ -6,7 +6,7 @@ function formValidation() {
     var uname1 = document.registratie.voornaam;
     var uname2 = document.registratie.familienaam;
     var brp = document.registratie.beroep;
-    var ugebdat = document.registratie.geboorteDatum;
+    //var ugebdat = document.registratie.geboorteDatum;
     //var uleftijd = document.registratie.leeftijd;
     var ugewicht = document.registratie.gewicht;
     var ugrootte = document.registratie.grootte;
@@ -47,10 +47,8 @@ function formValidation() {
                                                                 if (provincieSelect(uprovincie)) {
                                                                     if (stad_validation(ustad, 2, 25)) {
                                                                         if (allLetter(ustad)) {
-                                                                            if (passid_validation(upassid)) {
-                                                                                if (ValidateFileUpload()) {
-
-                                                                                }
+                                                                            if (ValidateFileUpload()) {
+                                                                                if (passid_validation(upassid)) {}
                                                                             }
                                                                         }
                                                                     }
@@ -325,8 +323,7 @@ function ValidateFileUpload() {
 
         //The file upload is NOT an image
         else {
-            alert("Met de foto kunnen ALLEEN de volgende bestandstypen gebruikt worden, namelijk: GIF, PNG, JPG, JPEG en BMP. ");
-
+            alert("Met de foto kunnen ALLEEN de volgende bestandstypen gebruikt worden, namelijk: GIF, PNG, JPG, JPEG en BMP.");
         }
     }
     console.log(document.registratie.length);
