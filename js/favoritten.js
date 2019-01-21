@@ -40,12 +40,12 @@ function myFunction(x) {
         alert("Je hebt niet genoeg lovecoins ")
     }
     
-        if (ca != '') {
-            var userLogged = document.getElementById("userLogged");
-            userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
-                user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' +
-                user[0].lovecoin + '</b> lovecoins)</small></a>'
-        }
+    if (ca != '') {
+        var userLogged = document.getElementById("userLogged");
+        userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
+            user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' +
+            user[0].lovecoin + '</b> lovecoins)</small></a>'
+    }
 }
 
 
