@@ -91,7 +91,8 @@
 
         if (x != '') {
             var userLogged = document.getElementById("userLogged");
-            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
+            //userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' + user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small></a>'
+            userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' + user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small></a>'
         }
 
 
