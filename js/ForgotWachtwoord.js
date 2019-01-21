@@ -1,6 +1,7 @@
 function Function() {
-
+    console.log(document.cookie);
     var ca = document.cookie.split("=");
+    console.log(ca);
     var user = scrumlib.getDatabaseById(ca[1]);
     var updatemap = {};
 
