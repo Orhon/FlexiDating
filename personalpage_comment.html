@@ -54,8 +54,7 @@
                             <li id="active"><a href="personalpage_private.html">Mijn profiel</a></li>
                             <li><a href="personalpage_profielupdate.html">Update profiel</a></li>
                             <li><a href="personalpage_toonFavoritten.html">Favorieten</a></li>
-                            <li><a href="personalpage_Followers.html">Likes</a></li>
-                            <li><a href="personalpage_comment.html" iframe_a"">Berichten</a></li>
+                            <li><a href="personalpage_comment.html">Berichten</a></li>
                             <li><a href="personalpage_lovecoin.html">Lovecoins</a></li>
                             <li><a href="personalpage_account.html">Account</a></li>
                         </ul>
@@ -126,6 +125,14 @@
 
         var x = document.cookie.split("=");
         var userSender = scrumlib.getDatasetById(x[1]);
+
+        if (x != '') {
+            var userLogged = document.getElementById("userLogged");
+            userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
+                userSender[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' +
+                    userSender[0].lovecoin + '</b> lovecoins)</small></a>'
+        }
+
         getFriends();
 
 
@@ -275,16 +282,18 @@
         }
 
         function getFriends() {
-            friends = scrumlib.getAllDatasets();
+            favorieten = JSON.parse(userSender[0].favoritten);
+            //console.log((favorieten));
+            //friends = scrumlib.getAllDatasets();
             let friendslist = document.getElementById("userlist")
-            for (let i = 0; i < friends.length; i++) {
-                const element = friends[i];
+            for (let i = 0; i < favorieten.length; i++) {
+                const element = favorieten[i];
                 let option = document.createElement("li");
-                option.setAttribute("data-id", element._id);
+                let friends = scrumlib.getDatasetById(element);
+                option.setAttribute("data-id", friends[0]._id);
                 option.setAttribute("class", "userlistitem");
-                option.innerHTML = element.nickname;
+                option.innerHTML = friends[0].nickname;
                 friendslist.append(option);
-
             }
         }
     }
