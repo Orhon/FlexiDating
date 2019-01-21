@@ -453,6 +453,7 @@ label {
     white-space: nowrap;
 }
 
+
 /*--- buttons ---*/
 button {
     background-color: #4e6078;
@@ -573,7 +574,6 @@ div.userLogged {
     float: left;
     padding: 15px;
     margin-right: 15px;
-    margin-top: 15px;
 }
 
 .profileinfocontainer {}
@@ -658,12 +658,6 @@ div.userLogged {
     padding: 0px 15px 15px 15px;
 }
 
-.personalcontentbox img {
-    border: solid 2px #4e6078;
-    padding: 0px 15px 15px 15px;
-    margin: 15px 15px 15px 0px;
-}
-
 .personalcontentboxtitle {
     display: block;
     text-align: center;
@@ -673,14 +667,6 @@ div.userLogged {
     border: solid 1px #4e6078;
     margin-top: 0px;
 }
-
-.label {
-    font-weight: bold;
-    margin-top: 15px;
-}
-
-.labelwaarde .personalcontentbox {}
-
 
 .personalcontentboxtitle h4 {
     font-size: 1.2em;
@@ -709,13 +695,103 @@ div.userLogged {
     padding: 15px;
 }
 
-<<<<<<< HEAD
-/*******************/
-/*--- BERICHTEN ---*/
-/*******************/
-=======
 /**********************/
 /*--- BERICHTEN ---*/
 /**********************/
 
->>>>>>> df7333bbfba7c6b160058ed6e2c51087238ceeaf
+#containerChat {
+}
+
+#berichten {
+    height: 400px;
+    background-color: #F2F5F8;
+    border: 2px solid #4e6078;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#berichten li {
+    list-style: none;
+}
+
+.nicknameChat {
+    font-style: italic;
+}
+
+#txtComment {
+    height: 4em;
+}
+
+.title {
+    font-family: Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.35em;
+    color: white;
+    background-color: #4e6078;
+    border: 10px solid #4e6078;
+    height: 3em;
+    line-height: 2em;
+}
+
+/* #nameReceiver{
+    border: 2px solid #4e6078;
+    height: 2em;
+} */
+
+.friendFoto {
+    width: 50px;
+    float: right;
+}
+
+.bericht {
+    border-radius: 15px;
+    color: white;
+    font-size: 1.2em;
+
+}
+
+.senderbericht {
+    text-align: right;
+    background-color: #4e6078;;
+    float: right;
+}
+
+.receiverbericht {
+    text-align: left;
+    float: left;
+    background-color: #4e6078;;
+}
+
+#selectUser {
+    height: 400px;
+    font-size: 1.5em;
+    color: #4e6078;
+    display: block;
+    border: 2px solid #4e6078;
+}
+
+#friendslist {
+    float: left;
+}
+
+#buttons {
+    display: block;
+}
+
+#comments {
+    float: left;
+}
+
+#friendlist {
+    float: right;
+}
+
+.userlistitem {
+    list-style: none;
+    display: block
+}
+
+.userlistitem:hover {
+    background-color: #4e6078;
+    color: white;
+}
