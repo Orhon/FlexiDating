@@ -318,7 +318,7 @@ function ValidateFileUpload() {
 
                 reader.readAsDataURL(fuData.files[0]);
             }
-
+            return true;
         }
 
         //The file upload is NOT an image

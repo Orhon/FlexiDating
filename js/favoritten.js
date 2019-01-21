@@ -25,14 +25,21 @@ function favKnopchange(user, user1) {
 }
 
 function myFunction(x) {
-    addFavorite(x);
-    x.classList.toggle("fa-thumbs-down")
-    console.log(x.classList.toggle("fa-thumbs-down"));
-    var user = scrumlib.getDatasetById("")
-    
     var ca = document.cookie.split('=');
     var user = scrumlib.getDatasetById(ca[1])
-    lovecoinGebruiken();
+    var updatemap = {};
+
+    if(user[0].lovecoin>0){
+        updatemap.lovecoin = user[0].lovecoin - 1;
+        scrumlib.updateDataset(user[0]._id, updatemap);
+        scrumlib.save();
+        addFavorite(x);
+        x.classList.toggle("fa-thumbs-down");
+        console.log(x.classList.toggle("fa-thumbs-down"));
+    }else{
+        alert("Je hebt niet genoeg lovecoins ")
+    }
+    
         if (ca != '') {
             var userLogged = document.getElementById("userLogged");
             userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
@@ -41,20 +48,7 @@ function myFunction(x) {
         }
 }
 
-function lovecoinGebruiken() {
-    var ca = document.cookie.split('=');
-    var user = scrumlib.getDatasetById(ca[1]);
-    var updatemap = {};
-    
-    if(user[0].lovecoin>0){
-        updatemap.lovecoin = user[0].lovecoin - 1;
-        scrumlib.updateDataset(user[0]._id, updatemap);
-        scrumlib.save();
-    }else{
-        alert("Je hebt niet genoeg lovecoins ")
-    }
-   
-}
+
 
 function addFavorite(x) {
     scrumlib.addProperty("favoritten", "String", "");
