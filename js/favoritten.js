@@ -51,10 +51,10 @@ function myFunction(x) {
 
 
 function addFavorite(x) {
-    scrumlib.addProperty("favoritten", "String", "");
-    scrumlib.addProperty("favorGevers", "String", "");
+//    scrumlib.addProperty("favoritten", "String", "");
+  //  scrumlib.addProperty("favorGevers", "String", "");
     // scrumlib.addProperty("provincie", "String", "");
-    scrumlib.save();
+    //scrumlib.save();
     var parameters = location.search.substring(1).split("?");
     //    console.log(parameters);
     var ipara = parameters;
@@ -149,5 +149,5 @@ function updateFavGevers(add, favUser, user, ipara) {
 
     scrumlib.save();
 
-
+   // location.reload();
 }

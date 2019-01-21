@@ -6,7 +6,7 @@ function formValidation() {
     var uname1 = document.registratie.voornaam;
     var uname2 = document.registratie.familienaam;
     var brp = document.registratie.beroep;
-    var ugebdat = document.registratie.geboorteDatum;
+    var ugebdat = document.registratie.geboortedatum;
     //var uleftijd = document.registratie.leeftijd;
     var ugewicht = document.registratie.gewicht;
     var ugrootte = document.registratie.grootte;
@@ -15,7 +15,7 @@ function formValidation() {
     var uemail = document.registratie.email;
     // console.log(uemail);
 
-    var usex = document.registratie.sex;
+    var usex = document.registratie.sexe;
     //var umsex = document.registratie.msex;
     //var ufsex = document.registratie.fsex;
     var ulichaam = document.registratie.lichaamsbouw;
@@ -143,7 +143,7 @@ function geboorteDatum_validation() {
     var lblError = document.getElementById("lblError");
 
     //Get the date from the TextBox.
-    var dateString = document.getElementById("geboorteDatum").value;
+    var dateString = document.getElementById("geboortedatum").value;
     //var regex = /(((0|1)[0-9]|2[0-9]|3[0-1])\/(0[1-9]|1[0-2])\/((19|20)\d\d))$/;
     var regex = /^\d{4}\-\d{1,2}\-\d{1,2}$/;
 
@@ -346,7 +346,7 @@ function passid_validation(upassid) {
         profielData[document.registratie[i].name] = document.registratie[i].value;
     }
     profielData['lovecoin'] = 3;
-    profielData['sexe'] = usex.value;
+    profielData['favoritten'] = "";
     //  localStorage.setItem('session', JSON.stringify(profielData));
     //   localStorage.setItem('session', JSON.stringify(profielData));
     var nieuweId = scrumlib.createDataset(profielData);
@@ -354,5 +354,5 @@ function passid_validation(upassid) {
     scrumlib.save();
     document.cookie = 'id' + "=" + nieuweId[0]._id + ";expires=" + 100;
    
-    //window.location.href = "index.html"; // Redirecting to other page.
+    window.location.href = "index.html"; // Redirecting to other page.
 }
