@@ -336,7 +336,7 @@ function passid_validation(upassid) {
         return false;
     } else {
         alert("Formulier succesvol ingediend");
-        window.location.reload()
+        // window.location.reload()
         return true;
     }
     console.log(document.registratie.length);
