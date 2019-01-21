@@ -42,6 +42,12 @@ function Function() {
     }
 }
 
+function Function() {
+    var newpassword = document.getElementById('newPassword').setAttribute("value", "");
+    var confirmpassword = document.getElementById('confirmPassword').setAttribute("value", "");
+    var userSemail = document.getElementById('userEmail').setAttribute("value", "");
+}
+
 function FunctionShowHidePass() {
 
     var input = document.getElementById("newPassword");
