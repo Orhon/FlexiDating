@@ -226,7 +226,7 @@
         document.getElementById("oogkleur").selectedIndex = getInformatie(user[0].oogkleur, "oogkleur");
         document.getElementById("geslacht").selectedIndex = getInformatie(user[0].sexe, "geslacht");
         document.getElementById("wachtwoord").value = user[0].wachtwoord;
-        document.getElementById("provincie").value = getInformatie(user[0].provincie, "provincie");
+        document.getElementById("provincie").selectedIndex = getInformatie(user[0].provincie, "provincie");
         document.getElementById("stad").value = user[0].stad;
         document.getElementById("taal").selectedIndex = getInformatie(user[0].taal, "taal");
 
@@ -253,7 +253,7 @@
             updateMap.nickname = document.getElementById("nickname").value;
             updateMap.voornaam = document.getElementById("voornaam").value;
             updateMap.familienaam = document.getElementById("familienaam").value;
-            updateMap.foto = document.getElementById("foto").getAttribute('alt');
+            updateMap.foto = document.getElementById("foto").foto.value;
             updateMap.beroep = document.getElementById("beroep").value;
             updateMap.email = document.getElementById("email").value;
             updateMap.geboortedatum = document.getElementById("geboorteDatum").value;
@@ -266,7 +266,7 @@
             var egeslacht = document.getElementById('geslacht');
             updateMap.geslacht = egeslacht.options[egeslacht.selectedIndex].value;
             updateMap.wachtwoord = document.getElementById("wachtwoord").value;
-            updateMap.provincie = document.getElementById("provincie").selectedIndex;
+            updateMap.provincie = document.getElementById("provincie").value;
             updateMap.stad = document.getElementById("stad").value;
             scrumlib.updateDataset(ca[1], updateMap);
             scrumlib.save();
