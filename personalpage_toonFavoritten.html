@@ -66,14 +66,10 @@
                             <div class="personalcontentboxtitle">
                                 <h4>Favorieten</h4>
                             </div>
-
-
-                            <div id="containerFavoritten"> </div>
-
-
-
-
                         </div>
+                    <div class="col-3 hidden"></div>
+                        <div id="containerFavoritten"> </div>
+
                         <!-- END OF CONTENT HERE -->
                     </div>
         </section>
@@ -101,13 +97,13 @@
     window.onload = function () {
         var ca = document.cookie.split('=');
         //    console.log(ca[1]);
+        var user = scrumlib.getDatasetById(ca[1]);
 
         if (ca != '') {
             var userLogged = document.getElementById("userLogged");
             userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
         }
 
-        var user = scrumlib.getDatasetById(ca[1]);
         console.log(user);
         var searchMap = {};
         var conditions = [];
@@ -125,8 +121,8 @@
                 //legen
 
                 var divInfoKopjes = document.createElement("div");
-                div.setAttribute('class', ".profileblock");
-                divInfoKopjes.setAttribute('class', ".profileblockinfo");
+                div.setAttribute('class', "profileblock");
+                divInfoKopjes.setAttribute('class', "profileblockinfo");
                 var pImg = document.createElement('a');
                 pImg.setAttribute('href', "public.html?" + favUser[0]._id);
                 pImg.setAttribute('id', favUser[0]._id);
