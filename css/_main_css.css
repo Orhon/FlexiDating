@@ -50,11 +50,12 @@ a {
     box-sizing: border-box;
 }
 
-/*--- Designer View 
+/*--- Designer View
 div {
     border: 1px #ff0000;
+     ---*/
 }
----*/
+
 
 
 /*--- For mobile phones: ---*/
@@ -178,9 +179,10 @@ div {
     float: left;
     padding: 1px;
     /* 15px */
-    /*--- Designer View      
+    /*--- Designer View    
+    
     border: 1px solid red;
-    ---*/
+ ---*/
 }
 
 /*--- Clear floats after row ---*/
@@ -713,6 +715,168 @@ div.userLogged {
     padding: 15px;
 }
 
+<<<<<<< HEAD
+/*******************/
+/*--- BERICHTEN ---*/
+/*******************/
+#containerChat {}
+
+#containerChat button {
+    margin: 5px;
+    padding: 5px;
+    font-size: 1em;
+    font-weight: normal;
+}
+
+#berichten {
+    height: 400px;
+    border: solid 2px #4e6078;
+    padding: 20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#berichten li {
+    list-style: none;
+    padding-top: 20px;
+}
+
+#comments {}
+
+.senderbericht {
+    float: left;
+    display: block;
+}
+
+.recieverbericht {
+    float: right;
+    display: block;
+}
+
+#friendlist {}
+
+#friendfoto {
+    border: none;
+    max-width: 25%;
+}
+
+.bericht {
+    font-size: 0.8em;
+    padding: 1px;
+}
+
+.senderbericht {
+    border-radius: 5px;
+    background-color: #6aadff;
+    text-align: right;
+    background-color: #4e6078;
+    float: right;
+}
+
+.receiverbericht {
+    border-radius: 5px;
+    background-color: #6aadff;
+    text-align: left;
+    float: left;
+    background-color: #4e6078;
+}
+#addcomment {
+    float: right;
+}
+/*
+#berichten {
+    
+    background-color: #F2F5F8;
+    border: 2px solid #4e6078;
+    position: relative;
+
+}
+
+#berichten li {
+    list-style: none;
+}
+
+.nicknameChat {
+    font-style: italic;
+}
+
+#txtComment {
+    height: 4em;
+}
+
+.title {
+    font-family: Verdana, 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.35em;
+    color: white;
+    background-color: #4e6078;
+    border: 10px solid #4e6078;
+    height: 3em;
+    line-height: 2em;
+}
+
+ #nameReceiver{
+    border: 2px solid #4e6078;
+    height: 2em;
+} 
+
+.friendFoto {
+    width: 50px;
+    float: right;
+}
+
+.bericht {
+    border-radius: 15px;
+    color: white;
+    font-size: 1.2em;
+
+}
+
+.senderbericht {
+    text-align: right;
+    background-color: #4e6078;
+    float: right;
+}
+
+.receiverbericht {
+    text-align: left;
+    float: left;
+    background-color: #4e6078;
+}
+
+#selectUser {
+    height: 400px;
+    font-size: 1.5em;
+    color: #4e6078;
+    display: block;
+    border: 2px solid #4e6078;
+}
+
+#friendslist {
+    float: left;
+}
+
+#buttons {
+    display: block;
+}
+
+#comments {
+    float: left;
+}
+
+#friendlist {
+    float: right;
+}
+
+.userlistitem {
+    list-style: none;
+    display: block
+}
+
+.userlistitem:hover {
+    background-color: #4e6078;
+    color: white;
+}
+=======
 
 /*******************/
 /*--- BERICHTEN ---*/
@@ -721,3 +885,4 @@ div.userLogged {
 .up_onder {
 clear: left;
 }
+>>>>>>> 3c47046e8b640f2b314ebe75caef9ba28f3180f8
