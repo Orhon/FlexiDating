@@ -7,17 +7,26 @@ function favKnop(pFavknop, user, user1) {
 }
 
 function favKnopchange(user, user1) {
+    const heart="fa fa-heart-o"
+    //const heart="heart fa fa-heart-o"
+  //  const fullheart="fa-heart fa-heart-o"
+   // const fullheart= "&#10084";
+    const fullheart="fa fa-heart";
+
     if (user[0].favoritten == "[]" || user[0].favoritten == "") {
-        var added = "fa fa-thumbs-up";
+          var added = heart;
+        //"fa fa-thumbs-up"
     } else {
 
         let oldFavorite = JSON.parse(user[0].favoritten);
         console.log(oldFavorite.indexOf(user1[0]._id), user1[0]._id);
         if (oldFavorite.indexOf(user1[0]._id) > -1) {
 
-            added = "fa fa-thumbs-down";
+            added =fullheart;
+            //"fa fa-thumbs-down"
         } else {
-            added = "fa fa-thumbs-up";
+            added = heart;
+            //"fa fa-thumbs-up"
             console.log(added);
         }
     }
@@ -25,36 +34,62 @@ function favKnopchange(user, user1) {
 }
 
 function myFunction(x) {
+
+    var updatemap = {};
+   
     var ca = document.cookie.split('=');
     var user = scrumlib.getDatasetById(ca[1])
-    var updatemap = {};
-
     if(user[0].lovecoin>0){
         updatemap.lovecoin = user[0].lovecoin - 1;
         scrumlib.updateDataset(user[0]._id, updatemap);
         scrumlib.save();
-        addFavorite(x);
-        x.classList.toggle("fa-thumbs-down");
-        console.log(x.classList.toggle("fa-thumbs-down"));
-    }else{
+        //    const fullheart="fa-heart fa-heart-o";
+        var knopIcon=addFavorite(x);
+      //  console.log(x.classList, x.classList.toggle("fa-heart-o"));
+        if (knopIcon=="true"){
+console.log("change to full heart");
+        x.classList.toggle("fa-heart-0");}
+        else{
+            x.classList.toggle("fa-heart");
+            console.log("change to open heart");
+        }
+     } else {
         alert("Je hebt niet genoeg lovecoins ")
     }
-    
-    if (ca != '') {
-        var userLogged = document.getElementById("userLogged");
-        userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
-            user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' +
-            user[0].lovecoin + '</b> lovecoins)</small></a>'
-    }
+
+
+        if (ca != '') {
+            var userLogged = document.getElementById("userLogged");
+            userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' +
+                user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' +
+                user[0].lovecoin + '</b> lovecoins)</small></a>'
+        }
 }
 
 
 
+
+
+function lovecoinGebruiken() {
+    var ca = document.cookie.split('=');
+    var user = scrumlib.getDatasetById(ca[1]);
+    var updatemap = {};
+    
+    if(user[0].lovecoin>0){
+        updatemap.lovecoin = user[0].lovecoin - 1;
+        scrumlib.updateDataset(user[0]._id, updatemap);
+        scrumlib.save();
+    }else{
+        alert("Je hebt niet genoeg lovecoins ")
+    }
+   
+}
+
 function addFavorite(x) {
-//    scrumlib.addProperty("favoritten", "String", "");
-  //  scrumlib.addProperty("favorGevers", "String", "");
+ //   scrumlib.addProperty("favoritten", "String", "");
+   // scrumlib.addProperty("favorGevers", "String", "");
     // scrumlib.addProperty("provincie", "String", "");
-    //scrumlib.save();
+    scrumlib.save();
     var parameters = location.search.substring(1).split("?");
     //    console.log(parameters);
     var ipara = parameters;
@@ -70,9 +105,9 @@ function addFavorite(x) {
 
     var updateMapfavorite = {};
 
-
-    if (x.classList.toggle("fa-thumbs-down")) {
+    if (x.classList.toggle(!"fa-heart-o")) {
         //  if (x.checked) {
+            //"fa-thumbs-down"
         console.log('adding');
         var add = "true";
         if (user[0].favoritten == "[]" || user[0].favoritten == "") {
@@ -91,23 +126,26 @@ function addFavorite(x) {
         }
 
     } else {
-
+     
         let oldFavorite1 = JSON.parse(user[0].favoritten);
         console.log(oldFavorite1, 'before');
         if (oldFavorite1.indexOf(favUser[0]._id) > -1) {
-            console.log(favUser[0]._id, oldFavorite1, 'after');
+        //    console.log(favUser[0]._id, oldFavorite1, 'after');
             oldFavorite1.splice(oldFavorite1.indexOf(favUser[0]._id), 1);
             console.log(favUser[0]._id, oldFavorite1, 'after');
             updateMapfavorite.favoritten = JSON.stringify(oldFavorite1);
+            add = "false";
         }
-        //  alert("niet toegevoegd")
+        else{
+       
+        add = "true";    }
     }
     scrumlib.updateDataset(ca[1], updateMapfavorite)
 
     scrumlib.save();
     //    console.log(user[0].favorite, "   ", counter);
     updateFavGevers(add, favUser, user, ipara);
-
+return add;
 }
 
 function updateFavGevers(add, favUser, user, ipara) {
@@ -149,5 +187,5 @@ function updateFavGevers(add, favUser, user, ipara) {
 
     scrumlib.save();
 
-   // location.reload();
+
 }
