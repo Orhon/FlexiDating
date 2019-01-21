@@ -326,19 +326,6 @@ function ValidateFileUpload() {
             alert("Met de foto kunnen ALLEEN de volgende bestandstypen gebruikt worden, namelijk: GIF, PNG, JPG, JPEG en BMP.");
         }
     }
-    console.log(document.registratie.length);
-    for (var i = 0; i < document.registratie.length; i++) {
-        if (document.registratie[i].type != "submit")
-            console.log(document.registratie[i].value);
-        profielData[document.registratie[i].name] = document.registratie[i].value;
-    }
-    //  localStorage.setItem('session', JSON.stringify(profielData));
-    //   localStorage.setItem('session', JSON.stringify(profielData));
-    console.log(scrumlib.createDataset(profielData));
-
-    scrumlib.save();
-    window.location.href = "login.html"; // Redirecting to other page.
-
 }
 
 function passid_validation(upassid) {
@@ -352,4 +339,16 @@ function passid_validation(upassid) {
         window.location.reload()
         return true;
     }
+    console.log(document.registratie.length);
+    for (var i = 0; i < document.registratie.length; i++) {
+        if (document.registratie[i].type != "submit")
+            console.log(document.registratie[i].value);
+        profielData[document.registratie[i].name] = document.registratie[i].value;
+    }
+    //  localStorage.setItem('session', JSON.stringify(profielData));
+    //   localStorage.setItem('session', JSON.stringify(profielData));
+    console.log(scrumlib.createDataset(profielData));
+
+    scrumlib.save();
+    window.location.href = "login.html"; // Redirecting to other page.
 }
