@@ -43,9 +43,10 @@ function Function() {
 }
 
 function Function1() {
-    document.getElementById('newPassword').setAttribute("value", "");
-    document.getElementById('confirmPassword').setAttribute("value", "");
-    document.getElementById('userEmail').setAttribute("value", "");
+    document.getElementById("newPassword").value =" ";
+    document.getElementById("confirmPassword").value =" ";
+    document.getElementById("userEmail").value =" ";
+   
 }
 
 function FunctionShowHidePass() {
