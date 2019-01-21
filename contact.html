@@ -32,15 +32,10 @@
 
         <header>
             <nav class="topmenu" id="responseMenu">
-                <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
-                    <li id="profiel"><a href="personalpage_private.html">persoonlijke pagina</a></li>
-                    <li id="login"><a href="login.html">login</a></li>
-                    <li id="register"><a href="registratie.html">registreer</a></li>
-                    <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
-                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
-                </ul>
+                    <ul id="menuUl">
+                            <li><a href="index.html">home</a></li>
+                            <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
+                        </ul>
             </nav>
         </header>
 
@@ -77,116 +72,3 @@
 </html>
 <!-- END OF BODY SCRIPT LINKS -->
 <script src="js/logout.js"> </script>
-<script defer>
-    window.onload = function () {
-        var x = document.cookie.split("=");
-        var user = scrumlib.getDatasetById(x[1]);
-
-        if (x != '') {
-            var userLogged = document.getElementById("userLogged");
-            userLogged.innerHTML = user[0].nickname + '<small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small>'
-        }
-
-
-        //random users tonen
-        var searchMap = {};
-        var conditions = [];
-        var egeslacht = ['m', 'v'];
-        var usersV = [];
-        var usersM = [];
-        var alGekozen = [];
-
-        for (let index = 0; index < egeslacht.length; index++) {
-            conditions.push(['sexe', '=']);
-
-            searchMap["sexe"] = {
-                "waarde": egeslacht[index],
-                "match": "="
-            }
-
-            let tempUsers = scrumlib.getDatasetsByConditions(searchMap);
-
-            if (egeslacht[index] == "m") {
-                usersM = tempUsers;
-                createUsers(usersM, egeslacht[index]);
-            } else {
-                usersV = tempUsers;
-                createUsers(usersV, egeslacht[index]);
-            }
-
-        }
-
-        function createUsers(users, geslacht) {
-            //console.log(users[0]);
-            var container = null;
-
-            if (geslacht == "m") {
-                container = document.getElementById("galleryMan");
-            } else {
-                container = document.getElementById("galleryVrouw");
-            }
-            container.innerHTML = "";
-            users = shuffle(users)
-            for (let index = 0; index < 3; index++) {
-
-                randUser = users[index];
-                var div = document.createElement("div");
-                //legen
-
-                var divInfoKopjes = document.createElement("div");
-                div.setAttribute('class', "col-4 col-s-12 profileblock");
-                divInfoKopjes.setAttribute('class', "col-6 col-s-10 profileblockinfo");
-                var pImg = document.createElement('a');
-                pImg.setAttribute('href', "public.html?" + randUser._id);
-                pImg.setAttribute('id', randUser._id);
-                var img = document.createElement("img");
-                img.setAttribute('src', "img/" + randUser.foto);
-
-                var pNickname = document.createElement('a');
-                pNickname.setAttribute('class', "userInfo nickname");
-                pNickname.setAttribute('href', "public.html?" + randUser._id);
-                pNickname.setAttribute('id', randUser._id);
-                pNickname.innerHTML = randUser.nickname
-                var pLeeftijd = document.createElement('p');
-                pLeeftijd.setAttribute('class', "userInfo leeftijd");
-
-                let y = randUser.geboortedatum.substring(0, 4);
-                let LeefTijd = new Date().getFullYear() - y;
-                pLeeftijd.innerHTML = LeefTijd + "jaar";
-
-                var pStad = document.createElement('p');
-                pStad.setAttribute('class', "userInfo stad");
-                pStad.innerHTML = randUser.stad;
-
-                div.appendChild(pImg);
-                pImg.appendChild(img);
-                divInfoKopjes.appendChild(pNickname);
-                divInfoKopjes.appendChild(pLeeftijd);
-                divInfoKopjes.appendChild(pStad);
-                div.appendChild(divInfoKopjes);
-
-                container.appendChild(div);
-
-            }
-        }
-    }
-
-    function fieldisleeg(field) {
-        if (field === "") {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    function shuffle(a) {
-        var j, x, i;
-        for (i = a.length - 1; i > 0; i--) {
-            j = Math.floor(Math.random() * (i + 1));
-            x = a[i];
-            a[i] = a[j];
-            a[j] = x;
-        }
-        return a;
-    }
-</script>

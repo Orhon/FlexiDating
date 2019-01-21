@@ -1,7 +1,6 @@
 function getSterrenbeeld(gb) {
     var m = parseInt(gb.substring(6, 7));
     var d = parseInt(gb.substring(9, 10));
-    console.log(m + " " + d);
     switch (m) {
         case 12:
             if (d < 22)
