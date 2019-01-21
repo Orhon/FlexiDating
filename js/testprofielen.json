@@ -20,7 +20,7 @@
       "provincie": "West-vlaanderen",
       "stad": "Wevelgem",
       "taal": "nederlands",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"volslank"
     },
     {
@@ -44,7 +44,7 @@
       "provincie": "Oost-vlaanderen",
       "stad": "gent",
       "taal": "nederlands",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"atletisch"
     },
     {
@@ -68,7 +68,7 @@
       "provincie": "Antwerpen",
       "stad": "antwerpen",
       "taal": "nederlands",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"slank"
     },
     {
@@ -92,7 +92,7 @@
       "provincie": "Namen",
       "stad": "namen",
       "taal": "frans",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"normaal"
     },
     {
@@ -116,7 +116,7 @@
       "provincie": "Waals-brabant",
       "stad": "Waver",
       "taal": "frans",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"volslank"
     },
     {
@@ -140,7 +140,7 @@
       "provincie": "Luik",
       "stad": "luik",
       "taal": "duits",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"atletisch"
     },
     {
@@ -164,7 +164,7 @@
       "provincie": "Limburg",
       "stad": "hasselt",
       "taal": "engels",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"slank"
     }
   ]
