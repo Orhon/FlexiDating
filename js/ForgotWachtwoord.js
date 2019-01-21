@@ -1,31 +1,44 @@
 function Function() {
-    console.log(document.cookie);
-    var ca = document.cookie.split("=");
-    console.log(ca);
-    var user = scrumlib.getDatabaseById(ca[1]);
-    var updatemap = {};
-
-    var oldpasswprd = user[0].wachtwoord;
-
-
-
     var userSemail = document.getElementById('userEmail').value;
+    var ca = document.cookie.split("=");
+    var condition = {email: {"waarde": userSemail, "match": "="}};
+    console.log(scrumlib.getDatasetsByConditions(condition));
+    var user = scrumlib.getDatasetsByConditions(condition);
+    var updatemap = {};
+    console.log(user);
     var newpassword = document.getElementById('newPassword').value;
     var confirmpassword = document.getElementById('confirmPassword').value;
-    if (userSemail == "" || newpassword == "" || confirmpassword == "") {
-        alert('Please fill all the details');
-    } else if (userSemail != user[0].email) {
-        alert("Email doesn t match any email in the database ");
-    } else if (oldpasswprd == newpassword) {
-        alert("Old password and New Password cannot be same");
-    } else if (newpassword != confirmpassword) {
-        alert("password mismatch");
-    } else {
-        updatemap.wachtwoord = newpassword;
-        scrumlib.updateDataset(user[0]._id, updatemap);
-        scrumlib.save();
-    }
+    if ((userSemail == "") || (newpassword == "") || (confirmpassword ==""))
+       {
+        alert(' vul alle velden in A.U.B');
+       }
+    else
+    { 
+        if (user.length == 0) {
+            alert("Email is niet in onze database ");
+            
+        }
+        else
+        {   
+        var oldpasswprd = user[0].wachtwoord;
+            if (oldpasswprd == newpassword) {
+                alert("Nieuwe wachtwoord kan niet zelfde zijn als de oude ");
+            } 
+            else 
+            {
+                if (newpassword != confirmpassword) {
+                    alert("Verkeerd combinatie ");
+                } 
+                else {
+                    updatemap.wachtwoord = newpassword;
+                    scrumlib.updateDataset(user[0]._id, updatemap);
+                    scrumlib.save();
+                    }
+            }
+        } 
+             
 
+    }
 }
 
 function FunctionShowHidePass() {
