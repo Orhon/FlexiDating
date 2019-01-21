@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Flexidating | Home</title>
+    <title>Flexidating | Favorieten</title>
 
     <!-- STYLE SHEET LINKS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -31,15 +31,10 @@
 
         <header>
             <nav class="topmenu" id="responseMenu">
-                <ul>
-                    <li><a href="index.html">home</a></li>
-                    <li id="zoeken"><a href="zoeken.html">zoeken</a></li>
-                    <li id="profiel"><a href="personalpage_private.html">persoonlijke pagina</a></li>
-                    <li id="login"><a href="login.html">login</a></li>
-                    <li id="register"><a href="registratie.html">registreer</a></li>
-                    <li id="logout"><a href="javascript:void(0);" onclick="logout()">Logout</a></li>
-                    <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
-                </ul>
+                    <ul id="menuUl">
+                            <li><a href="index.html">home</a></li>
+                            <li class="icon"><a href="javascript:void(0);" onclick="responsiveMenu()"><i class="fa fa-bars"></i></a></li>
+                        </ul>
             </nav>
         </header>
 
@@ -145,7 +140,7 @@
 
                 var pStad = document.createElement('p');
                 pStad.setAttribute('class', "userInfo stad");
-                pStad.innerHTML = favUser[0].haarkleur;
+                pStad.innerHTML = favUser[0].provincie;
 
 
                 div.appendChild(pImg);

@@ -634,7 +634,11 @@ div.userLogged {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+<<<<<<< HEAD
 .personalmenu li a {
+=======
+.personalmenu ul li a {
+>>>>>>> 3c47046e8b640f2b314ebe75caef9ba28f3180f8
     display: block;
 }
 
@@ -713,6 +717,7 @@ div.userLogged {
     padding: 15px;
 }
 
+<<<<<<< HEAD
 /*******************/
 /*--- BERICHTEN ---*/
 /*******************/
@@ -873,3 +878,13 @@ div.userLogged {
     background-color: #4e6078;
     color: white;
 }
+=======
+
+/*******************/
+/*--- BERICHTEN ---*/
+/*******************/
+
+.up_onder {
+clear: left;
+}
+>>>>>>> 3c47046e8b640f2b314ebe75caef9ba28f3180f8
