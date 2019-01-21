@@ -33,6 +33,7 @@ function Function() {
                     updatemap.wachtwoord = newpassword;
                     scrumlib.updateDataset(user[0]._id, updatemap);
                     scrumlib.save();
+                    alert("Wachtwoord verwijzig");
                     }
             }
         } 
