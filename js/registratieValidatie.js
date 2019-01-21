@@ -26,11 +26,11 @@ function formValidation() {
 
 
     if (nickname_validation(uid, 5, 12)) {
-        if (voornaam_validation(uname1, 3, 15)) {
+        if (voornaam_validation(uname1, 2, 25)) {
             if (allLetter(uname1)) {
-                if (familienaam_validation(uname2, 3, 15)) {
+                if (familienaam_validation(uname2, 2, 25)) {
                     if (allLetter(uname2)) {
-                        if (beroep_validation(brp, 5, 12)) {
+                        if (beroep_validation(brp, 2, 25)) {
                             if (allLetter(brp)) {
                                 if (geboorteDatum_validation(ugebdat)) {
                                     //if (alphanumeric(uadd)) {
@@ -43,9 +43,9 @@ function formValidation() {
                                                         if (validateGeslacht(umsex, ufsex)) {
                                                             if (lichaamsBouwSelect(ulichaam)) {
                                                                 if (provincieSelect(uprovincie)) {
-                                                                    if (stad_validation(ustad, 4, 15)) {
+                                                                    if (stad_validation(ustad, 2, 25)) {
                                                                         if (allLetter(ustad)) {
-                                                                            if (passid_validation(upassid, 4, 12)) {
+                                                                            if (passid_validation(upassid)) {
                                                                                 if (ValidateFileUpload()) {
 
                                                                                 }
@@ -296,7 +296,7 @@ function ValidateFileUpload() {
             if (fuData.files && fuData.files[0]) {
                 var reader = new FileReader();
 
-                reader.onload = function (e) {
+                reader.onload = function(e) {
                     $('#blah').attr('src', e.target.result);
                 }
 
@@ -326,15 +326,16 @@ function ValidateFileUpload() {
 
 }
 
-function passid_validation(upassid, mx, my) {
+function passid_validation(upassid) {
     var upassid_len = upassid.value.length;
-    if (upassid_len == 0 || upassid_len >= my || upassid_len < mx) {
-        alert("Wachtwoord mag niet leeg zijn / lengte moet zijn tussen " + mx + " en " + my);
-        upassid.focus();
-        return false;
-    } else {
-        alert("Formulier succesvol ingediend");
-        window.location.reload()
-        return true;
+    if (upassid_len == 0 || upassid_len == "") {
+        alert("Wachtwoord mag niet leeg zijn.);
+            upassid.focus();
+            return false;
+        }
+        else {
+            alert("Formulier succesvol ingediend");
+            window.location.reload()
+            return true;
+        }
     }
-}
