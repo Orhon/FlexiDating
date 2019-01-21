@@ -113,6 +113,7 @@
         var searchMap = {};
         var updatemap = {};
         //var user1=scrumlib.getAllDatasets();
+        
         var lovecoin = document.getElementById("lovecoin");
         var userid = document.cookie.value;
         var knopkopen = document.getElementById("knopkopen");
@@ -126,11 +127,12 @@
     }
     knopkopen.addEventListener("click", function (e) {
         console.log(lovecoin.value);
+       
         var ca = document.cookie.split('=');
         var user = scrumlib.getDatasetById(ca[1]);
         var updatemap = {};
         resultat.innerHTML = "";
-        if ((parseInt(lovecoin.value) >= 1) && (parseInt(lovecoin.value) < 100)) {
+        if ((parseInt(lovecoin.value) >= 1) && (parseInt(lovecoin.value) <100)) {
             updatemap.lovecoin = user[0].lovecoin + parseInt(lovecoin.value);
             console.log(lovecoin.value);
             console.log(user[0].lovecoin);
@@ -139,6 +141,7 @@
             console.log(lovecoin.value);
             console.log(scrumlib.getAllDatasets());
             resultat.innerHTML = "Je heb " + lovecoin.value + " lovecoins gekocht.";
+            location.reload();
         } else {
             resultat.innerHTML = "Kies een aantal tussen 1 en 100.";
         }

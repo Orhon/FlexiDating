@@ -33,6 +33,7 @@
     <script src="js/sterrenbeeld.js"></script>
     <script defer>
         window.onload = function () {
+            
             var ca = document.cookie.split('=');
             var user = scrumlib.getDatasetById(ca[1]);
             var searchMap = {};
@@ -64,6 +65,7 @@
                 console.log(lovecoin.value);
                 console.log(scrumlib.getAllDatasets());
                 resultat.innerHTML = "Je heb " + lovecoin.value + " lovecoins gekocht.";
+                location.reload();
             } else {
                 resultat.innerHTML = "Kies een aantal tussen 1 en 100.";
             }
