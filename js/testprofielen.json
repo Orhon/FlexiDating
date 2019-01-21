@@ -15,12 +15,13 @@
       "gewicht": 88,
       "wachtwoord": "vdab",
       "comment": "",
-      "favorieten": "",
+      "favoritten": "",
+      "favorGevers": "",
       "interesse": "",
       "provincie": "West-vlaanderen",
       "stad": "Wevelgem",
       "taal": "nederlands",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"volslank"
     },
     {
@@ -39,12 +40,13 @@
       "gewicht": 72,
       "wachtwoord": "vdab",
       "comment": "",
-      "favorieten": "",
+      "favoritten": "",
+      "favorGevers": "",
       "interesse": "",
       "provincie": "Oost-vlaanderen",
       "stad": "gent",
       "taal": "nederlands",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"atletisch"
     },
     {
@@ -63,12 +65,13 @@
       "gewicht": 62,
       "wachtwoord": "vdab",
       "comment": "",
-      "favorieten": "",
+      "favoritten": "",
+      "favorGevers": "",
       "interesse": "",
       "provincie": "Antwerpen",
       "stad": "antwerpen",
       "taal": "nederlands",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"slank"
     },
     {
@@ -87,12 +90,13 @@
       "gewicht": 66,
       "wachtwoord": "vdab",
       "comment": "",
-      "favorieten": "",
+      "favoritten": "",
+      "favorGevers": "",
       "interesse": "",
       "provincie": "Namen",
       "stad": "namen",
       "taal": "frans",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"normaal"
     },
     {
@@ -111,12 +115,13 @@
       "gewicht": 65,
       "wachtwoord": "vdab",
       "comment": "",
-      "favorieten": "",
+      "favoritten": "",
+      "favorGevers": "",
       "interesse": "",
       "provincie": "Waals-brabant",
       "stad": "Waver",
       "taal": "frans",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"volslank"
     },
     {
@@ -135,12 +140,13 @@
       "gewicht": 101,
       "wachtwoord": "vdab",
       "comment": "",
-      "favorieten": "",
+      "favoritten": "",
+      "favorGevers": "",
       "interesse": "",
       "provincie": "Luik",
       "stad": "luik",
       "taal": "duits",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"atletisch"
     },
     {
@@ -159,12 +165,13 @@
       "gewicht": 90,
       "wachtwoord": "vdab",
       "comment": "",
-      "favorieten": "",
+      "favoritten": "",
+      "favorGevers": "",
       "interesse": "",
       "provincie": "Limburg",
       "stad": "hasselt",
       "taal": "engels",
-      "lovecoin": 0,
+      "lovecoin": 3,
       "lichaamsbouw":"slank"
     }
   ]
