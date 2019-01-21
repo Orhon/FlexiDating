@@ -453,7 +453,6 @@ label {
     white-space: nowrap;
 }
 
-
 /*--- buttons ---*/
 button {
     background-color: #4e6078;
@@ -574,6 +573,7 @@ div.userLogged {
     float: left;
     padding: 15px;
     margin-right: 15px;
+    margin-top: 15px;
 }
 
 .profileinfocontainer {}
@@ -662,6 +662,12 @@ div.userLogged {
     padding: 0px 15px 15px 15px;
 }
 
+.personalcontentbox img {
+    border: solid 2px #4e6078;
+    padding: 0px 15px 15px 15px;
+    margin: 15px 15px 15px 0px;
+}
+
 .personalcontentboxtitle {
     display: block;
     text-align: center;
@@ -671,6 +677,14 @@ div.userLogged {
     border: solid 1px #4e6078;
     margin-top: 0px;
 }
+
+.label {
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.labelwaarde .personalcontentbox {}
+
 
 .personalcontentboxtitle h4 {
     font-size: 1.2em;
@@ -699,7 +713,13 @@ div.userLogged {
     padding: 15px;
 }
 
+<<<<<<< HEAD
+/*******************/
+/*--- BERICHTEN ---*/
+/*******************/
+=======
 /**********************/
 /*--- BERICHTEN ---*/
 /**********************/
 
+>>>>>>> df7333bbfba7c6b160058ed6e2c51087238ceeaf
