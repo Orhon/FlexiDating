@@ -347,6 +347,7 @@ function passid_validation(upassid) {
     }
     profielData['lovecoin'] = 3;
     profielData['favoritten'] = "";
+    profielData['favorGevers'] = "";
     //  localStorage.setItem('session', JSON.stringify(profielData));
     //   localStorage.setItem('session', JSON.stringify(profielData));
     var nieuweId = scrumlib.createDataset(profielData);
