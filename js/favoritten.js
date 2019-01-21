@@ -7,17 +7,26 @@ function favKnop(pFavknop, user, user1) {
 }
 
 function favKnopchange(user, user1) {
+    const heart="fa fa-heart-o"
+    //const heart="heart fa fa-heart-o"
+  //  const fullheart="fa-heart fa-heart-o"
+   // const fullheart= "&#10084";
+    const fullheart="fa fa-heart";
+
     if (user[0].favoritten == "[]" || user[0].favoritten == "") {
-        var added = "fa fa-thumbs-up";
+          var added = heart;
+        //"fa fa-thumbs-up"
     } else {
 
         let oldFavorite = JSON.parse(user[0].favoritten);
         console.log(oldFavorite.indexOf(user1[0]._id), user1[0]._id);
         if (oldFavorite.indexOf(user1[0]._id) > -1) {
 
-            added = "fa fa-thumbs-down";
+            added =fullheart;
+            //"fa fa-thumbs-down"
         } else {
-            added = "fa fa-thumbs-up";
+            added = heart;
+            //"fa fa-thumbs-up"
             console.log(added);
         }
     }
@@ -25,9 +34,16 @@ function favKnopchange(user, user1) {
 }
 
 function myFunction(x) {
-    addFavorite(x);
-    x.classList.toggle("fa-thumbs-down")
-    console.log(x.classList.toggle("fa-thumbs-down"));
+//    const fullheart="fa-heart fa-heart-o";
+    const fullheart="fa fa-heart";
+    const heart="fa fa-heart-o";
+    //  const fullheart= "&#10084";
+    addFavorite(x, heart);
+    console.log(x.classList);
+     x.classList.toggle("fa fa-heart")
+    //"fa-thumbs-down"
+    console.log(x.classList.toggle("fa fa-heart"));
+    //"fa-thumbs-down"
     var user = scrumlib.getDatasetById("")
     
     var ca = document.cookie.split('=');
@@ -56,9 +72,9 @@ function lovecoinGebruiken() {
    
 }
 
-function addFavorite(x) {
-    scrumlib.addProperty("favoritten", "String", "");
-    scrumlib.addProperty("favorGevers", "String", "");
+function addFavorite(x, heart) {
+ //   scrumlib.addProperty("favoritten", "String", "");
+   // scrumlib.addProperty("favorGevers", "String", "");
     // scrumlib.addProperty("provincie", "String", "");
     scrumlib.save();
     var parameters = location.search.substring(1).split("?");
@@ -76,9 +92,9 @@ function addFavorite(x) {
 
     var updateMapfavorite = {};
 
-
-    if (x.classList.toggle("fa-thumbs-down")) {
+    if (x.classList.toggle(!heart)) {
         //  if (x.checked) {
+            //"fa-thumbs-down"
         console.log('adding');
         var add = "true";
         if (user[0].favoritten == "[]" || user[0].favoritten == "") {
@@ -101,7 +117,7 @@ function addFavorite(x) {
         let oldFavorite1 = JSON.parse(user[0].favoritten);
         console.log(oldFavorite1, 'before');
         if (oldFavorite1.indexOf(favUser[0]._id) > -1) {
-            console.log(favUser[0]._id, oldFavorite1, 'after');
+        //    console.log(favUser[0]._id, oldFavorite1, 'after');
             oldFavorite1.splice(oldFavorite1.indexOf(favUser[0]._id), 1);
             console.log(favUser[0]._id, oldFavorite1, 'after');
             updateMapfavorite.favoritten = JSON.stringify(oldFavorite1);
