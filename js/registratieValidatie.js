@@ -337,7 +337,7 @@ function passid_validation(upassid) {
     } else {
         alert("Formulier succesvol ingediend");
         // window.location.reload()
-        return true;
+        //return true;
     }
     console.log(document.registratie.length);
     for (var i = 0; i < document.registratie.length; i++) {
@@ -347,8 +347,8 @@ function passid_validation(upassid) {
     }
     //  localStorage.setItem('session', JSON.stringify(profielData));
     //   localStorage.setItem('session', JSON.stringify(profielData));
-    console.log(scrumlib.createDataset(profielData));
-
+    var nieuweId = scrumlib.createDataset(profielData);
+    document.cookie = 'id' + "=" + nieuweId + ";expires=" + 100;
     scrumlib.save();
-    window.location.href = "login.html"; // Redirecting to other page.
+    window.location.href = "index.html"; // Redirecting to other page.
 }
