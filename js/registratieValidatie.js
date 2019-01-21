@@ -345,10 +345,14 @@ function passid_validation(upassid) {
             console.log(document.registratie[i].value);
         profielData[document.registratie[i].name] = document.registratie[i].value;
     }
+    profielData['lovecoin'] = 3;
+    profielData['sexe'] = usex.value;
     //  localStorage.setItem('session', JSON.stringify(profielData));
     //   localStorage.setItem('session', JSON.stringify(profielData));
     var nieuweId = scrumlib.createDataset(profielData);
-    document.cookie = 'id' + "=" + nieuweId + ";expires=" + 100;
+
     scrumlib.save();
-    window.location.href = "index.html"; // Redirecting to other page.
+    document.cookie = 'id' + "=" + nieuweId[0]._id + ";expires=" + 100;
+   
+    //window.location.href = "index.html"; // Redirecting to other page.
 }
