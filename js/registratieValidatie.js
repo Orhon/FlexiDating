@@ -337,7 +337,7 @@ function passid_validation(upassid) {
     } else {
         alert("Formulier succesvol ingediend");
         // window.location.reload()
-        return true;
+        //return true;
     }
     console.log(document.registratie.length);
     for (var i = 0; i < document.registratie.length; i++) {
