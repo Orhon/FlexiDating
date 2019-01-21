@@ -6,7 +6,7 @@ function formValidation() {
     var uname1 = document.registratie.voornaam;
     var uname2 = document.registratie.familienaam;
     var brp = document.registratie.beroep;
-    //var ugebdat = document.registratie.geboorteDatum;
+    var ugebdat = document.registratie.geboorteDatum;
     //var uleftijd = document.registratie.leeftijd;
     var ugewicht = document.registratie.gewicht;
     var ugrootte = document.registratie.grootte;
