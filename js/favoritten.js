@@ -3,7 +3,7 @@ function favKnop(pFavknop, user, user1) {
     console.log(knopClass);
     pFavknop.setAttribute('class', knopClass);
     pFavknop.setAttribute('onclick', "myFunction(this)");
-    console.log(pFavknop);
+    console.log(pFavknop.getDatasetById);
 }
 
 function favKnopchange(user, user1) {
@@ -47,11 +47,13 @@ function myFunction(x) {
         var knopIcon=addFavorite(x);
       //  console.log(x.classList, x.classList.toggle("fa-heart-o"));
         if (knopIcon=="true"){
-console.log("change to full heart");
+x.innerHTML="Added to Favorites";
+console.log("change to full heart", x.innerHTML);
         x.classList.toggle("fa-heart-0");}
         else{
             x.classList.toggle("fa-heart");
             console.log("change to open heart");
+            x.innerHTML="Removed from Favorites";
         }
      } else {
         alert("Je hebt niet genoeg lovecoins ")
@@ -104,7 +106,7 @@ function addFavorite(x) {
     var arrayFavoritten = [favUser[0]._id];
 
     var updateMapfavorite = {};
-
+   // if (x.innerHTML=="Added to Favorites" || x.innerHTML=="") {
     if (x.classList.toggle(!"fa-heart-o")) {
         //  if (x.checked) {
             //"fa-thumbs-down"
