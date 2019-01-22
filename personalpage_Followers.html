@@ -60,15 +60,12 @@
                         <div class="personalcontentbox">
                             <div class="personalcontentboxtitle">
                                 <h4>Likes</h4>
-                                <div id="containerFollowers"> </div>
+                              
                             </div>
 
-
-
-
-
-
                         </div>
+                        <div class="col-3 hidden"></div>
+                        <div id="containerFollowers"> </div>
                         <!-- END OF CONTENT HERE -->
                     </div>
         </section>
@@ -91,6 +88,7 @@
 
 </html>
 <script src="js/logout.js"> </script>
+<script src="js/favoritten.js"></script>
 <script defer>
     window.onload = function () {
         var x = document.cookie.split("=");
@@ -99,7 +97,7 @@
         if (x != '') {
             var userLogged = document.getElementById("userLogged");
             userLogged.innerHTML = '<a href="personalpage_private.html" style="color:white" >' + user[0].nickname + '</a>' + '<a style="color:white" href="personalpage_lovecoin.html"><small> (<B>' + user[0].lovecoin + '</b> lovecoins)</small></a>'
-       
+            }
       
                 console.log(user);
                 var searchMap = {};
@@ -156,5 +154,5 @@
                 }
             }
            
-    }
+    
 </script>
